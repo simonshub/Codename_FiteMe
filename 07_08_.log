@@ -1,0 +1,1214 @@
+LOG : 02:32:19  ----  Starting ...
+LOG : 02:32:20  ----  Read settings property 'screen_width' as '800'
+LOG : 02:32:20  ----  Read settings property 'screen_height' as '600'
+LOG : 02:32:20  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:32:20  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:32:20  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:32:20  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:32:20  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:32:20  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:32:20  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:32:20  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:32:25  ----  Element 'played_card' clicked, performing action: 'togglevisible'
+LOG : 02:38:03  ----  Starting ...
+LOG : 02:38:04  ----  Read settings property 'screen_width' as '800'
+LOG : 02:38:04  ----  Read settings property 'screen_height' as '600'
+LOG : 02:38:04  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:38:04  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:38:04  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:38:04  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:38:04  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:38:04  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:38:04  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:38:04  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:06  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:06  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:06  ----  Exception message: null
+ERR : 02:38:06  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:07  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:07  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:07  ----  Exception message: null
+ERR : 02:38:07  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:07  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:07  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:07  ----  Exception message: null
+ERR : 02:38:07  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+ERR : 02:38:07  ----  Unknown property 'speed' of element 'card_slot_4'
+ERR : 02:38:07  ----  Exception InvocationTargetException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:256
+ERR : 02:38:07  ----  Exception message: null
+ERR : 02:38:07  ----  Cause: NullPointerException - org.simon.src.game.gui.GuiActionHandler @ floatup ln:32
+LOG : 02:38:59  ----  Starting ...
+LOG : 02:39:00  ----  Read settings property 'screen_width' as '800'
+LOG : 02:39:00  ----  Read settings property 'screen_height' as '600'
+LOG : 02:39:00  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:39:00  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:39:00  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:39:00  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:39:00  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:39:00  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:39:00  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:39:00  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:39:19  ----  Starting ...
+LOG : 02:39:20  ----  Read settings property 'screen_width' as '800'
+LOG : 02:39:20  ----  Read settings property 'screen_height' as '600'
+LOG : 02:39:20  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:39:20  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:39:20  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:39:20  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:39:20  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:39:20  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:39:20  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:39:20  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:39:35  ----  Starting ...
+LOG : 02:39:36  ----  Read settings property 'screen_width' as '800'
+LOG : 02:39:36  ----  Read settings property 'screen_height' as '600'
+LOG : 02:39:36  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:39:36  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:39:36  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:39:36  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:39:36  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:39:36  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:39:36  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:39:36  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:40:03  ----  Starting ...
+LOG : 02:40:03  ----  Read settings property 'screen_width' as '800'
+LOG : 02:40:03  ----  Read settings property 'screen_height' as '600'
+LOG : 02:40:03  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:40:03  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:40:03  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:40:03  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:40:03  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:40:03  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:40:03  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:40:03  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:40:41  ----  Starting ...
+LOG : 02:40:42  ----  Read settings property 'screen_width' as '800'
+LOG : 02:40:42  ----  Read settings property 'screen_height' as '600'
+LOG : 02:40:42  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:40:42  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:40:42  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:40:42  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:40:42  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:40:42  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:40:42  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:40:42  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:41:23  ----  Starting ...
+LOG : 02:41:24  ----  Read settings property 'screen_width' as '800'
+LOG : 02:41:24  ----  Read settings property 'screen_height' as '600'
+LOG : 02:41:24  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:41:24  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:41:24  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:41:24  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:41:24  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:41:24  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:41:24  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:41:24  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:42:28  ----  Starting ...
+LOG : 02:42:29  ----  Read settings property 'screen_width' as '800'
+LOG : 02:42:29  ----  Read settings property 'screen_height' as '600'
+LOG : 02:42:29  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:42:29  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:42:29  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:42:29  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:42:29  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:42:29  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:42:29  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:42:29  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:43:01  ----  Starting ...
+LOG : 02:43:02  ----  Read settings property 'screen_width' as '800'
+LOG : 02:43:02  ----  Read settings property 'screen_height' as '600'
+LOG : 02:43:02  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:43:02  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:43:02  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:43:02  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:43:02  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:43:02  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:43:02  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:43:02  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:43:04  ----  Element 'card_slot_1' clicked, performing action: 'testclick'
+LOG : 02:43:05  ----  Element 'played_card' clicked, performing action: 'togglevisible'
+LOG : 02:43:07  ----  Element 'card_slot_0' clicked, performing action: 'testclick'
+LOG : 02:43:44  ----  Starting ...
+LOG : 02:43:45  ----  Read settings property 'screen_width' as '800'
+LOG : 02:43:45  ----  Read settings property 'screen_height' as '600'
+LOG : 02:43:45  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:43:45  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:43:45  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:43:45  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:43:45  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:43:45  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:43:45  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:43:45  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:44:40  ----  Starting ...
+LOG : 02:44:41  ----  Read settings property 'screen_width' as '800'
+LOG : 02:44:41  ----  Read settings property 'screen_height' as '600'
+LOG : 02:44:41  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:44:41  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:44:41  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:44:41  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:44:41  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:44:41  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:44:41  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:44:41  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:44:54  ----  Element 'played_card' clicked, performing action: 'togglevisible'
+LOG : 02:45:08  ----  Starting ...
+LOG : 02:45:08  ----  Read settings property 'screen_width' as '800'
+LOG : 02:45:08  ----  Read settings property 'screen_height' as '600'
+LOG : 02:45:08  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:45:08  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:45:08  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:45:08  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:45:08  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:45:08  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:45:08  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:45:08  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:54:04  ----  Starting ...
+LOG : 02:54:05  ----  Read settings property 'screen_width' as '800'
+LOG : 02:54:05  ----  Read settings property 'screen_height' as '600'
+LOG : 02:54:05  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:54:05  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:54:05  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:54:05  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:54:05  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:54:05  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:54:05  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:54:05  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:54:57  ----  Starting ...
+LOG : 02:54:58  ----  Read settings property 'screen_width' as '800'
+LOG : 02:54:58  ----  Read settings property 'screen_height' as '600'
+LOG : 02:54:58  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:54:58  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:54:58  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:54:58  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:54:58  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:54:58  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:54:58  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:54:58  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: wrong number of arguments
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: null
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: null
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: null
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: null
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: null
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: null
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: null
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: null
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: null
+ERR : 02:54:59  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:54:59  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:294
+ERR : 02:55:00  ----  Exception message: wrong number of arguments
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:294
+ERR : 02:55:00  ----  Exception message: wrong number of arguments
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:294
+ERR : 02:55:00  ----  Exception message: wrong number of arguments
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:294
+ERR : 02:55:00  ----  Exception message: wrong number of arguments
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:00  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:00  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:294
+ERR : 02:55:01  ----  Exception message: wrong number of arguments
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:294
+ERR : 02:55:01  ----  Exception message: wrong number of arguments
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:294
+ERR : 02:55:01  ----  Exception message: wrong number of arguments
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:294
+ERR : 02:55:01  ----  Exception message: wrong number of arguments
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:294
+ERR : 02:55:01  ----  Exception message: wrong number of arguments
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileHovered ln:294
+ERR : 02:55:01  ----  Exception message: wrong number of arguments
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:01  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:01  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+ERR : 02:55:02  ----  Exception IllegalArgumentException caught at org.simon.src.game.gui.GuiElement @ whileUnhovered ln:304
+ERR : 02:55:02  ----  Exception message: null
+LOG : 02:55:16  ----  Starting ...
+LOG : 02:55:17  ----  Read settings property 'screen_width' as '800'
+LOG : 02:55:17  ----  Read settings property 'screen_height' as '600'
+LOG : 02:55:17  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 02:55:17  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 02:55:17  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 02:55:17  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 02:55:17  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 02:55:17  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 02:55:17  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 02:55:17  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 02:55:22  ----  Element 'played_card' clicked!
+LOG : 03:01:30  ----  Starting ...
+LOG : 03:01:30  ----  Read settings property 'screen_width' as '800'
+LOG : 03:01:30  ----  Read settings property 'screen_height' as '600'
+LOG : 03:01:30  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 03:01:30  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 03:01:30  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 03:01:30  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 03:01:30  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 03:01:30  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 03:01:30  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 03:01:30  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 03:02:10  ----  Starting ...
+LOG : 03:02:10  ----  Read settings property 'screen_width' as '800'
+LOG : 03:02:10  ----  Read settings property 'screen_height' as '600'
+LOG : 03:02:10  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 03:02:10  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 03:02:10  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 03:02:10  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 03:02:10  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 03:02:10  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 03:02:10  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 03:02:10  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 03:02:13  ----  Element 'card_slot_1' clicked!
+LOG : 03:02:14  ----  Element 'played_card' clicked!
+LOG : 03:02:37  ----  Starting ...
+LOG : 03:02:38  ----  Read settings property 'screen_width' as '800'
+LOG : 03:02:38  ----  Read settings property 'screen_height' as '600'
+LOG : 03:02:38  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 03:02:38  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 03:02:38  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 03:02:38  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 03:02:38  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 03:02:38  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 03:02:38  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 03:02:38  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 03:03:42  ----  Starting ...
+LOG : 03:03:42  ----  Read settings property 'screen_width' as '800'
+LOG : 03:03:42  ----  Read settings property 'screen_height' as '600'
+LOG : 03:03:42  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 03:03:42  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 03:03:43  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 03:03:43  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 03:03:43  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 03:03:43  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 03:03:43  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 03:03:43  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 03:04:09  ----  Starting ...
+LOG : 03:04:10  ----  Read settings property 'screen_width' as '800'
+LOG : 03:04:10  ----  Read settings property 'screen_height' as '600'
+LOG : 03:04:10  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 03:04:10  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 03:04:10  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 03:04:10  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 03:04:10  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 03:04:10  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 03:04:10  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 03:04:10  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 03:05:28  ----  Starting ...
+LOG : 03:05:29  ----  Read settings property 'screen_width' as '800'
+LOG : 03:05:29  ----  Read settings property 'screen_height' as '600'
+LOG : 03:05:29  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 03:05:29  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 03:05:29  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 03:05:29  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 03:05:29  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 03:05:29  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 03:05:29  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 03:05:29  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 03:05:36  ----  Element 'card_slot_0' clicked!
+LOG : 03:08:37  ----  Starting ...
+LOG : 03:08:37  ----  Read settings property 'screen_width' as '800'
+LOG : 03:08:37  ----  Read settings property 'screen_height' as '600'
+LOG : 03:08:37  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 03:08:37  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 03:08:37  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 03:08:37  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 03:08:37  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 03:08:37  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 03:08:37  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 03:08:37  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 03:12:20  ----  Starting ...
+LOG : 03:12:21  ----  Read settings property 'screen_width' as '800'
+LOG : 03:12:21  ----  Read settings property 'screen_height' as '600'
+LOG : 03:12:21  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 03:12:21  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 03:12:21  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 03:12:21  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 03:12:21  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 03:12:21  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 03:12:21  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 03:12:21  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 03:12:36  ----  Starting ...
+LOG : 03:12:36  ----  Read settings property 'screen_width' as '800'
+LOG : 03:12:36  ----  Read settings property 'screen_height' as '600'
+LOG : 03:12:36  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 03:12:36  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 03:12:36  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 03:12:36  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 03:12:36  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 03:12:36  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 03:12:36  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 03:12:36  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 03:13:03  ----  Starting ...
+LOG : 03:13:03  ----  Read settings property 'screen_width' as '800'
+LOG : 03:13:03  ----  Read settings property 'screen_height' as '600'
+LOG : 03:13:03  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 03:13:03  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 03:13:03  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 03:13:03  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 03:13:03  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 03:13:03  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 03:13:03  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 03:13:03  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 21:51:40  ----  Starting ...
+LOG : 21:51:42  ----  Read settings property 'screen_width' as '800'
+LOG : 21:51:42  ----  Read settings property 'screen_height' as '600'
+LOG : 21:51:42  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 21:51:42  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 21:51:42  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 21:51:42  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 21:51:42  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 21:51:42  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 21:51:42  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 21:51:42  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 21:52:06  ----  Starting ...
+LOG : 21:52:07  ----  Read settings property 'screen_width' as '800'
+LOG : 21:52:07  ----  Read settings property 'screen_height' as '600'
+LOG : 21:52:07  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 21:52:07  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 21:52:07  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 21:52:07  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 21:52:07  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 21:52:07  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 21:52:07  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 21:52:07  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 21:52:16  ----  Starting ...
+LOG : 21:52:17  ----  Read settings property 'screen_width' as '800'
+LOG : 21:52:17  ----  Read settings property 'screen_height' as '600'
+LOG : 21:52:17  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 21:52:17  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 21:52:17  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 21:52:17  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 21:52:17  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 21:52:17  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 21:52:17  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 21:52:17  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 21:54:32  ----  Starting ...
+LOG : 21:54:33  ----  Read settings property 'screen_width' as '800'
+LOG : 21:54:33  ----  Read settings property 'screen_height' as '600'
+LOG : 21:54:33  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 21:54:33  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 21:54:33  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 21:54:33  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 21:54:33  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 21:54:33  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 21:54:33  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 21:54:33  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 21:56:48  ----  Starting ...
+LOG : 21:56:49  ----  Read settings property 'screen_width' as '800'
+LOG : 21:56:49  ----  Read settings property 'screen_height' as '600'
+LOG : 21:56:49  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 21:56:49  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 21:56:49  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 21:56:49  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 21:56:49  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 21:56:49  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 21:56:49  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 21:56:49  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 21:58:26  ----  Starting ...
+LOG : 21:58:27  ----  Read settings property 'screen_width' as '800'
+LOG : 21:58:27  ----  Read settings property 'screen_height' as '600'
+LOG : 21:58:27  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 21:58:27  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 21:58:27  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 21:58:27  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 21:58:27  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 21:58:27  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 21:58:27  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 21:58:27  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 21:59:42  ----  Starting ...
+LOG : 21:59:43  ----  Read settings property 'screen_width' as '800'
+LOG : 21:59:43  ----  Read settings property 'screen_height' as '600'
+LOG : 21:59:43  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 21:59:43  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 21:59:43  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 21:59:43  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 21:59:43  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 21:59:43  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 21:59:43  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 21:59:43  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileHovered ln:206
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatup(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileHovered ln:206
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaleup(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatbackdown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaledown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileHovered ln:206
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatup(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileHovered ln:206
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaleup(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatbackdown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaledown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileHovered ln:206
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatup(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileHovered ln:206
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaleup(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatbackdown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaledown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileHovered ln:206
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatup(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileHovered ln:206
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaleup(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatbackdown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:44  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:44  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaledown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:45  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileHovered ln:206
+ERR : 21:59:45  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatup(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:45  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileHovered ln:206
+ERR : 21:59:45  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaleup(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:45  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:45  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatbackdown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:45  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:45  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaledown(org.simon.src.game.gui.GuiElement, int)
+LOG : 21:59:56  ----  Starting ...
+LOG : 21:59:57  ----  Read settings property 'screen_width' as '800'
+LOG : 21:59:57  ----  Read settings property 'screen_height' as '600'
+LOG : 21:59:57  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 21:59:57  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 21:59:57  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 21:59:57  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 21:59:57  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 21:59:57  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 21:59:57  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 21:59:57  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+ERR : 21:59:58  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:58  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatbackdown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:58  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:58  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaledown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:58  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:58  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatbackdown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:58  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:58  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaledown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:58  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:58  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatbackdown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:58  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:58  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaledown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:58  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:58  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatbackdown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:58  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:58  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaledown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:58  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:58  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.floatbackdown(org.simon.src.game.gui.GuiElement, int)
+ERR : 21:59:58  ----  Exception NoSuchMethodException caught at org.simon.src.game.gui.GuiElement @ setWhileUnhovered ln:220
+ERR : 21:59:58  ----  Exception message: org.simon.src.game.gui.GuiActionHandler.scaledown(org.simon.src.game.gui.GuiElement, int)
+LOG : 22:00:05  ----  Starting ...
+LOG : 22:00:05  ----  Read settings property 'screen_width' as '800'
+LOG : 22:00:05  ----  Read settings property 'screen_height' as '600'
+LOG : 22:00:05  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 22:00:05  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 22:00:05  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 22:00:05  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 22:00:05  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 22:00:05  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 22:00:05  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 22:00:05  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 22:01:54  ----  Starting ...
+LOG : 22:01:55  ----  Read settings property 'screen_width' as '800'
+LOG : 22:01:55  ----  Read settings property 'screen_height' as '600'
+LOG : 22:01:55  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 22:01:55  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 22:01:55  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 22:01:55  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 22:01:55  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 22:01:55  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 22:01:55  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 22:01:55  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 22:05:07  ----  Starting ...
+LOG : 22:05:08  ----  Read settings property 'screen_width' as '800'
+LOG : 22:05:08  ----  Read settings property 'screen_height' as '600'
+LOG : 22:05:08  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 22:05:08  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 22:05:08  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 22:05:08  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 22:05:08  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 22:05:08  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 22:05:08  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 22:05:08  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 22:05:11  ----  Element 'played_card' clicked!
+LOG : 22:13:49  ----  Starting ...
+LOG : 22:13:50  ----  Read settings property 'screen_width' as '800'
+LOG : 22:13:50  ----  Read settings property 'screen_height' as '600'
+LOG : 22:13:50  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 22:13:50  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 22:13:50  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 22:13:50  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 22:13:50  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 22:13:50  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 22:13:50  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 22:13:50  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 22:17:48  ----  Starting ...
+LOG : 22:17:49  ----  Read settings property 'screen_width' as '800'
+LOG : 22:17:49  ----  Read settings property 'screen_height' as '600'
+LOG : 22:17:49  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 22:17:49  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 22:17:49  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 22:17:49  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 22:17:49  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 22:17:49  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 22:17:49  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 22:17:49  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 22:18:08  ----  Starting ...
+LOG : 22:18:09  ----  Read settings property 'screen_width' as '800'
+LOG : 22:18:09  ----  Read settings property 'screen_height' as '600'
+LOG : 22:18:09  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 22:18:09  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 22:18:09  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 22:18:09  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 22:18:09  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 22:18:09  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 22:18:09  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 22:18:09  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 22:18:44  ----  Starting ...
+LOG : 22:18:44  ----  Read settings property 'screen_width' as '800'
+LOG : 22:18:44  ----  Read settings property 'screen_height' as '600'
+LOG : 22:18:44  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 22:18:44  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 22:18:44  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 22:18:44  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 22:18:44  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 22:18:44  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 22:18:44  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 22:18:44  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 22:19:32  ----  Starting ...
+LOG : 22:19:33  ----  Read settings property 'screen_width' as '800'
+LOG : 22:19:33  ----  Read settings property 'screen_height' as '600'
+LOG : 22:19:33  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 22:19:33  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 22:19:33  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 22:19:33  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 22:19:33  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 22:19:33  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 22:19:33  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 22:19:33  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 22:19:37  ----  Element 'played_card' clicked!
+LOG : 22:19:55  ----  Starting ...
+LOG : 22:19:56  ----  Read settings property 'screen_width' as '800'
+LOG : 22:19:56  ----  Read settings property 'screen_height' as '600'
+LOG : 22:19:56  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 22:19:56  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 22:19:56  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 22:19:56  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 22:19:56  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 22:19:56  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 22:19:56  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 22:19:56  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 22:22:23  ----  Starting ...
+LOG : 22:22:24  ----  Read settings property 'screen_width' as '800'
+LOG : 22:22:24  ----  Read settings property 'screen_height' as '600'
+LOG : 22:22:24  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 22:22:24  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 22:22:24  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 22:22:24  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 22:22:24  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 22:22:24  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 22:22:24  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 22:22:24  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 22:22:41  ----  Starting ...
+LOG : 22:22:42  ----  Read settings property 'screen_width' as '800'
+LOG : 22:22:42  ----  Read settings property 'screen_height' as '600'
+LOG : 22:22:42  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 22:22:42  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 22:22:42  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 22:22:42  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 22:22:42  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 22:22:42  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 22:22:42  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 22:22:42  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 22:24:23  ----  Starting ...
+LOG : 22:24:23  ----  Read settings property 'screen_width' as '800'
+LOG : 22:24:23  ----  Read settings property 'screen_height' as '600'
+LOG : 22:24:23  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 22:24:23  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 22:24:23  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 22:24:23  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 22:24:23  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 22:24:23  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 22:24:23  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 22:24:23  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 22:26:14  ----  Starting ...
+LOG : 22:26:14  ----  Read settings property 'screen_width' as '800'
+LOG : 22:26:14  ----  Read settings property 'screen_height' as '600'
+LOG : 22:26:14  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 22:26:14  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 22:26:14  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 22:26:14  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 22:26:14  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 22:26:14  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 22:26:14  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 22:26:14  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 23:40:10  ----  Starting ...
+LOG : 23:40:11  ----  Read settings property 'screen_width' as '800'
+LOG : 23:40:11  ----  Read settings property 'screen_height' as '600'
+LOG : 23:40:11  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 23:40:11  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 23:40:11  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 23:40:11  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 23:40:11  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 23:40:11  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 23:40:11  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 23:40:11  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 23:43:04  ----  Starting ...
+LOG : 23:43:05  ----  Read settings property 'screen_width' as '800'
+LOG : 23:43:05  ----  Read settings property 'screen_height' as '600'
+LOG : 23:43:05  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 23:43:05  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 23:43:05  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 23:43:05  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 23:43:05  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 23:43:05  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 23:43:05  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 23:43:05  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 23:43:42  ----  Starting ...
+LOG : 23:43:43  ----  Read settings property 'screen_width' as '800'
+LOG : 23:43:43  ----  Read settings property 'screen_height' as '600'
+LOG : 23:43:43  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 23:43:43  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 23:43:43  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 23:43:43  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 23:43:43  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 23:43:43  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 23:43:43  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 23:43:43  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 23:44:08  ----  Starting ...
+LOG : 23:44:08  ----  Read settings property 'screen_width' as '800'
+LOG : 23:44:08  ----  Read settings property 'screen_height' as '600'
+LOG : 23:44:08  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 23:44:08  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 23:44:08  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 23:44:08  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 23:44:08  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 23:44:08  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 23:44:08  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 23:44:08  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 23:44:35  ----  Starting ...
+LOG : 23:44:36  ----  Read settings property 'screen_width' as '800'
+LOG : 23:44:36  ----  Read settings property 'screen_height' as '600'
+LOG : 23:44:36  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 23:44:36  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 23:44:36  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 23:44:36  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 23:44:36  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 23:44:36  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 23:44:36  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 23:44:36  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 23:45:36  ----  Starting ...
+LOG : 23:45:37  ----  Read settings property 'screen_width' as '800'
+LOG : 23:45:37  ----  Read settings property 'screen_height' as '600'
+LOG : 23:45:37  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 23:45:37  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 23:45:37  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 23:45:37  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 23:45:37  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 23:45:37  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 23:45:37  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 23:45:37  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 23:46:57  ----  Starting ...
+LOG : 23:46:58  ----  Read settings property 'screen_width' as '800'
+LOG : 23:46:58  ----  Read settings property 'screen_height' as '600'
+LOG : 23:46:58  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 23:46:58  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 23:46:58  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 23:46:58  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 23:46:58  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 23:46:58  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 23:46:58  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 23:46:58  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 23:48:18  ----  Starting ...
+LOG : 23:48:19  ----  Read settings property 'screen_width' as '800'
+LOG : 23:48:19  ----  Read settings property 'screen_height' as '600'
+LOG : 23:48:19  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 23:48:19  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 23:48:19  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 23:48:19  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 23:48:19  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 23:48:19  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 23:48:19  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 23:48:19  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 23:53:52  ----  Starting ...
+LOG : 23:53:52  ----  Read settings property 'screen_width' as '800'
+LOG : 23:53:52  ----  Read settings property 'screen_height' as '600'
+LOG : 23:53:52  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 23:53:52  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 23:53:52  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 23:53:52  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 23:53:52  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 23:53:52  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 23:53:52  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 23:53:52  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 23:54:50  ----  Starting ...
+LOG : 23:54:50  ----  Read settings property 'screen_width' as '800'
+LOG : 23:54:50  ----  Read settings property 'screen_height' as '600'
+LOG : 23:54:50  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 23:54:50  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 23:54:50  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 23:54:50  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 23:54:50  ----  Loaded graphics with name 'subfolder1/img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img1.png'
+LOG : 23:54:50  ----  Loaded graphics with name 'subfolder1/img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/subfolder1/img2.png'
+LOG : 23:54:50  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 23:54:50  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'

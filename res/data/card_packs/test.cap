@@ -1,0 +1,53 @@
+card: power_strike
+name: Power Strike
+icon: cards/base_ecp/saber-slash
+targ: single_enemy
+func: damage 3
+text: Deal 3 damage
+spef: torch_src_tar_0.5;castpoint;soundpoint_wauw;test_tar_tar_0.25
+cost: atk 2
+colr: 1,00 0,00 0,00 1,00
+
+
+card: armored_shell
+name: Armored Shell
+icon: cards/base_ecp/armoured-shell
+targ: self
+func: add_armor 4
+text: Gain 4 armor
+spef: castpoint;test_tar_tar_0.25
+cost: def 2
+colr: 0,80 0,80 1,00 1,00
+
+
+card: chains_of_light
+name: Chains of Light
+icon: cards/base_ecp/andromeda-chain
+targ: single_enemy
+func: disable 2
+text: Disable target for 2 turns
+spef: torch_src_tar_0.5;test_tar_tar_0.25
+cost: atk 1 div 2
+colr: 1,00 1,00 0,80 1,00
+
+
+card: thunder_strike
+name: Thunder Strike
+icon: cards/base_ecp/zeus-sword
+targ: single_enemy
+func: damage 2 3;;status 1 disable 1 $ Thunder Struck $ This character is disabled and will skip it's turn. $ stun_tar_tar_0.5
+text: Deal 2-3 damage and disable target for 1 turn
+spef: torch_src_tar_0.5;test_tar_tar_0.25
+cost: atk 2
+colr: 0,40 0,40 1,00 1,00
+
+
+card: electrify
+name: Electrify
+icon: cards/base_ecp/thor-fist
+targ: single_enemy
+func: damage 1 3 1 true
+text: Deal 1-3 damage to all enemies
+spef: torch_src_tar_0.5;test_tar_tar_0.25
+cost: atk 2 arc 2
+colr: 0,40 0,40 1,00 1,00

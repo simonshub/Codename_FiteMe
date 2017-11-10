@@ -1,0 +1,331 @@
+LOG : 20:35:38  ----  Starting ...
+LOG : 20:35:39  ----  Initializing resources ...
+LOG : 20:35:39  ----  Reading settings...
+LOG : 20:35:39  ----  Read settings property 'screen_width' as '1280'
+LOG : 20:35:39  ----  Read settings property 'screen_height' as '960'
+LOG : 20:35:39  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 20:35:39  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 20:35:39  ----  Settings read in 0,06 sec
+LOG : 20:35:39  ----  Loading graphics...
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/card_back' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/card_back.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/card_back_shadow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/card_back_shadow.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/andromeda-chain' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/andromeda-chain.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/armoured-shell' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/armoured-shell.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/arrow-dunk' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/arrow-dunk.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/arrow-flights' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/arrow-flights.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/arrow-scope' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/arrow-scope.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/assassin-pocket' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/assassin-pocket.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/aura' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/aura.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/awareness' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/awareness.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/axe-swing' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/axe-swing.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/backstab' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/backstab.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/ball-glow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/ball-glow.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/barbed-coil' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/barbed-coil.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/barbed-wire' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/barbed-wire.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/beams-aura' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/beams-aura.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/blade-bite' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/blade-bite.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/blade-drag' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/blade-drag.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/blade-fall' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/blade-fall.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/bloody-sword' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/bloody-sword.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/body-swapping' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/body-swapping.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/book-storm' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/book-storm.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/bouncing-sword' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/bouncing-sword.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/bowman' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/bowman.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/bubbling-bowl' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/bubbling-bowl.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/burning-book' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/burning-book.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/burning-dot' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/burning-dot.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/burning-meteor' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/burning-meteor.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/burning-round-shot' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/burning-round-shot.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/burning-skull' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/burning-skull.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/chain-lightning' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/chain-lightning.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/charged-arrow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/charged-arrow.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/chemical-arrow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/chemical-arrow.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/chopped-skull' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/chopped-skull.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/circle-claws' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/circle-claws.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/claw-slashes' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/claw-slashes.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/cloak-dagger' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/cloak-dagger.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/cracked-ball-dunk' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/cracked-ball-dunk.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/cracked-helm' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/cracked-helm.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/cracked-shield' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/cracked-shield.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/crossed-slashes' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/crossed-slashes.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/crown-of-thorns' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/crown-of-thorns.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/cultist' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/cultist.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/dagger-rose' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/dagger-rose.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/dark-squad' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/dark-squad.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/deadly-strike' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/deadly-strike.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/despair' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/despair.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/disintegrate' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/disintegrate.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/diving-dagger' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/diving-dagger.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/dodging' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/dodging.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/double-shot' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/double-shot.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/dripping-blade' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/dripping-blade.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/dripping-knife' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/dripping-knife.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/dripping-sword' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/dripping-sword.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/drop-weapon' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/drop-weapon.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/earth-crack' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/earth-crack.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/earth-spit' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/earth-spit.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/embrassed-energy' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/embrassed-energy.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/enrage' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/enrage.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/evil-bat' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/evil-bat.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/evil-book' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/evil-book.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/fangs' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/fangs.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/fast-arrow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/fast-arrow.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/fire-bomb' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/fire-bomb.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/fire-bottle' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/fire-bottle.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/fire-breath' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/fire-breath.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/fire-ring' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/fire-ring.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/fire-shield' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/fire-shield.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/fire-silhouette' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/fire-silhouette.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/fire-tail' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/fire-tail.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/fireball' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/fireball.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/fizzing-flask' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/fizzing-flask.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/flame-tunnel' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/flame-tunnel.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/flamed-leaf' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/flamed-leaf.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/flaming-arrow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/flaming-arrow.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/flaming-claw' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/flaming-claw.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/flaming-sheet' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/flaming-sheet.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/flying-dagger' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/flying-dagger.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/flying-shuriken' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/flying-shuriken.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/frostfire' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/frostfire.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/frozen-arrow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/frozen-arrow.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/frozen-orb' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/frozen-orb.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/gooey-sword' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/gooey-sword.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/hammer-drop' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/hammer-drop.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/hatchets' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/hatchets.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/headshot' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/headshot.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/heavy-rain' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/heavy-rain.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/hidden' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/hidden.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/high-kick' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/high-kick.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/holy-hand-grenade' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/holy-hand-grenade.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/ice-bolt' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/ice-bolt.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/ice-golem' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/ice-golem.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/ice-shield' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/ice-shield.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/ice-spear' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/ice-spear.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/ifrit' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/ifrit.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/internal-injury' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/internal-injury.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/kindle' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/kindle.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/knockout' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/knockout.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/lightning-bow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/lightning-bow.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/lightning-branches' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/lightning-branches.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/lightning-dissipation' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/lightning-dissipation.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/lightning-shield' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/lightning-shield.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/lightning-trio' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/lightning-trio.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/machete' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/machete.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/magic-palm' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/magic-palm.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/magic-shield' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/magic-shield.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/magic-swirl' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/magic-swirl.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/master-of-arms' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/master-of-arms.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/meditation' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/meditation.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/meteor-impact' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/meteor-impact.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/minerals' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/minerals.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/muscle-up' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/muscle-up.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/mute' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/mute.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/neck-bite' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/neck-bite.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/needle-jaws' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/needle-jaws.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/on-target' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/on-target.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/paranoia' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/paranoia.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/poison-gas' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/poison-gas.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/prayer' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/prayer.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/psychic-waves' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/psychic-waves.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/pyromaniac' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/pyromaniac.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/quick-slash' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/quick-slash.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/quicksand' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/quicksand.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/ragged-wound' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/ragged-wound.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/reaper-scythe' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/reaper-scythe.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/rear-aura' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/rear-aura.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/rolling-bomb' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/rolling-bomb.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/saber-slash' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/saber-slash.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/sabers-choc' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/sabers-choc.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/scalpel-strike' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/scalpel-strike.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/screaming' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/screaming.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/semi-closed-eye' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/semi-closed-eye.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/shattered-sword' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/shattered-sword.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/shining-sword' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/shining-sword.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/sleepy' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/sleepy.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/slicing-arrow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/slicing-arrow.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/smoking-finger' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/smoking-finger.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/spectre' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/spectre.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/spiked-halo' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/spiked-halo.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/spiky-eclipse' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/spiky-eclipse.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/spinning-blades' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/spinning-blades.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/spinning-sword' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/spinning-sword.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/spiral-arrow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/spiral-arrow.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/spiral-thrust' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/spiral-thrust.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/split-body' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/split-body.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/sprint' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/sprint.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/steam' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/steam.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/striped-sword' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/striped-sword.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/suspicious' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/suspicious.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/swirl-ring' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/swirl-ring.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/swirl-string' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/swirl-string.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/sword-break' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/sword-break.png'
+LOG : 20:35:39  ----  Loaded graphics with name 'cards/base_ecp/sword-clash' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/sword-clash.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/sword-spin' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/sword-spin.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/targeting' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/targeting.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/teleport' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/teleport.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/thor-fist' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/thor-fist.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/thrown-charcoal' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/thrown-charcoal.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/thunder-blade' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/thunder-blade.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/thunder-struck' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/thunder-struck.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/tornado-discs' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/tornado-discs.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/triple-claws' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/triple-claws.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/two-shadows' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/two-shadows.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/unfriendly-fire' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/unfriendly-fire.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/unstable-projectile' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/unstable-projectile.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/vibrating-ball' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/vibrating-ball.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/vortex' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/vortex.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/wave-strike' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/wave-strike.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/wildfires' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/wildfires.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/william-tell-skull' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/william-tell-skull.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/wind-hole' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/wind-hole.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/winged-arrow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/winged-arrow.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/winged-sword' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/winged-sword.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/wolf-howl' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/wolf-howl.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/wolverine-claws' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/wolverine-claws.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'cards/base_ecp/zeus-sword' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/base_ecp/zeus-sword.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'creatures/basilisk' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/creatures/basilisk.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'creatures/evil_eye' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/creatures/evil_eye.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'creatures/goblin' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/creatures/goblin.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'creatures/goo' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/creatures/goo.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'creatures/quatl' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/creatures/quatl.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'creatures/shadow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/creatures/shadow.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'creatures/skeleton' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/creatures/skeleton.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'creatures/spider' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/creatures/spider.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'creatures/troglodyte' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/creatures/troglodyte.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'creatures/warlock' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/creatures/warlock.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'creatures/wasp' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/creatures/wasp.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'points/agility' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/agility.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'points/arcane' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/arcane.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'points/attack' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/attack.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'points/background' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/background.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'points/dark' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/dark.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'points/defence' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/defence.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'points/divine' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/divine.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'points/nature' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/nature.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'sfx/particle' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/sfx/particle.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'sfx/particle_plus' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/sfx/particle_plus.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'sfx/test_particle' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/sfx/test_particle.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'ui/end_turn' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/ui/end_turn.png'
+LOG : 20:35:40  ----  Loaded graphics with name 'ui/end_turn_disabled' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/ui/end_turn_disabled.png'
+LOG : 20:35:40  ----  Graphics loaded in 0,90 sec
+LOG : 20:35:40  ----  Loading sounds...
+LOG : 20:35:40  ----  Sounds loaded in 0,00 sec
+LOG : 20:35:40  ----  Loading fonts...
+LOG : 20:35:40  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 20:35:40  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 20:35:40  ----  Fonts loaded in 0,05 sec
+LOG : 20:35:40  ----  Loading particles...
+LOG : 20:35:40  ----  Loaded particle effect with name 'healing' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/data/emitters/healing.sfx'
+LOG : 20:35:40  ----  Loaded particle effect with name 'test' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/data/emitters/test_emitter.sfx'
+LOG : 20:35:40  ----  Loaded particle effect with name 'torch' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/data/emitters/torch.sfx'
+LOG : 20:35:40  ----  Particles loaded in 0,01 sec
+LOG : 20:35:40  ----  Loading cards...
+LOG : 20:35:40  ----  Loaded card with ID 'power_strike' and name 'Power Strike' to card pack 'test'
+LOG : 20:35:40  ----  Loaded card with ID 'armored_shell' and name 'Armored Shell' to card pack 'test'
+LOG : 20:35:41  ----  Loaded card with ID 'chains_of_light' and name 'Chains of Light' to card pack 'test'
+ERR : 20:35:41  ----  Found 3 parameters while reading card, instead of 2
+ERR : 20:35:41  ----  for line 'func: damage 3;;status disable 1 : Thunder Struck $ This character is disabled and will skip it's turn. $ stun_tar_tar_0.5'
+ERR : 20:35:41  ----  Not finished parsing card 'thunder_strike', but new card 'electrify' already started; missing properties - func 
+LOG : 20:35:41  ----  Loaded card with ID 'thunder_strike' and name 'Thunder Strike' to card pack 'test'
+LOG : 20:35:41  ----  Loaded card with ID 'electrify' and name 'Electrify' to card pack 'test'
+LOG : 20:35:41  ----  Loaded card pack 'test' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/data/card_packs/test.cap'
+LOG : 20:35:41  ----  Cards loaded in 1,11 sec
+LOG : 20:35:41  ----  Loading creatures...
+LOG : 20:35:41  ----  Loaded creature with ID 'goblin' and name 'Goblin' to creature pack 'test'
+LOG : 20:35:41  ----  Loaded creature with ID 'skeleton' and name 'Skeleton Warrior' to creature pack 'test'
+LOG : 20:35:41  ----  Loaded creature with ID 'quatl' and name 'Quatl' to creature pack 'test'
+LOG : 20:35:41  ----  Loaded creature pack 'test' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/data/creature_packs/test.crp'
+LOG : 20:35:41  ----  Creatures loaded in 0,01 sec
+LOG : 20:35:41  ----  Finished loading in 2,15 sec
+LOG : 20:35:49  ----  fadein
+LOG : 20:35:49  ----  printcardinfo
+LOG : 20:35:49  ----  Card Info: Power Strike (power_strike)
+
+card: power_strike
+name: Power Strike
+icon: cards/base_ecp/saber-slash
+targ: single_enemy
+text: Deal 3 damage
+func: damage 3
+cost: atk 2
+colr: 1,00 1,00 1,00 1,00
+spef: torch_src_tar_0.5;test_tar_tar_0.25
+
+
+LOG : 20:35:49  ----  fadein_callback: set_onclick
+LOG : 20:35:49  ----  set_onclick
+LOG : 20:35:50  ----  printcreatureinfo
+LOG : 20:35:50  ----  Creature Info:
+Goblin (6/6)
+crid: goblin
+name: Goblin
+icon: creatures/goblin
+icsz: 0,50
+pnts: atk 2 def 1 agi 3
+hlth: 6
+
+
+LOG : 20:35:50  ----  Added effect 'torch' at (256.0,576.0)
+LOG : 20:35:50  ----  Added effect 'test' at (256.0,240.0)
+LOG : 20:35:50  ----  fadeout_callback: set_text
+LOG : 20:35:50  ----  set_text
+LOG : 20:35:51  ----  Special effect 'torch' has finished and was removed
+LOG : 20:35:52  ----  Special effect 'test' has finished and was removed
+LOG : 20:35:52  ----  Special effect at index 1 has finished
+LOG : 20:35:52  ----  Invoking callback ' {  [ parent:power_strike ]  [ source:goblin ]  [ targets:
+crid: goblin
+name: Goblin
+icon: creatures/goblin
+icsz: 0,50
+pnts: atk 2 def 1 agi 3
+hlth: 6
+
+ ]  [ actions:damage 3 ]  } ' ...
+LOG : 20:35:52  ----  Invoking card effect 'damage' with args [3]
+LOG : 20:35:52  ----  Special effect at index 0 was removed
+LOG : 20:35:55  ----  fadein
+LOG : 20:35:55  ----  printcardinfo
+LOG : 20:35:55  ----  Card Info: Power Strike (power_strike)
+
+card: power_strike
+name: Power Strike
+icon: cards/base_ecp/saber-slash
+targ: single_enemy
+text: Deal 3 damage
+func: damage 3
+cost: atk 2
+colr: 1,00 1,00 1,00 1,00
+spef: torch_src_tar_0.5;test_tar_tar_0.25
+
+
+LOG : 20:35:56  ----  fadein_callback: set_onclick
+LOG : 20:35:56  ----  set_onclick
+LOG : 20:35:57  ----  printcreatureinfo
+LOG : 20:35:57  ----  Creature Info:
+Goblin (3/6)
+crid: goblin
+name: Goblin
+icon: creatures/goblin
+icsz: 0,50
+pnts: atk 2 def 1 agi 3
+hlth: 6
+
+
+LOG : 20:35:57  ----  Added effect 'torch' at (256.0,576.0)
+LOG : 20:35:57  ----  Added effect 'test' at (256.0,240.0)
+LOG : 20:35:57  ----  fadeout_callback: set_text
+LOG : 20:35:57  ----  set_text
+LOG : 20:35:58  ----  Special effect 'torch' has finished and was removed
+LOG : 20:35:58  ----  Special effect 'test' has finished and was removed
+LOG : 20:35:59  ----  Special effect at index 1 has finished
+LOG : 20:35:59  ----  Invoking callback ' {  [ parent:power_strike ]  [ source:goblin ]  [ targets:
+crid: goblin
+name: Goblin
+icon: creatures/goblin
+icsz: 0,50
+pnts: atk 2 def 1 agi 3
+hlth: 6
+
+ ]  [ actions:damage 3 ]  } ' ...
+LOG : 20:35:59  ----  Invoking card effect 'damage' with args [3]
+LOG : 20:35:59  ----  Special effect at index 0 was removed

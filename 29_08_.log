@@ -1,0 +1,168 @@
+LOG : 19:59:17  ----  Starting ...
+LOG : 19:59:18  ----  Read settings property 'screen_width' as '1280'
+LOG : 19:59:18  ----  Read settings property 'screen_height' as '960'
+LOG : 19:59:18  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 19:59:18  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 19:59:18  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'cards/card_back' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/card_back.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'cards/card_back_shadow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/card_back_shadow.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'cards/testcard' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/testcard.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'damage/arcane' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/arcane.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'damage/cold' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/cold.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'damage/dark' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/dark.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'damage/divine' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/divine.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'damage/electric' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/electric.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'damage/fire' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/fire.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'damage/nature' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/nature.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'damage/physical' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/physical.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'points/agility' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/agility.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'points/arcane' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/arcane.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'points/attack' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/attack.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'points/dark' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/dark.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'points/defence' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/defence.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'points/divine' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/divine.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'points/nature' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/nature.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'ui/end_turn' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/ui/end_turn.png'
+LOG : 19:59:18  ----  Loaded graphics with name 'ui/end_turn_disabled' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/ui/end_turn_disabled.png'
+LOG : 19:59:18  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 19:59:18  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 19:59:21  ----  fadeout
+LOG : 19:59:21  ----  fadeout_callback: clear_onclick
+LOG : 19:59:21  ----  clear_onclick
+LOG : 19:59:22  ----  fadein
+LOG : 19:59:23  ----  fadein_callback: set_onclick
+LOG : 19:59:23  ----  set_onclick
+LOG : 19:59:24  ----  fadeout
+LOG : 19:59:25  ----  fadeout_callback: clear_onclick
+LOG : 19:59:25  ----  clear_onclick
+LOG : 19:59:25  ----  fadein
+LOG : 19:59:25  ----  fadeout_callback: clear_onclick&set_text&fadein&remove_fadeout_callback
+LOG : 19:59:25  ----  clear_onclick
+LOG : 19:59:25  ----  set_text
+LOG : 19:59:25  ----  fadein
+LOG : 19:59:25  ----  remove_fadeout_callback
+LOG : 19:59:26  ----  fadein_callback: set_onclick
+LOG : 19:59:26  ----  set_onclick
+LOG : 19:59:29  ----  fadein
+LOG : 19:59:29  ----  fadein_callback: set_onclick
+LOG : 19:59:29  ----  set_onclick
+LOG : 19:59:30  ----  fadeout
+LOG : 19:59:30  ----  fadeout
+LOG : 19:59:31  ----  fadein
+LOG : 19:59:31  ----  fadeout_callback: clear_onclick&set_text&fadein&remove_fadeout_callback
+LOG : 19:59:31  ----  clear_onclick
+LOG : 19:59:31  ----  set_text
+LOG : 19:59:31  ----  fadein
+LOG : 19:59:31  ----  remove_fadeout_callback
+LOG : 19:59:32  ----  fadein_callback: set_onclick
+LOG : 19:59:32  ----  set_onclick
+LOG : 19:59:32  ----  fadeout
+LOG : 20:01:08  ----  Starting ...
+LOG : 20:01:08  ----  Read settings property 'screen_width' as '1280'
+LOG : 20:01:08  ----  Read settings property 'screen_height' as '960'
+LOG : 20:01:08  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 20:01:08  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 20:01:08  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 20:01:08  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 20:01:08  ----  Loaded graphics with name 'cards/card_back' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/card_back.png'
+LOG : 20:01:08  ----  Loaded graphics with name 'cards/card_back_shadow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/card_back_shadow.png'
+LOG : 20:01:08  ----  Loaded graphics with name 'cards/testcard' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/testcard.png'
+LOG : 20:01:08  ----  Loaded graphics with name 'damage/arcane' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/arcane.png'
+LOG : 20:01:08  ----  Loaded graphics with name 'damage/cold' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/cold.png'
+LOG : 20:01:08  ----  Loaded graphics with name 'damage/dark' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/dark.png'
+LOG : 20:01:08  ----  Loaded graphics with name 'damage/divine' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/divine.png'
+LOG : 20:01:08  ----  Loaded graphics with name 'damage/electric' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/electric.png'
+LOG : 20:01:08  ----  Loaded graphics with name 'damage/fire' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/fire.png'
+LOG : 20:01:08  ----  Loaded graphics with name 'damage/nature' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/nature.png'
+LOG : 20:01:08  ----  Loaded graphics with name 'damage/physical' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/physical.png'
+LOG : 20:01:09  ----  Loaded graphics with name 'points/agility' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/agility.png'
+LOG : 20:01:09  ----  Loaded graphics with name 'points/arcane' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/arcane.png'
+LOG : 20:01:09  ----  Loaded graphics with name 'points/attack' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/attack.png'
+LOG : 20:01:09  ----  Loaded graphics with name 'points/dark' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/dark.png'
+LOG : 20:01:09  ----  Loaded graphics with name 'points/defence' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/defence.png'
+LOG : 20:01:09  ----  Loaded graphics with name 'points/divine' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/divine.png'
+LOG : 20:01:09  ----  Loaded graphics with name 'points/nature' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/nature.png'
+LOG : 20:01:09  ----  Loaded graphics with name 'ui/end_turn' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/ui/end_turn.png'
+LOG : 20:01:09  ----  Loaded graphics with name 'ui/end_turn_disabled' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/ui/end_turn_disabled.png'
+LOG : 20:01:09  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 20:01:09  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 20:01:10  ----  fadeout
+LOG : 20:01:11  ----  fadeout_callback: clear_onclick
+LOG : 20:01:11  ----  clear_onclick
+LOG : 20:01:12  ----  fadein
+LOG : 20:01:12  ----  fadein_callback: set_onclick
+LOG : 20:01:12  ----  set_onclick
+LOG : 20:01:13  ----  fadeout
+LOG : 20:01:13  ----  fadeout_callback: clear_onclick
+LOG : 20:01:13  ----  clear_onclick
+LOG : 20:01:16  ----  fadein
+LOG : 20:01:16  ----  fadein_callback: set_onclick
+LOG : 20:01:16  ----  set_onclick
+LOG : 20:01:18  ----  fadeout
+LOG : 20:01:18  ----  fadeout_callback: clear_onclick
+LOG : 20:01:18  ----  clear_onclick
+LOG : 20:01:46  ----  Starting ...
+LOG : 20:01:47  ----  Read settings property 'screen_width' as '1280'
+LOG : 20:01:47  ----  Read settings property 'screen_height' as '960'
+LOG : 20:01:47  ----  Read settings property 'grfx_path' as 'res/grfx/'
+LOG : 20:01:47  ----  Read settings property 'sounds_path' as 'res/sounds/'
+LOG : 20:01:47  ----  Loaded graphics with name 'img1' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img1.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'img2' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/img2.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'cards/card_back' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/card_back.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'cards/card_back_shadow' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/card_back_shadow.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'cards/testcard' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/cards/testcard.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'damage/arcane' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/arcane.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'damage/cold' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/cold.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'damage/dark' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/dark.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'damage/divine' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/divine.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'damage/electric' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/electric.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'damage/fire' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/fire.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'damage/nature' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/nature.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'damage/physical' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/damage/physical.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'points/agility' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/agility.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'points/arcane' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/arcane.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'points/attack' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/attack.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'points/dark' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/dark.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'points/defence' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/defence.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'points/divine' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/divine.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'points/nature' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/points/nature.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'ui/end_turn' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/ui/end_turn.png'
+LOG : 20:01:47  ----  Loaded graphics with name 'ui/end_turn_disabled' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/grfx/ui/end_turn_disabled.png'
+LOG : 20:01:47  ----  Loaded font with name 'djgross' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/djgross/DJGROSS.ttf'
+LOG : 20:01:47  ----  Loaded font with name 'note_this' at path 'C:/Users/XyRoN/Documents/NetBeansProjects/Codename_FiteMe/res/fonts/note_this/note_this.ttf'
+LOG : 20:01:49  ----  fadeout
+LOG : 20:01:49  ----  fadeout_callback: clear_onclick
+LOG : 20:01:49  ----  clear_onclick
+LOG : 20:01:50  ----  fadein
+LOG : 20:01:51  ----  fadein_callback: set_onclick
+LOG : 20:01:51  ----  set_onclick
+LOG : 20:01:51  ----  fadeout
+LOG : 20:01:52  ----  fadeout_callback: clear_onclick
+LOG : 20:01:52  ----  clear_onclick
+LOG : 20:01:52  ----  fadeout_callback: clear_onclick
+LOG : 20:01:52  ----  clear_onclick
+LOG : 20:01:54  ----  fadein
+LOG : 20:01:54  ----  fadein_callback: set_onclick
+LOG : 20:01:54  ----  set_onclick
+LOG : 20:01:55  ----  fadeout
+LOG : 20:01:55  ----  fadeout_callback: clear_onclick
+LOG : 20:01:55  ----  clear_onclick
+LOG : 20:01:56  ----  fadeout_callback: clear_onclick
+LOG : 20:01:56  ----  clear_onclick
+LOG : 20:01:56  ----  fadein
+LOG : 20:01:57  ----  fadein_callback: set_onclick
+LOG : 20:01:57  ----  set_onclick
+LOG : 20:01:58  ----  fadeout_callback: clear_onclick
+LOG : 20:01:58  ----  clear_onclick
+LOG : 20:01:59  ----  fadein
+LOG : 20:01:59  ----  fadein_callback: set_onclick
+LOG : 20:01:59  ----  set_onclick
+LOG : 20:02:00  ----  fadeout_callback: clear_onclick
+LOG : 20:02:00  ----  clear_onclick
+LOG : 20:02:01  ----  fadein
+LOG : 20:02:02  ----  fadein_callback: set_onclick
+LOG : 20:02:02  ----  set_onclick
+LOG : 20:02:02  ----  fadeout
+LOG : 20:02:02  ----  fadeout_callback: clear_onclick
+LOG : 20:02:02  ----  clear_onclick
