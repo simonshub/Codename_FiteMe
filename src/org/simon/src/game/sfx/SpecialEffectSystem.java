@@ -6,7 +6,6 @@
 package org.simon.src.game.sfx;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.newdawn.slick.Graphics;
 import org.simon.src.game.data.gameplay.creatures.Creature;

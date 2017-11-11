@@ -20,7 +20,7 @@ import org.simon.src.utils.Settings;
  */
 public class SpecialEffect {
     
-    public static final String PARSE_SFX_PARTICLE_DELIMITER = ";";
+    public static final String PARSE_SFX_DELIMITER = ";";
     public static final String PARSE_SFX_ARG_DELIMITER = "_";
     
     public static final String PARSE_SFX_CASTPOINT_KEYWORD = "castpoint";
@@ -29,12 +29,19 @@ public class SpecialEffect {
     public static final String PARSE_PARTICLE_SRC_KEYWORD = "src";
     public static final String PARSE_PARTICLE_TAR_KEYWORD = "tar";
     
+    public static final String PARSE_SFX_PARTICLE_DISPLAY_TEXT = "Particle effect";
+    public static final String PARSE_SFX_CASTPOINT_DISPLAY_TEXT = "Castpoint";
+    public static final String PARSE_SFX_SOUNDPOINT_DISPLAY_TEXT = "Soundpoint";
+    
+    public static final String PARSE_PARTICLE_SRC_DISPLAY_TEXT = "Source";
+    public static final String PARSE_PARTICLE_TAR_DISPLAY_TEXT = "Target";
+    
     public static final int PARSE_PARTICLE_ARG_LENGTH = 4;      // name from to duration
     public static final int PARSE_SOUNDPOINT_ARG_LENGTH = 2;    // soundpoint soundname
     
     
     
-    private boolean start;
+    private boolean started;
     
     private int castpoint_index;
     private int current_particle_index;
@@ -46,7 +53,7 @@ public class SpecialEffect {
     
     
     public SpecialEffect () {
-        start = false;
+        started = false;
         current_particle_index = 0;
         soundpoint_list = new ArrayList<> ();
         particle_list = new ArrayList<> ();
@@ -62,7 +69,7 @@ public class SpecialEffect {
     
     
     public final void parseSfx (String sfx_callstring, GuiElement src, GuiElement target) {
-        List<String> particle_callstrings = new ArrayList <> (Arrays.asList(sfx_callstring.split(PARSE_SFX_PARTICLE_DELIMITER)));
+        List<String> particle_callstrings = new ArrayList <> (Arrays.asList(sfx_callstring.split(PARSE_SFX_DELIMITER)));
 
         for (int i=0;i<particle_callstrings.size();i++) {
             String particle_callstring = particle_callstrings.get(i);
@@ -165,11 +172,11 @@ public class SpecialEffect {
     
     
     public void start () {
-        start = true;
+        started = true;
     }
     
     public void stop () {
-        start = false;
+        started = false;
         particle_list = new ArrayList<> ();
     }
     
@@ -214,7 +221,7 @@ public class SpecialEffect {
     }
     
     public boolean isStarted () {
-        return start;
+        return started;
     }
     
     
@@ -226,7 +233,7 @@ public class SpecialEffect {
     }
     
     public boolean update (int dt) {
-        if (!start) return true;
+        if (!started) return true;
         if (particle_list.isEmpty()) return false;
         
         if (current_particle_index<particle_list.size() && !particle_list.get(current_particle_index).isStarted()) {

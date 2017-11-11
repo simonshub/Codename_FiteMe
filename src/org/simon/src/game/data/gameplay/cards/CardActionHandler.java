@@ -5,6 +5,7 @@
  */
 package org.simon.src.game.data.gameplay.cards;
 
+import java.lang.reflect.Method;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import java.util.List;
 import org.newdawn.slick.Color;
@@ -23,6 +24,17 @@ public class CardActionHandler {
     
     
     private CardActionHandler () { }
+    
+    public static String[] getAllMethodNames () {
+        Method[] methods = CardActionHandler.class.getDeclaredMethods();
+        String[] result = new String [methods.length];
+        
+        for (int i=0;i<methods.length;i++) {
+            result[i] = methods[i].getName();
+        }
+        
+        return result;
+    }
     
     // insert card on-play methods here ...
     

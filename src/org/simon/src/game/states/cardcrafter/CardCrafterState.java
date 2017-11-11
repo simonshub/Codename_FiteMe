@@ -32,6 +32,8 @@ public class CardCrafterState extends BasicGameState {
     
     public static final int ID = 500;
     
+    public static final String CARD_ACTION_PARAM_DISPLAY_TEXT_DELIMITER = " ";
+    
     public static Gui gui;
     
     private static CardCrafterFrame frame = null;

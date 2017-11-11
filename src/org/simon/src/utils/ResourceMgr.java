@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
@@ -309,6 +310,22 @@ public class ResourceMgr {
     public static boolean hasParticle (String name) {
         if (name==null || name.isEmpty()) return false;
         return particle_lib.containsKey(name);
+    }
+    
+    public static Set<String> getGraphicsKeySet () {
+        return graphics_lib.keySet();
+    }
+    
+    public static Set<String> getSoundKeySet () {
+        return sound_lib.keySet();
+    }
+    
+    public static Set<String> getFontKeySet () {
+        return font_lib.keySet();
+    }
+    
+    public static Set<String> getParticleKeySet () {
+        return particle_lib.keySet();
     }
     
     

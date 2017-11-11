@@ -5,9 +5,18 @@
  */
 package org.simon.src.game.states.cardcrafter;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import org.newdawn.slick.Color;
+import org.simon.src.game.data.gameplay.cards.CardActionHandler;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;
+import org.simon.src.game.sfx.SpecialEffect;
+import org.simon.src.utils.Log;
+import org.simon.src.utils.ResourceMgr;
+import org.simon.src.utils.SlickUtils;
 
 /**
  *
@@ -18,6 +27,9 @@ public class CardCrafterFrame extends javax.swing.JFrame {
     public boolean flag_next=false;
     public boolean flag_prev=false;
     public boolean flag_save=false;
+    
+    private final List<String> cardActionList;
+    private final List<String> specialEffectNodes;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,9 +56,7 @@ public class CardCrafterFrame extends javax.swing.JFrame {
         labelDescription = new javax.swing.JLabel();
         scrollDescription = new javax.swing.JScrollPane();
         fieldDescription = new javax.swing.JTextArea();
-        labelAction = new javax.swing.JLabel();
-        fieldAction = new javax.swing.JTextField();
-        sep = new javax.swing.JSeparator();
+        separatorCardActions = new javax.swing.JSeparator();
         btnNext = new javax.swing.JButton();
         btnPrevious = new javax.swing.JButton();
         labelPortrait = new javax.swing.JLabel();
@@ -67,6 +77,41 @@ public class CardCrafterFrame extends javax.swing.JFrame {
         spinnerPointCostAttack = new javax.swing.JSpinner();
         colorPicker = new javax.swing.JColorChooser();
         btnNewPack = new javax.swing.JButton();
+        panelSpecialEffect = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listSpecialEffectNodes = new javax.swing.JList<>();
+        btnAddNode = new javax.swing.JButton();
+        btnRemoveNode = new javax.swing.JButton();
+        comboSpecialEffectNodeType = new javax.swing.JComboBox<>();
+        labelParticleEffect = new javax.swing.JLabel();
+        comboParticle = new javax.swing.JComboBox<>();
+        labelDuration = new javax.swing.JLabel();
+        spinnerDuration = new javax.swing.JSpinner();
+        labelFromPosition = new javax.swing.JLabel();
+        comboFromPosition = new javax.swing.JComboBox<>();
+        labelToPosition = new javax.swing.JLabel();
+        comboToPosition = new javax.swing.JComboBox<>();
+        separatorSpecialEffect = new javax.swing.JSeparator();
+        labelSoundEffect = new javax.swing.JLabel();
+        comboSound = new javax.swing.JComboBox<>();
+        labelVolume = new javax.swing.JLabel();
+        spinnerVolume = new javax.swing.JSpinner();
+        labelSpecialEffect = new javax.swing.JLabel();
+        labelCardActions = new javax.swing.JLabel();
+        panelCardActions = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listCardActions = new javax.swing.JList<>();
+        labelEffect = new javax.swing.JLabel();
+        labelArguments = new javax.swing.JLabel();
+        btnAddEffect = new javax.swing.JButton();
+        btnRemoveEffect = new javax.swing.JButton();
+        comboCardEffect = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        fieldArguments = new javax.swing.JTextArea();
+        labelTarget = new javax.swing.JLabel();
+        comboTarget = new javax.swing.JComboBox<>();
+        labelPointCost = new javax.swing.JLabel();
+        labelBackgroundColor = new javax.swing.JLabel();
 
         frameNewPack.setTitle("New Card Pack");
 
@@ -151,7 +196,6 @@ public class CardCrafterFrame extends javax.swing.JFrame {
         );
 
         setTitle("Card Crafter");
-        setResizable(false);
 
         comboCardPack.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         comboCardPack.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -175,15 +219,10 @@ public class CardCrafterFrame extends javax.swing.JFrame {
         labelDescription.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         labelDescription.setText("Description:");
 
-        fieldDescription.setColumns(20);
+        fieldDescription.setColumns(12);
         fieldDescription.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        fieldDescription.setRows(5);
+        fieldDescription.setRows(3);
         scrollDescription.setViewportView(fieldDescription);
-
-        labelAction.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        labelAction.setText("Action:");
-
-        fieldAction.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
 
         btnNext.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         btnNext.setText("Next");
@@ -265,16 +304,16 @@ public class CardCrafterFrame extends javax.swing.JFrame {
                     .addComponent(labelPointCostAgility, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelPointCostDefence, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                     .addComponent(labelPointCostAttack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelPointCostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(spinnerPointCostAttack)
-                    .addComponent(spinnerPointCostAgility)
-                    .addComponent(spinnerPointCostDivine)
-                    .addComponent(spinnerPointCostDeath, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(spinnerPointCostNature, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(spinnerPointCostArcane, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(spinnerPointCostDefence, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelPointCostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(spinnerPointCostAttack, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spinnerPointCostDefence, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spinnerPointCostAgility, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spinnerPointCostArcane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spinnerPointCostNature, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spinnerPointCostDivine, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spinnerPointCostDeath, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         panelPointCostLayout.setVerticalGroup(
             panelPointCostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +342,7 @@ public class CardCrafterFrame extends javax.swing.JFrame {
                 .addGroup(panelPointCostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spinnerPointCostDivine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelPointCostDivine))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPointCostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spinnerPointCostDeath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelPointCostDeath))
@@ -320,6 +359,265 @@ public class CardCrafterFrame extends javax.swing.JFrame {
             }
         });
 
+        panelSpecialEffect.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        listSpecialEffectNodes.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        listSpecialEffectNodes.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(listSpecialEffectNodes);
+
+        btnAddNode.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        btnAddNode.setText("Add Node");
+        btnAddNode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddNodeActionPerformed(evt);
+            }
+        });
+
+        btnRemoveNode.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        btnRemoveNode.setText("Remove Node");
+        btnRemoveNode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveNodeActionPerformed(evt);
+            }
+        });
+
+        comboSpecialEffectNodeType.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        comboSpecialEffectNodeType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboSpecialEffectNodeType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSpecialEffectNodeTypeActionPerformed(evt);
+            }
+        });
+
+        labelParticleEffect.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        labelParticleEffect.setText("Particle Effect:");
+
+        comboParticle.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        comboParticle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        labelDuration.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        labelDuration.setText("Duration:");
+
+        spinnerDuration.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        labelFromPosition.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        labelFromPosition.setText("From Position:");
+
+        comboFromPosition.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        comboFromPosition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        labelToPosition.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        labelToPosition.setText("To Position:");
+
+        comboToPosition.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        comboToPosition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        labelSoundEffect.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        labelSoundEffect.setText("Sound Effect");
+
+        comboSound.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        comboSound.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        labelVolume.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        labelVolume.setText("Volume:");
+
+        spinnerVolume.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        javax.swing.GroupLayout panelSpecialEffectLayout = new javax.swing.GroupLayout(panelSpecialEffect);
+        panelSpecialEffect.setLayout(panelSpecialEffectLayout);
+        panelSpecialEffectLayout.setHorizontalGroup(
+            panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSpecialEffectLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSpecialEffectLayout.createSequentialGroup()
+                        .addComponent(btnAddNode)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRemoveNode, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelSpecialEffectLayout.createSequentialGroup()
+                        .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboSpecialEffectNodeType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(panelSpecialEffectLayout.createSequentialGroup()
+                                .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelToPosition)
+                                    .addComponent(labelFromPosition))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(comboFromPosition, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(comboToPosition, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(panelSpecialEffectLayout.createSequentialGroup()
+                                .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelParticleEffect)
+                                    .addComponent(labelDuration))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelSpecialEffectLayout.createSequentialGroup()
+                                        .addComponent(spinnerDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(comboParticle, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(separatorSpecialEffect)
+                            .addGroup(panelSpecialEffectLayout.createSequentialGroup()
+                                .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelSoundEffect)
+                                    .addComponent(labelVolume))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelSpecialEffectLayout.createSequentialGroup()
+                                        .addComponent(spinnerVolume, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(comboSound, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        panelSpecialEffectLayout.setVerticalGroup(
+            panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSpecialEffectLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSpecialEffectLayout.createSequentialGroup()
+                        .addComponent(comboSpecialEffectNodeType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelParticleEffect)
+                            .addComponent(comboParticle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelDuration)
+                            .addComponent(spinnerDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelFromPosition)
+                            .addComponent(comboFromPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelToPosition)
+                            .addComponent(comboToPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(separatorSpecialEffect, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelSoundEffect)
+                            .addComponent(comboSound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelVolume)
+                            .addComponent(spinnerVolume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 7, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelSpecialEffectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAddNode)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSpecialEffectLayout.createSequentialGroup()
+                        .addComponent(btnRemoveNode)
+                        .addContainerGap())))
+        );
+
+        labelSpecialEffect.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        labelSpecialEffect.setText("Special Effect:");
+
+        labelCardActions.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        labelCardActions.setText("Card Actions:");
+
+        panelCardActions.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        listCardActions.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        listCardActions.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(listCardActions);
+
+        labelEffect.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        labelEffect.setText("Card Effect:");
+
+        labelArguments.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        labelArguments.setText("Arguments:");
+
+        btnAddEffect.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        btnAddEffect.setText("Add Effect");
+        btnAddEffect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddEffectActionPerformed(evt);
+            }
+        });
+
+        btnRemoveEffect.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        btnRemoveEffect.setText("Remove Effect");
+        btnRemoveEffect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveEffectActionPerformed(evt);
+            }
+        });
+
+        comboCardEffect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        fieldArguments.setColumns(20);
+        fieldArguments.setRows(5);
+        jScrollPane3.setViewportView(fieldArguments);
+
+        javax.swing.GroupLayout panelCardActionsLayout = new javax.swing.GroupLayout(panelCardActions);
+        panelCardActions.setLayout(panelCardActionsLayout);
+        panelCardActionsLayout.setHorizontalGroup(
+            panelCardActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCardActionsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCardActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCardActionsLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(comboCardEffect, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3)
+                    .addGroup(panelCardActionsLayout.createSequentialGroup()
+                        .addComponent(btnAddEffect)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRemoveEffect))
+                    .addGroup(panelCardActionsLayout.createSequentialGroup()
+                        .addGroup(panelCardActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelEffect)
+                            .addComponent(labelArguments))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        panelCardActionsLayout.setVerticalGroup(
+            panelCardActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCardActionsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCardActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCardActionsLayout.createSequentialGroup()
+                        .addGroup(panelCardActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelEffect)
+                            .addComponent(comboCardEffect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addComponent(labelArguments)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelCardActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAddEffect)
+                            .addComponent(btnRemoveEffect)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        labelTarget.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        labelTarget.setText("Target:");
+
+        comboTarget.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        comboTarget.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        labelPointCost.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        labelPointCost.setText("Point Cost:");
+
+        labelBackgroundColor.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        labelBackgroundColor.setText("Background Color:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -333,68 +631,92 @@ public class CardCrafterFrame extends javax.swing.JFrame {
                         .addComponent(comboCardPack, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(btnNewPack, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSaveToPack, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(scrollDescription, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelAction)
-                        .addGap(18, 18, 18)
-                        .addComponent(fieldAction))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelName)
-                        .addGap(18, 18, 18)
-                        .addComponent(fieldName))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnPrevious)
                         .addGap(18, 18, 18)
                         .addComponent(labelPortrait, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(sep)
+                    .addComponent(separatorCardActions)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelDescription)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(panelPointCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(colorPicker, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(labelName)
+                                .addGap(18, 18, 18)
+                                .addComponent(fieldName))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelTarget)
+                                .addGap(19, 19, 19)
+                                .addComponent(comboTarget, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(labelDescription)
+                            .addComponent(scrollDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelPointCost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(114, 114, 114))
+                            .addComponent(panelPointCost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(colorPicker, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelBackgroundColor))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelCardActions)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(panelCardActions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelSpecialEffect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelSpecialEffect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelName))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldAction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelAction))
-                .addGap(18, 18, 18)
-                .addComponent(labelDescription)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(colorPicker, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(panelPointCost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelCardActions)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(panelCardActions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelSpecialEffect)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(panelSpecialEffect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(colorPicker, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelName)
+                            .addComponent(labelBackgroundColor))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelTarget)
+                            .addComponent(comboTarget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(labelDescription)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(scrollDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelPointCost)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelPointCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnPrevious, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(labelPortrait, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(sep, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(separatorCardActions, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNewPack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboCardPack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelSaveTo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnSaveToPack)
-                        .addComponent(comboCardPack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnSaveToPack))
                 .addContainerGap())
         );
 
@@ -433,17 +755,128 @@ public class CardCrafterFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSaveCardConfirmActionPerformed
 
+    private void btnAddEffectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEffectActionPerformed
+        String[] params = this.fieldArguments.getText().split("\n");
+        String action_string = this.comboCardEffect.getSelectedItem().toString() + CardCrafterState.CARD_ACTION_PARAM_DISPLAY_TEXT_DELIMITER;
+        action_string += SlickUtils.getArrayAsStringList(params, CardLibrary.PARSE_DELIMITER);
+        DefaultListModel listModel = (DefaultListModel) this.listCardActions.getModel();
+        
+        if (!SlickUtils.isEntireStringArrayFilled(params)) {
+            Log.err("Trying to add card action without params!");
+        } else {
+            this.cardActionList.add(action_string);
+            listModel.addElement(action_string);
+        }
+    }//GEN-LAST:event_btnAddEffectActionPerformed
+
+    private void btnRemoveEffectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveEffectActionPerformed
+        DefaultListModel listModel = (DefaultListModel) this.listCardActions.getModel();
+        int index = this.listCardActions.getSelectedIndex();
+        
+        this.cardActionList.remove(index);
+        listModel.removeElementAt(index);
+    }//GEN-LAST:event_btnRemoveEffectActionPerformed
+
+    private void btnAddNodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNodeActionPerformed
+        String sfx_node = "";
+        String sfx_type = this.comboSpecialEffectNodeType.getSelectedItem().toString();
+        
+        switch (sfx_type) {
+            case SpecialEffect.PARSE_SFX_PARTICLE_DISPLAY_TEXT :
+                String fromTarget = this.comboFromPosition.getSelectedItem().equals(SpecialEffect.PARSE_PARTICLE_SRC_DISPLAY_TEXT) ? SpecialEffect.PARSE_PARTICLE_SRC_KEYWORD : SpecialEffect.PARSE_PARTICLE_TAR_KEYWORD;
+                String toTarget = this.comboToPosition.getSelectedItem().equals(SpecialEffect.PARSE_PARTICLE_SRC_DISPLAY_TEXT) ? SpecialEffect.PARSE_PARTICLE_SRC_KEYWORD : SpecialEffect.PARSE_PARTICLE_TAR_KEYWORD;
+                
+                sfx_node += this.comboParticle.getSelectedItem().toString() + SpecialEffect.PARSE_SFX_ARG_DELIMITER;
+                sfx_node += this.spinnerDuration.getValue().toString() + SpecialEffect.PARSE_SFX_ARG_DELIMITER;
+                sfx_node += fromTarget + SpecialEffect.PARSE_SFX_ARG_DELIMITER;
+                sfx_node += toTarget;
+                break;
+            case SpecialEffect.PARSE_SFX_CASTPOINT_DISPLAY_TEXT :
+                sfx_node += SpecialEffect.PARSE_SFX_CASTPOINT_KEYWORD;
+                break;
+            case SpecialEffect.PARSE_SFX_SOUNDPOINT_DISPLAY_TEXT :
+                sfx_node += SpecialEffect.PARSE_SFX_SOUNDPOINT_KEYWORD + SpecialEffect.PARSE_SFX_ARG_DELIMITER;
+                sfx_node += this.spinnerVolume.getValue().toString();
+                break;
+            default:
+                break;
+        }
+        
+        DefaultListModel listModel = (DefaultListModel) this.listSpecialEffectNodes.getModel();
+        
+        if (sfx_node.isEmpty()) {
+            Log.err("Trying to empty special effect node!");
+        } else {
+            this.specialEffectNodes.add(sfx_node);
+            listModel.addElement(sfx_node);
+        }
+    }//GEN-LAST:event_btnAddNodeActionPerformed
+
+    private void btnRemoveNodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveNodeActionPerformed
+        DefaultListModel listModel = (DefaultListModel) this.listSpecialEffectNodes.getModel();
+        int index = this.listSpecialEffectNodes.getSelectedIndex();
+        
+        this.specialEffectNodes.remove(index);
+        listModel.removeElementAt(index);
+    }//GEN-LAST:event_btnRemoveNodeActionPerformed
+
+    private void comboSpecialEffectNodeTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSpecialEffectNodeTypeActionPerformed
+        toggleEnabledSpecialEffectContent();
+    }//GEN-LAST:event_comboSpecialEffectNodeTypeActionPerformed
+
     
     
     public CardCrafterFrame () {
         super();
         initComponents();
         
+        this.cardActionList = new ArrayList<> ();
+        this.specialEffectNodes = new ArrayList<> ();
+        
         this.frameNewPack.setSize(356, 128);
         this.frameSaveCardConfirm.setSize(356, 128);
         
         this.comboCardPack.setModel(new DefaultComboBoxModel(CardLibrary.getLoadedCardPacks()));
         this.comboCardPack.setSelectedIndex(-1);
+        
+        String[] comboCardEffectItems = CardActionHandler.getAllMethodNames();
+        this.comboCardEffect.setModel(new DefaultComboBoxModel(comboCardEffectItems));
+        this.comboCardEffect.setSelectedIndex(0);
+        
+        String[] comboSpecialEffectNodeTypeItems = new String [] {
+                        SpecialEffect.PARSE_SFX_PARTICLE_DISPLAY_TEXT,
+                        SpecialEffect.PARSE_SFX_CASTPOINT_DISPLAY_TEXT,
+                        SpecialEffect.PARSE_SFX_SOUNDPOINT_DISPLAY_TEXT,
+                    };
+        this.comboSpecialEffectNodeType.setModel(new DefaultComboBoxModel(comboSpecialEffectNodeTypeItems));
+        this.comboSpecialEffectNodeType.setSelectedIndex(0);
+        
+        String[] comboParticleItems = new String [ResourceMgr.getParticleKeySet().size()];
+        ResourceMgr.getParticleKeySet().toArray(comboParticleItems);
+        this.comboParticle.setModel(new DefaultComboBoxModel(comboParticleItems));
+        this.comboParticle.setSelectedIndex(0);
+        
+        String[] comboSoundItems = new String [ResourceMgr.getSoundKeySet().size()];
+        ResourceMgr.getSoundKeySet().toArray(comboSoundItems);
+        this.comboSound.setModel(new DefaultComboBoxModel(comboSoundItems));
+        this.comboSound.setSelectedIndex(0);
+        
+        String[] comboPositionItems = new String [] {
+                        SpecialEffect.PARSE_PARTICLE_SRC_DISPLAY_TEXT,
+                        SpecialEffect.PARSE_PARTICLE_TAR_DISPLAY_TEXT,
+                    };
+        this.comboFromPosition.setModel(new DefaultComboBoxModel(comboPositionItems));
+        this.comboFromPosition.setSelectedIndex(0);
+        this.comboToPosition.setModel(new DefaultComboBoxModel(comboPositionItems));
+        this.comboToPosition.setSelectedIndex(1);
+        
+        DefaultListModel listSpecialEffectNodesModel = new DefaultListModel ();
+        this.listSpecialEffectNodes.setModel(listSpecialEffectNodesModel);
+        
+        DefaultListModel listCardActionsModel = new DefaultListModel ();
+        this.listCardActions.setModel(listCardActionsModel);
+        
+        toggleEnabledSpecialEffectContent();
     }
     
     
@@ -469,12 +902,52 @@ public class CardCrafterFrame extends javax.swing.JFrame {
     
     
     
+    private void toggleEnabledSpecialEffectContent () {
+        String node_type = this.comboSpecialEffectNodeType.getItemAt(this.comboSpecialEffectNodeType.getSelectedIndex());
+        
+        switch (node_type) {
+            case SpecialEffect.PARSE_SFX_PARTICLE_DISPLAY_TEXT:
+                this.comboParticle.setEnabled(true);
+                this.spinnerDuration.setEnabled(true);
+                this.comboFromPosition.setEnabled(true);
+                this.comboToPosition.setEnabled(true);
+                this.comboSound.setEnabled(false);
+                this.spinnerVolume.setEnabled(false);
+                break;
+            case SpecialEffect.PARSE_SFX_CASTPOINT_DISPLAY_TEXT:
+                this.comboParticle.setEnabled(false);
+                this.spinnerDuration.setEnabled(false);
+                this.comboFromPosition.setEnabled(false);
+                this.comboToPosition.setEnabled(false);
+                this.comboSound.setEnabled(false);
+                this.spinnerVolume.setEnabled(false);
+                break;
+            case SpecialEffect.PARSE_SFX_SOUNDPOINT_DISPLAY_TEXT:
+                this.comboParticle.setEnabled(false);
+                this.spinnerDuration.setEnabled(false);
+                this.comboFromPosition.setEnabled(false);
+                this.comboToPosition.setEnabled(false);
+                this.comboSound.setEnabled(true);
+                this.spinnerVolume.setEnabled(true);
+                break;
+            default:
+                ComboBoxModel model = this.comboSpecialEffectNodeType.getModel();
+                int size = model.getSize();
+                String[] allowed_node_types = new String [size];
+                for(int i=0;i<size;i++) allowed_node_types[i] = (String) model.getElementAt(i);
+                Log.err("Unrecognizable special effect type '"+node_type+"', must be one of: '"+SlickUtils.getArrayAsStringList(allowed_node_types, "', '")+"'");
+                break;
+        }
+    }
+    
+    
+    
     public String getId () {
         return this.fieldNewCardId.getText();
     }
     
     public String getActionValue () {
-        if (this.fieldAction!=null) return this.fieldAction.getText();
+//        if (this.fieldAction!=null) return this.fieldAction.getText();
         return "";
     }
     
@@ -537,26 +1010,47 @@ public class CardCrafterFrame extends javax.swing.JFrame {
             
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddEffect;
+    private javax.swing.JButton btnAddNode;
     private javax.swing.JButton btnNewPack;
     private javax.swing.JButton btnNewPackConfirm;
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnPrevious;
+    private javax.swing.JButton btnRemoveEffect;
+    private javax.swing.JButton btnRemoveNode;
     private javax.swing.JButton btnSaveCardConfirm;
     private javax.swing.JButton btnSaveToPack;
     private javax.swing.JColorChooser colorPicker;
+    private javax.swing.JComboBox<String> comboCardEffect;
     private javax.swing.JComboBox<String> comboCardPack;
-    private javax.swing.JTextField fieldAction;
+    private javax.swing.JComboBox<String> comboFromPosition;
+    private javax.swing.JComboBox<String> comboParticle;
+    private javax.swing.JComboBox<String> comboSound;
+    private javax.swing.JComboBox<String> comboSpecialEffectNodeType;
+    private javax.swing.JComboBox<String> comboTarget;
+    private javax.swing.JComboBox<String> comboToPosition;
+    private javax.swing.JTextArea fieldArguments;
     private javax.swing.JTextArea fieldDescription;
     private javax.swing.JTextField fieldName;
     private javax.swing.JTextField fieldNewCardId;
     private javax.swing.JTextField fieldNewPackName;
     private javax.swing.JFrame frameNewPack;
     private javax.swing.JFrame frameSaveCardConfirm;
-    private javax.swing.JLabel labelAction;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel labelArguments;
+    private javax.swing.JLabel labelBackgroundColor;
+    private javax.swing.JLabel labelCardActions;
     private javax.swing.JLabel labelDescription;
+    private javax.swing.JLabel labelDuration;
+    private javax.swing.JLabel labelEffect;
+    private javax.swing.JLabel labelFromPosition;
     private javax.swing.JLabel labelName;
     private javax.swing.JLabel labelNewCardId;
     private javax.swing.JLabel labelNewPackName;
+    private javax.swing.JLabel labelParticleEffect;
+    private javax.swing.JLabel labelPointCost;
     private javax.swing.JLabel labelPointCostAgility;
     private javax.swing.JLabel labelPointCostArcane;
     private javax.swing.JLabel labelPointCostAttack;
@@ -566,9 +1060,20 @@ public class CardCrafterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel labelPointCostNature;
     private javax.swing.JLabel labelPortrait;
     private javax.swing.JLabel labelSaveTo;
+    private javax.swing.JLabel labelSoundEffect;
+    private javax.swing.JLabel labelSpecialEffect;
+    private javax.swing.JLabel labelTarget;
+    private javax.swing.JLabel labelToPosition;
+    private javax.swing.JLabel labelVolume;
+    private javax.swing.JList<String> listCardActions;
+    private javax.swing.JList<String> listSpecialEffectNodes;
+    private javax.swing.JPanel panelCardActions;
     private javax.swing.JPanel panelPointCost;
+    private javax.swing.JPanel panelSpecialEffect;
     private javax.swing.JScrollPane scrollDescription;
-    private javax.swing.JSeparator sep;
+    private javax.swing.JSeparator separatorCardActions;
+    private javax.swing.JSeparator separatorSpecialEffect;
+    private javax.swing.JSpinner spinnerDuration;
     private javax.swing.JSpinner spinnerPointCostAgility;
     private javax.swing.JSpinner spinnerPointCostArcane;
     private javax.swing.JSpinner spinnerPointCostAttack;
@@ -576,5 +1081,6 @@ public class CardCrafterFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner spinnerPointCostDefence;
     private javax.swing.JSpinner spinnerPointCostDivine;
     private javax.swing.JSpinner spinnerPointCostNature;
+    private javax.swing.JSpinner spinnerVolume;
     // End of variables declaration//GEN-END:variables
 }

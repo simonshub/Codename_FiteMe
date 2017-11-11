@@ -293,6 +293,15 @@ public abstract class SlickUtils {
         return index;
     }
     
+    public static boolean isEntireStringArrayFilled (String[] array) {
+        boolean result = true;
+        for (int i=0;i<array.length;i++) {
+            result = array[i]!=null && !array[i].isEmpty() && result;
+            if (!result) break;
+        }
+        return result && array.length>0;
+    }
+    
     
     
     
