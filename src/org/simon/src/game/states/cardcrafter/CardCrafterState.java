@@ -21,7 +21,7 @@ import org.simon.src.game.gui.Gui;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.states.SharedState;
 import org.simon.src.utils.Log;
-import org.simon.src.utils.ResourceMgr;
+import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
 
 /**
@@ -50,7 +50,7 @@ public class CardCrafterState extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
             
-        card_images = ResourceMgr.getAllGraphicsStartingWith("cards/");
+        card_images = ResourceManager.getAllGraphicsStartingWith("cards/");
         Collections.sort(card_images);
         current_image_index = 0;
         
@@ -118,6 +118,7 @@ public class CardCrafterState extends BasicGameState {
             frame.flag_save = false;
             card.assignIdOverwrite(frame.getId());
             card.setAction(frame.getActionValue());
+            card.setSfxCallstring(frame.getSfxValue());
             
             if (Arrays.asList(CardLibrary.getLoadedCardPacks()).contains(frame.getCurrentCardPackName())) {
                 CardLibrary.saveCardToPack(card, CardLibrary.getCardPackFilePath(frame.getCurrentCardPackName()));

@@ -25,7 +25,7 @@ import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.states.SharedState;
 import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.utils.Log;
-import org.simon.src.utils.ResourceMgr;
+import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
 
 /**
@@ -52,7 +52,7 @@ public class CreatureCrafterState extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
             
-        creature_images = ResourceMgr.getAllGraphicsStartingWith("creatures/");
+        creature_images = ResourceManager.getAllGraphicsStartingWith("creatures/");
         Collections.sort(creature_images);
         current_image_index = 0;
         

@@ -17,12 +17,13 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.TrueTypeFont;
+import org.simon.src.game.data.gameplay.GameplayManager;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.sfx.SpecialEffectCallback;
 import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.utils.Log;
-import org.simon.src.utils.ResourceMgr;
+import org.simon.src.utils.ResourceManager;
 
 /**
  *
@@ -76,8 +77,8 @@ public class Card {
     // resource fetching is allowed, because the first time Card.class is loaded
     //    (and shadow and background are initialized) is AFTER ResourceMgr has
     //    already been initialized ...
-    private static Image shadow = ResourceMgr.getGraphics(CARD_SHADOW_IMG);
-    private static Image background = ResourceMgr.getGraphics(CARD_BACK_IMG);
+    private static Image shadow = ResourceManager.getGraphics(CARD_SHADOW_IMG);
+    private static Image background = ResourceManager.getGraphics(CARD_BACK_IMG);
     
     
     
@@ -113,9 +114,9 @@ public class Card {
         
         this.target_mode = TargetEnum.getTargetModeByName(target_mode);
         
-        if (ResourceMgr.hasGraphics(icon)) {
+        if (ResourceManager.hasGraphics(icon)) {
             this.icon_name = icon;
-            this.icon = ResourceMgr.getGraphics(icon);
+            this.icon = ResourceManager.getGraphics(icon);
         }
         
         point_requirement_map = new HashMap<> ();
@@ -124,8 +125,8 @@ public class Card {
             point_requirement_map.put(point_type, 0);
         }
         
-        name_font = ResourceMgr.getFont(CARD_NAME_FONT, CARD_NAME_FONT_DEFAULT_SIZE);
-        text_font = ResourceMgr.getFont(CARD_DESCRIPTION_FONT, CARD_DESCRIPTION_FONT_DEFAULT_SIZE);
+        name_font = ResourceManager.getFont(CARD_NAME_FONT, CARD_NAME_FONT_DEFAULT_SIZE);
+        text_font = ResourceManager.getFont(CARD_DESCRIPTION_FONT, CARD_DESCRIPTION_FONT_DEFAULT_SIZE);
         
         this.setAction(action, false);
         this.description = autoSplitText(description);
@@ -134,11 +135,9 @@ public class Card {
     
     
     public void render (Graphics g, float x, float y, float scale) {
-        
-        
         // if the currently playing player creature cannot pay the card cost, render a darker overlay
         Color tint = Color.white;
-        if (CombatState.current_opponent==CombatState.Opponent.PLAYER && !CombatState.getCurrentTurnCreature().canSpendPoints(this)) {
+        if (CombatState.gameplay.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && (CombatState.getCurrentCastingCreature()==null || !CombatState.getCurrentCastingCreature().canSpendPoints(this)) ) {
             tint = new Color (0.5f, 0.5f, 0.5f, 1f);
         }
         
@@ -292,6 +291,10 @@ public class Card {
         this.setAction(action, false);
     }
     
+    public void setSfxCallstring (String sfx) {
+        this.sfx_callstring = sfx;
+    }
+    
     public void silentSetAction (String action) {
         this.setAction(action, true);
     }
@@ -345,9 +348,9 @@ public class Card {
     }
     
     public void setIcon (String icon) {
-        if (ResourceMgr.hasGraphics(icon)) {
+        if (ResourceManager.hasGraphics(icon)) {
             this.icon_name = icon;
-            this.icon = ResourceMgr.getGraphics(icon);
+            this.icon = ResourceManager.getGraphics(icon);
         }
     }
     

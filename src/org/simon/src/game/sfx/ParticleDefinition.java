@@ -11,7 +11,7 @@ import org.newdawn.slick.particles.ConfigurableEmitter;
 import org.newdawn.slick.particles.ParticleIO;
 import org.newdawn.slick.particles.ParticleSystem;
 import org.simon.src.utils.Log;
-import org.simon.src.utils.ResourceMgr;
+import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
 
 /**
@@ -29,8 +29,8 @@ public class ParticleDefinition {
     public ParticleDefinition (String key, String xml, String img) {
         this.key = key;
         
-        if (!ResourceMgr.hasGraphics(img)) Log.err("Missing graphics '"+img+"' for particle system '"+key+"'!");
-        particles = new ParticleSystem (ResourceMgr.getGraphics(img), Settings.max_particle_count);
+        if (!ResourceManager.hasGraphics(img)) Log.err("Missing graphics '"+img+"' for particle system '"+key+"'!");
+        particles = new ParticleSystem (ResourceManager.getGraphics(img), Settings.max_particle_count);
         particles.setBlendingMode(ParticleSystem.BLEND_ADDITIVE);
         
         config_xml = new File (xml);

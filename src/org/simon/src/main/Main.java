@@ -17,7 +17,7 @@ import org.simon.src.game.states.cardgallery.CardGalleryState;
 import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.game.states.creaturecrafter.CreatureCrafterState;
 import org.simon.src.utils.Consts;
-import org.simon.src.utils.ResourceMgr;
+import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
 
 /**
@@ -66,7 +66,7 @@ public class Main extends StateBasedGame {
     @Override
     public void initStatesList(GameContainer container) {
         try {
-            ResourceMgr.init();
+            ResourceManager.init();
             AppGameContainer app = (AppGameContainer) this.getContainer();
             app.setDisplayMode (Settings.screen_width, Settings.screen_height, false);
         } catch (IllegalArgumentException | SlickException ex) {

@@ -17,7 +17,7 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.simon.src.utils.Log;
-import org.simon.src.utils.ResourceMgr;
+import org.simon.src.utils.ResourceManager;
 
 /**
  *
@@ -97,7 +97,7 @@ public final class Gui {
                 .setProperty("fade_speed", 1.25f)
                 .addOnUpdate("floatup")
                 .instantCall("fadeout");
-        if (ResourceMgr.hasGraphics(icon)) floating_text.setImage(icon);
+        if (ResourceManager.hasGraphics(icon)) floating_text.setImage(icon);
         this.addElement(el_name, floating_text);
         
         return el_name;

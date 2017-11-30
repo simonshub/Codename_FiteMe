@@ -6,7 +6,7 @@
 package org.simon.src.game.sfx;
 
 import org.simon.src.utils.Log;
-import org.simon.src.utils.ResourceMgr;
+import org.simon.src.utils.ResourceManager;
 
 /**
  *
@@ -17,7 +17,7 @@ public class Soundpoint {
     private String sound;
 
     public Soundpoint (int index, String sound) {
-        if (ResourceMgr.hasSound(sound)) {
+        if (ResourceManager.hasSound(sound)) {
             this.index = index;
             this.sound = sound;
         } else {
@@ -30,7 +30,7 @@ public class Soundpoint {
     }
 
     public void playSound () {
-        ResourceMgr.getSound(sound).play();
+        ResourceManager.getSound(sound).play();
     }
     
     public void moveIndexUp () {

@@ -11,11 +11,12 @@ import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import org.newdawn.slick.Color;
+import org.simon.src.game.data.gameplay.cards.CardAction;
 import org.simon.src.game.data.gameplay.cards.CardActionHandler;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;
 import org.simon.src.game.sfx.SpecialEffect;
 import org.simon.src.utils.Log;
-import org.simon.src.utils.ResourceMgr;
+import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.SlickUtils;
 
 /**
@@ -757,13 +758,16 @@ public class CardCrafterFrame extends javax.swing.JFrame {
 
     private void btnAddEffectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEffectActionPerformed
         String[] params = this.fieldArguments.getText().split("\n");
-        String action_string = this.comboCardEffect.getSelectedItem().toString() + CardCrafterState.CARD_ACTION_PARAM_DISPLAY_TEXT_DELIMITER;
+        String method = this.comboCardEffect.getSelectedItem().toString();
+        
+        String action_string = method + CardCrafterState.CARD_ACTION_PARAM_DISPLAY_TEXT_DELIMITER;
         action_string += SlickUtils.getArrayAsStringList(params, CardLibrary.PARSE_DELIMITER);
         DefaultListModel listModel = (DefaultListModel) this.listCardActions.getModel();
         
         if (!SlickUtils.isEntireStringArrayFilled(params)) {
             Log.err("Trying to add card action without params!");
         } else {
+            // TODO add check to see whether this action is legit (can be invoked)
             this.cardActionList.add(action_string);
             listModel.addElement(action_string);
         }
@@ -787,9 +791,9 @@ public class CardCrafterFrame extends javax.swing.JFrame {
                 String toTarget = this.comboToPosition.getSelectedItem().equals(SpecialEffect.PARSE_PARTICLE_SRC_DISPLAY_TEXT) ? SpecialEffect.PARSE_PARTICLE_SRC_KEYWORD : SpecialEffect.PARSE_PARTICLE_TAR_KEYWORD;
                 
                 sfx_node += this.comboParticle.getSelectedItem().toString() + SpecialEffect.PARSE_SFX_ARG_DELIMITER;
-                sfx_node += this.spinnerDuration.getValue().toString() + SpecialEffect.PARSE_SFX_ARG_DELIMITER;
                 sfx_node += fromTarget + SpecialEffect.PARSE_SFX_ARG_DELIMITER;
-                sfx_node += toTarget;
+                sfx_node += toTarget + SpecialEffect.PARSE_SFX_ARG_DELIMITER;
+                sfx_node += this.spinnerDuration.getValue().toString();
                 break;
             case SpecialEffect.PARSE_SFX_CASTPOINT_DISPLAY_TEXT :
                 sfx_node += SpecialEffect.PARSE_SFX_CASTPOINT_KEYWORD;
@@ -851,13 +855,13 @@ public class CardCrafterFrame extends javax.swing.JFrame {
         this.comboSpecialEffectNodeType.setModel(new DefaultComboBoxModel(comboSpecialEffectNodeTypeItems));
         this.comboSpecialEffectNodeType.setSelectedIndex(0);
         
-        String[] comboParticleItems = new String [ResourceMgr.getParticleKeySet().size()];
-        ResourceMgr.getParticleKeySet().toArray(comboParticleItems);
+        String[] comboParticleItems = new String [ResourceManager.getParticleKeySet().size()];
+        ResourceManager.getParticleKeySet().toArray(comboParticleItems);
         this.comboParticle.setModel(new DefaultComboBoxModel(comboParticleItems));
         this.comboParticle.setSelectedIndex(0);
         
-        String[] comboSoundItems = new String [ResourceMgr.getSoundKeySet().size()];
-        ResourceMgr.getSoundKeySet().toArray(comboSoundItems);
+        String[] comboSoundItems = new String [ResourceManager.getSoundKeySet().size()];
+        ResourceManager.getSoundKeySet().toArray(comboSoundItems);
         this.comboSound.setModel(new DefaultComboBoxModel(comboSoundItems));
         this.comboSound.setSelectedIndex(0);
         
@@ -947,8 +951,13 @@ public class CardCrafterFrame extends javax.swing.JFrame {
     }
     
     public String getActionValue () {
-//        if (this.fieldAction!=null) return this.fieldAction.getText();
-        return "";
+        String action_string = SlickUtils.getListAsStringList(cardActionList, CardActionHandler.MULTICALL_DELIMITER);
+        return action_string;
+    }
+    
+    public String getSfxValue () {
+        String sfx_string = SlickUtils.getListAsStringList(specialEffectNodes, SpecialEffect.PARSE_SFX_DELIMITER);
+        return sfx_string;
     }
     
     public String getNameValue () {

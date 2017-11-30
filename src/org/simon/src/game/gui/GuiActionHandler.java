@@ -8,6 +8,7 @@ package org.simon.src.game.gui;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.newdawn.slick.Color;
+import org.simon.src.game.data.gameplay.GameplayManager;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.states.combat.CombatState;
@@ -320,27 +321,29 @@ public class GuiActionHandler {
     
     
     public static void selecttarget (GuiElement source) {
-        if (CombatState.substate != CombatState.CombatSubState.PICK_TARGET) return;
-        
-        Gui parent = source.getParent();
-        
-        GuiElement el = parent.getElement("played_card");
-        el.setVisible(false);
-        Card card = el.getCard();
-        Creature[] targets = source.getCreatures();
-        
-        card.play(CombatState.sfx, CombatState.getCurrentTurnCreature(), targets);
-        CombatState.substate = CombatState.CombatSubState.PICK_CARD;
-        
-        GuiElement tut = parent.getElement("tutorial_label");
-        tut.setOnUpdate("fadeout_loop");
-        tut.setProperty("fadeout_callback", "set_text");
-        tut.setProperty("set_text", TutorialStringLibrary.PICK_A_CARD);
+        if (CombatState.substate == CombatState.CombatSubState.PICK_TARGET) {
+            Gui parent = source.getParent();
+
+            GuiElement el = parent.getElement("played_card");
+            el.setVisible(false);
+            Card card = el.getCard();
+            Creature[] targets = source.getCreatures();
+
+            card.play(CombatState.sfx, CombatState.getCurrentCastingCreature(), targets);
+            CombatState.substate = CombatState.CombatSubState.PICK_CARD;
+
+            GuiElement tut = parent.getElement("tutorial_label");
+            tut.setOnUpdate("fadeout_loop");
+            tut.setProperty("fadeout_callback", "set_text");
+            tut.setProperty("set_text", TutorialStringLibrary.PICK_A_CARD);
+        } else if (CombatState.substate == CombatState.CombatSubState.PICK_CARD && source.getName().contains("_ally_")) {
+            CombatState.setCurrentTurnCreature(source);
+        }
     }
     
     public static void selectcard (GuiElement source) {
         if (CombatState.substate != CombatState.CombatSubState.PICK_CARD) return;
-        if (CombatState.current_opponent==CombatState.Opponent.PLAYER && !CombatState.getCurrentTurnCreature().canSpendPoints(source.getCard())) return;
+        if (CombatState.gameplay.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && !CombatState.getCurrentCastingCreature().canSpendPoints(source.getCard())) return;
         
         Gui parent = source.getParent();
         

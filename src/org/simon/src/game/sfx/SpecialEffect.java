@@ -11,7 +11,7 @@ import java.util.List;
 import org.newdawn.slick.Graphics;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.utils.Log;
-import org.simon.src.utils.ResourceMgr;
+import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
 
 /**
@@ -156,12 +156,12 @@ public class SpecialEffect {
     }
     
     private void addParticle (String name, float x, float y, float end_x, float end_y, float duration) {
-        if (!ResourceMgr.hasParticle(name)) {
+        if (!ResourceManager.hasParticle(name)) {
             Log.err("No particle definition of name '"+name+"' loaded!");
             return;
         }
         
-        ParticleEffect effect = new ParticleEffect (ResourceMgr.getParticle(name), x, y);
+        ParticleEffect effect = new ParticleEffect (ResourceManager.getParticle(name), x, y);
         if (duration>0f) {
             effect.setMovement(end_x, end_y, duration);
         }

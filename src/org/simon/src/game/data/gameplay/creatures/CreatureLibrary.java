@@ -20,7 +20,7 @@ import java.util.Scanner;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.utils.Consts;
 import org.simon.src.utils.Log;
-import org.simon.src.utils.ResourceMgr;
+import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
 import org.simon.src.utils.SlickUtils;
 
@@ -61,7 +61,7 @@ public class CreatureLibrary {
         if (!dump.exists()) {
             Log.err("Missing creature pack resource dump folder at '"+Settings.creature_pack_path+"'...");
         } else {
-            File[] all_creature_packs = ResourceMgr.getAllFilesOfExtensionInSubdirs(dump, Consts.CREATURE_PACK_FILE_EXTENSION);
+            File[] all_creature_packs = ResourceManager.getAllFilesOfExtensionInSubdirs(dump, Consts.CREATURE_PACK_FILE_EXTENSION);
             for (File creature_pack : all_creature_packs) {
                 try {
                     String path = creature_pack.getCanonicalPath().replace(System.getProperty("file.separator"), "/");

@@ -20,7 +20,7 @@ import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.utils.Log;
-import org.simon.src.utils.ResourceMgr;
+import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
 
 /**
@@ -80,8 +80,8 @@ public class Creature {
         this.health_max = parent.health_max;
         this.health_current = parent.health_current;
         
-        if (ResourceMgr.hasGraphics(icon_name)) {
-            this.icon = ResourceMgr.getGraphics(icon_name);
+        if (ResourceManager.hasGraphics(icon_name)) {
+            this.icon = ResourceManager.getGraphics(icon_name);
         }
         
         this.status_effects = new ArrayList<> ();
@@ -109,8 +109,8 @@ public class Creature {
         this.health_current = hp;
         
         this.icon_scale = icon_scale;
-        if (ResourceMgr.hasGraphics(icon)) {
-            this.icon = ResourceMgr.getGraphics(icon);
+        if (ResourceManager.hasGraphics(icon)) {
+            this.icon = ResourceManager.getGraphics(icon);
             this.icon_name = icon;
         }
         
@@ -197,13 +197,13 @@ public class Creature {
     }
     
     public void setIcon (String icon) {
-        if (!ResourceMgr.hasGraphics(icon)) {
+        if (!ResourceManager.hasGraphics(icon)) {
             Log.err("Cannot set creature '"+name+"' graphics to '"+icon+"' because none such graphic was loaded!");
             return;
         }
         
         this.icon_name = icon;
-        this.icon = ResourceMgr.getGraphics(icon);
+        this.icon = ResourceManager.getGraphics(icon);
     }
     
     public void setParent (Creature parent) {
@@ -375,8 +375,8 @@ public class Creature {
         }
         
         // if this creature is the one currently on turn, render turn indicator
-        if (CombatState.getCurrentTurnCreature() == this) {
-            Image turn_indicator = ResourceMgr.getGraphics(Settings.turn_indicator_graphics);
+        if (CombatState.getCurrentCastingCreature() == this) {
+            Image turn_indicator = ResourceManager.getGraphics(Settings.turn_indicator_graphics);
             float turn_indicator_width = actual_width;
             float turn_indicator_height = actual_width / 2f;
             turn_indicator.draw(actual_x, actual_y - turn_indicator_height*(1f + TURN_INDICATOR_MARGIN) - point_size, turn_indicator_width, turn_indicator_height);

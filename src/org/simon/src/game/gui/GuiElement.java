@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -20,7 +18,7 @@ import org.newdawn.slick.TrueTypeFont;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.utils.Consts;
-import org.simon.src.utils.ResourceMgr;
+import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.Settings;
 
@@ -81,12 +79,12 @@ public final class GuiElement {
         this.properties = new HashMap<> ();
         this.color_filter = new Color (1f,1f,1f,0f);
         
-        if (!graphics.isEmpty() && ResourceMgr.hasGraphics(graphics))
-            this.graphics = ResourceMgr.getGraphics(graphics);
+        if (!graphics.isEmpty() && ResourceManager.hasGraphics(graphics))
+            this.graphics = ResourceManager.getGraphics(graphics);
         
         this.text = "";
         this.text_color = Color.white;
-        this.font = ResourceMgr.getFont(Consts.DEFAULT_FONT, Consts.DEFAULT_FONT_SIZE);
+        this.font = ResourceManager.getFont(Consts.DEFAULT_FONT, Consts.DEFAULT_FONT_SIZE);
         
         this.scale = 1.0f;
         this.base_width = width;
@@ -200,8 +198,8 @@ public final class GuiElement {
     }
     
     public void setGraphics (String graphics) {
-        if (ResourceMgr.hasGraphics(graphics))
-            this.graphics = ResourceMgr.getGraphics(graphics);
+        if (ResourceManager.hasGraphics(graphics))
+            this.graphics = ResourceManager.getGraphics(graphics);
     }
     
     public Color getTextColor () {
@@ -214,7 +212,7 @@ public final class GuiElement {
     }
     
     public GuiElement setFont (String font_name, float size) {
-        this.font = ResourceMgr.getFont(font_name, size);
+        this.font = ResourceManager.getFont(font_name, size);
         return this;
     }
     
@@ -229,7 +227,7 @@ public final class GuiElement {
     }
     
     public GuiElement setImage (String img) {
-        this.graphics = ResourceMgr.getGraphics(img);
+        this.graphics = ResourceManager.getGraphics(img);
         return this;
     }
     

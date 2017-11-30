@@ -1,3 +1,13 @@
+#card: [ CARD ID ]
+#name: [ CARD NAME ]
+#icon: [ ICON GRFX PATH ]
+#targ: [ TARGET MODE; single_enemy | single_ally | all_enemies | all_allies | all ]
+#func: [ CARD ACTION STRING; <method_name> <args> (;;<another effect>) ]
+#text: [ CARD DESCRIPTION TEXT ]
+#spef: [ SPECIAL EFFECT STRING; <sfx_name>_<from?src|tar>_<to?src|tar>_<duration> (;<another special effect>) ]
+#cost: [ CARD CAST COST; <type> <amount> ( <another type and amount> ]
+#colr: [ CARD GRFX BACKGRUND COLOR; <r> <g> <b> <a> ]
+
 card: power_strike
 name: Power Strike
 icon: cards/base_ecp/saber-slash
@@ -27,7 +37,7 @@ targ: single_enemy
 func: disable 2
 text: Disable target for 2 turns
 spef: torch_src_tar_0.5;test_tar_tar_0.25
-cost: atk 1 div 2
+cost: atk 1 div 1
 colr: 1,00 1,00 0,80 1,00
 
 
@@ -35,8 +45,8 @@ card: thunder_strike
 name: Thunder Strike
 icon: cards/base_ecp/zeus-sword
 targ: single_enemy
-func: damage 2 3;;status 1 disable 1 $ Thunder Struck $ This character is disabled and will skip it's turn. $ stun_tar_tar_0.5
-text: Deal 2-3 damage and disable target for 1 turn
+func: damage 2 3;;status 1 damage 1 $ Thunder Struck $ This character recieves 1 damage next turn. $ test_tar_tar_0.5
+text: Deal 2-3 damage and 1 additional damage next turn
 spef: torch_src_tar_0.5;test_tar_tar_0.25
 cost: atk 2
 colr: 0,40 0,40 1,00 1,00
@@ -49,5 +59,17 @@ targ: single_enemy
 func: damage 1 3 1 true
 text: Deal 1-3 damage to all enemies
 spef: torch_src_tar_0.5;test_tar_tar_0.25
-cost: atk 2 arc 2
+cost: atk 2
 colr: 0,40 0,40 1,00 1,00
+
+
+card: test_card
+name: Some Test Card
+icon: cards/base_ecp/fire-bomb
+targ: single_enemy
+text: Deal 3 damage
+func: damage 3
+cost: atk 1 arc 1
+colr: 1,00 0,40 0,40 1,00
+spef: torch_src_src_1;torch_src_tar_1;castpoint;soundpoint_1;test_tar_tar_1
+

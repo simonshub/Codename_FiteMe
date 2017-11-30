@@ -31,7 +31,7 @@ import org.simon.src.game.sfx.ParticleDefinition;
  *
  * @author emil.simon
  */
-public class ResourceMgr {
+public class ResourceManager {
     
     private static final String SFX_PARSE_KEYWORD_KEY = "key";
     private static final String SFX_PARSE_KEYWORD_XML = "xml";

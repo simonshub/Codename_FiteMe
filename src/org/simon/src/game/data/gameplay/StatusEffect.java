@@ -7,6 +7,7 @@ package org.simon.src.game.data.gameplay;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.cards.CardAction;
 import org.simon.src.game.data.gameplay.creatures.Creature;
@@ -20,8 +21,8 @@ import org.simon.src.utils.Log;
  */
 public class StatusEffect {
     
-    public static final int DISPLAY_STRING_ARG_LENGTH = 4;
-    public static final String STATUS_EFFECT_DELIMITER = "\\$";
+    public static final int DISPLAY_STRING_ARG_LENGTH = 3;
+    public static final String STATUS_EFFECT_DELIMITER = "$";
     
     private int counter;
     
@@ -46,7 +47,7 @@ public class StatusEffect {
         this.callback = new SpecialEffectCallback (parent, source, target_list, actions);
         
         String[] display_string_args = new String [] { "error","error","" };
-        String[] temp_args = display_string.split(STATUS_EFFECT_DELIMITER);
+        String[] temp_args = display_string.split(Pattern.quote(STATUS_EFFECT_DELIMITER));
         if (temp_args.length != DISPLAY_STRING_ARG_LENGTH) {
             Log.err("Erroneous special effect display string '"+display_string+"'; Found "+temp_args.length+" args, instead of "+DISPLAY_STRING_ARG_LENGTH);
         } else {

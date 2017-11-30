@@ -246,7 +246,7 @@ public class CardActionHandler {
     
     public static void status (Creature source, Card parent, List<String> args, List<Creature> targets) {
         if (args.isEmpty()) {
-            Log.err("No arguments passed for add_status_effect?");
+            Log.err("No arguments passed for status?");
             return;
         }
         
