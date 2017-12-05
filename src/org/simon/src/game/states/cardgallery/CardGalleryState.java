@@ -6,8 +6,10 @@
 package org.simon.src.game.states.cardgallery;
 
 import java.util.List;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.MouseListener;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
@@ -25,6 +27,10 @@ import org.simon.src.utils.Settings;
  */
 public class CardGalleryState extends BasicGameState implements MouseListener {
     
+    public enum CardGallerySubState {
+        BROWSE, CLOSEUP
+    }
+    
     public static final int ID = 502;
     
     private float y_offset = 0f;
@@ -35,6 +41,8 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
     
     private static List<Card> cards;
     
+    private static CardGallerySubState substate;
+    
     @Override
     public int getID() {
         return ID;
@@ -44,6 +52,8 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
             
         cards = CardLibrary.getAllCards();
+        
+        substate = CardGallerySubState.BROWSE;
         
         gui = new Gui ();
         String el_name;
@@ -70,24 +80,45 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
                         .setCard(card)
                         .setColor(1f, 1f, 1f, 1f)
                         .setLayer(index)
+                        .setOnClick("closeup")
                         ;
                 gui.addElement(el_name, card_el);
                 
                 max_y_offset = Math.max(max_y_offset, y-card_height*card_y_margin);
             }
         }
+        
+        float scale = 3f;
+        float actual_card_width = (card_width * scale) * Settings.screen_width;
+        float actual_card_height = (card_height * scale) * Settings.screen_height;
+        float x = Settings.screen_width/2f - actual_card_width/2f;
+        float y = Settings.screen_height/2f - actual_card_height/2f;
+        el_name = "card_closeup";
+        GuiElement card_closeup = new GuiElement (el_name, gui, false, x, y, false, actual_card_width, actual_card_height, "")
+                .setVisible(false)
+                .setColor(Color.white)
+                .setLayer(10)
+                ;
+        gui.addElement(el_name, card_closeup);
     }
     
     
     
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
-        gui.render(grphcs, 0f, y_offset);
+        if (substate.equals(CardGallerySubState.BROWSE)) {
+            gui.render(grphcs, 0f, y_offset);
+        } else {
+            gui.render(grphcs, 0f, 0f);
+        }
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int dt) throws SlickException {
         gui.update(gc,sbg,dt);
+        
+        if (gc.getInput().isMousePressed(Input.MOUSE_RIGHT_BUTTON)) switchToBrowse();
+        
         SharedState.update(gc, sbg, null);
     }
     
@@ -99,9 +130,26 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
     
     @Override
     public void mouseWheelMoved(int change) {
+        if (substate.equals(CardGallerySubState.CLOSEUP)) return;
+        
         float actual_change = change * Y_OFFSET_STEP;
         y_offset = Math.min(0f, y_offset + actual_change);
         y_offset = Math.max(y_offset, -max_y_offset);
+    }
+    
+    
+    
+    public static void switchToCloseup (Card card) {
+        GuiElement card_closeup = gui.getElement("card_closeup");
+        card_closeup.setCard(card);
+        card_closeup.setVisible(true);
+        substate = CardGallerySubState.CLOSEUP;
+    }
+    
+    public static void switchToBrowse () {
+        GuiElement card_closeup = gui.getElement("card_closeup");
+        card_closeup.setVisible(false);
+        substate = CardGallerySubState.BROWSE;
     }
     
 }

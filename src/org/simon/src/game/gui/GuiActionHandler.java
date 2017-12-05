@@ -10,6 +10,7 @@ import java.lang.reflect.Method;
 import org.newdawn.slick.Color;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
+import org.simon.src.game.states.cardgallery.CardGalleryState;
 import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.Settings;
@@ -375,6 +376,10 @@ public class GuiActionHandler {
             return;
         
         CombatState.endTurn();
+    }
+    
+    public static void closeup (GuiElement source) {
+        CardGalleryState.switchToCloseup(source.getCard());
     }
     
 }
