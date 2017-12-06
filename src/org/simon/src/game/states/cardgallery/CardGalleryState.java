@@ -39,7 +39,7 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
     
     public static Gui gui;
     
-    private static List<Card> cards;
+    private static List<Card> card_list;
     
     private static CardGallerySubState substate;
     
@@ -51,7 +51,7 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
             
-        cards = CardLibrary.getAllCards();
+        card_list = CardLibrary.getAllCards();
         
         substate = CardGallerySubState.BROWSE;
         
@@ -65,7 +65,7 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
         float total_card_height = card_height + card_y_margin;
         
         int cols = (int) Math.floor(Settings.screen_width / total_card_width);
-        int rows = (int) Math.ceil(cards.size() / cols);
+        int rows = (int) Math.ceil(card_list.size() / cols);
         
         for (int row=0;row<rows;row++) {
             float y = card_y_margin + row*total_card_height;
@@ -73,7 +73,7 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
             for (int col=0;col<cols;col++) {
                 float x = card_x_margin + col*total_card_width;
                 int index = (row * cols) + col;
-                Card card = cards.get(index);
+                Card card = card_list.get(index);
                 el_name = "card_"+card.getId()+"_el";
                 GuiElement card_el = new GuiElement (el_name, gui, false, x, y, false, card_width, card_height, "")
                         .setCard(card)
@@ -145,6 +145,11 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
         GuiElement card_closeup = gui.getElement("card_closeup");
         card_closeup.setVisible(false);
         substate = CardGallerySubState.BROWSE;
+    }
+    
+    public static void setCardList (List<Card> card_list) {
+        CardGalleryState.card_list = card_list;
+        switchToBrowse();
     }
     
 }

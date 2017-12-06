@@ -54,7 +54,7 @@ public class Log {
         }
     }
     
-    public static void err (Exception ex) {
+    public static void err (Throwable ex) {
         int stackTraceCount = 2;
         int causeStackTraceCount = 0;
         

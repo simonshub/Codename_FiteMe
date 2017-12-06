@@ -28,25 +28,30 @@ public class Main extends StateBasedGame {
     
     public static void main (String[] args) {
         Log.log("Starting ...");
-        File file = new File ("natives");
-        if (file.exists()) {
-            switch(LWJGLUtil.getPlatform()) {
-                case LWJGLUtil.PLATFORM_WINDOWS:
-                    file = new File("native/windows/");
-                    break;
-                case LWJGLUtil.PLATFORM_LINUX:
-                    file = new File("native/linux/");
-                    break;
-                case LWJGLUtil.PLATFORM_MACOSX:
-                    file = new File("native/macosx/");
-                    break;
-                default:
-                    file = new File("native/windows/");
-                    break;
+        
+        try {
+            File file = new File ("natives");
+            if (file.exists()) {
+                switch(LWJGLUtil.getPlatform()) {
+                    case LWJGLUtil.PLATFORM_WINDOWS:
+                        file = new File("native/windows/");
+                        break;
+                    case LWJGLUtil.PLATFORM_LINUX:
+                        file = new File("native/linux/");
+                        break;
+                    case LWJGLUtil.PLATFORM_MACOSX:
+                        file = new File("native/macosx/");
+                        break;
+                    default:
+                        file = new File("native/windows/");
+                        break;
+                }
+
+                Log.log("LWJGL Natives : '"+file.getAbsolutePath()+"'");
+                System.setProperty("org.lwjgl.librarypath",file.getAbsolutePath());
             }
-            
-            Log.log("LWJGL Natives : '"+file.getAbsolutePath()+"'");
-            System.setProperty("org.lwjgl.librarypath",file.getAbsolutePath());
+        } catch (Throwable ex) {
+            Log.err("Couldn't load required libraries - exiting...");
         }
 
         try {
@@ -56,8 +61,8 @@ public class Main extends StateBasedGame {
             agc.setAlwaysRender(true);
             
             agc.start();
-        } catch (SlickException ex) {
-            Log.err("Couldn't start the game!");
+        } catch (Throwable ex) {
+            Log.err("Couldn't start the game container - exiting...");
             Log.err(ex);
             System.exit(-1);
         }
