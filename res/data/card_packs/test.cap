@@ -45,7 +45,7 @@ card: thunder_strike
 name: Thunder Strike
 icon: cards/base_ecp/zeus-sword
 targ: single_enemy
-func: damage 2 3;;status 1 damage 1 $ Thunder Struck $ This character recieves 1 damage next turn. $ test_tar_tar_0.5
+func: damage 2 3;;status 1 damage 1 $ Thunder Struck $ This character recieves 1 damage next turn. $ test_tar_tar_0.5 $ status/disabled
 text: Deal 2-3 damage and 1 additional damage next turn
 spef: torch_src_tar_0.5;test_tar_tar_0.25
 cost: atk 2

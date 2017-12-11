@@ -5,20 +5,44 @@
  */
 package org.simon.src.game.states;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.simon.src.game.states.cardcrafter.CardCrafterState;
 import org.simon.src.game.states.cardgallery.CardGalleryState;
 import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.game.states.creaturecrafter.CreatureCrafterState;
+import org.simon.src.utils.Log;
 
 /**
  *
  * @author XyRoN
  */
 public class SharedState {
+    
+    private static int current_state_id;
+    
+    public static int getCurrentStateId () {
+        return current_state_id;
+    }
+    
+    public static void updateStateId (int new_id) {
+        current_state_id = new_id;
+    }
+    
+    public static boolean isCurrentState (Class<? extends BasicGameState> state) {
+        int state_id = -1;
+        try {
+            state_id = state.getField("ID").getInt(null);
+        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException ex) {
+            Log.err(ex);
+        }
+        return state_id == current_state_id;
+    }
     
     public static boolean update (GameContainer gc, StateBasedGame sbg, JFrame frame) {
         

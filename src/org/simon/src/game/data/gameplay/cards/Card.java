@@ -21,6 +21,7 @@ import org.simon.src.game.data.gameplay.GameplayManager;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.sfx.SpecialEffectCallback;
 import org.simon.src.game.sfx.SpecialEffectSystem;
+import org.simon.src.game.states.SharedState;
 import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.ResourceManager;
@@ -135,10 +136,13 @@ public class Card {
     
     
     public void render (Graphics g, float x, float y, float scale) {
-        // if the currently playing player creature cannot pay the card cost, render a darker overlay
+        // if the currently playing player creature cannot pay the card cost, render a darker overlay 
+        // ONLY IF THE CURRENT GAMESTATE IS CombatState !
         Color tint = Color.white;
-        if (CombatState.gameplay.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && (CombatState.getCurrentCastingCreature()==null || !CombatState.getCurrentCastingCreature().canSpendPoints(this)) ) {
-            tint = new Color (0.5f, 0.5f, 0.5f, 1f);
+        if (SharedState.isCurrentState(CombatState.class)) {
+            if (CombatState.gameplay.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && (CombatState.getCurrentCastingCreature()==null || !CombatState.getCurrentCastingCreature().canSpendPoints(this)) ) {
+                tint = new Color (0.5f, 0.5f, 0.5f, 1f);
+            }
         }
         
         // RENDER SHADOW

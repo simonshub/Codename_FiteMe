@@ -142,6 +142,7 @@ public class CreatureCrafterState extends BasicGameState {
         }
         
         frame.setVisible(true);
+        SharedState.updateStateId(CreatureCrafterState.ID);
     }
     
     

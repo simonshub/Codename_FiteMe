@@ -152,6 +152,7 @@ public class CardCrafterState extends BasicGameState {
         }
         
         frame.setVisible(true);
+        SharedState.updateStateId(CardCrafterState.ID);
     }
     
     

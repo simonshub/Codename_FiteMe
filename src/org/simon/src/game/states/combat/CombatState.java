@@ -221,6 +221,12 @@ public class CombatState extends BasicGameState {
         gui.getElement("turn_indicator").setText(gameplay.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
     }
     
+    @Override
+    public void enter (GameContainer container, StateBasedGame game) throws SlickException {
+        super.enter(container, game);
+        SharedState.updateStateId(CombatState.ID);
+    }
+    
     
     
     public static void endTurn () {

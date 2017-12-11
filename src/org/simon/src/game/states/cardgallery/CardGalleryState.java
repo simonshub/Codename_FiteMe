@@ -121,6 +121,7 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
     public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException {
         super.enter(gc, sbg);
         gc.getInput().addMouseListener(this);
+        SharedState.updateStateId(CardGalleryState.ID);
     }
     
     @Override

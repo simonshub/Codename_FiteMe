@@ -21,7 +21,7 @@ import org.simon.src.utils.Log;
  */
 public class StatusEffect {
     
-    public static final int DISPLAY_STRING_ARG_LENGTH = 3;
+    public static final int DISPLAY_STRING_ARG_LENGTH = 4;
     public static final String STATUS_EFFECT_DELIMITER = "$";
     
     private int counter;
@@ -33,6 +33,7 @@ public class StatusEffect {
     private final String display_name;
     private final String display_description;
     private final String special_effect_string;
+    private final String display_icon;
     
     
     
@@ -57,6 +58,7 @@ public class StatusEffect {
         this.display_name = display_string_args[0];
         this.display_description = display_string_args[1];
         this.special_effect_string = display_string_args[2];
+        this.display_icon = display_string_args[3];
     }
     
     
