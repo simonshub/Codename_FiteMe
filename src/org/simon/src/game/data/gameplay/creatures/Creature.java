@@ -19,6 +19,7 @@ import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.game.states.combat.CombatState;
+import org.simon.src.utils.Consts;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
@@ -36,6 +37,12 @@ public class Creature {
     public static final float DEFAULT_CREATURE_WIDTH = 0.13f;
     public static final float DEFAULT_CREATURE_HEIGHT = 0.3f;
     public static final float MAX_SCALING = 2f;
+    
+    public static final int STAT_FONT_SIZE = 10;
+    public static final String STAT_FONT_NAME = "consolas";
+    public static final String STAT_ICON_ARMOR = "stats/armor";
+    public static final String STAT_ICON_HEALTH = "stats/health";
+    public static final float STAT_ICON_SIZE_FROM_WIDTH = 0.05f;
     
     private String id;
     private String name;
@@ -337,6 +344,20 @@ public class Creature {
         }
         
         // render base stats (cur hp, armor, base_atk_mod) at lower left corner of allocated, going up
+        float stats_icon_size = target_width * STAT_ICON_SIZE_FROM_WIDTH;
+        float stats_x = 0;
+        float stats_y = actual_y + actual_height - stats_icon_size;
+        
+        g.setColor(Color.white);
+        g.setFont(ResourceManager.getFont(STAT_FONT_NAME, STAT_FONT_SIZE));
+        
+        ResourceManager.getGraphics(STAT_ICON_HEALTH).draw(actual_x + stats_x, actual_y + stats_y, stats_icon_size, stats_icon_size);
+        g.drawString(this.health_current+"/"+this.health_max, actual_x + stats_x + stats_icon_size, actual_y + stats_y);
+        
+        stats_y -= stats_icon_size * 1.25f; // increment to add margins between stats
+        
+        ResourceManager.getGraphics(STAT_ICON_ARMOR).draw(actual_x + stats_x, actual_y + stats_y, stats_icon_size, stats_icon_size);
+        g.drawString(String.valueOf(this.armor), actual_x + stats_x + stats_icon_size, actual_y + stats_y);
         
         // render currently active statuses (poison, burn, atk_mod, disabled) at lower right corner of allocated, going up
         

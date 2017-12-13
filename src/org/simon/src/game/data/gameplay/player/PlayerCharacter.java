@@ -1,0 +1,50 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package org.simon.src.game.data.gameplay.player;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import org.simon.src.game.data.gameplay.PointTypeEnum;
+import org.simon.src.game.data.gameplay.cards.Card;
+import org.simon.src.game.data.gameplay.creatures.Creature;
+
+/**
+ *
+ * @author emil.simon
+ */
+public class PlayerCharacter {
+    
+    public static final int MAX_LEVEL = 10;
+    
+    public static final int POINTS_PER_LEVEL = 1;
+    public static final int STARTING_POINTS = 3;
+    
+    private final List<Card> card_list;
+    private final PlayerCharacterClass character_class;
+    
+    private int current_level;
+    private Creature creature;
+    
+    public PlayerCharacter (PlayerCharacterClass character_class) {
+        this.current_level = 1;
+        this.card_list = new ArrayList<> ();
+        this.character_class = character_class;
+    }
+    
+    public Creature getCreature () {
+        return creature;
+    }
+    
+    public Map<PointTypeEnum, Integer> getPointPool () {
+        return this.character_class.getPointPoolForLevel(current_level);
+    }
+    
+    private Creature makeCreature () {
+        return null;
+    }
+    
+}
