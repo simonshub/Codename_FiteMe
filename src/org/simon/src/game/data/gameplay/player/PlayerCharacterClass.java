@@ -35,9 +35,11 @@ public class PlayerCharacterClass {
     private final List<Card> card_list;
     private final List<PointTypeEnum> point_leveling_list;
     
+    
+    
     public PlayerCharacterClass (String file_path) {
-        String name = "";
-        String graphics = "";
+        String read_name = "";
+        String read_grfx = "";
         this.card_list = new ArrayList<> ();
         this.point_leveling_list = new CircularList<> ();
         
@@ -84,9 +86,11 @@ public class PlayerCharacterClass {
             Log.err(ex);
         }
         
-        this.name = name;
-        this.graphics = graphics;
+        this.name = read_name;
+        this.graphics = read_grfx;
     }
+    
+    
     
     public Map<PointTypeEnum, Integer> getPointPoolForLevel (int level) {
         int index = 0;
@@ -113,6 +117,18 @@ public class PlayerCharacterClass {
         }
         
         return point_pool;
+    }
+    
+    public int getHealthForLevel (int level) {
+        return 10;
+    }
+    
+    public String getName () {
+        return name;
+    }
+    
+    public String getGraphics () {
+        return graphics;
     }
     
 }

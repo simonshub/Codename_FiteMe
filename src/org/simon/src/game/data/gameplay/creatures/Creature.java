@@ -19,7 +19,6 @@ import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.game.states.combat.CombatState;
-import org.simon.src.utils.Consts;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
@@ -217,7 +216,7 @@ public class Creature {
         this.parent = parent;
     }
     
-    public void setPoints (HashMap<PointTypeEnum, Integer> point_map) {
+    public void setPoints (Map<PointTypeEnum, Integer> point_map) {
         for (PointTypeEnum type : PointTypeEnum.values()) {
             if (!point_map.containsKey(type)) {
                 this.used_point_pool.put(type, 0);
@@ -231,6 +230,12 @@ public class Creature {
     
     public void setGuiElement (GuiElement element) {
         this.gui_element = element;
+    }
+    
+    public void setHealth (int health) {
+        float ratio = health_current / health_max;
+        health_max = health;
+        health_current = (int) (health*ratio);
     }
     
     

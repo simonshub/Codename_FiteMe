@@ -19,11 +19,12 @@ import org.simon.src.game.data.gameplay.creatures.Creature;
 public class PlayerCharacter {
     
     public static final int MAX_LEVEL = 10;
-    
-    public static final int POINTS_PER_LEVEL = 1;
     public static final int STARTING_POINTS = 3;
+    public static final int POINTS_PER_LEVEL = 1;
     
-    private final List<Card> card_list;
+    public static final String PLAYER_CHARACTER_CREATURE_ID_PREFIX = "char_";
+    
+    private final List<Card> unlocked_card_list;
     private final PlayerCharacterClass character_class;
     
     private int current_level;
@@ -31,11 +32,12 @@ public class PlayerCharacter {
     
     public PlayerCharacter (PlayerCharacterClass character_class) {
         this.current_level = 1;
-        this.card_list = new ArrayList<> ();
+        this.unlocked_card_list = new ArrayList<> ();
         this.character_class = character_class;
     }
     
     public Creature getCreature () {
+        if (creature==null) makeCreature();
         return creature;
     }
     
@@ -44,7 +46,16 @@ public class PlayerCharacter {
     }
     
     private Creature makeCreature () {
-        return null;
+        Creature c = new Creature ();
+        
+        c.setIcon(character_class.getGraphics());
+        c.setId(PLAYER_CHARACTER_CREATURE_ID_PREFIX + character_class.getName().toLowerCase().replace(" ", "_"));
+        c.setPoints(character_class.getPointPoolForLevel(current_level));
+        c.setName(character_class.getName());
+        c.setHealth(character_class.getHealthForLevel(current_level));
+        c.setParent(null);
+        
+        return c;
     }
     
 }
