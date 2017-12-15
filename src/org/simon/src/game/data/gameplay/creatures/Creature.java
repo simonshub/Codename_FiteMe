@@ -7,7 +7,6 @@ package org.simon.src.game.data.gameplay.creatures;
 
 import org.simon.src.game.data.gameplay.StatusEffect;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -331,14 +330,10 @@ public class Creature {
         }
     }
     
-    public void replaceCard (Card old_card, Card new_card) {
-        List<String> senzori = new ArrayList<> ();
-        Collections.sort(senzori);
-    }
-    
     
     
     public void render (Graphics g, float x, float y, float target_width, float scale) {
+        // creatures without a display image are not rendered
         if (this.icon == null) {
             return;
         }
