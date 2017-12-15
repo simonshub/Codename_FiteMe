@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.newdawn.slick.Color;
+import org.newdawn.slick.Font;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
@@ -37,11 +38,14 @@ public class Creature {
     public static final float DEFAULT_CREATURE_HEIGHT = 0.3f;
     public static final float MAX_SCALING = 2f;
     
-    public static final int STAT_FONT_SIZE = 10;
+    public static final int STAT_FONT_SIZE = 14;
+    public static final float STAT_ICON_MARGIN = 0.5f;
     public static final String STAT_FONT_NAME = "consolas";
-    public static final String STAT_ICON_ARMOR = "stats/armor";
-    public static final String STAT_ICON_HEALTH = "stats/health";
-    public static final float STAT_ICON_SIZE_FROM_WIDTH = 0.05f;
+    public static final float STAT_ICON_SIZE_FROM_WIDTH = 0.1f;
+    
+    public static final Image STAT_ICON_ARMOR = ResourceManager.getGraphics("stats/armor");
+    public static final Image STAT_ICON_HEALTH = ResourceManager.getGraphics("stats/health");
+    public static final Font STAT_FONT = ResourceManager.getFont(STAT_FONT_NAME, STAT_FONT_SIZE);
     
     private String id;
     private String name;
@@ -216,7 +220,7 @@ public class Creature {
         this.parent = parent;
     }
     
-    public void setPoints (Map<PointTypeEnum, Integer> point_map) {
+    public void setPoints (HashMap<PointTypeEnum, Integer> point_map) {
         for (PointTypeEnum type : PointTypeEnum.values()) {
             if (!point_map.containsKey(type)) {
                 this.used_point_pool.put(type, 0);
@@ -335,34 +339,41 @@ public class Creature {
     
     
     public void render (Graphics g, float x, float y, float target_width, float scale) {
+        if (this.icon == null) {
+            return;
+        }
+        
         // determine actual rendering x,y and dimensions (scaling)
         float width_scale_factor = Math.min( (target_width/icon.getWidth()) * scale * icon_scale, MAX_SCALING);
         float actual_width = icon.getWidth() * width_scale_factor;
         float actual_height = icon.getHeight() * width_scale_factor;
-        
+
         float actual_x = x - actual_width/2f;
         float actual_y = y - actual_height/2f;
-        
+
         // render creature image at actual x,y with actual dimensions
-        if (this.icon != null) {
-            icon.draw(actual_x, actual_y, width_scale_factor);
-        }
+        icon.draw(actual_x, actual_y, width_scale_factor);
         
         // render base stats (cur hp, armor, base_atk_mod) at lower left corner of allocated, going up
+        int n_of_stats_displayed = 1;
+        if (armor>0) n_of_stats_displayed++;
+        
         float stats_icon_size = target_width * STAT_ICON_SIZE_FROM_WIDTH;
-        float stats_x = 0;
-        float stats_y = actual_y + actual_height - stats_icon_size;
+        float stats_x = x - (target_width/2f);
+        float stats_y = actual_y + actual_height*1.1f + ( (n_of_stats_displayed-1) * stats_icon_size * 1.25f); // height is amplified by 10% as a margin
+        float text_x = stats_x + stats_icon_size * (1f+STAT_ICON_MARGIN);
         
         g.setColor(Color.white);
-        g.setFont(ResourceManager.getFont(STAT_FONT_NAME, STAT_FONT_SIZE));
+        g.setFont(STAT_FONT);
         
-        ResourceManager.getGraphics(STAT_ICON_HEALTH).draw(actual_x + stats_x, actual_y + stats_y, stats_icon_size, stats_icon_size);
-        g.drawString(this.health_current+"/"+this.health_max, actual_x + stats_x + stats_icon_size, actual_y + stats_y);
+        STAT_ICON_HEALTH.draw(stats_x, stats_y, stats_icon_size, stats_icon_size);
+        g.drawString(this.health_current+"/"+this.health_max, text_x, stats_y);
         
-        stats_y -= stats_icon_size * 1.25f; // increment to add margins between stats
-        
-        ResourceManager.getGraphics(STAT_ICON_ARMOR).draw(actual_x + stats_x, actual_y + stats_y, stats_icon_size, stats_icon_size);
-        g.drawString(String.valueOf(this.armor), actual_x + stats_x + stats_icon_size, actual_y + stats_y);
+        if (armor>0) {
+            stats_y -= stats_icon_size * 1.25f; // increment to add margins between stats
+            STAT_ICON_ARMOR.draw(stats_x, stats_y, stats_icon_size, stats_icon_size);
+            g.drawString(String.valueOf(this.armor), text_x, stats_y);
+        }
         
         // render currently active statuses (poison, burn, atk_mod, disabled) at lower right corner of allocated, going up
         

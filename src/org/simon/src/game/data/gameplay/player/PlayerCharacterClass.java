@@ -92,10 +92,10 @@ public class PlayerCharacterClass {
     
     
     
-    public Map<PointTypeEnum, Integer> getPointPoolForLevel (int level) {
+    public HashMap<PointTypeEnum, Integer> getPointPoolForLevel (int level) {
         int index = 0;
         
-        Map<PointTypeEnum, Integer> point_pool = new HashMap<> ();
+        HashMap<PointTypeEnum, Integer> point_pool = new HashMap<> ();
         for (int i=0;i<PointTypeEnum.values().length;i++) {
             PointTypeEnum point_type = PointTypeEnum.values()[i];
             point_pool.put(point_type, 0);
