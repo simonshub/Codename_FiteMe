@@ -48,6 +48,7 @@ public class PlayerCharacter {
     
     public Creature getCreature () {
         if (creature==null) creature = new Creature (character_class.getCreatureParent(current_level));
+        creature.setId(PLAYER_CHARACTER_CREATURE_ID_PREFIX + creature.getId());
         return creature;
     }
     
