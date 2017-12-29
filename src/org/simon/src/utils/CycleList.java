@@ -11,9 +11,9 @@ import java.util.ArrayList;
  *
  * @author emil.simon
  */
-public class CircularList<T> extends ArrayList {
+public class CycleList<T> extends ArrayList {
     
-    public CircularList () {
+    public CycleList () {
         super();
     }
     

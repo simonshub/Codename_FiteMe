@@ -16,7 +16,8 @@ import java.util.Map;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;
-import org.simon.src.utils.CircularList;
+import org.simon.src.game.data.gameplay.creatures.Creature;
+import org.simon.src.utils.CycleList;
 import org.simon.src.utils.Log;
 
 /**
@@ -41,7 +42,7 @@ public class PlayerCharacterClass {
         String read_name = "";
         String read_grfx = "";
         this.card_list = new ArrayList<> ();
-        this.point_leveling_list = new CircularList<> ();
+        this.point_leveling_list = new CycleList<> ();
         
         try {
             File file = new File (file_path);
@@ -129,6 +130,32 @@ public class PlayerCharacterClass {
     
     public String getGraphics () {
         return graphics;
+    }
+    
+    public Creature getCreatureParent (int level) {
+        Creature c = new Creature ();
+        
+        c.setIcon(getGraphics());
+        c.setId(PlayerCharacter.PLAYER_CHARACTER_CREATURE_ID_PREFIX + getName().toLowerCase().replace(" ", "_"));
+        c.setPoints(getPointPoolForLevel(level));
+        c.setName(getName());
+        c.setHealth(getHealthForLevel(level));
+        c.setParent(null);
+        c.setIsPlayerCharacter(true);
+        
+        return c;
+    }
+    
+    public List<Card> getCardList () {
+        return card_list;
+    }
+    
+    public List<Card> getCardListForLevel (int level) {
+        List<Card> leveled_list = new ArrayList<> ();
+        card_list.stream().filter((c) -> (c.getUnlockLevel() <= level)).forEachOrdered((c) -> {
+            leveled_list.add(c);
+        });
+        return leveled_list;
     }
     
 }

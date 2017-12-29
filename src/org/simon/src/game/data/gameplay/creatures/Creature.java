@@ -56,6 +56,7 @@ public class Creature {
     private int health_current, health_max;
     
     private boolean dead;
+    private boolean is_player_character = false;
     
     private final List<StatusEffect> status_effects;
     
@@ -236,6 +237,10 @@ public class Creature {
         float ratio = health_current / health_max;
         health_max = health;
         health_current = (int) (health*ratio);
+    }
+    
+    public void setIsPlayerCharacter (boolean is_player_character) {
+        this.is_player_character = is_player_character;
     }
     
     

@@ -16,7 +16,6 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
-import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.data.gameplay.creatures.CreatureLibrary;

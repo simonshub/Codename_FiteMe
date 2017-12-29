@@ -90,6 +90,8 @@ public class Card {
     private String icon_name;
     private String sfx_callstring;
     
+    private Integer unlock_level;
+    
     private Image icon;
     private Color icon_background;
     
@@ -112,6 +114,7 @@ public class Card {
         this.sfx_callstring = sfx;
         this.card_pack = card_pack;
         this.icon_background = new Color (1f,1f,1f,1f);
+        this.unlock_level = 0;
         
         this.target_mode = TargetEnum.getTargetModeByName(target_mode);
         
@@ -155,7 +158,7 @@ public class Card {
         // RENDER BACKGROUND
         background.draw(x, y, scale*STANDARD_CARD_WIDTH, scale*STANDARD_CARD_HEIGHT, tint);
         
-        // RENDER NAME
+        // RENDER NAME AND LEVEL
         float name_x_offset = CARD_X_MARGIN * scale;
         float name_y_offset = (CARD_NAME_Y_MARGIN + CARD_Y_MARGIN) * scale;
         float name_height = 0f;
@@ -163,21 +166,21 @@ public class Card {
         float name_max_width = 0f;
         float name_max_height = ((STANDARD_CARD_HEIGHT - 2*CARD_Y_MARGIN) * CARD_NAME_HEIGHT_SIZE) * scale;
         
-        String[] name_lines = name.split("\n");
-
-        // scale name based on string width
-        for (String line : name_lines)
-            name_max_width = Math.max(name_font.getWidth(line), name_max_width);
-        if ( name_max_width >= (STANDARD_CARD_WIDTH-2*(CARD_X_MARGIN)) )
-            name_scale = ( (STANDARD_CARD_WIDTH-2*(CARD_X_MARGIN)) ) / name_max_width;
-        
-        // scale name based on string height
-        for (String line : name_lines)
-            name_height += name_font.getHeight(line) * scale;
-        if (name_height > name_max_height)
-            name_scale = Math.min(name_scale, name_max_height/name_height);
-        
-        if (!name.isEmpty()) {
+        if (!name.trim().isEmpty()) {
+            String[] name_lines = name.split("\n");
+            
+            // scale name based on string width
+            for (String line : name_lines)
+                name_max_width = Math.max(name_font.getWidth(line), name_max_width);
+            if ( name_max_width >= (STANDARD_CARD_WIDTH-2*(CARD_X_MARGIN)-(CARD_X_MARGIN)) )
+                name_scale = ( (STANDARD_CARD_WIDTH-2*(CARD_X_MARGIN)) ) / name_max_width;
+            
+            // scale name based on string height
+            for (String line : name_lines)
+                name_height += name_font.getHeight(line) * scale;
+            if (name_height > name_max_height)
+                name_scale = Math.min(name_scale, name_max_height/name_height);
+            
             float s = scale*name_scale;
             g.setFont(name_font);
             g.translate(x + name_x_offset, y + name_y_offset);
@@ -185,7 +188,6 @@ public class Card {
             g.setColor(Color.white);
             g.drawString(name, 0, 0);
             g.scale(1f/s, 1f/s);
-            g.translate(-x -name_x_offset, -y -name_y_offset);
         }
         
         // RENDER POINT COST
@@ -299,6 +301,10 @@ public class Card {
         this.sfx_callstring = sfx;
     }
     
+    public void setUnlockLevel (Integer unlock_lvl) {
+        this.unlock_level = unlock_lvl;
+    }
+    
     public void silentSetAction (String action) {
         this.setAction(action, true);
     }
@@ -402,6 +408,10 @@ public class Card {
             if (all_packs[i].equals(this.card_pack))
                 return i;
         return -1;
+    }
+    
+    public int getUnlockLevel () {
+        return unlock_level;
     }
     
     

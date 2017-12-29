@@ -17,6 +17,7 @@ text: Deal 3 damage
 spef: torch_src_tar_0.5;castpoint;soundpoint_wauw;test_tar_tar_0.25
 cost: atk 2
 colr: 1,00 0,00 0,00 1,00
+ulvl: 1
 
 
 card: armored_shell
@@ -28,6 +29,7 @@ text: Gain 4 armor
 spef: castpoint;test_tar_tar_0.25
 cost: def 2
 colr: 0,80 0,80 1,00 1,00
+ulvl: 1
 
 
 card: chains_of_light
@@ -39,6 +41,7 @@ text: Disable target for 2 turns
 spef: torch_src_tar_0.5;test_tar_tar_0.25
 cost: atk 1 div 1
 colr: 1,00 1,00 0,80 1,00
+ulvl: 1
 
 
 card: thunder_strike
@@ -50,6 +53,7 @@ text: Deal 2-3 damage and 1 additional damage next turn
 spef: torch_src_tar_0.5;test_tar_tar_0.25
 cost: atk 2
 colr: 0,40 0,40 1,00 1,00
+ulvl: 1
 
 
 card: electrify
@@ -61,15 +65,17 @@ text: Deal 1-3 damage to all enemies
 spef: torch_src_tar_0.5;test_tar_tar_0.25
 cost: atk 2
 colr: 0,40 0,40 1,00 1,00
+ulvl: 1
 
 
 card: test_card
 name: Some Test Card
 icon: cards/base_ecp/fire-bomb
 targ: single_enemy
-text: Deal 3 damage
 func: damage 3
+text: Deal 3 damage
+spef: torch_src_src_1;torch_src_tar_1;castpoint;soundpoint_1;test_tar_tar_1
 cost: atk 1 arc 1
 colr: 1,00 0,40 0,40 1,00
-spef: torch_src_src_1;torch_src_tar_1;castpoint;soundpoint_1;test_tar_tar_1
+ulvl: 1
 

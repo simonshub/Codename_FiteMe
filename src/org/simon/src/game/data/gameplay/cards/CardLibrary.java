@@ -39,6 +39,7 @@ public class CardLibrary {
     public static final String PARSE_KEYWORD_SET_DESCRIPTION = "text";
     public static final String PARSE_KEYWORD_SET_COLOR = "colr";
     public static final String PARSE_KEYWORD_SET_SFX = "spef";
+    public static final String PARSE_KEYWORD_SET_UNLOCK_LEVEL = "ulvl";
     
     public static final String PARSE_DELIMITER = ":";
     public static final String PARSE_COMMENT = "#";
@@ -90,6 +91,7 @@ public class CardLibrary {
         String current_card_action="";
         String current_card_description="";
         String current_card_sfx="";
+        Integer current_card_unlock_lvl = 0;
         Color current_card_color = Color.white;
         HashMap<PointTypeEnum, Integer> current_card_points = new HashMap<> ();
         
@@ -129,10 +131,10 @@ public class CardLibrary {
                         (current_card_icon.isEmpty() ? "icon " : "") +
                         (current_card_description.isEmpty() ? "text " : "") +
                         (current_card_sfx.isEmpty() ? "spef " : "") +
-                        (current_card_points.isEmpty() ? "cost " : "") );
+                        (current_card_points.isEmpty() ? "cost " : ""));
                 
                 // if all card fields are set for this card, finish loading it
-                saveCard(current_card_id, pack_name, current_card_name, current_card_icon, current_card_target_mode, current_card_action, current_card_description, current_card_sfx, current_card_color, current_card_points);
+                saveCard(current_card_id, pack_name, current_card_name, current_card_icon, current_card_target_mode, current_card_action, current_card_description, current_card_sfx, current_card_unlock_lvl, current_card_color, current_card_points);
                 current_card_id = "";
                 current_card_name = "";
                 current_card_icon = "";
@@ -140,6 +142,7 @@ public class CardLibrary {
                 current_card_action = "";
                 current_card_description = "";
                 current_card_sfx = "";
+                current_card_unlock_lvl = 0;
                 current_card_color = Color.white;
                 current_card_points = new HashMap<> ();
             }
@@ -158,7 +161,7 @@ public class CardLibrary {
                             (current_card_points.isEmpty() ? "cost " : "") );
                     
                     if (!current_card_id.isEmpty()) {
-                        saveCard(current_card_id, pack_name, current_card_name, current_card_icon, current_card_target_mode, current_card_action, current_card_description, current_card_sfx, current_card_color, current_card_points);
+                        saveCard(current_card_id, pack_name, current_card_name, current_card_icon, current_card_target_mode, current_card_action, current_card_description, current_card_sfx, current_card_unlock_lvl, current_card_color, current_card_points);
                     }
                     
                     current_card_id = parse_value;
@@ -168,6 +171,7 @@ public class CardLibrary {
                     current_card_action = "";
                     current_card_description = "";
                     current_card_sfx = "";
+                    current_card_unlock_lvl = 0;
                     current_card_color = Color.white;
                     current_card_points = new HashMap<> ();
                     break;
@@ -188,6 +192,14 @@ public class CardLibrary {
                     break;
                 case PARSE_KEYWORD_SET_SFX :
                     current_card_sfx = parse_value;
+                    break;
+                case PARSE_KEYWORD_SET_UNLOCK_LEVEL :
+                    try {
+                        current_card_unlock_lvl = Integer.parseInt(parse_value);
+                    } catch (NumberFormatException ex) {
+                        Log.err("Unparsable number while reading color of card '"+current_card_id+"'");
+                        Log.err(ex);
+                    }
                     break;
                 case PARSE_KEYWORD_SET_COLOR :
                     if (parse_value.isEmpty())
@@ -215,7 +227,7 @@ public class CardLibrary {
                         
                         current_card_color = new Color (r,g,b,a);
                     } catch (NumberFormatException ex) {
-                        Log.err("Unparsable number while reading color of card ...");
+                        Log.err("Unparsable number while reading color of card '"+current_card_id+"'");
                         Log.err(ex);
                     }
                     break;
@@ -272,13 +284,14 @@ public class CardLibrary {
                     (current_card_sfx.isEmpty() ? "spef " : "") +
                     (current_card_points.isEmpty() ? "cost " : "") );
             
-            saveCard(current_card_id, pack_name, current_card_name, current_card_icon, current_card_target_mode, current_card_action, current_card_description, current_card_sfx, current_card_color, current_card_points);
+            saveCard(current_card_id, pack_name, current_card_name, current_card_icon, current_card_target_mode, current_card_action, current_card_description, current_card_sfx, current_card_unlock_lvl, current_card_color, current_card_points);
         }
     }
     
     public static void saveCard (String card_id, String pack_name, String card_name, String card_icon, String card_target_mode, String card_action, String card_description, String sfx,
-            Color card_color, HashMap<PointTypeEnum,Integer> point_cost) {
+            Integer card_unlock_level, Color card_color, HashMap<PointTypeEnum,Integer> point_cost) {
         Card card = new Card (card_id, pack_name, card_name, card_icon, card_target_mode, card_action, card_description, sfx);
+        card.setUnlockLevel(card_unlock_level);
         card.setIconBackground(card_color);
         card.setPointCostMap(point_cost);
         card_lib.put(card_id, card);
