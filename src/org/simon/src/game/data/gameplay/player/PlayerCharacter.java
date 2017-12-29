@@ -6,6 +6,7 @@
 package org.simon.src.game.data.gameplay.player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
@@ -50,7 +51,7 @@ public class PlayerCharacter {
         return creature;
     }
     
-    public Map<PointTypeEnum, Integer> getPointPool () {
+    public HashMap<PointTypeEnum, Integer> getPointPool () {
         return this.character_class.getPointPoolForLevel(current_level);
     }
     

@@ -36,6 +36,8 @@ public class CardActionHandler {
         return result;
     }
     
+    // CARD ACTIONS
+    
     // insert card on-play methods here ...
     
     public static void damage (Creature source, Card parent, List<String> args, List<Creature> targets) {
@@ -274,7 +276,7 @@ public class CardActionHandler {
     
     public static void alt_card (Creature source, Card parent, List<String> args, List<Creature> targets) {
         String new_card = args.get(0);
-        source.replaceCard(parent, CardLibrary.getCard(new_card));
+        // changes the old card to the new one...
     }
     
 }
