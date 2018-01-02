@@ -17,6 +17,7 @@ import org.simon.src.game.states.cardgallery.CardGalleryState;
 import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.game.states.creaturecrafter.CreatureCrafterState;
 import org.simon.src.game.states.menu.MenuState;
+import org.simon.src.game.states.newgame.NewGameState;
 import org.simon.src.utils.Consts;
 import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
@@ -85,6 +86,7 @@ public class Main extends StateBasedGame {
         }
             
         this.addState(new MenuState ());
+        this.addState(new NewGameState ());
         this.addState(new CombatState ());
         this.addState(new CardCrafterState ());
         this.addState(new CreatureCrafterState ());

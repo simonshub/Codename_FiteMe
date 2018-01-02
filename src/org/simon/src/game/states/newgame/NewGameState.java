@@ -5,7 +5,6 @@
  */
 package org.simon.src.game.states.newgame;
 
-import org.simon.src.game.states.menu.*;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -14,7 +13,6 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.simon.src.game.gui.Gui;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.states.SharedState;
-import org.simon.src.game.states.combat.CombatState;
 
 /**
  *
@@ -42,11 +40,25 @@ public class NewGameState extends BasicGameState {
         String el_name;
         
         el_name = "title";
-        GuiElement title = new GuiElement (el_name, gui, true, 0.33f, 0.5f, true, 0.34f, 0.1f)
+        GuiElement title = new GuiElement (el_name, gui, true, 0.2f, 0f, true, 0.6f, 0.1f, "ui/btn")
                 .setFont("consolas", 32f)
                 .setText(TITLE_LABEL)
                 ;
         gui.addElement(el_name, title);
+        
+        addCharacterPickerGui("char_picker_0", 0.04f, 0.2f, 0.2f, 0.4f);
+        addCharacterPickerGui("char_picker_1", 0.28f, 0.2f, 0.2f, 0.4f);
+        addCharacterPickerGui("char_picker_2", 0.52f, 0.2f, 0.2f, 0.4f);
+        addCharacterPickerGui("char_picker_3", 0.76f, 0.2f, 0.2f, 0.4f);
+    }
+    
+    public void addCharacterPickerGui (String id, float x, float y, float width, float height) {
+        
+        String el_name = id + "_background";
+        GuiElement char_picker_background = new GuiElement (el_name, gui, true, x, y, true, width, height, "ui/box")
+                ;
+        
+        gui.addElement(el_name, char_picker_background);
     }
     
     
