@@ -16,6 +16,7 @@ import org.simon.src.game.states.cardcrafter.CardCrafterState;
 import org.simon.src.game.states.cardgallery.CardGalleryState;
 import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.game.states.creaturecrafter.CreatureCrafterState;
+import org.simon.src.game.states.menu.MenuState;
 import org.simon.src.utils.Consts;
 import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
@@ -25,6 +26,8 @@ import org.simon.src.utils.Settings;
  * @author emil.simon
  */
 public class Main extends StateBasedGame {
+    
+    public static Main instance;
     
     public static void main (String[] args) {
         Log.log("Starting ...");
@@ -55,7 +58,8 @@ public class Main extends StateBasedGame {
         }
 
         try {
-            AppGameContainer agc = new AppGameContainer (new Main (Consts.APP_TITLE));
+            instance = new Main (Consts.APP_TITLE);
+            AppGameContainer agc = new AppGameContainer (instance);
             agc.setDisplayMode (Settings.screen_width, Settings.screen_height, false);
             agc.setTargetFrameRate(60);
             agc.setAlwaysRender(true);
@@ -80,13 +84,13 @@ public class Main extends StateBasedGame {
             System.exit(-1);
         }
             
+        this.addState(new MenuState ());
         this.addState(new CombatState ());
         this.addState(new CardCrafterState ());
         this.addState(new CreatureCrafterState ());
         this.addState(new CardGalleryState ());
-//        this.addState(new CardCrafterState ());
         
-        this.enterState(CombatState.ID);
+        this.enterState(MenuState.ID);
     }
     
     public Main (String title) {

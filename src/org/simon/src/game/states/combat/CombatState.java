@@ -5,7 +5,6 @@
  */
 package org.simon.src.game.states.combat;
 
-import org.simon.src.game.states.cardcrafter.CardCrafterState;
 import java.util.ArrayList;
 import java.util.List;
 import org.newdawn.slick.Color;
@@ -74,7 +73,6 @@ public class CombatState extends BasicGameState {
         
         el_name = "turn_indicator";
         GuiElement turn_indicator = new GuiElement (el_name, gui, true, 0.2f, 0f, true, 0.6f, 0.05f, "img1")
-                .setText("Orc Warrior"+TURN_INDICATOR_SUFFIX)
                 .setTextColor(0f, 0f, 0f, 1f)
                 .setFont("consolas", 20f)
                 .setColor(0.8f,0.8f,0.8f,1f);
@@ -180,8 +178,9 @@ public class CombatState extends BasicGameState {
         float card_el_y = 0.8f;
         el_name = "card_slot";
         for (int i=0;i<5;i++) {
+            String slot_name = el_name+"_"+String.valueOf(i);
             card_el_x += 0.01f; // margin
-            GuiElement card_slot = new GuiElement (el_name+"_"+String.valueOf(i), gui, true, card_el_x, card_el_y, true, card_el_width, card_el_height, "")
+            GuiElement card_slot = new GuiElement (slot_name, gui, true, card_el_x, card_el_y, true, card_el_width, card_el_height, "")
                     .setColor(0.5f,0.6f,0.4f,1f)
                     .setLayer(2)
                     .setProperty("acceleration", 0f)
@@ -196,9 +195,10 @@ public class CombatState extends BasicGameState {
                     .setOnClick("selectcard")
                     .setCard(test_hand.get(i))
                     ;
-            gui.addElement(el_name+"_"+String.valueOf(i), card_slot);
+            gui.addElement(slot_name, card_slot);
             card_el_x += card_el_width;
         }
+        
         card_el_x += 0.045f; // margin
         card_el_y = 0.84f;
         card_el_width = 0.1f;
@@ -288,10 +288,6 @@ public class CombatState extends BasicGameState {
         
         if (gc.getInput().isKeyPressed(Input.KEY_RETURN)) {
             startTurn(); 
-        }
-        
-        if (gc.getInput().isKeyPressed(Input.KEY_NUMPAD1) && gc.getInput().isKeyDown(Input.KEY_LCONTROL)) {
-            sbg.enterState(CardCrafterState.ID);
         }
     }
     

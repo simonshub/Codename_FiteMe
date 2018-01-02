@@ -158,7 +158,7 @@ public class Card {
         // RENDER BACKGROUND
         background.draw(x, y, scale*STANDARD_CARD_WIDTH, scale*STANDARD_CARD_HEIGHT, tint);
         
-        // RENDER NAME AND LEVEL
+        // RENDER NAME
         float name_x_offset = CARD_X_MARGIN * scale;
         float name_y_offset = (CARD_NAME_Y_MARGIN + CARD_Y_MARGIN) * scale;
         float name_height = 0f;
@@ -188,6 +188,7 @@ public class Card {
             g.setColor(Color.white);
             g.drawString(name, 0, 0);
             g.scale(1f/s, 1f/s);
+            g.translate(-x -name_x_offset, -y -name_y_offset);
         }
         
         // RENDER POINT COST

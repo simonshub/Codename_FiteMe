@@ -13,6 +13,7 @@ import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.states.cardgallery.CardGalleryState;
 import org.simon.src.game.states.combat.CombatState;
+import org.simon.src.main.Main;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.Settings;
 
@@ -317,6 +318,33 @@ public class GuiActionHandler {
     public static void remove_fadeout_callback (GuiElement source) {
         if (Settings.debug_gui) Log.log("remove_fadeout_callback");
         source.removeProperty("fadeout_callback");
+    }
+    
+    public static void enter_state (GuiElement source) {
+        if (Settings.debug_gui) Log.log("enter_state");
+        if (source.hasProperty("enter_state")) {
+            int new_state_id = (Integer) source.getProperty("enter_state");
+            Main.instance.enterState(new_state_id);
+        }
+    }
+    
+    public static void exit (GuiElement source) {
+        System.exit(1);
+    }
+    
+    public static void hover_img (GuiElement source) {
+        if (Settings.debug_gui) Log.log("hover_img");
+        if (source.hasProperty("hover_img")) {
+            source.setProperty("unhover_img", source.getImageName());
+            source.setImage((String) source.getProperty("hover_img"));
+        }
+    }
+    
+    public static void unhover_img (GuiElement source) {
+        if (Settings.debug_gui) Log.log("unhover_img");
+        if (source.hasProperty("unhover_img")) {
+            source.setImage((String) source.getProperty("unhover_img"));
+        }
     }
     
     

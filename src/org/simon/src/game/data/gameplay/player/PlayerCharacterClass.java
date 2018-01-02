@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;
@@ -94,7 +93,7 @@ public class PlayerCharacterClass {
     
     
     public HashMap<PointTypeEnum, Integer> getPointPoolForLevel (int level) {
-        int index = 0;
+        int index;
         
         HashMap<PointTypeEnum, Integer> point_pool = new HashMap<> ();
         for (int i=0;i<PointTypeEnum.values().length;i++) {

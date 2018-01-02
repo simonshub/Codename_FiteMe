@@ -74,7 +74,7 @@ icon: cards/base_ecp/fire-bomb
 targ: single_enemy
 func: damage 3
 text: Deal 3 damage
-spef: torch_src_src_1;torch_src_tar_1;castpoint;soundpoint_1;test_tar_tar_1
+spef: torch_src_src_1;torch_src_tar_1;castpoint;soundpoint_wauw;test_tar_tar_1
 cost: atk 1 arc 1
 colr: 1,00 0,40 0,40 1,00
 ulvl: 1

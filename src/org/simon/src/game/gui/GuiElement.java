@@ -44,6 +44,7 @@ public final class GuiElement {
     private Color text_color;
     private TrueTypeFont font;
     private Image graphics = null;
+    private String graphics_name = "";
     private final Map<String,Object> properties;
     
     private Card card=null;
@@ -77,10 +78,12 @@ public final class GuiElement {
         this.name = name;
         this.parent = parent;
         this.properties = new HashMap<> ();
-        this.color_filter = new Color (1f,1f,1f,0f);
+        this.color_filter = new Color (1f,1f,1f,1f);
         
-        if (!graphics.isEmpty() && ResourceManager.hasGraphics(graphics))
+        if (!graphics.isEmpty() && ResourceManager.hasGraphics(graphics)) {
             this.graphics = ResourceManager.getGraphics(graphics);
+            this.graphics_name = graphics;
+        }
         
         this.text = "";
         this.text_color = Color.white;
@@ -104,6 +107,10 @@ public final class GuiElement {
         this.while_unhovered = new ArrayList<> ();
     }
     
+    public GuiElement (String name, Gui parent, boolean precentile_loc, float x, float y, boolean precentile_size, float width, float height) {
+        this (name, parent, precentile_loc, x, y, precentile_size, width, height, "");
+    }
+    
     
     
     public boolean isVisible () {
@@ -116,6 +123,14 @@ public final class GuiElement {
     
     public String getName () {
         return this.name;
+    }
+    
+    public Image getImage () {
+        return this.graphics;
+    }
+    
+    public String getImageName () {
+        return this.graphics_name;
     }
     
     
@@ -197,11 +212,6 @@ public final class GuiElement {
         return this.color_filter;
     }
     
-    public void setGraphics (String graphics) {
-        if (ResourceManager.hasGraphics(graphics))
-            this.graphics = ResourceManager.getGraphics(graphics);
-    }
-    
     public Color getTextColor () {
         return this.text_color;
     }
@@ -227,7 +237,10 @@ public final class GuiElement {
     }
     
     public GuiElement setImage (String img) {
-        this.graphics = ResourceManager.getGraphics(img);
+        if (ResourceManager.hasGraphics(img)) {
+            this.graphics = ResourceManager.getGraphics(img);
+            this.graphics_name = img;
+        }
         return this;
     }
     
