@@ -6,6 +6,8 @@
 package org.simon.src.utils;
 
 import java.lang.reflect.Field;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -32,6 +34,23 @@ public class Settings {
     public static String character_class_path = "res/data/chars/";
     
     public static String turn_indicator_graphics = "ui/turn_indicator";
+    
+    
+    
+    public static String getFileContents () {
+        String contents = "";
+        Field[] fields = Settings.class.getDeclaredFields();
+        
+        for (Field f : fields) {
+            try {
+                contents += f.getName() +" "+ Consts.APP_PROPERTY_DELIMITER +" "+ f.get(null).toString() + "\n";
+            } catch (IllegalArgumentException | IllegalAccessException ex) {
+                Log.err(ex);
+            }
+        }
+        
+        return contents;
+    }
     
     
     

@@ -3,9 +3,11 @@ package org.simon.src.utils;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -125,9 +127,21 @@ public class ResourceManager {
                         Log.err("Too many, or too few arguments found in line; \""+line+"\", number of arguments; "+args.length+", while parsing settings file!");
                     }
                 }
+                
+                br.close();
             } catch (FileNotFoundException ex) {
                 Log.err(ex);
             } catch (IOException ex) {
+                Log.err(ex);
+            }
+        } else {
+            try {
+                BufferedWriter bw = new BufferedWriter (new FileWriter (file));
+                bw.write(Settings.getFileContents());
+                bw.flush();
+                bw.close();
+            } catch (IOException ex) {
+                Log.err("Error while trying to create default settings file!");
                 Log.err(ex);
             }
         }
