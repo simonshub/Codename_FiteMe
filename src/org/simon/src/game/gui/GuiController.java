@@ -16,6 +16,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.ResourceManager;
 
@@ -23,7 +24,7 @@ import org.simon.src.utils.ResourceManager;
  *
  * @author emil.simon
  */
-public final class Gui {
+public final class GuiController {
     
     public static int CLICK_LOCK_DURATION = 200;
     
@@ -44,18 +45,25 @@ public final class Gui {
     
     
     
-    public Gui () {
+    public GuiController () {
         elements = new HashMap<> ();
     }
     
     
     
-    public Gui addElement (String name, GuiElement el) {
+    public GuiController addElement (String name, GuiElement el) {
         elements.put(name, el);
         return this;
     }
     
     public void removeElement (String name) {
+        if (elements.get(name).getCreatures() != null) {
+            for (Creature c : elements.get(name).getCreatures()) {
+                // unbind reference from all creatures
+                c.setGuiElement(null);
+            }
+        }
+        // remove reference from controller's list
         elements.remove(name);
     }
     
@@ -105,7 +113,7 @@ public final class Gui {
     
     
     
-    public Gui setParent (BasicGameState parent) {
+    public GuiController setParent (BasicGameState parent) {
         this.parent = parent;
         return this;
     }

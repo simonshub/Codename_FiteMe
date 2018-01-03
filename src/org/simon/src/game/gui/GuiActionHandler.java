@@ -61,7 +61,7 @@ public class GuiActionHandler {
     
     public static void destroy (GuiElement source) {
         if (Settings.debug_gui) Log.log("destroy");
-        Gui parent = source.getParent();
+        GuiController parent = source.getParent();
         parent.removeElement(source.getName());
     }
     
@@ -329,6 +329,7 @@ public class GuiActionHandler {
     }
     
     public static void exit (GuiElement source) {
+        Log.log("Exiting game...");
         System.exit(1);
     }
     
@@ -350,8 +351,9 @@ public class GuiActionHandler {
     
     
     public static void selecttarget (GuiElement source) {
+        if (Settings.debug_gui) Log.log("selecttarget");
         if (CombatState.substate == CombatState.CombatSubState.PICK_TARGET) {
-            Gui parent = source.getParent();
+            GuiController parent = source.getParent();
 
             GuiElement el = parent.getElement("played_card");
             el.setVisible(false);
@@ -371,10 +373,11 @@ public class GuiActionHandler {
     }
     
     public static void selectcard (GuiElement source) {
+        if (Settings.debug_gui) Log.log("selectcard");
         if (CombatState.substate != CombatState.CombatSubState.PICK_CARD) return;
         if (GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && !CombatState.getCurrentCastingCreature().canSpendPoints(source.getCard())) return;
         
-        Gui parent = source.getParent();
+        GuiController parent = source.getParent();
         
         GuiElement el = parent.getElement("played_card");
         el.setVisible(true);
@@ -390,9 +393,10 @@ public class GuiActionHandler {
     }
     
     public static void deselectcard (GuiElement source) {
+        if (Settings.debug_gui) Log.log("deselectcard");
         if (CombatState.substate == CombatState.CombatSubState.PICK_CARD) return;
         
-        Gui parent = source.getParent();
+        GuiController parent = source.getParent();
         
         GuiElement el = parent.getElement("played_card");
         el.setVisible(false);
@@ -403,6 +407,7 @@ public class GuiActionHandler {
     }
     
     public static void endturn (GuiElement source) {
+        if (Settings.debug_gui) Log.log("endturn");
         if (CombatState.substate != CombatState.CombatSubState.PICK_CARD)
             return;
         
@@ -410,10 +415,12 @@ public class GuiActionHandler {
     }
     
     public static void closeup (GuiElement source) {
+        if (Settings.debug_gui) Log.log("closeup");
         CardGalleryState.switchToCloseup(source.getCard());
     }
     
     public static void start_new_game (GuiElement source) {
+        if (Settings.debug_gui) Log.log("start_new_game");
         enter_state(source);
     }
     

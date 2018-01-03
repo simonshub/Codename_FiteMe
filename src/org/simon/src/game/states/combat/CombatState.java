@@ -21,7 +21,7 @@ import org.simon.src.game.data.gameplay.cards.CardPool;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.data.gameplay.creatures.CreatureLibrary;
 import org.simon.src.game.sfx.SpecialEffectSystem;
-import org.simon.src.game.gui.Gui;
+import org.simon.src.game.gui.GuiController;
 import org.simon.src.game.gui.GuiActionHandler;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.gui.TutorialStringLibrary;
@@ -46,7 +46,7 @@ public class CombatState extends BasicGameState {
     
     public static CombatSubState substate;
     
-    public static Gui gui;
+    public static GuiController gui;
     public static SpecialEffectSystem sfx;
 
     
@@ -62,7 +62,7 @@ public class CombatState extends BasicGameState {
         
         sfx = new SpecialEffectSystem ();
         
-        gui = new Gui ();
+        gui = new GuiController ();
         String el_name;
         
         CardPool test_deck = new CardPool (CardLibrary.getAllCards());
@@ -124,7 +124,7 @@ public class CombatState extends BasicGameState {
         creature_el_x = 0.125f;
         creature_el_y = 0.45f;
         el_name = "creature_slot";
-        for (int i=0;i<5;i++) {
+        for (int i=0;i<4;i++) {
             creature_el_x += 0.01f; // margin
             Creature creature = new Creature (CreatureLibrary.getRandomCreature());
             GuiElement creature_slot = new GuiElement (el_name+"_ally_"+String.valueOf(i), gui, true, creature_el_x, creature_el_y, true, creature_el_width, creature_el_height, "")

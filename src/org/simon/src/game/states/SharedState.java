@@ -5,6 +5,7 @@
  */
 package org.simon.src.game.states;
 
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
@@ -14,6 +15,8 @@ import org.simon.src.game.states.cardcrafter.CardCrafterState;
 import org.simon.src.game.states.cardgallery.CardGalleryState;
 import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.game.states.creaturecrafter.CreatureCrafterState;
+import org.simon.src.game.states.menu.MenuState;
+import org.simon.src.game.states.newgame.NewGameState;
 import org.simon.src.utils.Log;
 
 /**
@@ -45,42 +48,44 @@ public class SharedState {
     public static boolean update (GameContainer gc, StateBasedGame sbg, JFrame frame) {
         
         if (gc.getInput().isKeyPressed(Input.KEY_NUMPAD1) && gc.getInput().isKeyDown(Input.KEY_LCONTROL)) {
-            if (sbg.getCurrentStateID()==CombatState.ID)
-                sbg.enterState(CardCrafterState.ID);
-            else
-                sbg.enterState(CombatState.ID);
+            sbg.enterState(MenuState.ID);
             
-            if (frame!=null) frame.setVisible(false);
+            if (frame!=null) frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             return true;
         }
         
         if (gc.getInput().isKeyPressed(Input.KEY_NUMPAD2) && gc.getInput().isKeyDown(Input.KEY_LCONTROL)) {
-            if (sbg.getCurrentStateID()==CombatState.ID)
-                sbg.enterState(CreatureCrafterState.ID);
-            else
-                sbg.enterState(CombatState.ID);
+            sbg.enterState(NewGameState.ID);
             
-            if (frame!=null) frame.setVisible(false);
+            if (frame!=null) frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             return true;
         }
         
         if (gc.getInput().isKeyPressed(Input.KEY_NUMPAD3) && gc.getInput().isKeyDown(Input.KEY_LCONTROL)) {
-            if (sbg.getCurrentStateID()==CombatState.ID)
-                sbg.enterState(CreatureCrafterState.ID);
-            else
-                sbg.enterState(CombatState.ID);
+            sbg.enterState(CombatState.ID);
             
-            if (frame!=null) frame.setVisible(false);
+            if (frame!=null) frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             return true;
         }
         
         if (gc.getInput().isKeyPressed(Input.KEY_NUMPAD4) && gc.getInput().isKeyDown(Input.KEY_LCONTROL)) {
-            if (sbg.getCurrentStateID()==CombatState.ID)
-                sbg.enterState(CardGalleryState.ID);
-            else
-                sbg.enterState(CombatState.ID);
+            sbg.enterState(CardCrafterState.ID);
             
-            if (frame!=null) frame.setVisible(false);
+            if (frame!=null) frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            return true;
+        }
+        
+        if (gc.getInput().isKeyPressed(Input.KEY_NUMPAD5) && gc.getInput().isKeyDown(Input.KEY_LCONTROL)) {
+            sbg.enterState(CreatureCrafterState.ID);
+            
+            if (frame!=null) frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            return true;
+        }
+        
+        if (gc.getInput().isKeyPressed(Input.KEY_NUMPAD6) && gc.getInput().isKeyDown(Input.KEY_LCONTROL)) {
+            sbg.enterState(CardGalleryState.ID);
+            
+            if (frame!=null) frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             return true;
         }
         

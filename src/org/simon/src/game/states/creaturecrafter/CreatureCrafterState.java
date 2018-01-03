@@ -19,7 +19,7 @@ import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.data.gameplay.creatures.CreatureLibrary;
-import org.simon.src.game.gui.Gui;
+import org.simon.src.game.gui.GuiController;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.states.SharedState;
 import org.simon.src.game.states.combat.CombatState;
@@ -35,7 +35,7 @@ public class CreatureCrafterState extends BasicGameState {
     
     public static final int ID = 501;
     
-    public static Gui gui;
+    public static GuiController gui;
     
     private static CreatureCrafterFrame frame = null;
     
@@ -60,7 +60,7 @@ public class CreatureCrafterState extends BasicGameState {
         creature.setPoints(new HashMap<> ());
         creature.setIcon(creature_images.get(current_image_index));
         
-        gui = new Gui ();
+        gui = new GuiController ();
         String el_name;
         float scale = 2f;
         float creature_width = Creature.DEFAULT_CREATURE_WIDTH * scale * Settings.screen_width;

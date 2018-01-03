@@ -60,7 +60,7 @@ public class CardAction {
             List<Creature> target_list = new ArrayList<> (Arrays.asList(targets));
             this.method.invoke(null, source, parent, arg_list, target_list);
         } catch (NullPointerException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-            Log.err("Error while invoking card effect!");
+            Log.err("Error while invoking card effect '"+method.getName()+"'!");
             Log.err(ex);
         }
     }

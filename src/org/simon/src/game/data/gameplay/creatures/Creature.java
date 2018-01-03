@@ -414,9 +414,9 @@ public class Creature {
         // if this creature is the one currently on turn, render turn indicator
         if (CombatState.getCurrentCastingCreature() == this) {
             Image turn_indicator = ResourceManager.getGraphics(Settings.turn_indicator_graphics);
-            float turn_indicator_width = actual_width;
-            float turn_indicator_height = actual_width / 2f;
-            turn_indicator.draw(actual_x, actual_y - turn_indicator_height*(1f + TURN_INDICATOR_MARGIN) - point_size, turn_indicator_width, turn_indicator_height);
+            float turn_indicator_width = actual_width /2f;
+            float turn_indicator_height = actual_width /2f;
+            turn_indicator.draw(actual_x + actual_width/2f - turn_indicator_width/2f, actual_y - turn_indicator_height*(1f + TURN_INDICATOR_MARGIN) - point_size, turn_indicator_width, turn_indicator_height);
         }
     }
     

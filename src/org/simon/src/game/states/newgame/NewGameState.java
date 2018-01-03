@@ -13,7 +13,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.simon.src.game.data.gameplay.GameplayManager;
 import org.simon.src.game.data.gameplay.player.PlayerCharacterClass;
-import org.simon.src.game.gui.Gui;
+import org.simon.src.game.gui.GuiController;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.states.SharedState;
 import org.simon.src.game.states.combat.CombatState;
@@ -30,7 +30,7 @@ public class NewGameState extends BasicGameState {
     public static final String TITLE_LABEL = "Choose your party";
     public static final String START_LABEL = "Start Game";
     
-    public static Gui gui;
+    public static GuiController gui;
 
     
     
@@ -41,7 +41,7 @@ public class NewGameState extends BasicGameState {
     
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        gui = new Gui ();
+        gui = new GuiController ();
         String el_name;
         
         el_name = "title";

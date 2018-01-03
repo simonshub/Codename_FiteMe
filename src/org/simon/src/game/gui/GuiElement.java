@@ -28,7 +28,7 @@ import org.simon.src.utils.Settings;
  */
 public final class GuiElement {
     
-    private final Gui parent;
+    private final GuiController parent;
     private final String name;
     
     private Color color_filter;
@@ -65,7 +65,7 @@ public final class GuiElement {
     
     
     
-    public GuiElement (String name, Gui parent, boolean precentile_loc, float x, float y, boolean precentile_size, float width, float height, String graphics) {
+    public GuiElement (String name, GuiController parent, boolean precentile_loc, float x, float y, boolean precentile_size, float width, float height, String graphics) {
         if (precentile_loc) {
             x *= Settings.screen_width;
             y *= Settings.screen_height;
@@ -107,7 +107,7 @@ public final class GuiElement {
         this.while_unhovered = new ArrayList<> ();
     }
     
-    public GuiElement (String name, Gui parent, boolean precentile_loc, float x, float y, boolean precentile_size, float width, float height) {
+    public GuiElement (String name, GuiController parent, boolean precentile_loc, float x, float y, boolean precentile_size, float width, float height) {
         this (name, parent, precentile_loc, x, y, precentile_size, width, height, "");
     }
     
@@ -117,7 +117,7 @@ public final class GuiElement {
         return this.visible;
     }
     
-    public Gui getParent () {
+    public GuiController getParent () {
         return this.parent;
     }
     

@@ -17,7 +17,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;
-import org.simon.src.game.gui.Gui;
+import org.simon.src.game.gui.GuiController;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.states.SharedState;
 import org.simon.src.utils.Log;
@@ -34,7 +34,7 @@ public class CardCrafterState extends BasicGameState {
     
     public static final String CARD_ACTION_PARAM_DISPLAY_TEXT_DELIMITER = " ";
     
-    public static Gui gui;
+    public static GuiController gui;
     
     private static CardCrafterFrame frame = null;
     
@@ -60,7 +60,7 @@ public class CardCrafterState extends BasicGameState {
         card.setDescription("");
         card.setIcon(card_images.get(current_image_index));
         
-        gui = new Gui ();
+        gui = new GuiController ();
         String el_name;
         float scale = 3f;
         float card_width = Card.STANDARD_CARD_WIDTH * scale;

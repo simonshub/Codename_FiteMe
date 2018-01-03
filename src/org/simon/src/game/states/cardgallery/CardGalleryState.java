@@ -16,7 +16,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;
-import org.simon.src.game.gui.Gui;
+import org.simon.src.game.gui.GuiController;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.states.SharedState;
 import org.simon.src.utils.Settings;
@@ -37,7 +37,7 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
     private float max_y_offset = 0f;
     private final float Y_OFFSET_STEP = 0.1f;
     
-    public static Gui gui;
+    public static GuiController gui;
     
     private static List<Card> card_list;
     
@@ -55,7 +55,7 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
         
         substate = CardGallerySubState.BROWSE;
         
-        gui = new Gui ();
+        gui = new GuiController ();
         String el_name;
         float card_x_margin = 0.04f * Settings.screen_width;
         float card_y_margin = 0.04f * Settings.screen_width;

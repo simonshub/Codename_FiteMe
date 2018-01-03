@@ -253,17 +253,16 @@ public class CardActionHandler {
         }
         
         int dur = Integer.parseInt(args.get(0));
-        args.remove(0);
         int split_index = 0;
         
-        for (int i=0;i<args.size();i++) {
+        for (int i=1;i<args.size();i++) {
             if (args.get(i).equals(StatusEffect.STATUS_EFFECT_DELIMITER)) {
                 split_index = i;
                 break;
             }
         }
         
-        List<String> action_list = args.subList(0, split_index);
+        List<String> action_list = args.subList(1, split_index);
         List<String> status_list = args.subList(split_index+1, args.size());
         String action_string = SlickUtils.getListAsStringList(action_list, Card.ACTION_TOKEN_DELIMITER);
         String status_string = SlickUtils.getListAsStringList(status_list, Card.ACTION_TOKEN_DELIMITER);
