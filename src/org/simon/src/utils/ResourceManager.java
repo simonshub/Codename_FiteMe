@@ -17,6 +17,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
 import org.newdawn.slick.TrueTypeFont;
+import org.simon.src.game.data.gameplay.GameplayManager;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;
 import org.simon.src.game.data.gameplay.creatures.CreatureLibrary;
 import org.simon.src.game.sfx.ParticleDefinition;
@@ -93,6 +94,12 @@ public class ResourceManager {
         end = System.currentTimeMillis();
         Log.log("Creatures loaded in "+String.format("%.2f", (end-start)/1000f)+" sec");
         
+        Log.log("Loading player character classes...");
+        start = System.currentTimeMillis();
+        GameplayManager.init();
+        end = System.currentTimeMillis();
+        Log.log("Player character classes loaded in "+String.format("%.2f", (end-start)/1000f)+" sec");
+        
         long end_entire = System.currentTimeMillis();
         Log.log("Finished loading in "+String.format("%.2f",(end_entire-start_entire)/1000f)+" sec");
     }
@@ -137,9 +144,9 @@ public class ResourceManager {
             for (File img : all_images) {
                 try {
                     String path = img.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
-                    String key = path
+                    String key = path.toLowerCase()
                             .substring(path.indexOf(Settings.grfx_path) + Settings.grfx_path.length())
-                            .replaceAll(Consts.GRFX_FILE_EXTENSION, "").toLowerCase();
+                            .replaceAll(Consts.GRFX_FILE_EXTENSION, "");
                     Image value = new Image (path, false, Image.FILTER_LINEAR);
                     
                     Log.log("Loaded graphics with name '"+key+"' at path '"+path+"'");
@@ -163,9 +170,9 @@ public class ResourceManager {
             for (File snd : all_sounds) {
                 try {
                     String path = snd.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
-                    String key = path
+                    String key = path.toLowerCase()
                             .substring(path.indexOf(Settings.sounds_path) + Settings.sounds_path.length())
-                            .replaceAll(Consts.SOUND_FILE_EXTENSION, "").toLowerCase();
+                            .replaceAll(Consts.SOUND_FILE_EXTENSION, "");
                     Sound value = new Sound (path);
                     
                     Log.log("Loaded sound with name '"+key+"' at path '"+path+"'");
@@ -191,7 +198,7 @@ public class ResourceManager {
                     String path = font.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
                     String key = path.substring(path.indexOf(Settings.fonts_path) + Settings.fonts_path.length());
                     key = key.substring(key.indexOf("/")+1);
-                    key = key.replaceAll(Consts.FONT_FILE_EXTENSION, "").toLowerCase();
+                    key = key.toLowerCase().replaceAll(Consts.FONT_FILE_EXTENSION, "");
                     Font value = Font.createFont(Font.TRUETYPE_FONT, new File(path));
                     
                     Log.log("Loaded font with name '"+key+"' at path '"+path+"'");
@@ -233,7 +240,7 @@ public class ResourceManager {
     
     public static File[] getAllFilesOfExtensionInSubdirs (File directory, String ext) {
         List<File> subfiles = new ArrayList<> ();
-        subfiles.addAll(Arrays.asList(directory.listFiles((File dir, String name) -> name.endsWith(ext) ) ) );
+        subfiles.addAll(Arrays.asList(directory.listFiles((File dir, String name) -> name.endsWith(ext.toLowerCase()) || name.endsWith(ext.toUpperCase()) ) ) );
         
         List<File> subdirectories = new ArrayList<> ();
         subdirectories.addAll(Arrays.asList(directory.listFiles((File pathname) -> pathname.isDirectory() ) ) );

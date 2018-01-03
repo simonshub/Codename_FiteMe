@@ -31,13 +31,13 @@ import org.simon.src.utils.SlickUtils;
 public class CreatureLibrary {
     
     public static final String PARSE_KEYWORD_SET_NEW_CREATURE = "crid";
-    public static final String PARSE_KEYWORD_SET_NAME = "name";
-    public static final String PARSE_KEYWORD_SET_ICON = "icon";
+    public static final String PARSE_KEYWORD_SET_ICON_SCALE = "icsz";
+    public static final String PARSE_KEYWORD_SET_ATK_MOD = "amod";
     public static final String PARSE_KEYWORD_SET_POINTS = "pnts";
     public static final String PARSE_KEYWORD_SET_HEALTH = "hlth";
     public static final String PARSE_KEYWORD_SET_ARMOR = "armr";
-    public static final String PARSE_KEYWORD_SET_ATK_MOD = "amod";
-    public static final String PARSE_KEYWORD_SET_ICON_SCALE = "icsz";
+    public static final String PARSE_KEYWORD_SET_NAME = "name";
+    public static final String PARSE_KEYWORD_SET_ICON = "icon";
     
     public static final String PARSE_DELIMITER = ":";
     public static final String PARSE_COMMENT = "#";
@@ -65,7 +65,7 @@ public class CreatureLibrary {
             for (File creature_pack : all_creature_packs) {
                 try {
                     String path = creature_pack.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
-                    String pack_name = path.substring(path.indexOf(Settings.creature_pack_path)+Settings.creature_pack_path.length(), path.lastIndexOf("."));
+                    String pack_name = SlickUtils.getFileName(path);
                     
                     String contents = new Scanner(creature_pack).useDelimiter("\\Z").next();
                     parseCreaturePackFile(pack_name, contents);

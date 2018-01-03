@@ -29,6 +29,7 @@ public class Settings {
     public static String sfx_path = "res/data/emitters/";
     public static String card_pack_path = "res/data/card_packs/";
     public static String creature_pack_path = "res/data/creature_packs/";
+    public static String character_class_path = "res/data/chars/";
     
     public static String turn_indicator_graphics = "ui/turn_indicator";
     

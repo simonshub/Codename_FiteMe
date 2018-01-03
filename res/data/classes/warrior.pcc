@@ -1,4 +1,0 @@
-name: Warrior
-grfx: chars/warrior
-pnts: atk def atk def agi
-clst: power_attack test_card thunder_strike chains_of_light electrify

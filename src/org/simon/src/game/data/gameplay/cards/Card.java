@@ -143,7 +143,7 @@ public class Card {
         // ONLY IF THE CURRENT GAMESTATE IS CombatState !
         Color tint = Color.white;
         if (SharedState.isCurrentState(CombatState.class)) {
-            if (CombatState.gameplay.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && (CombatState.getCurrentCastingCreature()==null || !CombatState.getCurrentCastingCreature().canSpendPoints(this)) ) {
+            if (GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && (CombatState.getCurrentCastingCreature()==null || !CombatState.getCurrentCastingCreature().canSpendPoints(this)) ) {
                 tint = new Color (0.5f, 0.5f, 0.5f, 1f);
             }
         }

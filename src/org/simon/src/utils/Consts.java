@@ -26,6 +26,7 @@ public class Consts {
     public static final String PARTICLE_FILE_EXTENSION = ".xml";
     public static final String CARD_PACK_FILE_EXTENSION = ".cap";
     public static final String CREATURE_PACK_FILE_EXTENSION = ".crp";
+    public static final String CHARACTER_CLASS_FILE_EXTENSION = ".pcc";
     
     public static final String DEFAULT_FONT = "note_this";
     public static final int DEFAULT_FONT_SIZE = 20;

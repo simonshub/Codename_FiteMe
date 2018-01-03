@@ -372,7 +372,7 @@ public class GuiActionHandler {
     
     public static void selectcard (GuiElement source) {
         if (CombatState.substate != CombatState.CombatSubState.PICK_CARD) return;
-        if (CombatState.gameplay.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && !CombatState.getCurrentCastingCreature().canSpendPoints(source.getCard())) return;
+        if (GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && !CombatState.getCurrentCastingCreature().canSpendPoints(source.getCard())) return;
         
         Gui parent = source.getParent();
         
@@ -411,6 +411,10 @@ public class GuiActionHandler {
     
     public static void closeup (GuiElement source) {
         CardGalleryState.switchToCloseup(source.getCard());
+    }
+    
+    public static void start_new_game (GuiElement source) {
+        enter_state(source);
     }
     
 }

@@ -45,7 +45,8 @@ public abstract class SlickUtils {
     
     
     public static String getFileName (String path) {
-        return path.substring(path.lastIndexOf("/")+1,path.lastIndexOf("."));
+        int end_of_path_index = Math.max(path.lastIndexOf("/")+1, path.lastIndexOf("\\")+1);
+        return path.substring(end_of_path_index,path.lastIndexOf("."));
     }
     
     public static String capitalizeWords (String sentance) {

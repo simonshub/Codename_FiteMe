@@ -6,6 +6,7 @@
 package org.simon.src.utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  *
@@ -17,14 +18,18 @@ public class CycleList<T> extends ArrayList {
         super();
     }
     
+    public CycleList (Collection<? extends T> c) {
+        super(c);
+    }
+    
     @Override
-    public Object get (int index) {
+    public T get (int index) {
         while (index < 0) {
             index += size();
         }
         while (index >= size()) {
             index -= size();
         }
-        return super.get(index);
+        return (T) super.get(index);
     }
 }

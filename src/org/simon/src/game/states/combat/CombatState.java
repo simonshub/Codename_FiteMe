@@ -48,7 +48,6 @@ public class CombatState extends BasicGameState {
     
     public static Gui gui;
     public static SpecialEffectSystem sfx;
-    public static GameplayManager gameplay;
 
     
     
@@ -62,8 +61,6 @@ public class CombatState extends BasicGameState {
         substate = CombatSubState.PICK_CARD;
         
         sfx = new SpecialEffectSystem ();
-        
-        gameplay = new GameplayManager ();
         
         gui = new Gui ();
         String el_name;
@@ -110,13 +107,13 @@ public class CombatState extends BasicGameState {
                     .setOnClick("selecttarget")
                     ;
             gui.addElement(el_name_complete, creature_slot);
-            gameplay.addEnemy(creature_slot);
+            GameplayManager.addEnemy(creature_slot);
             creature_el_x += creature_el_width;
             creature_el_x += 0.01f; // margin
         }
         
-        Creature[] creatures = new Creature [gameplay.getEnemies().size()];
-        gameplay.getEnemies().toArray(creatures);
+        Creature[] creatures = new Creature [GameplayManager.getEnemies().size()];
+        GameplayManager.getEnemies().toArray(creatures);
         el_name = "enemy_board";
         GuiElement enemy_board_el = new GuiElement (el_name, gui, true, 0.125f, 0.1f, true, 0.75f, 0.3f, "img1")
                 .setColor(0.8f,0.3f,0.3f,1f)
@@ -136,14 +133,14 @@ public class CombatState extends BasicGameState {
                     .setCreatures(creature)
                     .setOnClick("selecttarget")
                     ;
-            gameplay.addAlly(creature_slot);
+            GameplayManager.addAlly(creature_slot);
             gui.addElement(el_name+"_ally_"+String.valueOf(i), creature_slot);
             creature_el_x += creature_el_width;
             creature_el_x += 0.01f; // margin
         }
         
-        creatures = new Creature [gameplay.getAllies().size()];
-        gameplay.getAllies().toArray(creatures);
+        creatures = new Creature [GameplayManager.getAllies().size()];
+        GameplayManager.getAllies().toArray(creatures);
         el_name = "player_board";
         GuiElement player_board_el = new GuiElement (el_name, gui, true, 0.125f, 0.45f, true, 0.75f, 0.3f, "img1")
                 .setColor(0.3f,0.3f,0.8f,1f)
@@ -218,7 +215,7 @@ public class CombatState extends BasicGameState {
         end_turn.width = end_turn.height;
         gui.addElement(el_name, end_turn);
         
-        gui.getElement("turn_indicator").setText(gameplay.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
+        gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
     }
     
     @Override
@@ -235,7 +232,7 @@ public class CombatState extends BasicGameState {
         end_turn.setImage("ui/end_turn_disabled");
         end_turn.setWhileHovered("scalebackdown");
         substate = CombatSubState.ENEMY_TURN;
-        gui.getElement("turn_indicator").setText(gameplay.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
+        gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
     }
     
     public static void startTurn () {
@@ -244,18 +241,18 @@ public class CombatState extends BasicGameState {
         end_turn.setImage("ui/end_turn");
         end_turn.setWhileHovered("scaleup");
         substate = CombatSubState.PICK_CARD;
-        gui.getElement("turn_indicator").setText(gameplay.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
+        gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
     }
     
     public static Creature getCurrentCastingCreature () {
-        return gameplay.getCurrentCastingCreature();
+        return GameplayManager.getCurrentCastingCreature();
     }
     
     public static void setCurrentTurnCreature (GuiElement element) {
         if (element.getCreatures().length != 1) {
             Log.err("Error while setting current turn creature to element "+element.getName()+"; element does not contain exactly one creature");
         } else {
-            gameplay.setCurrentCastingCreature(element.getCreatures()[0]);
+            GameplayManager.setCurrentCastingCreature(element.getCreatures()[0]);
         }
     }
     
@@ -316,7 +313,7 @@ public class CombatState extends BasicGameState {
             Creature creature = new Creature (CreatureLibrary.getRandomCreature());
             elements.get(i).setCreatures(creature);
             board.add(creature);
-            if (i==0) gameplay.setCurrentCastingCreature(creature);
+            if (i==0) GameplayManager.setCurrentCastingCreature(creature);
         }
         
         GuiElement a_board = gui.getElement("player_board");

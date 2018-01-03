@@ -18,6 +18,7 @@ import org.simon.src.game.data.gameplay.cards.CardLibrary;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.utils.CycleList;
 import org.simon.src.utils.Log;
+import org.simon.src.utils.ResourceManager;
 
 /**
  *
@@ -27,19 +28,23 @@ public class PlayerCharacterClass {
     
     public static final String KEYWORD_NAME = "name";
     public static final String KEYWORD_GRFX = "grfx";
+    public static final String KEYWORD_PORT = "port";
     public static final String KEYWORD_PNTS = "pnts";
     public static final String KEYWORD_CLST = "clst";
     
     private String name;
     private String graphics;
+    private String portrait;
     private final List<Card> card_list;
     private final List<PointTypeEnum> point_leveling_list;
     
     
     
+    public PlayerCharacterClass (File file) {
+        this(file.getAbsolutePath());
+    }
+    
     public PlayerCharacterClass (String file_path) {
-        String read_name = "";
-        String read_grfx = "";
         this.card_list = new ArrayList<> ();
         this.point_leveling_list = new CycleList<> ();
         
@@ -62,7 +67,10 @@ public class PlayerCharacterClass {
                             this.name = parse_value;
                             break;
                         case KEYWORD_GRFX :
-                            this.graphics = parse_value;
+                            if (ResourceManager.hasGraphics(parse_value)) this.graphics = parse_value;
+                            break;
+                        case KEYWORD_PORT :
+                            this.portrait = parse_value;
                             break;
                         case KEYWORD_PNTS :
                             String[] points = parse_value.split(" ");
@@ -85,9 +93,6 @@ public class PlayerCharacterClass {
             Log.err("Error while loading player character class from file; '"+file_path+"'");
             Log.err(ex);
         }
-        
-        this.name = read_name;
-        this.graphics = read_grfx;
     }
     
     
@@ -129,6 +134,10 @@ public class PlayerCharacterClass {
     
     public String getGraphics () {
         return graphics;
+    }
+    
+    public String getPortrait () {
+        return portrait;
     }
     
     public Creature getCreatureParent (int level) {
