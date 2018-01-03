@@ -59,7 +59,7 @@ ulvl: 1
 card: electrify
 name: Electrify
 icon: cards/base_ecp/thor-fist
-targ: single_enemy
+targ: all_enemies
 func: damage 1 3 1 true
 text: Deal 1-3 damage to all enemies
 spef: torch_src_tar_0.5;test_tar_tar_0.25
