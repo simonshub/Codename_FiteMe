@@ -163,6 +163,7 @@ public final class GuiController {
             }
         } else if (lmb) {
             click_lock = true;
+            time_since_last_click = 0;
         }
     }
     

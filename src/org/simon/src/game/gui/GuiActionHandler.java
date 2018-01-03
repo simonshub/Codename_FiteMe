@@ -11,8 +11,10 @@ import org.newdawn.slick.Color;
 import org.simon.src.game.data.gameplay.GameplayManager;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
+import org.simon.src.game.data.gameplay.player.PlayerCharacterClass;
 import org.simon.src.game.states.cardgallery.CardGalleryState;
 import org.simon.src.game.states.combat.CombatState;
+import org.simon.src.game.states.newgame.NewGameState;
 import org.simon.src.main.Main;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.Settings;
@@ -421,7 +423,41 @@ public class GuiActionHandler {
     
     public static void start_new_game (GuiElement source) {
         if (Settings.debug_gui) Log.log("start_new_game");
-        enter_state(source);
+        GuiElement overlay = source.getParent().getElement("overlay");
+        overlay.setVisible(true);
+        overlay.instantCall("fadein");
+    }
+    
+    public static void next_class (GuiElement source) {
+        if (Settings.debug_gui) Log.log("next_class");
+        int index = (int) source.getProperty("char_picker_slot_index");
+        
+        GuiElement portrait = source.getParent().getElement("char_picker_portrait_" + index);
+        GuiElement label = source.getParent().getElement("char_picker_label_" + index);
+        
+        int current_selection = (int) portrait.getProperty("current_class_selection_index");
+        int new_selection = current_selection + 1;
+        
+        PlayerCharacterClass selection = NewGameState.all_classes.get(new_selection);
+        portrait.setProperty("current_class_selection_index", new_selection);
+        portrait.setImage(selection.getPortrait());
+        label.setText(selection.getName());
+    }
+    
+    public static void prev_class (GuiElement source) {
+        if (Settings.debug_gui) Log.log("next_class");
+        int index = (int) source.getProperty("char_picker_slot_index");
+        
+        GuiElement portrait = source.getParent().getElement("char_picker_portrait_" + index);
+        GuiElement label = source.getParent().getElement("char_picker_label_" + index);
+        
+        int current_selection = (int) portrait.getProperty("current_class_selection_index");
+        int new_selection = current_selection - 1;
+        
+        PlayerCharacterClass selection = NewGameState.all_classes.get(new_selection);
+        portrait.setProperty("current_class_selection_index", new_selection);
+        portrait.setImage(selection.getPortrait());
+        label.setText(selection.getName());
     }
     
 }
