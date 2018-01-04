@@ -39,6 +39,12 @@ public class SpecialEffectSystem {
         instances = new ArrayList<> ();
     }
     
+    public void addSfx (String sfx_callstring, SpecialEffectCallback callback, Creature src, List<Creature> targets) {
+        Creature[] targets_arr = new Creature [targets.size()];
+        targets.toArray(targets_arr);
+        addSfx (sfx_callstring, callback, src, targets_arr);
+    }
+    
     public void addSfx (String sfx_callstring, SpecialEffectCallback callback, Creature src, Creature... targets) {
         List<GuiElement> target_el_list = new ArrayList<> ();
         for (int i=0;i<targets.length;i++) {

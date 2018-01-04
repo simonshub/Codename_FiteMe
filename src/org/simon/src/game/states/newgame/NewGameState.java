@@ -51,7 +51,7 @@ public class NewGameState extends BasicGameState {
         
         el_name = "title";
         GuiElement title = new GuiElement (el_name, gui, true, 0.2f, 0f, true, 0.6f, 0.1f, "ui/btn_alt")
-                .setFont("consolas", 32f)
+                .setFont("consolas", 32)
                 .setText(TITLE_LABEL)
                 ;
         gui.addElement(el_name, title);
@@ -63,7 +63,7 @@ public class NewGameState extends BasicGameState {
         
         el_name = "start_btn";
         GuiElement start_btn = new GuiElement (el_name, gui, true, 0.2f, 0.9f, true, 0.6f, 0.1f, "ui/btn")
-                .setFont("consolas", 32f)
+                .setFont("consolas", 32)
                 .setText(START_LABEL)
                 .setOnHover("hover_img")
                 .setOnUnhover("unhover_img")
@@ -141,7 +141,7 @@ public class NewGameState extends BasicGameState {
         el_name = "char_picker_label_" + index;
         GuiElement char_picker_label = new GuiElement (el_name, gui, true, x, y + height - label_height, true, width, label_height, "ui/box")
                 .setLayer(8)
-                .setFont("consolas", 24f)
+                .setFont("consolas", 24)
                 .setText(initial_selection.getName())
                 ;
         gui.addElement(el_name, char_picker_label);

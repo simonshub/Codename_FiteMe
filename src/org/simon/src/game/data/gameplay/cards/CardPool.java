@@ -45,7 +45,7 @@ public class CardPool {
         }
     }
     
-    public void addCard (Card card) {
+    public final void addCard (Card card) {
         addCard(card.getId());
     }
     

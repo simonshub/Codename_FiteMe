@@ -34,11 +34,9 @@ public class SpecialEffectCallback {
     
     
     public void call () {
-        Creature[] target_array = new Creature [targets.size()];
-        targets.toArray(target_array);
-        
         for (CardAction action : actions) {
-            action.call(source, parent, target_array);
+            for (Creature target : targets)
+                action.call(source, parent, target);
         }
     }
     

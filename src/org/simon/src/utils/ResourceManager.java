@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -45,6 +46,8 @@ public class ResourceManager {
     private static Map<String, Font> font_lib;
     
     private static Map<String, ParticleDefinition> particle_lib;
+    
+    private static Map<String, TrueTypeFont> preloaded_fonts;
     
     
     
@@ -201,6 +204,7 @@ public class ResourceManager {
     
     private static void loadFonts () {
         font_lib = new HashMap<> ();
+        preloaded_fonts = new HashMap<> ();
         File dump = new File (Settings.fonts_path);
         
         if (!dump.exists()) {
@@ -287,21 +291,30 @@ public class ResourceManager {
         return sound_lib.get(name);
     }
     
-    public static TrueTypeFont getFont (String name, float size) {
+    public static TrueTypeFont getFont (String name, int size) {
         name = name.toLowerCase();
+        String preload_key = name + "_" + String.valueOf(size);
+        
+        if (preloaded_fonts.containsKey(preload_key))
+            return preloaded_fonts.get(preload_key);
+        
+        TrueTypeFont result;
         if (!font_lib.containsKey(name)) {
             try {
-                Font font = new Font (name, Font.PLAIN, (int)size);
+                Font font = new Font (name, Font.PLAIN, size);
                 font_lib.put(name, font);
-                return new TrueTypeFont (font, true);
+                result = new TrueTypeFont (font, true);
             } catch (RuntimeException ex) {
                 Log.err(ex);
                 return null;
             }
         } else {
-            Font resized_font = font_lib.get(name).deriveFont(size);
-            return new TrueTypeFont (resized_font, true);
+            Font resized_font = font_lib.get(name).deriveFont((float) size);
+            result = new TrueTypeFont (resized_font, true);
         }
+        
+        preloaded_fonts.put(preload_key, result);
+        return result;
     }
     
     public static ParticleDefinition getParticle (String name) {

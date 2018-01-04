@@ -45,7 +45,7 @@ public class MenuState extends BasicGameState {
         el_name = "play_btn";
         GuiElement play_btn = new GuiElement (el_name, gui, true, 0.33f, 0.3f, true, 0.34f, 0.1f, "ui/btn")
                 .setText(PLAY_LABEL)
-                .setFont("consolas", 32f)
+                .setFont("consolas", 32)
                 .setOnClick("enter_state")
                 .setProperty("enter_state", NewGameState.ID)
                 .setOnHover("hover_img")
@@ -57,7 +57,7 @@ public class MenuState extends BasicGameState {
         el_name = "info_btn";
         GuiElement info_btn = new GuiElement (el_name, gui, true, 0.33f, 0.5f, true, 0.34f, 0.1f, "ui/btn")
                 .setText(INFO_LABEL)
-                .setFont("consolas", 32f)
+                .setFont("consolas", 32)
                 .setOnHover("hover_img")
                 .setOnUnhover("unhover_img")
                 .setProperty("hover_img", "ui/btn_hover")
@@ -67,7 +67,7 @@ public class MenuState extends BasicGameState {
         el_name = "exit_btn";
         GuiElement exit_btn = new GuiElement (el_name, gui, true, 0.33f, 0.7f, true, 0.34f, 0.1f, "ui/btn")
                 .setText(QUIT_LABEL)
-                .setFont("consolas", 32f)
+                .setFont("consolas", 32)
                 .setOnClick("exit")
                 .setOnHover("hover_img")
                 .setOnUnhover("unhover_img")

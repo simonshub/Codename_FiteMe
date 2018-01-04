@@ -5,6 +5,10 @@
  */
 package org.simon.src.game.data.gameplay;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.simon.src.game.data.gameplay.creatures.Creature;
+
 /**
  *
  * @author XyRoN
@@ -14,6 +18,7 @@ public enum TargetEnum {
     SINGLE_ALLY,
     ALL_ENEMIES,
     ALL_ALLIES,
+    SELF,
     ALL,
     
     ;
@@ -25,5 +30,33 @@ public enum TargetEnum {
             }
         }
         return TargetEnum.SINGLE_ENEMY;
+    }
+    
+    public static List<Creature> getTargetList (TargetEnum mode, Creature caster, Creature primary_target, List<Creature> enemies, List<Creature> allies) {
+        List<Creature> result_list = new ArrayList<> ();
+        
+        switch (mode) {
+            case SINGLE_ENEMY :
+                if (GameplayManager.isCreatureEnemy(primary_target)) result_list.add(primary_target);
+                break;
+            case SINGLE_ALLY :
+                if (!GameplayManager.isCreatureEnemy(primary_target)) result_list.add(primary_target);
+                break;
+            case ALL_ENEMIES :
+                result_list.addAll(enemies);
+                break;
+            case ALL_ALLIES :
+                result_list.addAll(allies);
+                break;
+            case SELF :
+                result_list.add(caster);
+                break;
+            case ALL :
+                result_list.addAll(enemies);
+                result_list.addAll(allies);
+                break;
+        }
+        
+        return result_list;
     }
 }

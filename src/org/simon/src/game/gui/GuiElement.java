@@ -50,7 +50,7 @@ public final class GuiElement {
     private Card card=null;
     private boolean is_card=false;
     
-    private Creature[] creatures=null;
+    private Creature creature=null;
     private boolean is_creature=false;
     
     private boolean visible=true;
@@ -170,19 +170,16 @@ public final class GuiElement {
         return card;
     }
     
-    public GuiElement setCreatures (Creature... creatures) {
-        this.creatures = creatures;
+    public GuiElement setCreature (final Creature creature) {
+        this.creature = creature;
         this.is_creature = true;
-        
-        if (this.creatures.length==1) {
-            this.creatures[0].setGuiElement(this);
-        }
+        this.creature.setGuiElement(this);
         
         return this;
     }
     
-    public Creature[] getCreatures () {
-        return creatures;
+    public Creature getCreature () {
+        return creature;
     }
     
     public GuiElement setText (String text) {
@@ -221,7 +218,7 @@ public final class GuiElement {
         return this;
     }
     
-    public GuiElement setFont (String font_name, float size) {
+    public GuiElement setFont (String font_name, int size) {
         this.font = ResourceManager.getFont(font_name, size);
         return this;
     }
@@ -489,8 +486,8 @@ public final class GuiElement {
             this.card.render(g, display_x+x_offset, display_y+y_offset, actual_scale);
         }
         
-        if (this.is_creature && creatures!=null && creatures.length==1) {
-            this.creatures[0].render(g, display_x+x_offset + width/2f, display_y+y_offset + height/2f, width, scale);
+        if (this.is_creature && creature!=null) {
+            this.creature.render(g, display_x+x_offset + width/2f, display_y+y_offset + height/2f, width, scale);
         }
     }
     

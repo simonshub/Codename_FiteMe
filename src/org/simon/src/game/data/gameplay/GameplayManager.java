@@ -11,10 +11,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.simon.src.game.data.gameplay.creatures.Creature;
+import org.simon.src.game.data.gameplay.player.Player;
 import org.simon.src.game.data.gameplay.player.PlayerCharacterClass;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.utils.Consts;
@@ -58,22 +56,25 @@ public class GameplayManager {
     
     public static final void init () {
         loadPlayerCharacterClasses();
+        Player.init();
     }
     
     
     
-    public static void addEnemy (GuiElement element) {
-        if (element.getCreatures().length == 1)
-            enemy_board.add(current_casting_creature);
-        else
-            Log.err("Cannot add enemy to board since passed GUI element does not contain extactly one creature");
+    public static void addEnemy (final Creature creature) {
+        enemy_board.add(creature);
     }
     
-    public static void addAlly (GuiElement element) {
-        if (element.getCreatures().length == 1)
-            ally_board.add(current_casting_creature);
-        else
-            Log.err("Cannot add ally to board since passed GUI element does not contain extactly one creature");
+    public static void addAlly (final Creature creature) {
+        ally_board.add(creature);
+    }
+    
+    public static void addEnemy (final GuiElement element) {
+        if (element.getCreature() != null) enemy_board.add(element.getCreature());
+    }
+    
+    public static void addAlly (final GuiElement element) {
+        if (element.getCreature() != null) ally_board.add(element.getCreature());
     }
     
     public static Opponent getCurrentOpponent () {
@@ -92,11 +93,15 @@ public class GameplayManager {
         return ally_board;
     }
     
+    public static boolean isCreatureEnemy (final Creature c) {
+        return !ally_board.contains(c);
+    }
+    
     public static Creature getCurrentCastingCreature () {
         return current_casting_creature;
     }
     
-    public static void setCurrentCastingCreature (Creature current_casting_creature) {
+    public static void setCurrentCastingCreature (final Creature current_casting_creature) {
         GameplayManager.current_casting_creature = current_casting_creature;
     }
     
@@ -110,6 +115,14 @@ public class GameplayManager {
     
     public static CycleList<PlayerCharacterClass> getAllPlayerCharacterClassesCycleList () {
         return new CycleList<> (loaded_character_classes.values());
+    }
+    
+    public static void clearEnemies () {
+        enemy_board.clear();
+    }
+    
+    public static void clearAllies () {
+        ally_board.clear();
     }
     
     

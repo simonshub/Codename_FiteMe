@@ -52,10 +52,10 @@ public class Card {
     public static final float CARD_DESCRIPTION_Y_MARGIN = 3f;       // in pixels
     
     public static final String CARD_NAME_FONT = "consolas";
-    public static final float CARD_NAME_FONT_DEFAULT_SIZE = 32f;
+    public static final int CARD_NAME_FONT_DEFAULT_SIZE = 32;
     
     public static final String CARD_DESCRIPTION_FONT = "consolas";
-    public static final float CARD_DESCRIPTION_FONT_DEFAULT_SIZE = 32f;
+    public static final int CARD_DESCRIPTION_FONT_DEFAULT_SIZE = 32;
     
     public static final float CARD_TEXT_MAX_WIDTH = ( STANDARD_CARD_WIDTH - (CARD_X_MARGIN*2f) ) * (CARD_DESCRIPTION_FONT_DEFAULT_SIZE / 10f);
     
@@ -415,6 +415,10 @@ public class Card {
         return unlock_level;
     }
     
+    public TargetEnum getTargetMode () {
+        return target_mode;
+    }
+    
     
     
     private String autoSplitText (String text) {
@@ -464,6 +468,17 @@ public class Card {
         }
         
         SpecialEffectCallback callback = new SpecialEffectCallback(this, source, Arrays.asList(targets), actions);
+        sfx.addSfx(this.sfx_callstring, callback, source, targets);
+        sfx.playSfx();
+    }
+    
+    public void play (SpecialEffectSystem sfx, Creature source, List<Creature> targets) {
+        if (!source.spendPoints(this)) {
+            Log.err("Cannot cast card '"+this.name+"' because caster '"+source.getName()+"' doesn't have enough points!");
+            return;
+        }
+        
+        SpecialEffectCallback callback = new SpecialEffectCallback(this, source, targets, actions);
         sfx.addSfx(this.sfx_callstring, callback, source, targets);
         sfx.playSfx();
     }

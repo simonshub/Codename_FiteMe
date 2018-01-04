@@ -16,7 +16,6 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.ResourceManager;
 
@@ -31,7 +30,7 @@ public final class GuiController {
     public static float FLOATING_TEXT_ELEMENT_WIDTH = 1f;
     public static float FLOATING_TEXT_ELEMENT_HEIGHT = 1f;
     
-    public static float FLOATING_TEXT_FONT_SIZE = 48f;
+    public static int FLOATING_TEXT_FONT_SIZE = 48;
     public static String FLOATING_TEXT_FONT = "consolas";
     
     
@@ -57,11 +56,8 @@ public final class GuiController {
     }
     
     public void removeElement (String name) {
-        if (elements.get(name).getCreatures() != null) {
-            for (Creature c : elements.get(name).getCreatures()) {
-                // unbind reference from all creatures
-                c.setGuiElement(null);
-            }
+        if (elements.get(name).getCreature() != null) {
+            elements.get(name).getCreature().setGuiElement(null);
         }
         // remove reference from controller's list
         elements.remove(name);

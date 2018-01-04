@@ -20,6 +20,7 @@ import org.simon.src.game.data.gameplay.cards.CardLibrary;
 import org.simon.src.game.data.gameplay.cards.CardPool;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.data.gameplay.creatures.CreatureLibrary;
+import org.simon.src.game.data.gameplay.player.Player;
 import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.game.gui.GuiController;
 import org.simon.src.game.gui.GuiActionHandler;
@@ -71,7 +72,7 @@ public class CombatState extends BasicGameState {
         el_name = "turn_indicator";
         GuiElement turn_indicator = new GuiElement (el_name, gui, true, 0.2f, 0f, true, 0.6f, 0.05f, "img1")
                 .setTextColor(0f, 0f, 0f, 1f)
-                .setFont("consolas", 20f)
+                .setFont("consolas", 20)
                 .setColor(0.8f,0.8f,0.8f,1f);
         gui.addElement(el_name, turn_indicator);
         
@@ -81,7 +82,7 @@ public class CombatState extends BasicGameState {
                 .setLayer(2)
                 .setColor(0.5f,0.5f,0.5f,0.5f)
                 .setTextColor(1f, 1f, 1f, 1f)
-                .setFont("consolas", 25f)
+                .setFont("consolas", 25)
                 .setProperty("fade_speed", 2.0f)
                 .setProperty("set_text", TutorialStringLibrary.PICK_A_CARD)
                 .setProperty("set_onclick", "fadeout")
@@ -99,59 +100,41 @@ public class CombatState extends BasicGameState {
         for (int i=0;i<5;i++) {
             creature_el_x += 0.01f; // margin
             Creature creature = new Creature (CreatureLibrary.getRandomCreature());
+            GameplayManager.addEnemy(creature);
             String el_name_complete = el_name+"_enemy_"+String.valueOf(i);
             GuiElement creature_slot = new GuiElement (el_name_complete, gui, true, creature_el_x, creature_el_y, true, creature_el_width, creature_el_height, "")
                     .setColor(0.5f,0.6f,0.4f,1f)
                     .setLayer(1)
-                    .setCreatures(creature)
+                    .setCreature(creature)
                     .setOnClick("selecttarget")
                     ;
             gui.addElement(el_name_complete, creature_slot);
-            GameplayManager.addEnemy(creature_slot);
             creature_el_x += creature_el_width;
             creature_el_x += 0.01f; // margin
         }
         
-        Creature[] creatures = new Creature [GameplayManager.getEnemies().size()];
-        GameplayManager.getEnemies().toArray(creatures);
-        el_name = "enemy_board";
-        GuiElement enemy_board_el = new GuiElement (el_name, gui, true, 0.125f, 0.1f, true, 0.75f, 0.3f, "img1")
-                .setColor(0.8f,0.3f,0.3f,1f)
-                .setCreatures(creatures)
-                ;
-        gui.addElement(el_name, enemy_board_el);
-        
-        creature_el_x = 0.125f;
+        creature_el_x = 0.19f;
         creature_el_y = 0.45f;
         el_name = "creature_slot";
         for (int i=0;i<4;i++) {
             creature_el_x += 0.01f; // margin
             Creature creature = new Creature (CreatureLibrary.getRandomCreature());
+            GameplayManager.addAlly(creature);
             GuiElement creature_slot = new GuiElement (el_name+"_ally_"+String.valueOf(i), gui, true, creature_el_x, creature_el_y, true, creature_el_width, creature_el_height, "")
                     .setColor(0.5f,0.6f,0.4f,1f)
                     .setLayer(1)
-                    .setCreatures(creature)
+                    .setCreature(creature)
                     .setOnClick("selecttarget")
                     ;
-            GameplayManager.addAlly(creature_slot);
             gui.addElement(el_name+"_ally_"+String.valueOf(i), creature_slot);
             creature_el_x += creature_el_width;
             creature_el_x += 0.01f; // margin
         }
         
-        creatures = new Creature [GameplayManager.getAllies().size()];
-        GameplayManager.getAllies().toArray(creatures);
-        el_name = "player_board";
-        GuiElement player_board_el = new GuiElement (el_name, gui, true, 0.125f, 0.45f, true, 0.75f, 0.3f, "img1")
-                .setColor(0.3f,0.3f,0.8f,1f)
-                .setCreatures(creatures)
-                ;
-        gui.addElement(el_name, player_board_el);
-        
         el_name = "played_card";
         GuiElement played_card = new GuiElement (el_name, gui, true, 0.85f, 0.3f, true, 0.15f, 0.3f, "")
                 .setColor(0.4f,0.8f,0.4f,1f)
-                .setFont("consolas", 45f)
+                .setFont("consolas", 45)
                 .setLayer(3)
                 .setProperty("acceleration", 0.01f)
                 .setProperty("scale_limit", 1.25f)
@@ -165,8 +148,8 @@ public class CombatState extends BasicGameState {
         gui.addElement(el_name, played_card);
         
         el_name = "player_hand";
-        GuiElement player_hand = new GuiElement (el_name, gui, true, 0.1f, 0.78f, true, 0.8f, 0.22f, "img1")
-                .setColor(0.3f,0.3f,0.8f,1f);
+        GuiElement player_hand = new GuiElement (el_name, gui, true, 0.1f, 0.78f, true, 0.8f, 0.22f, "ui/box")
+                ;
         gui.addElement(el_name, player_hand);
         
         float card_el_width = 0.1f;
@@ -215,6 +198,17 @@ public class CombatState extends BasicGameState {
         end_turn.width = end_turn.height;
         gui.addElement(el_name, end_turn);
         
+        el_name = "overlay";
+        GuiElement overlay = new GuiElement (el_name, gui, true, 0f, 0f, true, 1f, 1f)
+                .setVisible(true)
+                .setColor(0f,0f,0f,1f)
+                .setProperty("fade_speed", .5f)
+                .setProperty("fadeout_callback", "hide")
+                .setProperty("acceleration", 0f)
+                .setLayer(1000)
+                ;
+        gui.addElement(el_name, overlay);
+        
         gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
     }
     
@@ -222,6 +216,12 @@ public class CombatState extends BasicGameState {
     public void enter (GameContainer container, StateBasedGame game) throws SlickException {
         super.enter(container, game);
         SharedState.updateStateId(CombatState.ID);
+        
+        gui.getElement("overlay").instantCall("fadeout");
+        List<GuiElement> character_elements = gui.getElements("ally");
+        for (int i=0;i<character_elements.size();i++) {
+            character_elements.get(i).setCreature(Player.getParty().get(i).getCreature());
+        }
     }
     
     
@@ -249,10 +249,10 @@ public class CombatState extends BasicGameState {
     }
     
     public static void setCurrentTurnCreature (GuiElement element) {
-        if (element.getCreatures().length != 1) {
-            Log.err("Error while setting current turn creature to element "+element.getName()+"; element does not contain exactly one creature");
+        if (element.getCreature() == null) {
+            Log.err("Error while setting current turn creature to element "+element.getName()+"; element does not contain a creature");
         } else {
-            GameplayManager.setCurrentCastingCreature(element.getCreatures()[0]);
+            GameplayManager.setCurrentCastingCreature(element.getCreature());
         }
     }
     
@@ -290,36 +290,15 @@ public class CombatState extends BasicGameState {
     
     public static void reroll () {
         List<GuiElement> elements;
-        List<Creature> board = new ArrayList<> ();
-        Creature[] creatures;
+        GameplayManager.clearEnemies();
         
         // roll enemy creatures
         elements = gui.getElements("creature_slot_enemy");
         for (int i=0;i<elements.size();i++) {
             Creature creature = new Creature (CreatureLibrary.getRandomCreature());
-            elements.get(i).setCreatures(creature);
-            board.add(creature);
+            elements.get(i).setCreature(creature);
+            GameplayManager.addEnemy(creature);
         }
-        
-        GuiElement e_board = gui.getElement("enemy_board");
-        creatures = new Creature [board.size()];
-        board.toArray(creatures);
-        board.clear();
-        e_board.setCreatures(creatures);
-        
-        // roll player creatures
-        elements = gui.getElements("creature_slot_ally");
-        for (int i=0;i<elements.size();i++) {
-            Creature creature = new Creature (CreatureLibrary.getRandomCreature());
-            elements.get(i).setCreatures(creature);
-            board.add(creature);
-            if (i==0) GameplayManager.setCurrentCastingCreature(creature);
-        }
-        
-        GuiElement a_board = gui.getElement("player_board");
-        creatures = new Creature [board.size()];
-        board.toArray(creatures);
-        a_board.setCreatures(creatures);
         
         // roll player hand
         CardPool test_deck = new CardPool (CardLibrary.getAllCards());

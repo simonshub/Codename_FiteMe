@@ -8,7 +8,6 @@ package org.simon.src.game.data.gameplay.player;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
@@ -46,9 +45,11 @@ public class PlayerCharacter {
         unlocked_card_list.add(new_card);
     }
     
-    public Creature getCreature () {
-        if (creature==null) creature = new Creature (character_class.getCreatureParent(current_level));
-        creature.setId(PLAYER_CHARACTER_CREATURE_ID_PREFIX + creature.getId());
+    public final Creature getCreature () {
+        if (creature==null) {
+            creature = new Creature (character_class.getCreatureParent(current_level));
+            creature.setId(PLAYER_CHARACTER_CREATURE_ID_PREFIX + creature.getId());
+        }
         return creature;
     }
     

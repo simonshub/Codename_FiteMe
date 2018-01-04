@@ -46,7 +46,7 @@ public class CardAction {
         return arg_list;
     }
     
-    public void call (Creature source, Card parent, Creature... targets) {
+    public void call (Creature source, Card parent, Creature target) {
         try {
             if (Settings.debug_cards) {
                 String args = "";
@@ -54,11 +54,10 @@ public class CardAction {
                     String arg = arg_list.get(i);
                     args += arg + ( (i+1<arg_list.size()) ? ", " : "" );
                 }
-                Log.log("Invoking card effect '"+method.getName()+"' with args ["+args+"]");
+                Log.log("Invoking card effect '"+method.getName()+"' with args ["+args+"] on target '"+target.getId()+"'");
             }
             
-            List<Creature> target_list = new ArrayList<> (Arrays.asList(targets));
-            this.method.invoke(null, source, parent, arg_list, target_list);
+            this.method.invoke(null, source, parent, arg_list, target);
         } catch (NullPointerException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
             Log.err("Error while invoking card effect '"+method.getName()+"'!");
             Log.err(ex);

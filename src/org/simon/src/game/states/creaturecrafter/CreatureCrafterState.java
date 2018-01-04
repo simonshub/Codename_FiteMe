@@ -68,7 +68,7 @@ public class CreatureCrafterState extends BasicGameState {
         
         el_name = "creature_preview";
         GuiElement creature_preview = new GuiElement (el_name, gui, false, Settings.screen_width/2f - creature_width/2f, Settings.screen_height/2f - creature_height/2f, false, creature_width, creature_height, "")
-                .setCreatures(creature)
+                .setCreature(creature)
                 .setColor(1f, 1f, 1f, 1f)
                 ;
         gui.addElement(el_name, creature_preview);

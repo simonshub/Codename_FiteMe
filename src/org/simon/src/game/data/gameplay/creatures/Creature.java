@@ -11,9 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.newdawn.slick.Color;
-import org.newdawn.slick.Font;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.TrueTypeFont;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.gui.GuiElement;
@@ -44,7 +44,7 @@ public class Creature {
     
     public static final Image STAT_ICON_ARMOR = ResourceManager.getGraphics("stats/armor");
     public static final Image STAT_ICON_HEALTH = ResourceManager.getGraphics("stats/health");
-    public static final Font STAT_FONT = ResourceManager.getFont(STAT_FONT_NAME, STAT_FONT_SIZE);
+    public static final TrueTypeFont STAT_FONT = ResourceManager.getFont(STAT_FONT_NAME, STAT_FONT_SIZE);
     
     private String id;
     private String name;

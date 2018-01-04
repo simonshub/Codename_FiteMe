@@ -7,15 +7,19 @@ package org.simon.src.game.gui;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 import org.newdawn.slick.Color;
 import org.simon.src.game.data.gameplay.GameplayManager;
+import org.simon.src.game.data.gameplay.TargetEnum;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
+import org.simon.src.game.data.gameplay.player.Player;
 import org.simon.src.game.data.gameplay.player.PlayerCharacterClass;
 import org.simon.src.game.states.cardgallery.CardGalleryState;
 import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.game.states.newgame.NewGameState;
 import org.simon.src.main.Main;
+import org.simon.src.utils.CycleList;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.Settings;
 
@@ -52,17 +56,17 @@ public class GuiActionHandler {
     }
     
     public static void togglevisible (GuiElement source) {
-        if (Settings.debug_gui) Log.log("togglevisible");
+        if (Settings.debug_gui) Log.log("togglevisible ["+source.getName()+"]");
         source.setVisible(!source.isVisible());
     }
     
     public static void hide (GuiElement source) {
-        if (Settings.debug_gui) Log.log("hide");
+        if (Settings.debug_gui) Log.log("hide ["+source.getName()+"]");
         source.setVisible(false);
     }
     
     public static void destroy (GuiElement source) {
-        if (Settings.debug_gui) Log.log("destroy");
+        if (Settings.debug_gui) Log.log("destroy ["+source.getName()+"]");
         GuiController parent = source.getParent();
         parent.removeElement(source.getName());
     }
@@ -178,6 +182,7 @@ public class GuiActionHandler {
     }
     
     public static void fadein (GuiElement source) {
+        if (Settings.debug_gui) Log.log("fadein ["+source.getName()+"]");
         if (!source.hasProperty("start_a") || !source.hasProperty("start_text_a")) {
             source.setProperty("start_a", source.getColor().a);
             source.setProperty("start_text_a", source.getTextColor().a);
@@ -219,6 +224,7 @@ public class GuiActionHandler {
     }
     
     public static void fadeout (GuiElement source) {
+        if (Settings.debug_gui) Log.log("fadeout ["+source.getName()+"]");
         if (!source.hasProperty("start_a") || !source.hasProperty("start_text_a")) {
             source.setProperty("start_a", source.getColor().a);
             source.setProperty("start_text_a", source.getTextColor().a);
@@ -265,7 +271,7 @@ public class GuiActionHandler {
     }
     
     public static void printinfo (GuiElement source) {
-        if (Settings.debug_gui) Log.log("printinfo");
+        if (Settings.debug_gui) Log.log("printinfo ["+source.getName()+"]");
         Log.log("Gui Element Info: '"+source.getName()+"'");
         Log.log("\tx: "+source.display_x+" ("+source.base_x+")");
         Log.log("\ty: "+source.display_y+" ("+source.base_y+")");
@@ -275,7 +281,7 @@ public class GuiActionHandler {
     }
     
     public static void printcardinfo (GuiElement source) {
-        if (Settings.debug_gui) Log.log("printcardinfo");
+        if (Settings.debug_gui) Log.log("printcardinfo ["+source.getName()+"]");
         if (source.getCard() == null) return;
         
         Card card = source.getCard();
@@ -283,47 +289,45 @@ public class GuiActionHandler {
     }
     
     public static void printcreatureinfo (GuiElement source) {
-        if (Settings.debug_gui) Log.log("printcreatureinfo");
-        if (source.getCreatures() == null) return;
+        if (Settings.debug_gui) Log.log("printcreatureinfo ["+source.getName()+"]");
+        if (source.getCreature() == null) return;
         
-        Creature[] creatures = source.getCreatures();
+        Creature creature = source.getCreature();
         String creature_string = "";
-        for (int i=0;i<creatures.length;i++) {
-            creature_string += creatures[i].getName()+" ("+creatures[i].getCurrentHealth()+"/"+creatures[i].getMaxHealth()+")" + creatures[i].toString();
-        }
+        creature_string += creature.getName()+" ("+creature.getCurrentHealth()+"/"+creature.getMaxHealth()+")" + creature.toString();
         Log.log("Creature Info:\n"+creature_string);
     }
     
     public static void clear_onclick (GuiElement source) {
-        if (Settings.debug_gui) Log.log("clear_onclick");
+        if (Settings.debug_gui) Log.log("clear_onclick ["+source.getName()+"]");
         source.setOnClick("");
     }
     
     public static void set_onclick (GuiElement source) {
-        if (Settings.debug_gui) Log.log("set_onclick");
+        if (Settings.debug_gui) Log.log("set_onclick ["+source.getName()+"]");
         if (source.hasProperty("set_onclick"))
             source.setOnClick((String) source.getProperty("set_onclick"));
     }
     
     public static void set_onupdate (GuiElement source) {
-        if (Settings.debug_gui) Log.log("set_onupdate");
+        if (Settings.debug_gui) Log.log("set_onupdate ["+source.getName()+"]");
         if (source.hasProperty("set_onupdate"))
             source.setOnClick((String) source.getProperty("set_onupdate"));
     }
     
     public static void set_text (GuiElement source) {
-        if (Settings.debug_gui) Log.log("set_text");
+        if (Settings.debug_gui) Log.log("set_text ["+source.getName()+"]");
         if (source.hasProperty("set_text"))
             source.setText((String) source.getProperty("set_text"));
     }
     
     public static void remove_fadeout_callback (GuiElement source) {
-        if (Settings.debug_gui) Log.log("remove_fadeout_callback");
+        if (Settings.debug_gui) Log.log("remove_fadeout_callback ["+source.getName()+"]");
         source.removeProperty("fadeout_callback");
     }
     
     public static void enter_state (GuiElement source) {
-        if (Settings.debug_gui) Log.log("enter_state");
+        if (Settings.debug_gui) Log.log("enter_state ["+source.getName()+"]");
         if (source.hasProperty("enter_state")) {
             int new_state_id = (Integer) source.getProperty("enter_state");
             Main.instance.enterState(new_state_id);
@@ -336,7 +340,7 @@ public class GuiActionHandler {
     }
     
     public static void hover_img (GuiElement source) {
-        if (Settings.debug_gui) Log.log("hover_img");
+        if (Settings.debug_gui) Log.log("hover_img ["+source.getName()+"]");
         if (source.hasProperty("hover_img")) {
             source.setProperty("unhover_img", source.getImageName());
             source.setImage((String) source.getProperty("hover_img"));
@@ -344,7 +348,7 @@ public class GuiActionHandler {
     }
     
     public static void unhover_img (GuiElement source) {
-        if (Settings.debug_gui) Log.log("unhover_img");
+        if (Settings.debug_gui) Log.log("unhover_img ["+source.getName()+"]");
         if (source.hasProperty("unhover_img")) {
             source.setImage((String) source.getProperty("unhover_img"));
         }
@@ -353,15 +357,19 @@ public class GuiActionHandler {
     
     
     public static void selecttarget (GuiElement source) {
-        if (Settings.debug_gui) Log.log("selecttarget");
+        if (Settings.debug_gui) Log.log("selecttarget ["+source.getName()+"]");
         if (CombatState.substate == CombatState.CombatSubState.PICK_TARGET) {
             GuiController parent = source.getParent();
-
+            
             GuiElement el = parent.getElement("played_card");
             el.setVisible(false);
+            
             Card card = el.getCard();
-            Creature[] targets = source.getCreatures();
-
+            Creature primary_target = source.getCreature();
+            Creature caster = GameplayManager.getCurrentCastingCreature();
+            List<Creature> targets = TargetEnum.getTargetList (card.getTargetMode(), caster, primary_target, GameplayManager.getEnemies(), GameplayManager.getAllies());
+            if (targets.isEmpty()) return;
+            
             card.play(CombatState.sfx, CombatState.getCurrentCastingCreature(), targets);
             CombatState.substate = CombatState.CombatSubState.PICK_CARD;
 
@@ -375,7 +383,7 @@ public class GuiActionHandler {
     }
     
     public static void selectcard (GuiElement source) {
-        if (Settings.debug_gui) Log.log("selectcard");
+        if (Settings.debug_gui) Log.log("selectcard ["+source.getName()+"]");
         if (CombatState.substate != CombatState.CombatSubState.PICK_CARD) return;
         if (GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && !CombatState.getCurrentCastingCreature().canSpendPoints(source.getCard())) return;
         
@@ -395,7 +403,7 @@ public class GuiActionHandler {
     }
     
     public static void deselectcard (GuiElement source) {
-        if (Settings.debug_gui) Log.log("deselectcard");
+        if (Settings.debug_gui) Log.log("deselectcard ["+source.getName()+"]");
         if (CombatState.substate == CombatState.CombatSubState.PICK_CARD) return;
         
         GuiController parent = source.getParent();
@@ -409,7 +417,7 @@ public class GuiActionHandler {
     }
     
     public static void endturn (GuiElement source) {
-        if (Settings.debug_gui) Log.log("endturn");
+        if (Settings.debug_gui) Log.log("endturn ["+source.getName()+"]");
         if (CombatState.substate != CombatState.CombatSubState.PICK_CARD)
             return;
         
@@ -417,19 +425,27 @@ public class GuiActionHandler {
     }
     
     public static void closeup (GuiElement source) {
-        if (Settings.debug_gui) Log.log("closeup");
+        if (Settings.debug_gui) Log.log("closeup ["+source.getName()+"]");
         CardGalleryState.switchToCloseup(source.getCard());
     }
     
     public static void start_new_game (GuiElement source) {
-        if (Settings.debug_gui) Log.log("start_new_game");
+        if (Settings.debug_gui) Log.log("start_new_game ["+source.getName()+"]");
         GuiElement overlay = source.getParent().getElement("overlay");
         overlay.setVisible(true);
         overlay.instantCall("fadein");
+        
+        CycleList<PlayerCharacterClass> all_classes = GameplayManager.getAllPlayerCharacterClassesCycleList();
+        for (int i = 0;i < 4;i++) {
+            GuiElement char_picker = source.getParent().getElement("char_picker_portrait_"+i);
+            int selected_index = (int) char_picker.getProperty("current_class_selection_index");
+            PlayerCharacterClass char_class = all_classes.get(selected_index);
+            Player.addCharacterToParty(char_class);
+        }
     }
     
     public static void next_class (GuiElement source) {
-        if (Settings.debug_gui) Log.log("next_class");
+        if (Settings.debug_gui) Log.log("next_class ["+source.getName()+"]");
         int index = (int) source.getProperty("char_picker_slot_index");
         
         GuiElement portrait = source.getParent().getElement("char_picker_portrait_" + index);
@@ -445,7 +461,7 @@ public class GuiActionHandler {
     }
     
     public static void prev_class (GuiElement source) {
-        if (Settings.debug_gui) Log.log("next_class");
+        if (Settings.debug_gui) Log.log("next_class ["+source.getName()+"]");
         int index = (int) source.getProperty("char_picker_slot_index");
         
         GuiElement portrait = source.getParent().getElement("char_picker_portrait_" + index);
