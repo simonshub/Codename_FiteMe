@@ -326,7 +326,7 @@ public class Card {
                     }
                     
                     String action_method_name = action_tokens.get(0);
-                    Method action_method = CardActionHandler.class.getMethod(action_method_name, Creature.class, Card.class, List.class, List.class);
+                    Method action_method = CardActionHandler.class.getMethod(action_method_name, Creature.class, Card.class, List.class, Creature.class);
                     
                     result.add(new CardAction (action_method, action_tokens.subList(1, action_tokens.size())));
                 } catch (NoSuchMethodException | SecurityException ex) {

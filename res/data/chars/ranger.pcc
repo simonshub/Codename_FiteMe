@@ -1,5 +1,7 @@
 name: Ranger
-grfx: chars/warrior
+grfx: chars/ranger
 port: chars/ranger_portrait
 pnts: atk def atk def agi
 clst: power_strike test_card thunder_strike chains_of_light electrify
+hpbs: 8
+hppl: 3

@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -164,11 +163,12 @@ public class ResourceManager {
                     String key = path.toLowerCase()
                             .substring(path.indexOf(Settings.grfx_path) + Settings.grfx_path.length())
                             .replaceAll(Consts.GRFX_FILE_EXTENSION, "");
+                    
                     Image value = new Image (path, false, Image.FILTER_LINEAR);
+                    value.setFilter(Image.FILTER_NEAREST);
+                    graphics_lib.put(key, value);
                     
                     Log.log("Loaded graphics with name '"+key+"' at path '"+path+"'");
-                    
-                    graphics_lib.put(key, value);
                 } catch (SlickException | IOException ex) {
                     Log.err(ex);
                 }

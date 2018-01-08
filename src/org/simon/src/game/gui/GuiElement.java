@@ -15,6 +15,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.TrueTypeFont;
+import org.newdawn.slick.geom.Rectangle;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.utils.Consts;
@@ -55,6 +56,7 @@ public final class GuiElement {
     
     private boolean visible=true;
     private boolean is_mouse_over=false;
+    private boolean render_image_tiled=false;
     
     public int layer;
     public float width, height;
@@ -249,6 +251,11 @@ public final class GuiElement {
     public float getCenterY () {
         float c_x = this.display_y + height/2f;
         return c_x;
+    }
+    
+    public GuiElement setRenderTiled (boolean render_image_tiled) {
+        this.render_image_tiled = render_image_tiled;
+        return this;
     }
     
     
@@ -449,15 +456,22 @@ public final class GuiElement {
         
         if (Settings.debug_gui && Settings.debug_mode) {
             g.setColor(color_filter);
-            g.fillRect(display_x+x_offset, display_y+y_offset, width, height);
+            g.setLineWidth(3f);
+            g.drawRect(display_x+x_offset, display_y+y_offset, width, height);
         }
         
-        if (graphics!=null)
-            graphics.draw(display_x+x_offset, display_y+y_offset, width, height, color_filter);
+        if (graphics!=null) {
+            if (!render_image_tiled) {
+                graphics.draw(display_x+x_offset, display_y+y_offset, width, height, color_filter);
+            } else {
+                float x_scale = width / graphics.getWidth();
+                float y_scale = height / graphics.getHeight();
+                g.texture(new Rectangle (display_x+x_offset, display_y+y_offset, width, height), graphics, x_scale, y_scale, true);
+            }
+        }
         
         if (!text.isEmpty()) {
             // TEXT DOESN'T SCALE !!! - it uses font size
-            
             String[] lines = text.split("\n");
             int entire_width = 0;
             int entire_height = 0;

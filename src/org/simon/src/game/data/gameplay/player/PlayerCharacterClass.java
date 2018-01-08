@@ -31,12 +31,17 @@ public class PlayerCharacterClass {
     public static final String KEYWORD_PORT = "port";
     public static final String KEYWORD_PNTS = "pnts";
     public static final String KEYWORD_CLST = "clst";
+    public static final String KEYWORD_HPBS = "hpbs";
+    public static final String KEYWORD_HPPL = "hppl";
     
     private String name;
     private String graphics;
     private String portrait;
     private final List<Card> card_list;
     private final List<PointTypeEnum> point_leveling_list;
+    
+    private int base_hp;
+    private int hp_per_level;
     
     
     
@@ -86,6 +91,14 @@ public class PlayerCharacterClass {
                                 card_list.add(card);
                             }
                             break;
+                        case KEYWORD_HPBS :
+                            this.base_hp = Integer.parseInt(parse_value);
+                            break;
+                        case KEYWORD_HPPL :
+                            this.hp_per_level = Integer.parseInt(parse_value);
+                            break;
+                        default:
+                            Log.err("Unknown parse action '"+parse_action+"' for character class '"+name+"'?");
                     }
                 }
             }
@@ -125,7 +138,7 @@ public class PlayerCharacterClass {
     }
     
     public int getHealthForLevel (int level) {
-        return 10;
+        return base_hp + ( (level-1)*hp_per_level );
     }
     
     public String getName () {
@@ -144,7 +157,7 @@ public class PlayerCharacterClass {
         Creature c = new Creature ();
         
         c.setIcon(getGraphics());
-        c.setId(PlayerCharacter.PLAYER_CHARACTER_CREATURE_ID_PREFIX + getName().toLowerCase().replace(" ", "_"));
+        c.setId(PlayerCharacter.PLAYER_CHARACTER_CREATURE_ID_PREFIX + getName().toLowerCase().replace(" ", "_") + ("_"+level));
         c.setPoints(getPointPoolForLevel(level));
         c.setName(getName());
         c.setHealth(getHealthForLevel(level));

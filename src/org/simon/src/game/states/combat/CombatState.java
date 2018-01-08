@@ -148,7 +148,7 @@ public class CombatState extends BasicGameState {
         gui.addElement(el_name, played_card);
         
         el_name = "player_hand";
-        GuiElement player_hand = new GuiElement (el_name, gui, true, 0.1f, 0.78f, true, 0.8f, 0.22f, "ui/box")
+        GuiElement player_hand = new GuiElement (el_name, gui, true, 0.1f, 0.78f, true, 0.8f, 0.22f, "ui/box_noshadow")
                 ;
         gui.addElement(el_name, player_hand);
         
@@ -197,6 +197,12 @@ public class CombatState extends BasicGameState {
         end_turn.base_width = end_turn.base_height;
         end_turn.width = end_turn.height;
         gui.addElement(el_name, end_turn);
+        
+        el_name = "background";
+        GuiElement background = new GuiElement (el_name, gui, true, 0f, 0f, true, 1f, 1f, "backgrounds/forest")
+                .setLayer(-2)
+                ;
+        gui.addElement(el_name, background);
         
         el_name = "overlay";
         GuiElement overlay = new GuiElement (el_name, gui, true, 0f, 0f, true, 1f, 1f)
