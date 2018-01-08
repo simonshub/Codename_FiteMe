@@ -353,29 +353,38 @@ public abstract class SlickUtils {
         return num+offset;
     }
     
-    public static final String capitalizeFirstChar (String str) {
-        if (str.isEmpty())
-            return "";
-        return Character.toString(str.charAt(0)).toUpperCase() + str.substring(1);
-    }
-    
     
     
     public class Files {
         
-        public final File[] getAllFilesOfExtensionInSubdirs (File directory, String ext) {
+        private Files () { }
+        
+        public final File[] getFileArrayOfExtensionInSubdirs (File directory, String ext) {
             List<File> subfiles = new ArrayList<> ();
-            subfiles.addAll(Arrays.asList(directory.listFiles((File dir, String name) -> name.endsWith(ext.toLowerCase()) || name.endsWith(ext.toUpperCase()) ) ) );
+            subfiles.addAll(Arrays.asList(directory.listFiles((File dir, String name) -> (name.endsWith(ext.toLowerCase()) || name.endsWith(ext.toUpperCase())) && dir.isFile() ) ) );
 
             List<File> subdirectories = new ArrayList<> ();
-            subdirectories.addAll(Arrays.asList(directory.listFiles((File pathname) -> pathname.isDirectory() ) ) );
+            subdirectories.addAll(Arrays.asList(directory.listFiles((File dir) -> dir.isDirectory() ) ) );
 
             for (File subdirectory : subdirectories)
-                subfiles.addAll(Arrays.asList(getAllFilesOfExtensionInSubdirs(subdirectory, ext)));
+                subfiles.addAll(Arrays.asList(getFileArrayOfExtensionInSubdirs(subdirectory, ext)));
 
             File[] result_array = new File [subfiles.size()];
             subfiles.toArray(result_array);
             return result_array;
+        }
+        
+        public final List<File> getFileListOfExtensionInSubdirs (File directory, String ext) {
+            List<File> subfiles = new ArrayList<> ();
+            subfiles.addAll(Arrays.asList(directory.listFiles((File dir, String name) -> (name.endsWith(ext.toLowerCase()) || name.endsWith(ext.toUpperCase())) && dir.isFile() ) ) );
+
+            List<File> subdirectories = new ArrayList<> ();
+            subdirectories.addAll(Arrays.asList(directory.listFiles((File dir) -> dir.isDirectory() ) ) );
+
+            for (File subdirectory : subdirectories)
+                subfiles.addAll(getFileListOfExtensionInSubdirs(subdirectory, ext));
+
+            return subfiles;
         }
     
     }
@@ -385,17 +394,30 @@ public abstract class SlickUtils {
     
     public class Strings {
         
+        private Strings () { }
+    
+        public final String capitalizeFirstChar (String str) {
+            if (str.isEmpty())
+                return "";
+            return Character.toString(str.charAt(0)).toUpperCase() + str.substring(1);
+        }
+        
         public final String[] listToArray (List<String> list) {
             return Arrays.copyOf(list.toArray(), list.size(), String[].class);
         }
 
         public final String[] removeEmpty (String... list) {
+            List<String> result = removeEmpty(Arrays.asList(list));
+            return result.toArray(new String [result.size()]);
+        }
+
+        public final List<String> removeEmpty (List<String> list) {
             List<String> result = new ArrayList<> ();
             for (String s : list) {
                 if (!s.isEmpty())
                     result.add(s);
             }
-            return result.toArray(new String [result.size()]);
+            return result;
         }
 
         public final String[] trimAll (String... list) {
