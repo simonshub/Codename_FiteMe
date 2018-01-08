@@ -361,6 +361,28 @@ public abstract class SlickUtils {
     
     
     
+    public class Files {
+        
+        public final File[] getAllFilesOfExtensionInSubdirs (File directory, String ext) {
+            List<File> subfiles = new ArrayList<> ();
+            subfiles.addAll(Arrays.asList(directory.listFiles((File dir, String name) -> name.endsWith(ext.toLowerCase()) || name.endsWith(ext.toUpperCase()) ) ) );
+
+            List<File> subdirectories = new ArrayList<> ();
+            subdirectories.addAll(Arrays.asList(directory.listFiles((File pathname) -> pathname.isDirectory() ) ) );
+
+            for (File subdirectory : subdirectories)
+                subfiles.addAll(Arrays.asList(getAllFilesOfExtensionInSubdirs(subdirectory, ext)));
+
+            File[] result_array = new File [subfiles.size()];
+            subfiles.toArray(result_array);
+            return result_array;
+        }
+    
+    }
+    public static Files files;
+    
+    
+    
     public class Strings {
         
         public final String[] listToArray (List<String> list) {
@@ -401,6 +423,6 @@ public abstract class SlickUtils {
         }
         
     }
-    public static Strings Strings;
+    public static Strings strings;
     
 }

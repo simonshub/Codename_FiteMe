@@ -23,6 +23,7 @@ import org.simon.src.utils.Consts;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
+import org.simon.src.utils.SlickUtils;
 
 /**
  *
@@ -63,7 +64,7 @@ public class CardLibrary {
         if (!dump.exists()) {
             Log.err("Missing card pack resource dump folder at '"+Settings.card_pack_path+"'...");
         } else {
-            File[] all_card_packs = ResourceManager.getAllFilesOfExtensionInSubdirs(dump, Consts.CARD_PACK_FILE_EXTENSION);
+            File[] all_card_packs = SlickUtils.files.getAllFilesOfExtensionInSubdirs(dump, Consts.CARD_PACK_FILE_EXTENSION);
             for (File card_pack : all_card_packs) {
                 try {
                     String path = card_pack.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
