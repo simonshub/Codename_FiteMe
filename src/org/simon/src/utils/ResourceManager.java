@@ -10,7 +10,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -112,8 +111,7 @@ public class ResourceManager {
         File file = new File (Consts.APP_SETTINGS_FILE_PATH);
         
         if (file.exists()) {
-            try {
-                BufferedReader br = new BufferedReader (new FileReader (file));
+            try (BufferedReader br = new BufferedReader (new FileReader (file))) {
                 String line;
                 
                 while ((line=br.readLine()) != null) {
@@ -137,8 +135,7 @@ public class ResourceManager {
                 Log.err(ex);
             }
         } else {
-            try {
-                BufferedWriter bw = new BufferedWriter (new FileWriter (file));
+            try (BufferedWriter bw = new BufferedWriter (new FileWriter (file))) {
                 bw.write(Settings.getFileContents());
                 bw.flush();
                 bw.close();

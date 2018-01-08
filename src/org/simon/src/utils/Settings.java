@@ -6,8 +6,6 @@
 package org.simon.src.utils;
 
 import java.lang.reflect.Field;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
