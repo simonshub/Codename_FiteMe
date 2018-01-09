@@ -64,7 +64,7 @@ public class CardLibrary {
         if (!dump.exists()) {
             Log.err("Missing card pack resource dump folder at '"+Settings.card_pack_path+"'...");
         } else {
-            File[] all_card_packs = SlickUtils.files.getFileArrayOfExtensionInSubdirs(dump, Consts.CARD_PACK_FILE_EXTENSION);
+            File[] all_card_packs = SlickUtils.Files.getFileArrayOfExtensionInSubdirs(dump, Consts.CARD_PACK_FILE_EXTENSION);
             for (File card_pack : all_card_packs) {
                 try {
                     String path = card_pack.getCanonicalPath().replace(System.getProperty("file.separator"), "/");

@@ -65,6 +65,9 @@ public class CardPool {
     }
     
     public List<Card> getRandomCards (int count) {
+        if (cards.isEmpty())
+            return new ArrayList<> ();
+        
         List<Card> hand = new ArrayList<> ();
         List<Card> all_cards = getCardList();
         

@@ -137,7 +137,7 @@ public class GameplayManager {
         if (!dump.exists()) {
             Log.err("Missing player character class dump folder at '"+Settings.character_class_path+"'...");
         } else {
-            File[] all_character_class_files = SlickUtils.files.getFileArrayOfExtensionInSubdirs(dump, Consts.CHARACTER_CLASS_FILE_EXTENSION);
+            File[] all_character_class_files = SlickUtils.Files.getFileArrayOfExtensionInSubdirs(dump, Consts.CHARACTER_CLASS_FILE_EXTENSION);
             for (File character_class_file : all_character_class_files) {
                 try {
                     String path = character_class_file.getCanonicalPath().replace(System.getProperty("file.separator"), "/");

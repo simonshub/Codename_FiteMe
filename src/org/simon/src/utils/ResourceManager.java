@@ -153,7 +153,7 @@ public class ResourceManager {
         if (!dump.exists()) {
             Log.err("Missing graphics resource dump folder at '"+Settings.grfx_path+"'...");
         } else {
-            File[] all_images = SlickUtils.files.getFileArrayOfExtensionInSubdirs(dump, Consts.GRFX_FILE_EXTENSION);
+            File[] all_images = SlickUtils.Files.getFileArrayOfExtensionInSubdirs(dump, Consts.GRFX_FILE_EXTENSION);
             for (File img : all_images) {
                 try {
                     String path = img.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
@@ -180,7 +180,7 @@ public class ResourceManager {
         if (!dump.exists()) {
             Log.err("Missing sound resource dump folder at '"+Settings.sounds_path+"'...");
         } else {
-            File[] all_sounds = SlickUtils.files.getFileArrayOfExtensionInSubdirs(dump, Consts.SOUND_FILE_EXTENSION);
+            File[] all_sounds = SlickUtils.Files.getFileArrayOfExtensionInSubdirs(dump, Consts.SOUND_FILE_EXTENSION);
             for (File snd : all_sounds) {
                 try {
                     String path = snd.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
@@ -207,7 +207,7 @@ public class ResourceManager {
         if (!dump.exists()) {
             Log.err("Missing font resource dump folder at '"+Settings.fonts_path+"'...");
         } else {
-            File[] all_fonts = SlickUtils.files.getFileArrayOfExtensionInSubdirs(dump, Consts.FONT_FILE_EXTENSION);
+            File[] all_fonts = SlickUtils.Files.getFileArrayOfExtensionInSubdirs(dump, Consts.FONT_FILE_EXTENSION);
             for (File font : all_fonts) {
                 try {
                     String path = font.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
@@ -233,7 +233,7 @@ public class ResourceManager {
         if (!dump.exists()) {
             Log.err("Missing particle resource dump folder at '"+Settings.sfx_path+"'...");
         } else {
-            File[] all_sfx_files = SlickUtils.files.getFileArrayOfExtensionInSubdirs(dump, Consts.SFX_FILE_EXTENSION);
+            File[] all_sfx_files = SlickUtils.Files.getFileArrayOfExtensionInSubdirs(dump, Consts.SFX_FILE_EXTENSION);
             for (File sfx_file : all_sfx_files) {
                 try {
                     String path = sfx_file.getCanonicalPath().replace(System.getProperty("file.separator"), "/");

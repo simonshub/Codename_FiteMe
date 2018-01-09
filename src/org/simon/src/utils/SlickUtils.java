@@ -355,13 +355,11 @@ public abstract class SlickUtils {
     
     
     
-    public class Files {
+    public static class Files {
         
-        private Files () { }
-        
-        public final File[] getFileArrayOfExtensionInSubdirs (File directory, String ext) {
+        public static File[] getFileArrayOfExtensionInSubdirs (File directory, String ext) {
             List<File> subfiles = new ArrayList<> ();
-            subfiles.addAll(Arrays.asList(directory.listFiles((File dir, String name) -> (name.endsWith(ext.toLowerCase()) || name.endsWith(ext.toUpperCase())) && dir.isFile() ) ) );
+            subfiles.addAll(Arrays.asList(directory.listFiles( (File file, String name) -> (name.endsWith(ext.toLowerCase()) || name.endsWith(ext.toUpperCase())) ) ) );
 
             List<File> subdirectories = new ArrayList<> ();
             subdirectories.addAll(Arrays.asList(directory.listFiles((File dir) -> dir.isDirectory() ) ) );
@@ -374,7 +372,7 @@ public abstract class SlickUtils {
             return result_array;
         }
         
-        public final List<File> getFileListOfExtensionInSubdirs (File directory, String ext) {
+        public static List<File> getFileListOfExtensionInSubdirs (File directory, String ext) {
             List<File> subfiles = new ArrayList<> ();
             subfiles.addAll(Arrays.asList(directory.listFiles((File dir, String name) -> (name.endsWith(ext.toLowerCase()) || name.endsWith(ext.toUpperCase())) && dir.isFile() ) ) );
 
@@ -388,30 +386,27 @@ public abstract class SlickUtils {
         }
     
     }
-    public static Files files;
     
     
     
-    public class Strings {
-        
-        private Strings () { }
+    public static class Strings {
     
-        public final String capitalizeFirstChar (String str) {
+        public static String capitalizeFirstChar (String str) {
             if (str.isEmpty())
                 return "";
             return Character.toString(str.charAt(0)).toUpperCase() + str.substring(1);
         }
         
-        public final String[] listToArray (List<String> list) {
+        public static String[] listToArray (List<String> list) {
             return Arrays.copyOf(list.toArray(), list.size(), String[].class);
         }
 
-        public final String[] removeEmpty (String... list) {
+        public static String[] removeEmpty (String... list) {
             List<String> result = removeEmpty(Arrays.asList(list));
             return result.toArray(new String [result.size()]);
         }
 
-        public final List<String> removeEmpty (List<String> list) {
+        public static List<String> removeEmpty (List<String> list) {
             List<String> result = new ArrayList<> ();
             for (String s : list) {
                 if (!s.isEmpty())
@@ -420,7 +415,7 @@ public abstract class SlickUtils {
             return result;
         }
 
-        public final String[] trimAll (String... list) {
+        public static String[] trimAll (String... list) {
             String[] result = new String [list.length];
             for (int i=0;i<list.length;i++) {
                 result[i] = list[i].trim();
@@ -428,7 +423,7 @@ public abstract class SlickUtils {
             return result;
         }
 
-        public final String concatList (List<String> lines, String separator) {
+        public static String concatList (List<String> lines, String separator) {
             String res = "";
             for (String line : lines) {
                 res += line + separator;
@@ -436,7 +431,7 @@ public abstract class SlickUtils {
             return res;
         }
 
-        public final String concatArray (String[] lines, String separator) {
+        public static String concatArray (String[] lines, String separator) {
             String res = "";
             for (String line : lines) {
                 res += line + separator;
@@ -445,6 +440,5 @@ public abstract class SlickUtils {
         }
         
     }
-    public static Strings strings;
     
 }
