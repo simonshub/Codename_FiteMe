@@ -5,8 +5,8 @@
  */
 package org.simon.src.game.sfx;
 
-import java.util.ArrayList;
 import java.util.List;
+import org.simon.src.game.data.gameplay.StatusEffect;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.cards.CardAction;
 import org.simon.src.game.data.gameplay.creatures.Creature;
@@ -19,24 +19,30 @@ import org.simon.src.utils.SlickUtils;
 public class SpecialEffectCallback {
     private final Card parent;
     private final Creature source;
-    private final List<Creature> targets;
+    private final Creature target;
     private final List<CardAction> actions;
     
     
     
-    public SpecialEffectCallback (Card parent, Creature source, List<Creature> targets, List<CardAction> actions) {
+    public SpecialEffectCallback (Card parent, Creature source, Creature target) {
         this.parent = parent;
         this.source = source;
-        this.targets = targets;
-        this.actions = actions;
+        this.target = target;
+        this.actions = parent.getActions();
+    }
+    
+    public SpecialEffectCallback (StatusEffect parent, Creature source, Creature target) {
+        this.parent = parent.getParent();
+        this.source = source;
+        this.target = target;
+        this.actions = parent.getActions();
     }
     
     
     
     public void call () {
         for (CardAction action : actions) {
-            for (Creature target : targets)
-                action.call(source, parent, target);
+            action.call(source, parent, target);
         }
     }
     
@@ -48,8 +54,8 @@ public class SpecialEffectCallback {
         return source;
     }
     
-    public List<Creature> getTargets () {
-        return targets;
+    public Creature getTarget () {
+        return target;
     }
     
     public List<CardAction> getActions () {
@@ -58,15 +64,11 @@ public class SpecialEffectCallback {
     
     @Override
     public String toString () {
-        List<String> id_list = new ArrayList<> ();
-        for (Creature target : targets)
-            id_list.add(target.getId());
-        
         String contents = "";
         contents += " { ";
         contents += " [ "+"parent:"+parent.getId()+" ] ";
         contents += " [ "+"source:"+source.getId()+" ] ";
-        contents += " [ "+"targets:"+SlickUtils.getListAsStringList(id_list, ", ")+" ] ";
+        contents += " [ "+"target:"+target.getId()+" ] ";
         contents += " [ "+"actions:"+SlickUtils.getListAsStringList(actions, ", ")+" ] ";
         contents += " } ";
         return contents;

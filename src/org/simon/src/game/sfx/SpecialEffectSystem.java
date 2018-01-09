@@ -8,6 +8,8 @@ package org.simon.src.game.sfx;
 import java.util.ArrayList;
 import java.util.List;
 import org.newdawn.slick.Graphics;
+import org.simon.src.game.data.gameplay.StatusEffect;
+import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.utils.Log;
@@ -39,13 +41,13 @@ public class SpecialEffectSystem {
         instances = new ArrayList<> ();
     }
     
-    public void addSfx (String sfx_callstring, SpecialEffectCallback callback, Creature src, List<Creature> targets) {
+    public void addSfx (Card parent, Creature src, List<Creature> targets) {
         Creature[] targets_arr = new Creature [targets.size()];
         targets.toArray(targets_arr);
-        addSfx (sfx_callstring, callback, src, targets_arr);
+        addSfx (parent, src, targets_arr);
     }
     
-    public void addSfx (String sfx_callstring, SpecialEffectCallback callback, Creature src, Creature... targets) {
+    public void addSfx (Card parent, Creature src, Creature... targets) {
         List<GuiElement> target_el_list = new ArrayList<> ();
         for (int i=0;i<targets.length;i++) {
             target_el_list.add(targets[i].getGuiElement());
@@ -53,16 +55,21 @@ public class SpecialEffectSystem {
         GuiElement[] target_elements = new GuiElement [target_el_list.size()];
         target_el_list.toArray(target_elements);
         
-        addSfx (sfx_callstring, callback, src.getGuiElement(), target_elements);
+        addSfx (parent, src.getGuiElement(), target_elements);
     }
     
-    public void addSfx (String sfx_callstring, SpecialEffectCallback callback, GuiElement src, GuiElement... target_elements) {
+    public void addSfx (Card parent, GuiElement src, GuiElement... target_elements) {
         for (GuiElement target_element : target_elements) {
-            SpecialEffect sfx = new SpecialEffect (sfx_callstring, src, target_element);
-            
-            if (callback!=null) sfx.setCallback(callback);
+            SpecialEffect sfx = new SpecialEffect (parent.getSfxCallstring(), src, target_element);
+            sfx.setCallback(new SpecialEffectCallback (parent, src.getCreature(), target_element.getCreature()));
             instances.add(sfx);
         }
+    }
+    
+    public void addSfx (StatusEffect parent, Creature src, Creature target) {
+        SpecialEffect sfx = new SpecialEffect (parent.getSfxString(), src.getGuiElement(), target.getGuiElement());
+        sfx.setCallback(new SpecialEffectCallback (parent, src, target));
+        instances.add(sfx);
     }
     
     

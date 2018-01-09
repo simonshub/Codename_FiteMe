@@ -38,14 +38,10 @@ public class StatusEffect {
     
     
     public StatusEffect (Card parent, Creature source, Creature target, int counter, String action, String display_string) {
-        List<CardAction> actions = Card.parseActions(action, false);
-        
         this.target = target;
         this.counter = counter;
         
-        ArrayList<Creature> target_list = new ArrayList<> ();
-        target_list.add(target);
-        this.callback = new SpecialEffectCallback (parent, source, target_list, actions);
+        this.callback = new SpecialEffectCallback (parent, source, target);
         
         String[] display_string_args = new String [] { "error","error","" };
         String[] temp_args = display_string.split(Pattern.quote(STATUS_EFFECT_DELIMITER));
@@ -65,7 +61,7 @@ public class StatusEffect {
     
     public void turnTick (SpecialEffectSystem sfx) {
         counter--;
-        sfx.addSfx(special_effect_string, callback, target, target);
+        sfx.addSfx(this, target, target);
     }
     
     public boolean isDone () {
@@ -80,8 +76,8 @@ public class StatusEffect {
         return callback.getSource();
     }
     
-    public List<Creature> getTargets () {
-        return callback.getTargets();
+    public Creature getTarget () {
+        return callback.getTarget();
     }
     
     public List<CardAction> getActions () {
@@ -94,6 +90,10 @@ public class StatusEffect {
     
     public String getDisplayDescription () {
         return display_description;
+    }
+    
+    public String getSfxString () {
+        return special_effect_string;
     }
     
     

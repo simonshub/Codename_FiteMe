@@ -419,6 +419,14 @@ public class Card {
         return target_mode;
     }
     
+    public List<CardAction> getActions () {
+        return actions;
+    }
+    
+    public String getSfxCallstring () {
+        return sfx_callstring;
+    }
+    
     
     
     private String autoSplitText (String text) {
@@ -467,8 +475,7 @@ public class Card {
             return;
         }
         
-        SpecialEffectCallback callback = new SpecialEffectCallback(this, source, Arrays.asList(targets), actions);
-        sfx.addSfx(this.sfx_callstring, callback, source, targets);
+        sfx.addSfx(this, source, targets);
         sfx.playSfx();
     }
     
@@ -478,8 +485,7 @@ public class Card {
             return;
         }
         
-        SpecialEffectCallback callback = new SpecialEffectCallback(this, source, targets, actions);
-        sfx.addSfx(this.sfx_callstring, callback, source, targets);
+        sfx.addSfx(this, source, targets);
         sfx.playSfx();
     }
     
