@@ -12,13 +12,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.simon.src.game.data.gameplay.creatures.Creature;
+import org.simon.src.game.data.gameplay.levels.LevelType;
 import org.simon.src.game.data.gameplay.player.Player;
 import org.simon.src.game.data.gameplay.player.PlayerCharacterClass;
 import org.simon.src.game.gui.GuiElement;
+import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.utils.Consts;
 import org.simon.src.utils.CycleList;
 import org.simon.src.utils.Log;
-import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
 import org.simon.src.utils.SlickUtils;
 
@@ -29,7 +30,7 @@ import org.simon.src.utils.SlickUtils;
 public class GameplayManager {
     
     public enum Opponent {
-        PLAYER ("Player"), ENEMY ("Enemy")
+        PLAYER ("Player"), ENEMY ("Opponent")
         ;
         public final String text;
         
@@ -47,16 +48,21 @@ public class GameplayManager {
     private static Opponent current_opponent;
     private static Creature current_casting_creature;
     
+    private static LevelType level_type;
+    
     private static List<Creature> enemy_board;
     private static List<Creature> ally_board;
     
     private static Map<String,PlayerCharacterClass> loaded_character_classes;
+    private static Map<String,LevelType> loaded_level_types;
     
     
     
     public static final void init () {
         loadPlayerCharacterClasses();
+        loadLevelTypes();
         Player.init();
+        level_type = loaded_level_types.get(LevelType.STARTING_LEVEL_TYPE);
     }
     
     
@@ -93,6 +99,10 @@ public class GameplayManager {
         return ally_board;
     }
     
+    public static LevelType getCurrentLevelType () {
+        return level_type;
+    }
+    
     public static boolean isCreatureEnemy (final Creature c) {
         return !ally_board.contains(c);
     }
@@ -125,6 +135,12 @@ public class GameplayManager {
         ally_board.clear();
     }
     
+    public static void turnTick (List<Creature> creatures, SpecialEffectSystem sfx) {
+        for (Creature creature : creatures) {
+            creature.turnTick(sfx);
+        }
+    }
+    
     
     
     public static void loadPlayerCharacterClasses () {
@@ -141,7 +157,7 @@ public class GameplayManager {
             for (File character_class_file : all_character_class_files) {
                 try {
                     String path = character_class_file.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
-                    String class_name = SlickUtils.getFileName(path);
+                    String class_name = SlickUtils.Files.getFileName(path);
                     
                     PlayerCharacterClass char_class = new PlayerCharacterClass(character_class_file);
                     loaded_character_classes.put(class_name, char_class);
@@ -150,6 +166,42 @@ public class GameplayManager {
                     Log.err(ex);
                 }
             }
+        }
+    }
+    
+    public static void loadLevelTypes () {
+        loaded_level_types = new HashMap<> ();
+        File dump = new File (Settings.level_type_path);
+        
+        if (!dump.exists()) {
+            Log.err("Missing level type dump folder at '"+Settings.level_type_path+"'...");
+        } else {
+            File[] all_level_type_files = SlickUtils.Files.getFileArrayOfExtensionInSubdirs(dump, Consts.LEVEL_TYPE_FILE_EXTENSION);
+            for (File level_type_file : all_level_type_files) {
+                try {
+                    String path = level_type_file.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
+                    String key = SlickUtils.Files.getFileNameLC(path);
+                    LevelType value = new LevelType (path);
+                    
+                    Log.log("Loaded level type with name '"+key+"' at path '"+path+"'");
+                    
+                    loaded_level_types.put(key, value);
+                } catch (IOException ex) {
+                    Log.err(ex);
+                }
+            }
+        }
+    }
+    
+    
+    
+    public static void endTurn (SpecialEffectSystem sfx) {
+        if (Opponent.PLAYER.equals(current_opponent)) {
+            // ending the player's turn
+            turnTick(getAllies(), sfx);
+        } else {
+            // ending the ai's turn
+            turnTick(getEnemies(), sfx);
         }
     }
 }

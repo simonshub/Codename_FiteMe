@@ -1,47 +1,53 @@
 crid: goblin
 name: Goblin
-icon: creatures/goblin
-icsz: 0.5
+grfx: creatures/goblin
+grsz: 0.5
 pnts: atk 2 def 1
 hlth: 6
+diff: 1
 
 
 crid: skeleton
 name: Skeleton Warrior
-icon: creatures/skeleton
-icsz: 0.5
+grfx: creatures/skeleton
+grsz: 0.5
 pnts: atk 3 agi 1 def 2
 hlth: 8
+diff: 1
 
 
 crid: quatl
 name: Quatl
-icon: creatures/quatl
-icsz: 1,00
+grfx: creatures/quatl
+grsz: 0.5
 pnts: atk 3 def 1 agi 2 arc 1 div 1
 hlth: 10
+diff: 1
 
 
 crid: goblin2
 name: Goblin
-icon: creatures/goblin
-icsz: 0.5
+grfx: creatures/goblin
+grsz: 1
 pnts: atk 12
 hlth: 6
+diff: 1
 
 
 crid: skeleton2
 name: Skeleton Warrior
-icon: creatures/skeleton
-icsz: 0.5
+grfx: creatures/skeleton
+grsz: 0.5
 pnts: atk 6 agi 6 def 6
 hlth: 8
+diff: 1
 
 
 crid: quatl2
 name: Quatl
-icon: creatures/quatl
-icsz: 1,00
+grfx: creatures/quatl
+grsz: 0.5
 pnts: atk 1 arc 1 div 1
 hlth: 10
+diff: 1
 

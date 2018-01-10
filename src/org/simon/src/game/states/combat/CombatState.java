@@ -70,14 +70,14 @@ public class CombatState extends BasicGameState {
         List<Card> test_hand = test_deck.getRandomCards(5);
         
         el_name = "turn_indicator";
-        GuiElement turn_indicator = new GuiElement (el_name, gui, true, 0.2f, 0f, true, 0.6f, 0.05f, "img1")
-                .setTextColor(0f, 0f, 0f, 1f)
+        GuiElement turn_indicator = new GuiElement (el_name, gui, true, 0.35f, 0f, true, 0.3f, 0.05f, "ui/btn_alt")
+                .setTextColor(1f, 1f, 1f, 1f)
                 .setFont("consolas", 20)
                 .setColor(0.8f,0.8f,0.8f,1f);
         gui.addElement(el_name, turn_indicator);
         
         el_name = "tutorial_label";
-        GuiElement tutorial_label = new GuiElement (el_name, gui, true, 0.1f, 0.025f, true, 0.8f, 0.1f, "img1")
+        GuiElement tutorial_label = new GuiElement (el_name, gui, true, 0.1f, 0.05f, true, 0.8f, 0.1f, "img1")
                 .setText(TutorialStringLibrary.PICK_A_CARD)
                 .setLayer(2)
                 .setColor(0.5f,0.5f,0.5f,0.5f)
@@ -199,13 +199,13 @@ public class CombatState extends BasicGameState {
         gui.addElement(el_name, end_turn);
         
         el_name = "background";
-        GuiElement background = new GuiElement (el_name, gui, true, 0f, 0f, true, 1f, 1f, "backgrounds/forest")
+        GuiElement background = new GuiElement (el_name, gui, true, 0f, 0f, true, 1f, 1f)
                 .setLayer(-2)
                 ;
         gui.addElement(el_name, background);
         
         el_name = "overlay";
-        GuiElement overlay = new GuiElement (el_name, gui, true, 0f, 0f, true, 1f, 1f)
+        GuiElement overlay = new GuiElement (el_name, gui, true, 0f, 0f, true, 1f, 1f, "ui/block")
                 .setVisible(true)
                 .setColor(0f,0f,0f,1f)
                 .setProperty("fade_speed", .5f)
@@ -223,6 +223,7 @@ public class CombatState extends BasicGameState {
         super.enter(container, game);
         SharedState.updateStateId(CombatState.ID);
         
+        gui.getElement("background").setImage(GameplayManager.getCurrentLevelType().getBackground());
         gui.getElement("overlay").instantCall("fadeout");
         List<GuiElement> character_elements = gui.getElements("ally");
         for (int i=0;i<character_elements.size();i++) {
@@ -248,6 +249,11 @@ public class CombatState extends BasicGameState {
         end_turn.setWhileHovered("scaleup");
         substate = CombatSubState.PICK_CARD;
         gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
+        
+        List<GuiElement> card_el_list = gui.getElements("card_slot");
+        for (int i=0;i<card_el_list.size();i++) {
+            card_el_list.get(i).setCardPlayed(false);
+        }
     }
     
     public static Creature getCurrentCastingCreature () {

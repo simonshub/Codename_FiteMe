@@ -68,7 +68,7 @@ public class CardLibrary {
             for (File card_pack : all_card_packs) {
                 try {
                     String path = card_pack.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
-                    String pack_name = path.substring(path.indexOf(Settings.card_pack_path)+Settings.card_pack_path.length(), path.lastIndexOf("."));
+                    String pack_name = SlickUtils.Files.getFileNameLC(path);
                     
                     String contents = new Scanner(card_pack).useDelimiter("\\Z").next();
                     parseCardPackFile(pack_name, contents);

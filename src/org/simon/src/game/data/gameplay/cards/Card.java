@@ -138,12 +138,13 @@ public class Card {
     
     
     
-    public void render (Graphics g, float x, float y, float scale) {
+    public void render (Graphics g, float x, float y, float scale, boolean played) {
         // if the currently playing player creature cannot pay the card cost, render a darker overlay 
         // ONLY IF THE CURRENT GAMESTATE IS CombatState !
         Color tint = Color.white;
         if (SharedState.isCurrentState(CombatState.class)) {
-            if (GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && (CombatState.getCurrentCastingCreature()==null || !CombatState.getCurrentCastingCreature().canSpendPoints(this)) ) {
+            if ( (GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && (CombatState.getCurrentCastingCreature()==null || !CombatState.getCurrentCastingCreature().canSpendPoints(this)) )
+                    || (played) ) {
                 tint = new Color (0.5f, 0.5f, 0.5f, 1f);
             }
         }

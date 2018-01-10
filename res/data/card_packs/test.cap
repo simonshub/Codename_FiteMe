@@ -62,7 +62,7 @@ icon: cards/base_ecp/thor-fist
 targ: all_enemies
 func: damage 1 3
 text: Deal 1-3 damage to all enemies
-spef: torch_src_tar_0.5;test_tar_tar_0.25
+spef: torch_src_tar_0.5;castpoint;test_tar_tar_0.25
 cost: atk 2
 colr: 0,40 0,40 1,00 1,00
 ulvl: 1

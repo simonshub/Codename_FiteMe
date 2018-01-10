@@ -35,7 +35,7 @@ public class Creature {
 
     public static final float DEFAULT_CREATURE_WIDTH = 0.13f;
     public static final float DEFAULT_CREATURE_HEIGHT = 0.3f;
-    public static final float MAX_SCALING = 2f;
+    public static final float MAX_SCALING = 4f;
     
     public static final int STAT_FONT_SIZE = 14;
     public static final float STAT_ICON_MARGIN = 0.5f;
@@ -50,13 +50,14 @@ public class Creature {
     private String name;
     private String creature_pack;
     
-    private Image icon;
-    private float icon_scale;
-    private String icon_name;
+    private Image graphics;
+    private float graphics_scale;
+    private String graphics_name;
     private Creature parent = null;
     
     private int disabled, armor, atk_mod, base_atk_mod;
     private int health_current, health_max;
+    private float difficulty;
     
     private boolean dead;
     private boolean is_player_character = false;
@@ -80,18 +81,19 @@ public class Creature {
         
         this.parent = parent;
         
-        this.id = parent.getId();
-        this.name = parent.getName();
-        this.icon_name = parent.getIcon();
-        this.icon_scale = parent.getIconScale();
+        this.id = parent.id;
+        this.name = parent.name;
+        this.graphics_name = parent.graphics_name;
+        this.graphics_scale = parent.graphics_scale;
         this.armor = parent.armor;
         this.atk_mod = parent.atk_mod;
         this.base_atk_mod = parent.base_atk_mod;
         this.health_max = parent.health_max;
         this.health_current = parent.health_current;
+        this.difficulty = parent.difficulty;
         
-        if (ResourceManager.hasGraphics(icon_name)) {
-            this.icon = ResourceManager.getGraphics(icon_name);
+        if (ResourceManager.hasGraphics(graphics_name)) {
+            this.graphics = ResourceManager.getGraphics(graphics_name);
         }
         
         this.status_effects = new ArrayList<> ();
@@ -104,7 +106,7 @@ public class Creature {
         }
     }
     
-    public Creature (String id, String creature_pack, String name, String icon, float icon_scale, int hp, int armor, int atk_mod) {
+    public Creature (String id, String creature_pack, String name, String graphics, float graphics_scale, int hp, int armor, int atk_mod) {
         disabled = 0;
         dead = false;
         
@@ -118,10 +120,10 @@ public class Creature {
         this.health_max = hp;
         this.health_current = hp;
         
-        this.icon_scale = icon_scale;
-        if (ResourceManager.hasGraphics(icon)) {
-            this.icon = ResourceManager.getGraphics(icon);
-            this.icon_name = icon;
+        this.graphics_scale = graphics_scale;
+        if (ResourceManager.hasGraphics(graphics)) {
+            this.graphics = ResourceManager.getGraphics(graphics);
+            this.graphics_name = graphics;
         }
         
         this.status_effects = new ArrayList<> ();
@@ -140,8 +142,8 @@ public class Creature {
         return name;
     }
     
-    public String getIcon () {
-        return icon_name;
+    public String getGraphicsName () {
+        return graphics_name;
     }
     
     public String getId () {
@@ -184,8 +186,12 @@ public class Creature {
         return this.total_point_pool.get(type);
     }
     
-    public float getIconScale () {
-        return icon_scale;
+    public float getGraphicsScale () {
+        return graphics_scale;
+    }
+    
+    public float getDifficulty () {
+        return difficulty;
     }
     
     public GuiElement getGuiElement () {
@@ -206,14 +212,14 @@ public class Creature {
         this.id = id;
     }
     
-    public void setIcon (String icon) {
-        if (!ResourceManager.hasGraphics(icon)) {
-            Log.err("Cannot set creature '"+name+"' graphics to '"+icon+"' because none such graphic was loaded!");
+    public void setGraphics (String graphics) {
+        if (!ResourceManager.hasGraphics(graphics)) {
+            Log.err("Cannot set creature '"+name+"' graphics to '"+graphics+"' because none such graphic was loaded!");
             return;
         }
         
-        this.icon_name = icon;
-        this.icon = ResourceManager.getGraphics(icon);
+        this.graphics_name = graphics;
+        this.graphics = ResourceManager.getGraphics(graphics);
     }
     
     public void setParent (Creature parent) {
@@ -310,7 +316,7 @@ public class Creature {
     }
     
     public void disable (int turns) {
-        this.disabled = Math.max(turns, this.disabled);
+        this.disabled = Math.max(turns+1, this.disabled);
     }
     
     public void addArmor (int amount) {
@@ -329,30 +335,36 @@ public class Creature {
         return this.status_effects.remove(status_effect);
     }
     
+    public boolean isDisabled () {
+        return disabled>0;
+    }
+    
     public void turnTick (SpecialEffectSystem sfx) {
         for (int i=0;i<status_effects.size();i++) {
             status_effects.get(i).turnTick(sfx);
+            if (status_effects.get(i).isDone()) status_effects.remove(i);
         }
+        if (disabled>0) disabled--;
     }
     
     
     
     public void render (Graphics g, float x, float y, float target_width, float scale) {
         // creatures without a display image are not rendered
-        if (this.icon == null) {
+        if (this.graphics == null) {
             return;
         }
         
         // determine actual rendering x,y and dimensions (scaling)
-        float width_scale_factor = Math.min( (target_width/icon.getWidth()) * scale * icon_scale, MAX_SCALING);
-        float actual_width = icon.getWidth() * width_scale_factor;
-        float actual_height = icon.getHeight() * width_scale_factor;
+        float width_scale_factor = Math.min((target_width/graphics.getWidth()) * scale * graphics_scale, MAX_SCALING);
+        float actual_width = graphics.getWidth() * width_scale_factor;
+        float actual_height = graphics.getHeight() * width_scale_factor;
 
         float actual_x = x - actual_width/2f;
         float actual_y = y - actual_height/2f;
 
         // render creature image at actual x,y with actual dimensions
-        icon.draw(actual_x, actual_y, width_scale_factor);
+        graphics.draw(actual_x, actual_y, width_scale_factor);
         
         // render base stats (cur hp, armor, base_atk_mod) at lower left corner of allocated, going up
         int n_of_stats_displayed = 1;
@@ -376,6 +388,11 @@ public class Creature {
         }
         
         // render currently active statuses (poison, burn, atk_mod, disabled) at lower right corner of allocated, going up
+        int n_of_statuses = status_effects.size();
+        
+        float status_x = x + actual_width - stats_icon_size;
+        float status_y = y + actual_height;
+        
         
         // render total points at upper left corner, going right - render used points darker
         float point_x_offset = 0;
@@ -431,15 +448,15 @@ public class Creature {
         }
         point_string = point_string.trim();
         
-        String icon_size_string = "";
-        icon_size_string = String.format("%.2f",this.icon_scale);
+        String graphics_size_string = "";
+        graphics_size_string = String.format("%.2f",this.graphics_scale);
         
         String contents = "";
         contents += "\n";
         contents += CreatureLibrary.PARSE_KEYWORD_SET_NEW_CREATURE + CreatureLibrary.PARSE_DELIMITER + " " + this.id + "\n";
         contents += CreatureLibrary.PARSE_KEYWORD_SET_NAME + CreatureLibrary.PARSE_DELIMITER + " " + this.name + "\n";
-        contents += CreatureLibrary.PARSE_KEYWORD_SET_ICON + CreatureLibrary.PARSE_DELIMITER + " " + this.icon_name + "\n";
-        contents += CreatureLibrary.PARSE_KEYWORD_SET_ICON_SCALE + CreatureLibrary.PARSE_DELIMITER + " " + icon_size_string + "\n";
+        contents += CreatureLibrary.PARSE_KEYWORD_SET_GRAPHICS + CreatureLibrary.PARSE_DELIMITER + " " + this.graphics_name + "\n";
+        contents += CreatureLibrary.PARSE_KEYWORD_SET_GRAPHICS_SCALE + CreatureLibrary.PARSE_DELIMITER + " " + graphics_size_string + "\n";
         contents += CreatureLibrary.PARSE_KEYWORD_SET_POINTS + CreatureLibrary.PARSE_DELIMITER + " " + point_string + "\n";
         contents += CreatureLibrary.PARSE_KEYWORD_SET_HEALTH + CreatureLibrary.PARSE_DELIMITER + " " + this.health_max + "\n";
         if (this.armor > 0)

@@ -34,6 +34,9 @@ public class PlayerCharacterClass {
     public static final String KEYWORD_HPBS = "hpbs";
     public static final String KEYWORD_HPPL = "hppl";
     
+    public static final String PARSE_DELIMITER = ":";
+    public static final String PARSE_COMMENT = "#";
+    
     private String name;
     private String graphics;
     private String portrait;
@@ -59,8 +62,8 @@ public class PlayerCharacterClass {
                 String line;
                 BufferedReader br = new BufferedReader (new FileReader (file));
                 while ( (line = br.readLine())!=null ) {
-                    if (line.trim().startsWith(CardLibrary.PARSE_COMMENT)) continue;
-                    String[] args = line.split(CardLibrary.PARSE_DELIMITER);
+                    if (line.trim().startsWith(PlayerCharacterClass.PARSE_COMMENT)) continue;
+                    String[] args = line.split(PlayerCharacterClass.PARSE_DELIMITER);
                     if (args.length != 2) {
                         Log.err("Unable to parse line '"+line+"' while loading player character class; wrong number of arguments");
                         continue;
@@ -72,7 +75,7 @@ public class PlayerCharacterClass {
                             this.name = parse_value;
                             break;
                         case KEYWORD_GRFX :
-                            if (ResourceManager.hasGraphics(parse_value)) this.graphics = parse_value;
+                            this.graphics = parse_value;
                             break;
                         case KEYWORD_PORT :
                             this.portrait = parse_value;
@@ -156,13 +159,13 @@ public class PlayerCharacterClass {
     public Creature getCreatureParent (int level) {
         Creature c = new Creature ();
         
-        c.setIcon(getGraphics());
         c.setId(PlayerCharacter.PLAYER_CHARACTER_CREATURE_ID_PREFIX + getName().toLowerCase().replace(" ", "_") + ("_"+level));
-        c.setPoints(getPointPoolForLevel(level));
         c.setName(getName());
+        c.setPoints(getPointPoolForLevel(level));
         c.setHealth(getHealthForLevel(level));
         c.setParent(null);
         c.setIsPlayerCharacter(true);
+        c.setGraphics(getGraphics());
         
         return c;
     }

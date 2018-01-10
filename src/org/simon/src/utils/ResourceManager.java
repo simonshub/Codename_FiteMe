@@ -97,11 +97,23 @@ public class ResourceManager {
         end = System.currentTimeMillis();
         Log.log("Creatures loaded in "+String.format("%.2f", (end-start)/1000f)+" sec");
         
+        Log.log("Initializing gameplay component...");
+        start = System.currentTimeMillis();
+        GameplayManager.init();
+        end = System.currentTimeMillis();
+        Log.log("Gameplay component initialized in "+String.format("%.2f", (end-start)/1000f)+" sec");
+        
         Log.log("Loading player character classes...");
         start = System.currentTimeMillis();
         GameplayManager.init();
         end = System.currentTimeMillis();
         Log.log("Player character classes loaded in "+String.format("%.2f", (end-start)/1000f)+" sec");
+        
+        Log.log("Loading level types...");
+        start = System.currentTimeMillis();
+        GameplayManager.loadLevelTypes();
+        end = System.currentTimeMillis();
+        Log.log("Level types loaded in "+String.format("%.2f", (end-start)/1000f)+" sec");
         
         long end_entire = System.currentTimeMillis();
         Log.log("Finished loading in "+String.format("%.2f",(end_entire-start_entire)/1000f)+" sec");

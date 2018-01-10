@@ -44,11 +44,6 @@ public abstract class SlickUtils {
     
     
     
-    public static String getFileName (String path) {
-        int end_of_path_index = Math.max(path.lastIndexOf("/")+1, path.lastIndexOf("\\")+1);
-        return path.substring(end_of_path_index,path.lastIndexOf("."));
-    }
-    
     public static String capitalizeWords (String sentance) {
         String result = "";
         for (int i=0;i<sentance.length();i++) {
@@ -356,6 +351,15 @@ public abstract class SlickUtils {
     
     
     public static class Files {
+        
+        public static String getFileName (String path) {
+            int end_of_path_index = Math.max(path.lastIndexOf("/")+1, path.lastIndexOf("\\")+1);
+            return path.substring(end_of_path_index,path.lastIndexOf("."));
+        }
+        
+        public static String getFileNameLC (String path) {
+            return getFileName(path).toLowerCase();
+        }
         
         public static File[] getFileArrayOfExtensionInSubdirs (File directory, String ext) {
             List<File> subfiles = new ArrayList<> ();

@@ -20,7 +20,6 @@ import java.util.Scanner;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.utils.Consts;
 import org.simon.src.utils.Log;
-import org.simon.src.utils.ResourceManager;
 import org.simon.src.utils.Settings;
 import org.simon.src.utils.SlickUtils;
 
@@ -31,13 +30,14 @@ import org.simon.src.utils.SlickUtils;
 public class CreatureLibrary {
     
     public static final String PARSE_KEYWORD_SET_NEW_CREATURE = "crid";
-    public static final String PARSE_KEYWORD_SET_ICON_SCALE = "icsz";
+    public static final String PARSE_KEYWORD_SET_GRAPHICS_SCALE = "grsz";
     public static final String PARSE_KEYWORD_SET_ATK_MOD = "amod";
     public static final String PARSE_KEYWORD_SET_POINTS = "pnts";
     public static final String PARSE_KEYWORD_SET_HEALTH = "hlth";
     public static final String PARSE_KEYWORD_SET_ARMOR = "armr";
     public static final String PARSE_KEYWORD_SET_NAME = "name";
-    public static final String PARSE_KEYWORD_SET_ICON = "icon";
+    public static final String PARSE_KEYWORD_SET_GRAPHICS = "grfx";
+    public static final String PARSE_KEYWORD_SET_DIFFICULTY = "diff";
     
     public static final String PARSE_DELIMITER = ":";
     public static final String PARSE_COMMENT = "#";
@@ -65,7 +65,7 @@ public class CreatureLibrary {
             for (File creature_pack : all_creature_packs) {
                 try {
                     String path = creature_pack.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
-                    String pack_name = SlickUtils.getFileName(path);
+                    String pack_name = SlickUtils.Files.getFileName(path);
                     
                     String contents = new Scanner(creature_pack).useDelimiter("\\Z").next();
                     parseCreaturePackFile(pack_name, contents);
@@ -164,10 +164,10 @@ public class CreatureLibrary {
                 case PARSE_KEYWORD_SET_NAME :
                     current_creature_name = parse_value;
                     break;
-                case PARSE_KEYWORD_SET_ICON :
+                case PARSE_KEYWORD_SET_GRAPHICS :
                     current_creature_icon = parse_value;
                     break;
-                case PARSE_KEYWORD_SET_ICON_SCALE :
+                case PARSE_KEYWORD_SET_GRAPHICS_SCALE :
                     try {
                         current_creature_icon_scale = Float.parseFloat(parse_value.trim().replace(",","."));
                     } catch (NumberFormatException ex) {
@@ -265,6 +265,16 @@ public class CreatureLibrary {
         name = name.toLowerCase();
         if (!creature_lib.containsKey(name)) return null;
         return new Creature (creature_lib.get(name));
+    }
+    
+    public static Creature getCreatureRaw (String name) {
+        name = name.toLowerCase();
+        if (!creature_lib.containsKey(name)) return null;
+        return creature_lib.get(name);
+    }
+    
+    public static boolean hasCreature (String name) {
+        return creature_lib.containsKey(name);
     }
     
     public static Creature getRandomCreature () {

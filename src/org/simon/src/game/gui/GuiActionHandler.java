@@ -371,6 +371,7 @@ public class GuiActionHandler {
             if (targets.isEmpty()) return;
             
             card.play(CombatState.sfx, CombatState.getCurrentCastingCreature(), targets);
+            el.setCardPlayed(true);
             CombatState.substate = CombatState.CombatSubState.PICK_CARD;
 
             GuiElement tut = parent.getElement("tutorial_label");

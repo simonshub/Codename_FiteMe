@@ -58,7 +58,7 @@ public class CreatureCrafterState extends BasicGameState {
         creature = new Creature ();
         creature.setName("");
         creature.setPoints(new HashMap<> ());
-        creature.setIcon(creature_images.get(current_image_index));
+        creature.setGraphics(creature_images.get(current_image_index));
         
         gui = new GuiController ();
         String el_name;
@@ -94,18 +94,18 @@ public class CreatureCrafterState extends BasicGameState {
         
         if (gc.getInput().isKeyPressed(Input.KEY_LEFT)) {
             rotateCurrentImageIndexLeft();
-            creature.setIcon(creature_images.get(current_image_index));
+            creature.setGraphics(creature_images.get(current_image_index));
         } else if (gc.getInput().isKeyPressed(Input.KEY_RIGHT)) {
             rotateCurrentImageIndexRight();
-            creature.setIcon(creature_images.get(current_image_index));
+            creature.setGraphics(creature_images.get(current_image_index));
         }
         
         if (frame.flag_prev) {
             rotateCurrentImageIndexLeft();
-            creature.setIcon(creature_images.get(current_image_index));
+            creature.setGraphics(creature_images.get(current_image_index));
         } else if (frame.flag_next) {
             rotateCurrentImageIndexRight();
-            creature.setIcon(creature_images.get(current_image_index));
+            creature.setGraphics(creature_images.get(current_image_index));
         } else if (frame.flag_save) {
             frame.flag_save = false;
             creature.setName(frame.getNameValue());
