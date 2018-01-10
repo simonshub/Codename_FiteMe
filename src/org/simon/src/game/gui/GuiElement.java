@@ -50,7 +50,6 @@ public final class GuiElement {
     
     private Card card=null;
     private boolean is_card=false;
-    private boolean played_card=false;
     
     private Creature creature=null;
     private boolean is_creature=false;
@@ -134,14 +133,6 @@ public final class GuiElement {
     
     public String getImageName () {
         return this.graphics_name;
-    }
-    
-    public boolean getCardPlayed () {
-        return played_card;
-    }
-    
-    public void setCardPlayed (boolean played_card) {
-        this.played_card = played_card;
     }
     
     
@@ -506,7 +497,7 @@ public final class GuiElement {
         
         if (this.is_card && card!=null) {
             float actual_scale = scale * (base_width / Card.STANDARD_CARD_WIDTH);
-            this.card.render(g, display_x+x_offset, display_y+y_offset, actual_scale, played_card);
+            this.card.render(g, display_x+x_offset, display_y+y_offset, actual_scale);
         }
         
         if (this.is_creature && creature!=null) {

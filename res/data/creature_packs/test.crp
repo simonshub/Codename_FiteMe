@@ -25,28 +25,244 @@ hlth: 10
 diff: 1
 
 
-crid: goblin2
-name: Goblin
-grfx: creatures/goblin
+crid: ogre_brute
+name: Ogre Brute
+grfx: creatures/ogre_brute
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: ogre_witch
+name: Ogre Witch
+grfx: creatures/ogre_witch
 grsz: 1
 pnts: atk 12
 hlth: 6
 diff: 1
 
 
-crid: skeleton2
-name: Skeleton Warrior
-grfx: creatures/skeleton
-grsz: 0.5
+crid: ogre_key
+name: Ogre Gatekeeper
+grfx: creatures/ogre_key
+grsz: 1
 pnts: atk 6 agi 6 def 6
 hlth: 8
 diff: 1
 
 
-crid: quatl2
-name: Quatl
-grfx: creatures/quatl
-grsz: 0.5
+crid: ogre
+name: Ogre
+grfx: creatures/ogre
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: goblin_assassin
+name: Goblin Assassin
+grfx: creatures/goblin_assassin
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: orc
+name: Orc
+grfx: creatures/orc
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: orc_warrior
+name: Orc Warrior
+grfx: creatures/orc_warrior
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: orc_warchief
+name: Orc Warchief
+grfx: creatures/orc_warchief
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: spider
+name: Giant Spider
+grfx: creatures/spider
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: troglodyte
+name: Troglodyte
+grfx: creatures/troglodyte
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: wasp
+name: Giant Wasp
+grfx: creatures/wasp
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: warlock
+name: Warlock
+grfx: creatures/warlock
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: imp
+name: Imp
+grfx: creatures/imp
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: demon
+name: Demon
+grfx: creatures/demon
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: demon_mage
+name: Demon Hellcaller
+grfx: creatures/demon_mage
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: demon_lord
+name: Demon Lord
+grfx: creatures/demon_lord
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: reaver
+name: Blood Reaver
+grfx: creatures/reaver
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: blood_mage
+name: Blood Mage
+grfx: creatures/blood_mage
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: shadow
+name: Shadow
+grfx: creatures/shadow
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: goo
+name: Slime
+grfx: creatures/goo
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: ghoul
+name: Ghoul
+grfx: creatures/ghoul
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: evil_eye
+name: Beholder
+grfx: creatures/evil_eye
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: crawler
+name: Crawler
+grfx: creatures/crawler
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: ghost
+name: Ghost
+grfx: creatures/ghost
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: dire_wolf
+name: Dire Wolf
+grfx: creatures/dire_wolf
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: dire_bear
+name: Dire Bear
+grfx: creatures/dire_bear
+grsz: 1
+pnts: atk 1 arc 1 div 1
+hlth: 10
+diff: 1
+
+
+crid: dragon
+name: Dragon
+grfx: creatures/dragon
+grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 10
 diff: 1

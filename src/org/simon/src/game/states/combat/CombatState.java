@@ -251,9 +251,6 @@ public class CombatState extends BasicGameState {
         gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
         
         List<GuiElement> card_el_list = gui.getElements("card_slot");
-        for (int i=0;i<card_el_list.size();i++) {
-            card_el_list.get(i).setCardPlayed(false);
-        }
     }
     
     public static Creature getCurrentCastingCreature () {
