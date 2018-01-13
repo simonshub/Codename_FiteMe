@@ -376,9 +376,9 @@ public class ResourceManager {
     
     private static List<String> parseSfxFile (File f) throws IOException {
         List<String> results = new ArrayList<> ();
-        results.add(""); // key
-        results.add(""); // xml
-        results.add(""); // img
+        results.add("key"); // key placeholder
+        results.add("xml"); // xml placeholder
+        results.add("img"); // img placeholder
         
         BufferedReader br = new BufferedReader (new FileReader (f));
         String line;
