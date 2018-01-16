@@ -38,7 +38,7 @@ public class Creature {
     public static final float MAX_SCALING = 4f;
     
     public static final int STAT_FONT_SIZE = 14;
-    public static final float STAT_ICON_MARGIN = 0.5f;
+    public static final float STAT_ICON_MARGIN = 0.25f;
     public static final String STAT_FONT_NAME = "consolas";
     public static final float STAT_ICON_SIZE_FROM_WIDTH = 0.1f;
     
@@ -349,7 +349,7 @@ public class Creature {
     
     
     
-    public void render (Graphics g, float x, float y, float target_width, float scale) {
+    public void render (Graphics g, float x, float y, float target_width, float target_height, float scale) {
         // creatures without a display image are not rendered
         if (this.graphics == null) {
             return;
@@ -372,7 +372,7 @@ public class Creature {
         
         float stats_icon_size = target_width * STAT_ICON_SIZE_FROM_WIDTH;
         float stats_x = x - (target_width/2f);
-        float stats_y = actual_y + actual_height*1.1f + ( (n_of_stats_displayed-1) * stats_icon_size * 1.25f); // height is amplified by 10% as a margin
+        float stats_y = y + Math.min(actual_height/2f, target_height/2f) - ( (n_of_stats_displayed-1) * stats_icon_size * 1.25f);
         float text_x = stats_x + stats_icon_size * (1f+STAT_ICON_MARGIN);
         
         g.setColor(Color.white);
@@ -394,10 +394,7 @@ public class Creature {
         float status_y = y + actual_height;
         
         
-        // render total points at upper left corner, going right - render used points darker
-        float point_x_offset = 0;
-        float point_y_offset = 0;
-        
+        // render total points at top - render used points darker
         int point_sum = 0;
         for (int i=0;i<PointTypeEnum.values().length;i++) {
             PointTypeEnum type = PointTypeEnum.values()[i];
@@ -408,22 +405,23 @@ public class Creature {
         float point_size = (target_width / point_sum) - point_margin;
         float point_max_size = (target_width / POINTS_RENDERED_FOR_WIDTH) - point_margin;
         point_size = Math.min (point_size,point_max_size);
-        point_y_offset -= point_size;
-        point_x_offset -= ( (point_size+point_margin) * point_sum ) / 2f;
+        float point_y_offset = -point_size;
+        float point_x_offset = -( (point_size+point_margin) * point_sum ) / 2f;
         
         for (int i=0;i<PointTypeEnum.values().length;i++) {
             PointTypeEnum type = PointTypeEnum.values()[i];
             Integer points = this.total_point_pool.get(type);
             Integer used = this.used_point_pool.get(type);
             Integer unused = points - used;
+            float point_y = Math.max((y - (actual_height/2f)), (y - (target_height/2f))) + point_y_offset;
             
             for (int j=0;j<unused;j++) {
-                type.render(g, x+point_x_offset, actual_y+point_y_offset, point_size, point_size);
+                type.render(g, x + point_x_offset, point_y, point_size, point_size);
                 point_x_offset += point_margin + point_size;
             }
             
             for (int j=unused;j<points;j++) {
-                type.renderUsed(g, x+point_x_offset, actual_y+point_y_offset, point_size, point_size);
+                type.renderUsed(g, x + point_x_offset, (y - (target_height/2f)) + point_y_offset, point_size, point_size);
                 point_x_offset += point_margin + point_size;
             }
         }

@@ -267,3 +267,11 @@ pnts: atk 1 arc 1 div 1
 hlth: 10
 diff: 1
 
+
+crid: basilisk
+name: Basilisk
+grfx: creatures/basilisk
+grsz: 1
+pnts: atk 1 def 2 agi 1
+hlth: 10
+diff: 1

@@ -501,7 +501,7 @@ public final class GuiElement {
         }
         
         if (this.is_creature && creature!=null) {
-            this.creature.render(g, display_x+x_offset + width/2f, display_y+y_offset + height/2f, width, scale);
+            this.creature.render(g, display_x+x_offset + width/2f, display_y+y_offset + height/2f, width, height, scale);
         }
     }
     
