@@ -18,7 +18,6 @@ import org.simon.src.game.data.gameplay.cards.CardLibrary;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.utils.CycleList;
 import org.simon.src.utils.Log;
-import org.simon.src.utils.ResourceManager;
 
 /**
  *

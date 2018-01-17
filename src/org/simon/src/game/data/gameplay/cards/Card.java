@@ -19,7 +19,6 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.TrueTypeFont;
 import org.simon.src.game.data.gameplay.GameplayManager;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
-import org.simon.src.game.sfx.SpecialEffectCallback;
 import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.game.states.SharedState;
 import org.simon.src.game.states.combat.CombatState;
@@ -72,6 +71,8 @@ public class Card {
     public static final float SHADOW_Y_OFFSET = 7.5f;
     
     public static final float CARD_PORTRAIT_BORDER_THICKNESS = 2.5f; // in pixels
+    
+    public static final Color DISABLED_COLOR = new Color (0.5f, 0.5f, 0.5f, 1f);
     
     
     
@@ -138,13 +139,14 @@ public class Card {
     
     
     
-    public void render (Graphics g, float x, float y, float scale) {
-        // if the currently playing player creature cannot pay the card cost, render a darker overlay 
+    public void render (Graphics g, float x, float y, float scale, boolean was_played) {
+        // if the currently playing player creature cannot pay the card cost, has already played it, or no creature is selected, render a darker overlay 
         // ONLY IF THE CURRENT GAMESTATE IS CombatState !
         Color tint = Color.white;
         if (SharedState.isCurrentState(CombatState.class)) {
-            if ( (GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && (CombatState.getCurrentCastingCreature()==null || !CombatState.getCurrentCastingCreature().canSpendPoints(this)) ) ) {
-                tint = new Color (0.5f, 0.5f, 0.5f, 1f);
+            if (was_played || ( GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.PLAYER &&
+                    (CombatState.getCurrentCastingCreature()==null || !CombatState.getCurrentCastingCreature().canSpendPoints(this)) ) ) {
+                tint = DISABLED_COLOR;
             }
         }
         

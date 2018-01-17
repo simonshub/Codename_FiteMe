@@ -59,9 +59,7 @@ public class Creature {
     private int health_current, health_max;
     private float difficulty;
     
-    private boolean dead;
     private boolean is_player_character = false;
-    
     private final List<StatusEffect> status_effects;
     
     private final Map<PointTypeEnum, Integer> used_point_pool;
@@ -77,7 +75,6 @@ public class Creature {
     
     public Creature (final Creature parent) {
         disabled = 0;
-        dead = false;
         
         this.parent = parent;
         
@@ -108,7 +105,6 @@ public class Creature {
     
     public Creature (String id, String creature_pack, String name, String graphics, float graphics_scale, int hp, int armor, int atk_mod) {
         disabled = 0;
-        dead = false;
         
         this.id = id;
         this.name = name;
@@ -305,10 +301,6 @@ public class Creature {
             armor = Math.max(0, armor-amount);
         }
         this.health_current -= real_amount;
-        
-        if (this.health_current <= 0) {
-            dead = true;
-        }
     }
     
     public void restoreHealth (int amount, Creature source) {
@@ -339,6 +331,10 @@ public class Creature {
         return disabled>0;
     }
     
+    public boolean isDead () {
+        return health_current<=0;
+    }
+    
     public void turnTick (SpecialEffectSystem sfx) {
         for (int i=0;i<status_effects.size();i++) {
             status_effects.get(i).turnTick(sfx);
@@ -364,7 +360,7 @@ public class Creature {
         float actual_y = y - actual_height/2f;
 
         // render creature image at actual x,y with actual dimensions
-        graphics.draw(actual_x, actual_y, width_scale_factor);
+        graphics.draw(actual_x, actual_y, width_scale_factor, gui_element.getColor());
         
         // render base stats (cur hp, armor, base_atk_mod) at lower left corner of allocated, going up
         int n_of_stats_displayed = 1;
@@ -421,7 +417,7 @@ public class Creature {
             }
             
             for (int j=unused;j<points;j++) {
-                type.renderUsed(g, x + point_x_offset, (y - (target_height/2f)) + point_y_offset, point_size, point_size);
+                type.renderUsed(g, x + point_x_offset, point_y, point_size, point_size);
                 point_x_offset += point_margin + point_size;
             }
         }

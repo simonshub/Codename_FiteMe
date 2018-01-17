@@ -5,7 +5,6 @@
  */
 package org.simon.src.game.states.combat;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -103,7 +102,7 @@ public class CombatState extends BasicGameState {
             GameplayManager.addEnemy(creature);
             String el_name_complete = el_name+"_enemy_"+String.valueOf(i);
             GuiElement creature_slot = new GuiElement (el_name_complete, gui, true, creature_el_x, creature_el_y, true, creature_el_width, creature_el_height, "")
-                    .setColor(0.5f,0.6f,0.4f,1f)
+                    .setColor(Color.white)
                     .setLayer(1)
                     .setCreature(creature)
                     .setOnClick("selecttarget")
@@ -121,7 +120,7 @@ public class CombatState extends BasicGameState {
             Creature creature = new Creature (CreatureLibrary.getRandomCreature());
             GameplayManager.addAlly(creature);
             GuiElement creature_slot = new GuiElement (el_name+"_ally_"+String.valueOf(i), gui, true, creature_el_x, creature_el_y, true, creature_el_width, creature_el_height, "")
-                    .setColor(0.5f,0.6f,0.4f,1f)
+                    .setColor(Color.white)
                     .setLayer(1)
                     .setCreature(creature)
                     .setOnClick("selecttarget")
@@ -227,7 +226,12 @@ public class CombatState extends BasicGameState {
         gui.getElement("overlay").instantCall("fadeout");
         List<GuiElement> character_elements = gui.getElements("ally");
         for (int i=0;i<character_elements.size();i++) {
-            character_elements.get(i).setCreature(Player.getParty().get(i).getCreature());
+            final Creature creature = Player.getParty().get(i).getCreature();
+            if (!creature.isDead()) {
+                character_elements.get(i).setCreature(creature);
+            } else {
+                character_elements.get(i).setVisible(false);
+            }
         }
     }
     
@@ -238,8 +242,9 @@ public class CombatState extends BasicGameState {
         GuiElement end_turn = gui.getElement("end_turn");
         end_turn.setImage("ui/end_turn_disabled");
         end_turn.setWhileHovered("scalebackdown");
-        substate = CombatSubState.ENEMY_TURN;
         gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
+        GameplayManager.endTurn(sfx);
+        substate = CombatSubState.ENEMY_TURN;
     }
     
     public static void startTurn () {
@@ -247,10 +252,14 @@ public class CombatState extends BasicGameState {
         GuiElement end_turn = gui.getElement("end_turn");
         end_turn.setImage("ui/end_turn");
         end_turn.setWhileHovered("scaleup");
-        substate = CombatSubState.PICK_CARD;
         gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
+        GameplayManager.endTurn(sfx);
+        substate = CombatSubState.PICK_CARD;
         
         List<GuiElement> card_el_list = gui.getElements("card_slot");
+        for (GuiElement el : card_el_list) {
+            el.setCardPlayed(false);
+        }
     }
     
     public static Creature getCurrentCastingCreature () {
