@@ -243,8 +243,9 @@ public class CombatState extends BasicGameState {
         end_turn.setImage("ui/end_turn_disabled");
         end_turn.setWhileHovered("scalebackdown");
         gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
-        GameplayManager.endTurn(sfx);
+        GameplayManager.turnTick(sfx);
         substate = CombatSubState.ENEMY_TURN;
+        GameplayManager.checkWaveSpawn();
     }
     
     public static void startTurn () {
@@ -253,7 +254,7 @@ public class CombatState extends BasicGameState {
         end_turn.setImage("ui/end_turn");
         end_turn.setWhileHovered("scaleup");
         gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
-        GameplayManager.endTurn(sfx);
+        GameplayManager.turnTick(sfx);
         substate = CombatSubState.PICK_CARD;
         
         List<GuiElement> card_el_list = gui.getElements("card_slot");
@@ -308,15 +309,15 @@ public class CombatState extends BasicGameState {
     
     public static void reroll () {
         List<GuiElement> elements;
-        GameplayManager.clearEnemies();
-        
-        // roll enemy creatures
-        elements = gui.getElements("creature_slot_enemy");
-        for (int i=0;i<elements.size();i++) {
-            Creature creature = new Creature (CreatureLibrary.getRandomCreature());
-            elements.get(i).setCreature(creature);
-            GameplayManager.addEnemy(creature);
-        }
+//        GameplayManager.clearEnemies();
+//        
+//        // roll enemy creatures
+//        elements = gui.getElements("creature_slot_enemy");
+//        for (int i=0;i<elements.size();i++) {
+//            Creature creature = new Creature (CreatureLibrary.getRandomCreature());
+//            elements.get(i).setCreature(creature);
+//            GameplayManager.addEnemy(creature);
+//        }
         
         // roll player hand
         CardPool test_deck = new CardPool (CardLibrary.getAllCards());

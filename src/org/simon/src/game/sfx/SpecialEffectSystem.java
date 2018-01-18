@@ -50,7 +50,7 @@ public class SpecialEffectSystem {
     public void addSfx (Card parent, Creature src, Creature... targets) {
         List<GuiElement> target_el_list = new ArrayList<> ();
         for (int i=0;i<targets.length;i++) {
-            target_el_list.add(targets[i].getGuiElement());
+            if (!targets[i].isDead()) target_el_list.add(targets[i].getGuiElement());
         }
         GuiElement[] target_elements = new GuiElement [target_el_list.size()];
         target_el_list.toArray(target_elements);
@@ -60,9 +60,12 @@ public class SpecialEffectSystem {
     
     public void addSfx (Card parent, GuiElement src, GuiElement... target_elements) {
         for (GuiElement target_element : target_elements) {
-            SpecialEffect sfx = new SpecialEffect (parent.getSfxCallstring(), src, target_element);
-            sfx.setCallback(new SpecialEffectCallback (parent, src.getCreature(), target_element.getCreature()));
-            instances.add(sfx);
+            Creature target = target_element.getCreature();
+            if (target!=null && !target.isDead()) {
+                SpecialEffect sfx = new SpecialEffect (parent.getSfxCallstring(), src, target_element);
+                sfx.setCallback(new SpecialEffectCallback (parent, src.getCreature(), target));
+                instances.add(sfx);
+            }
         }
     }
     

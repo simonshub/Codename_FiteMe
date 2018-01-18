@@ -21,7 +21,7 @@ public class Wave {
     
     private final List<Creature> wave;
     
-    public Wave (Encounter parent) {
+    Wave (Encounter parent) {
         int n_of_creatures = SlickUtils.rand(WAVE_MIN_SIZE,WAVE_MAX_SIZE);
         wave = new ArrayList<> ();
         

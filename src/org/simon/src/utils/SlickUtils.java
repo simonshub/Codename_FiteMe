@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import org.newdawn.slick.Color;
 
 /**
  *
@@ -40,26 +41,6 @@ public abstract class SlickUtils {
         }
         
         return args;
-    }
-    
-    
-    
-    public static String capitalizeWords (String sentance) {
-        String result = "";
-        for (int i=0;i<sentance.length();i++) {
-            if (i==0)
-                result += Character.toUpperCase(sentance.charAt(i));
-            else if (sentance.charAt(i-1)==' ')
-                result += Character.toUpperCase(sentance.charAt(i));
-            else
-                result += sentance.charAt(i);
-        }
-        return result;
-    }
-    
-    public static String beautifyString (String ugly) {
-        String result = ugly.toLowerCase().replaceAll("_", " ");
-        return capitalizeWords(result);
     }
     
     
@@ -302,7 +283,6 @@ public abstract class SlickUtils {
     
     
     /**
-     * 
      * @param min inclusive
      * @param max not inclusive
      * @return 
@@ -394,6 +374,24 @@ public abstract class SlickUtils {
     
     
     public static class Strings {
+
+        public static String capitalizeWords (String sentance) {
+            String result = "";
+            for (int i=0;i<sentance.length();i++) {
+                if (i==0)
+                    result += Character.toUpperCase(sentance.charAt(i));
+                else if (sentance.charAt(i-1)==' ')
+                    result += Character.toUpperCase(sentance.charAt(i));
+                else
+                    result += sentance.charAt(i);
+            }
+            return result;
+        }
+
+        public static String beautifyString (String ugly) {
+            String result = ugly.toLowerCase().replaceAll("_", " ");
+            return capitalizeWords(result);
+        }
     
         public static String capitalizeFirstChar (String str) {
             if (str.isEmpty())

@@ -366,14 +366,15 @@ public class GuiActionHandler {
             
             String source_card_el_name = (String) played_card.getProperty("source_card");
             GuiElement source_card_el = parent.getElement(source_card_el_name);
-            source_card_el.setCardPlayed(true);
             
             Card card = played_card.getCard();
             Creature primary_target = source.getCreature();
+            if (primary_target==null || primary_target.isDead()) return;
             Creature caster = GameplayManager.getCurrentCastingCreature();
             List<Creature> targets = TargetEnum.getTargetList (card.getTargetMode(), caster, primary_target, GameplayManager.getEnemies(), GameplayManager.getAllies());
             if (targets.isEmpty()) return;
             
+            source_card_el.setCardPlayed(true);
             card.play(CombatState.sfx, CombatState.getCurrentCastingCreature(), targets);
             CombatState.substate = CombatState.CombatSubState.PICK_CARD;
 
@@ -480,6 +481,16 @@ public class GuiActionHandler {
         portrait.setProperty("current_class_selection_index", new_selection);
         portrait.setImage(selection.getPortrait());
         label.setText(selection.getName());
+    }
+    
+    public static void clear_creature (final GuiElement source) {
+        source.getCreature().setGuiElement(null);
+        source.setCreature(null);
+    }
+    
+    public static void set_color (final GuiElement source) {
+        if (source.hasProperty("set_color"))
+            source.setColor((Color) source.getProperty("set_color"));
     }
     
 }

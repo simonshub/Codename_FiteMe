@@ -174,9 +174,15 @@ public final class GuiElement {
     }
     
     public GuiElement setCreature (final Creature creature) {
-        this.creature = creature;
-        this.is_creature = true;
-        this.creature.setGuiElement(this);
+        if (creature != null) {
+            this.creature = creature;
+            this.is_creature = true;
+            this.creature.setGuiElement(this);
+        } else {
+            this.creature.setGuiElement(null);
+            this.creature = null;
+            this.is_creature = false;
+        }
         
         return this;
     }

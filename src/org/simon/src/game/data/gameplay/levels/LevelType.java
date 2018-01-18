@@ -84,4 +84,8 @@ public class LevelType {
         return background;
     }
     
+    public Wave makeWave () {
+        return new Wave ((Encounter) SlickUtils.randListObject(encounter_list));
+    }
+    
 }

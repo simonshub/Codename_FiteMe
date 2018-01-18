@@ -42,7 +42,7 @@ class Encounter {
     }
     
     public Creature getRandomCreature () {
-        return (Creature) SlickUtils.randListObject(creature_list);
+        return new Creature ((Creature) SlickUtils.randListObject(creature_list));
     }
     
 }

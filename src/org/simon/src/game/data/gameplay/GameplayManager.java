@@ -13,10 +13,13 @@ import java.util.List;
 import java.util.Map;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.data.gameplay.levels.LevelType;
+import org.simon.src.game.data.gameplay.levels.Wave;
 import org.simon.src.game.data.gameplay.player.Player;
 import org.simon.src.game.data.gameplay.player.PlayerCharacterClass;
+import org.simon.src.game.gui.GuiController;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.sfx.SpecialEffectSystem;
+import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.utils.Consts;
 import org.simon.src.utils.CycleList;
 import org.simon.src.utils.Log;
@@ -63,6 +66,42 @@ public class GameplayManager {
         loadLevelTypes();
         Player.init();
         level_type = loaded_level_types.get(LevelType.STARTING_LEVEL_TYPE);
+    }
+    
+    
+    
+    public static void checkWaveSpawn () {
+        boolean all_dead = true;
+        for (Creature enemy : enemy_board) {
+            if (!enemy.isDead()) {
+                all_dead = false;
+                break;
+            }
+        }
+        if (all_dead) {
+            spawnWave();
+        }
+    }
+    
+    public static void spawnWave () {
+        Wave wave = level_type.makeWave();
+        GuiController gui = CombatState.gui;
+        
+        List<GuiElement> enemy_elements = gui.getElements("_enemy_");
+        List<Creature> creatures = wave.getWaveCreatures();
+        enemy_board.clear();
+        enemy_board.addAll(creatures);
+        
+        for (;creatures.size()<enemy_elements.size();) creatures.add(null);
+        creatures = (List<Creature>) SlickUtils.shuffleList(creatures);
+        
+        for (int i=0;i<enemy_elements.size();i++) {
+            GuiElement enemy_el = enemy_elements.get(i);
+            enemy_el.setCreature(creatures.get(i));
+            if (creatures.get(i) != null) enemy_el.instantCall("fadein");
+        }
+        
+        CombatState.startTurn();
     }
     
     
@@ -195,7 +234,7 @@ public class GameplayManager {
     
     
     
-    public static void endTurn (SpecialEffectSystem sfx) {
+    public static void turnTick (SpecialEffectSystem sfx) {
         if (Opponent.PLAYER.equals(current_opponent)) {
             // ending the player's turn
             turnTick(getAllies(), sfx);
@@ -203,5 +242,6 @@ public class GameplayManager {
             // ending the ai's turn
             turnTick(getEnemies(), sfx);
         }
+            current_opponent = current_opponent.opposite();
     }
 }

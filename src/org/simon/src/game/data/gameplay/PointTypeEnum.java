@@ -11,6 +11,7 @@ import org.newdawn.slick.Image;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.ResourceManager;
+import org.simon.src.utils.SlickUtils;
 
 /**
  *
@@ -51,16 +52,25 @@ public enum PointTypeEnum {
     }
     
     public void render (Graphics g, float x, float y, float width, float height) {
-        POINT_ICON_BACKGROUND.draw(x, y, width, height, color);
-        icon.draw(x - (width*Card.POINT_ICON_SIZE_MODIFIER - width)/2f,
-                  y - (height*Card.POINT_ICON_SIZE_MODIFIER - height)/2f,
-                  width * Card.POINT_ICON_SIZE_MODIFIER,
-                  height * Card.POINT_ICON_SIZE_MODIFIER, color
-                );
+        render(g,x,y,width,height,1f);
     }
     
     public void renderUsed (Graphics g, float x, float y, float width, float height) {
-        Color used_color = new Color (0f,0f,0f, color.a);
+        renderUsed(g,x,y,width,height,1f);
+    }
+    
+    public void render (Graphics g, float x, float y, float width, float height, float alpha) {
+        Color render_color = new Color (color.r, color.g, color.b, alpha);
+        POINT_ICON_BACKGROUND.draw(x, y, width, height, render_color);
+        icon.draw(x - (width*Card.POINT_ICON_SIZE_MODIFIER - width)/2f,
+                  y - (height*Card.POINT_ICON_SIZE_MODIFIER - height)/2f,
+                  width * Card.POINT_ICON_SIZE_MODIFIER,
+                  height * Card.POINT_ICON_SIZE_MODIFIER, render_color
+                );
+    }
+    
+    public void renderUsed (Graphics g, float x, float y, float width, float height, float alpha) {
+        Color used_color = new Color (0f, 0f, 0f, alpha);
         
         POINT_ICON_BACKGROUND.draw(x, y, width, height, used_color);
         icon.draw(x - (width*Card.POINT_ICON_SIZE_MODIFIER - width)/2f,

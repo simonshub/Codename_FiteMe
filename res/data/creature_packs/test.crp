@@ -3,7 +3,7 @@ name: Goblin
 grfx: creatures/goblin
 grsz: 0.5
 pnts: atk 2 def 1
-hlth: 6
+hlth: 1
 diff: 1
 
 
@@ -12,7 +12,7 @@ name: Skeleton Warrior
 grfx: creatures/skeleton
 grsz: 0.5
 pnts: atk 3 agi 1 def 2
-hlth: 8
+hlth: 1
 diff: 1
 
 
@@ -21,7 +21,7 @@ name: Quatl
 grfx: creatures/quatl
 grsz: 0.5
 pnts: atk 3 def 1 agi 2 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -30,7 +30,7 @@ name: Ogre Brute
 grfx: creatures/ogre_brute
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -39,7 +39,7 @@ name: Ogre Witch
 grfx: creatures/ogre_witch
 grsz: 1
 pnts: atk 12
-hlth: 6
+hlth: 1
 diff: 1
 
 
@@ -48,7 +48,7 @@ name: Ogre Gatekeeper
 grfx: creatures/ogre_key
 grsz: 1
 pnts: atk 6 agi 6 def 6
-hlth: 8
+hlth: 1
 diff: 1
 
 
@@ -57,7 +57,7 @@ name: Ogre
 grfx: creatures/ogre
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -66,7 +66,7 @@ name: Goblin Assassin
 grfx: creatures/goblin_assassin
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -75,7 +75,7 @@ name: Orc
 grfx: creatures/orc
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -84,7 +84,7 @@ name: Orc Warrior
 grfx: creatures/orc_warrior
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -93,7 +93,7 @@ name: Orc Warchief
 grfx: creatures/orc_warchief
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -102,7 +102,7 @@ name: Giant Spider
 grfx: creatures/spider
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -111,7 +111,7 @@ name: Troglodyte
 grfx: creatures/troglodyte
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -120,7 +120,7 @@ name: Giant Wasp
 grfx: creatures/wasp
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -129,7 +129,7 @@ name: Warlock
 grfx: creatures/warlock
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -138,7 +138,7 @@ name: Imp
 grfx: creatures/imp
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -147,7 +147,7 @@ name: Demon
 grfx: creatures/demon
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -156,7 +156,7 @@ name: Demon Hellcaller
 grfx: creatures/demon_mage
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -165,7 +165,7 @@ name: Demon Lord
 grfx: creatures/demon_lord
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -174,7 +174,7 @@ name: Blood Reaver
 grfx: creatures/reaver
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -183,7 +183,7 @@ name: Blood Mage
 grfx: creatures/blood_mage
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -192,7 +192,7 @@ name: Shadow
 grfx: creatures/shadow
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -201,7 +201,7 @@ name: Slime
 grfx: creatures/goo
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -210,7 +210,7 @@ name: Ghoul
 grfx: creatures/ghoul
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -219,7 +219,7 @@ name: Beholder
 grfx: creatures/evil_eye
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -228,7 +228,7 @@ name: Crawler
 grfx: creatures/crawler
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -237,7 +237,7 @@ name: Ghost
 grfx: creatures/ghost
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -246,7 +246,7 @@ name: Dire Wolf
 grfx: creatures/dire_wolf
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -255,7 +255,7 @@ name: Dire Bear
 grfx: creatures/dire_bear
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -264,7 +264,7 @@ name: Dragon
 grfx: creatures/dragon
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 10
+hlth: 1
 diff: 1
 
 
@@ -273,5 +273,5 @@ name: Basilisk
 grfx: creatures/basilisk
 grsz: 1
 pnts: atk 1 def 2 agi 1
-hlth: 10
+hlth: 1
 diff: 1

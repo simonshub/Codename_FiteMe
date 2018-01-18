@@ -14,6 +14,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.TrueTypeFont;
+import org.simon.src.game.data.gameplay.GameplayManager;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.gui.GuiElement;
@@ -301,6 +302,16 @@ public class Creature {
             armor = Math.max(0, armor-amount);
         }
         this.health_current -= real_amount;
+        if (isDead()) die();
+    }
+    
+    private void die () {
+        if (gui_element==null) return;
+        
+        gui_element
+            .setProperty("set_color", Color.white)
+            .setProperty("fade_speed", .75f)
+            .instantCall("fadeout");
     }
     
     public void restoreHealth (int amount, Creature source) {
@@ -358,9 +369,12 @@ public class Creature {
 
         float actual_x = x - actual_width/2f;
         float actual_y = y - actual_height/2f;
+        
+        Color gui_color = gui_element.getColor();
+        Color stat_filter = new Color (1f,1f,1f,gui_color.a);
 
         // render creature image at actual x,y with actual dimensions
-        graphics.draw(actual_x, actual_y, width_scale_factor, gui_element.getColor());
+        graphics.draw(actual_x, actual_y, width_scale_factor, gui_color);
         
         // render base stats (cur hp, armor, base_atk_mod) at lower left corner of allocated, going up
         int n_of_stats_displayed = 1;
@@ -371,15 +385,15 @@ public class Creature {
         float stats_y = y + Math.min(actual_height/2f, target_height/2f) - ( (n_of_stats_displayed-1) * stats_icon_size * 1.25f);
         float text_x = stats_x + stats_icon_size * (1f+STAT_ICON_MARGIN);
         
-        g.setColor(Color.white);
+        g.setColor(stat_filter);
         g.setFont(STAT_FONT);
         
-        STAT_ICON_HEALTH.draw(stats_x, stats_y, stats_icon_size, stats_icon_size);
-        g.drawString(this.health_current+"/"+this.health_max, text_x, stats_y);
+        STAT_ICON_HEALTH.draw(stats_x, stats_y, stats_icon_size, stats_icon_size, stat_filter);
+        g.drawString(Math.max(this.health_current,0)+"/"+this.health_max, text_x, stats_y);
         
         if (armor>0) {
             stats_y -= stats_icon_size * 1.25f; // increment to add margins between stats
-            STAT_ICON_ARMOR.draw(stats_x, stats_y, stats_icon_size, stats_icon_size);
+            STAT_ICON_ARMOR.draw(stats_x, stats_y, stats_icon_size, stats_icon_size, stat_filter);
             g.drawString(String.valueOf(this.armor), text_x, stats_y);
         }
         
@@ -412,12 +426,12 @@ public class Creature {
             float point_y = Math.max((y - (actual_height/2f)), (y - (target_height/2f))) + point_y_offset;
             
             for (int j=0;j<unused;j++) {
-                type.render(g, x + point_x_offset, point_y, point_size, point_size);
+                type.render(g, x + point_x_offset, point_y, point_size, point_size, gui_color.a);
                 point_x_offset += point_margin + point_size;
             }
             
             for (int j=unused;j<points;j++) {
-                type.renderUsed(g, x + point_x_offset, point_y, point_size, point_size);
+                type.renderUsed(g, x + point_x_offset, point_y, point_size, point_size, gui_color.a);
                 point_x_offset += point_margin + point_size;
             }
         }
