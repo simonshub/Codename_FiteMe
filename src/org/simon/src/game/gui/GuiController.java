@@ -30,6 +30,12 @@ public final class GuiController {
     public static float FLOATING_TEXT_ELEMENT_WIDTH = 1f;
     public static float FLOATING_TEXT_ELEMENT_HEIGHT = 1f;
     
+    public static float FLOATING_TEXT_X_OFFSET = 48f;
+    public static float FLOATING_TEXT_Y_OFFSET = 32f;
+    
+    public static float FLOATING_TEXT_FADE_SPEED = 0.5f;
+    public static float FLOATING_TEXT_FLOAT_SPEED = 0.1f;
+    
     public static int FLOATING_TEXT_FONT_SIZE = 48;
     public static String FLOATING_TEXT_FONT = "consolas";
     
@@ -89,7 +95,7 @@ public final class GuiController {
         
         String el_name;
         el_name = "floating_text_label_instance_"+id;
-        GuiElement floating_text = new GuiElement (el_name, this, false, x, y, false, FLOATING_TEXT_ELEMENT_WIDTH, FLOATING_TEXT_ELEMENT_HEIGHT, "")
+        GuiElement floating_text = new GuiElement (el_name, this, false, x+FLOATING_TEXT_X_OFFSET, y+FLOATING_TEXT_Y_OFFSET, false, FLOATING_TEXT_ELEMENT_WIDTH, FLOATING_TEXT_ELEMENT_HEIGHT, "")
                 .setText(text)
                 .setFont(FLOATING_TEXT_FONT, FLOATING_TEXT_FONT_SIZE)
                 .setTextColor(col.r, col.g, col.b, col.a)
@@ -97,8 +103,8 @@ public final class GuiController {
                 .setProperty("fadeout_callback", "destroy")
                 .setProperty("acceleration", 0f)
                 .setProperty("float_limit", 10000f)
-                .setProperty("float_speed", .05f)
-                .setProperty("fade_speed", 1.25f)
+                .setProperty("fade_speed", FLOATING_TEXT_FADE_SPEED)
+                .setProperty("float_speed", FLOATING_TEXT_FLOAT_SPEED)
                 .addOnUpdate("floatup")
                 .instantCall("fadeout");
         if (ResourceManager.hasGraphics(icon)) floating_text.setImage(icon);

@@ -62,7 +62,6 @@ public class SpecialEffect {
     
     public SpecialEffect (String sfx_callstring, GuiElement src, GuiElement target) {
         this();
-        
         parseSfx(sfx_callstring, src, target);
     }
     
@@ -108,12 +107,13 @@ public class SpecialEffect {
                     String name = args[0].trim();
                     String from_token = args[1].trim();
                     String to_token = args[2].trim();
+                    String duration_value = args[3].trim();
                     float duration = 0f;
                     float from_x=0f, from_y=0f, to_x=0f, to_y=0f;
                     boolean failed = false;
 
                     try {
-                        duration = Float.parseFloat(args[3].trim().replace(",","."));
+                        duration = Float.parseFloat(duration_value.replace(",","."));
                     } catch (NumberFormatException ex) {
                         Log.err("Unparseable duration value for particle in sfx callstring!");
                         failed = true;
