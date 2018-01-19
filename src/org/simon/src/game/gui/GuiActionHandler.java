@@ -133,8 +133,6 @@ public class GuiActionHandler {
         float speed = (float) source.getProperty("scale_speed");
         float limit = (float) source.getProperty("scale_limit");
         
-        float y_per_x_ratio = source.base_height / source.base_width;
-        
         // recalculate width and height ...
         source.scale = Math.min(source.scale + ((speed * dt) / SCALE_SPEED_MODIFIER), limit);
         float width_limit = source.base_width * limit;
@@ -158,7 +156,6 @@ public class GuiActionHandler {
     
     public static void scalebackdown (final GuiElement source, float dt) {
         float speed = (float) source.getProperty("scale_speed");
-        float y_per_x_ratio = source.base_height / source.base_width;
         
         if (source.scale <= 1.0f) return;
         

@@ -98,14 +98,13 @@ public class CombatState extends BasicGameState {
         el_name = "creature_slot";
         for (int i=0;i<5;i++) {
             creature_el_x += 0.01f; // margin
-            Creature creature = new Creature (CreatureLibrary.getRandomCreature());
-            GameplayManager.addEnemy(creature);
             String el_name_complete = el_name+"_enemy_"+String.valueOf(i);
             GuiElement creature_slot = new GuiElement (el_name_complete, gui, true, creature_el_x, creature_el_y, true, creature_el_width, creature_el_height, "")
                     .setColor(Color.white)
                     .setLayer(1)
-                    .setCreature(creature)
+                    .setCreature(null)
                     .setOnClick("selecttarget")
+                    .setProperty("fade_speed", .75f)
                     ;
             gui.addElement(el_name_complete, creature_slot);
             creature_el_x += creature_el_width;
@@ -117,13 +116,12 @@ public class CombatState extends BasicGameState {
         el_name = "creature_slot";
         for (int i=0;i<4;i++) {
             creature_el_x += 0.01f; // margin
-            Creature creature = new Creature (CreatureLibrary.getRandomCreature());
-            GameplayManager.addAlly(creature);
             GuiElement creature_slot = new GuiElement (el_name+"_ally_"+String.valueOf(i), gui, true, creature_el_x, creature_el_y, true, creature_el_width, creature_el_height, "")
                     .setColor(Color.white)
                     .setLayer(1)
-                    .setCreature(creature)
+                    .setCreature(null)
                     .setOnClick("selecttarget")
+                    .setProperty("fade_speed", .75f)
                     ;
             gui.addElement(el_name+"_ally_"+String.valueOf(i), creature_slot);
             creature_el_x += creature_el_width;
@@ -224,15 +222,9 @@ public class CombatState extends BasicGameState {
         
         gui.getElement("background").setImage(GameplayManager.getCurrentLevelType().getBackground());
         gui.getElement("overlay").instantCall("fadeout");
-        List<GuiElement> character_elements = gui.getElements("ally");
-        for (int i=0;i<character_elements.size();i++) {
-            final Creature creature = Player.getParty().get(i).getCreature();
-            if (!creature.isDead()) {
-                character_elements.get(i).setCreature(creature);
-            } else {
-                character_elements.get(i).setVisible(false);
-            }
-        }
+        List<GuiElement> character_elements = gui.getElements("_ally_");
+        Player.bindParty(character_elements);
+        GameplayManager.checkWaveSpawn();
     }
     
     
@@ -246,6 +238,13 @@ public class CombatState extends BasicGameState {
         GameplayManager.turnTick(sfx);
         substate = CombatSubState.ENEMY_TURN;
         GameplayManager.checkWaveSpawn();
+        
+        List<GuiElement> enemy_el_list = gui.getElements("_enemy_");
+        for (GuiElement el : enemy_el_list) {
+            if (el.getCreature()!=null && !el.getCreature().isDead()) {
+                el.getCreature().restorePoints();
+            }
+        }
     }
     
     public static void startTurn () {
@@ -261,6 +260,13 @@ public class CombatState extends BasicGameState {
         for (GuiElement el : card_el_list) {
             el.setCardPlayed(false);
         }
+        
+        List<GuiElement> char_el_list = gui.getElements("_ally_");
+        for (GuiElement el : char_el_list) {
+            if (el.getCreature()!=null && !el.getCreature().isDead()) {
+                el.getCreature().restorePoints();
+            }
+        }
     }
     
     public static Creature getCurrentCastingCreature () {
@@ -269,7 +275,7 @@ public class CombatState extends BasicGameState {
     
     public static void setCurrentTurnCreature (GuiElement element) {
         if (element.getCreature() == null) {
-            Log.err("Error while setting current turn creature to element "+element.getName()+"; element does not contain a creature");
+            Log.err("Error while setting current turn creature to element '"+element.getName()+"'; element does not contain a creature");
         } else {
             GameplayManager.setCurrentCastingCreature(element.getCreature());
         }

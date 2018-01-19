@@ -179,7 +179,7 @@ public final class GuiElement {
             this.is_creature = true;
             this.creature.setGuiElement(this);
         } else {
-            this.creature.setGuiElement(null);
+            if (this.creature!=null) this.creature.setGuiElement(null);
             this.creature = null;
             this.is_creature = false;
         }

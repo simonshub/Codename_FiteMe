@@ -30,9 +30,6 @@ public final class GuiController {
     public static float FLOATING_TEXT_ELEMENT_WIDTH = 1f;
     public static float FLOATING_TEXT_ELEMENT_HEIGHT = 1f;
     
-    public static float FLOATING_TEXT_X_OFFSET = 48f;
-    public static float FLOATING_TEXT_Y_OFFSET = 32f;
-    
     public static float FLOATING_TEXT_FADE_SPEED = 0.5f;
     public static float FLOATING_TEXT_FLOAT_SPEED = 0.1f;
     
@@ -86,16 +83,18 @@ public final class GuiController {
         return result_list;
     }
     
-    public String addFloatingText (String text, Color col, float x, float y, float scale) {
-        return addFloatingText (text, col, "", x, y, scale);
+    public String addFloatingText (String text, Color col, float x, float y) {
+        return addFloatingText (text, col, "", x, y);
     }
     
-    public String addFloatingText (String text, Color col, String icon, float x, float y, float scale) {
-        long id = System.currentTimeMillis();
-        
+    public String addFloatingText (String text, Color col, String icon, float x, float y) {
         String el_name;
+        long id = System.currentTimeMillis();
+//        float x_mod = ResourceManager.getFont(FLOATING_TEXT_FONT, FLOATING_TEXT_FONT_SIZE).getWidth(text) / 2f;
+//        float y_mod = ResourceManager.getFont(FLOATING_TEXT_FONT, FLOATING_TEXT_FONT_SIZE).getLineHeight() / 2f;
+        
         el_name = "floating_text_label_instance_"+id;
-        GuiElement floating_text = new GuiElement (el_name, this, false, x+FLOATING_TEXT_X_OFFSET, y+FLOATING_TEXT_Y_OFFSET, false, FLOATING_TEXT_ELEMENT_WIDTH, FLOATING_TEXT_ELEMENT_HEIGHT, "")
+        GuiElement floating_text = new GuiElement (el_name, this, false, x, y, false, FLOATING_TEXT_ELEMENT_WIDTH, FLOATING_TEXT_ELEMENT_HEIGHT, "")
                 .setText(text)
                 .setFont(FLOATING_TEXT_FONT, FLOATING_TEXT_FONT_SIZE)
                 .setTextColor(col.r, col.g, col.b, col.a)

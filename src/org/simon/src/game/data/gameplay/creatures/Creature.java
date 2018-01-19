@@ -30,6 +30,9 @@ import org.simon.src.utils.Settings;
  */
 public class Creature {
     
+    public static final float FLOATING_TEXT_X_OFFSET = 48f;
+    public static final float FLOATING_TEXT_Y_OFFSET = 32f;
+    
     public static final int POINTS_RENDERED_FOR_WIDTH = 10;
     public static final float POINT_RENDER_MARGIN = 0.05f;
     public static final float TURN_INDICATOR_MARGIN = 0.1f;
@@ -290,7 +293,7 @@ public class Creature {
     }
     
     public void addFloatingText (String text, Color color) {
-        this.gui_element.getParent().addFloatingText(text, color, gui_element.getCenterX(), gui_element.getCenterY(), gui_element.scale);
+        this.gui_element.getParent().addFloatingText(text, color, gui_element.getCenterX()+FLOATING_TEXT_X_OFFSET, gui_element.getCenterY()+FLOATING_TEXT_Y_OFFSET);
     }
     
     
@@ -307,15 +310,26 @@ public class Creature {
     
     private void die () {
         if (gui_element==null) return;
+        gui_element.instantCall("fadeout");
         
-        gui_element
-            .setProperty("set_color", Color.white)
-            .setProperty("fade_speed", .75f)
-            .instantCall("fadeout");
+        if (GameplayManager.isCreatureEnemy(this) && GameplayManager.allEnemiesDead()) {
+            // im an enemy! :-D
+            // ... and all my friends are dead :,(
+            CombatState.gui.addFloatingText(GameplayManager.WAVE_CLEARED_TEXT, GameplayManager.WAVE_CLEARED_COLOR, Settings.screen_width/2f, Settings.screen_height*0.3f);
+        }
     }
     
     public void restoreHealth (int amount, Creature source) {
         this.health_current = Math.min(this.health_current + amount, this.health_max);
+    }
+    
+    public void restorePoints () {
+        for (PointTypeEnum type : PointTypeEnum.values())
+            restorePoints(type);
+    }
+    
+    public void restorePoints (PointTypeEnum for_type) {
+        used_point_pool.put(for_type, 0);
     }
     
     public void disable (int turns) {
@@ -439,9 +453,9 @@ public class Creature {
         // if this creature is the one currently on turn, render turn indicator
         if (CombatState.getCurrentCastingCreature() == this) {
             Image turn_indicator = ResourceManager.getGraphics(Settings.turn_indicator_graphics);
-            float turn_indicator_width = actual_width /2f;
-            float turn_indicator_height = actual_width /2f;
-            turn_indicator.draw(actual_x + actual_width/2f - turn_indicator_width/2f, actual_y - turn_indicator_height*(1f + TURN_INDICATOR_MARGIN) - point_size, turn_indicator_width, turn_indicator_height);
+            float turn_indicator_width = target_width /3f;
+            float turn_indicator_height = turn_indicator_width;
+            turn_indicator.draw(x - turn_indicator_width/2f, y - actual_height/2 - turn_indicator_height*(1f + TURN_INDICATOR_MARGIN) - point_size, turn_indicator_width, turn_indicator_height);
         }
     }
     

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.newdawn.slick.Color;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.data.gameplay.levels.LevelType;
 import org.simon.src.game.data.gameplay.levels.Wave;
@@ -48,6 +49,14 @@ public class GameplayManager {
     
     
     
+    public static final String WAVE_CLEARED_TEXT = "WAVE CLEARED";
+    public static final Color WAVE_CLEARED_COLOR = Color.green;
+    
+    public static final String NEW_WAVE_TEXT = "NEW WAVE";
+    public static final Color NEW_WAVE_COLOR = Color.red;
+    
+    
+    
     private static Opponent current_opponent;
     private static Creature current_casting_creature;
     
@@ -79,8 +88,12 @@ public class GameplayManager {
             }
         }
         if (all_dead) {
+            if (!enemy_board.isEmpty())
+                CombatState.gui.addFloatingText(NEW_WAVE_TEXT, NEW_WAVE_COLOR, Settings.screen_width/2f, Settings.screen_height*0.3f);
+            
             spawnWave();
         }
+        CombatState.startTurn();
     }
     
     public static void spawnWave () {
@@ -98,10 +111,10 @@ public class GameplayManager {
         for (int i=0;i<enemy_elements.size();i++) {
             GuiElement enemy_el = enemy_elements.get(i);
             enemy_el.setCreature(creatures.get(i));
-            if (creatures.get(i) != null) enemy_el.instantCall("fadein");
+            if (creatures.get(i) != null) {
+                enemy_el.instantCall("fadein");
+            }
         }
-        
-        CombatState.startTurn();
     }
     
     
@@ -146,6 +159,13 @@ public class GameplayManager {
         return !ally_board.contains(c);
     }
     
+    public static boolean allEnemiesDead () {
+        for (Creature enemy : enemy_board) {
+            if (!enemy.isDead()) return false;
+        }
+        return true;
+    }
+    
     public static Creature getCurrentCastingCreature () {
         return current_casting_creature;
     }
@@ -183,7 +203,9 @@ public class GameplayManager {
     
     
     public static void loadPlayerCharacterClasses () {
-        current_opponent = Opponent.PLAYER;
+        // for the first turn we want the player to play.
+        // we set the current_opponent to 'ENEMY' because on entry, the combat state triggers a turn change.
+        current_opponent = Opponent.ENEMY;
         enemy_board = new ArrayList<> ();
         ally_board = new ArrayList<> ();
         loaded_character_classes = new HashMap<> ();
@@ -242,6 +264,6 @@ public class GameplayManager {
             // ending the ai's turn
             turnTick(getEnemies(), sfx);
         }
-            current_opponent = current_opponent.opposite();
+        current_opponent = current_opponent.opposite();
     }
 }
