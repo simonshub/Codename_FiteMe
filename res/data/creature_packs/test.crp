@@ -5,6 +5,7 @@ grsz: 0.5
 pnts: atk 2 def 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: skeleton
@@ -14,6 +15,7 @@ grsz: 0.5
 pnts: atk 3 agi 1 def 2
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: quatl
@@ -23,6 +25,7 @@ grsz: 0.5
 pnts: atk 3 def 1 agi 2 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: ogre_brute
@@ -32,6 +35,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: ogre_witch
@@ -41,6 +45,7 @@ grsz: 1
 pnts: atk 12
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: ogre_key
@@ -50,6 +55,7 @@ grsz: 1
 pnts: atk 6 agi 6 def 6
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: ogre
@@ -59,6 +65,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: goblin_assassin
@@ -68,6 +75,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: orc
@@ -77,6 +85,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: orc_warrior
@@ -86,6 +95,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: orc_warchief
@@ -95,6 +105,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: spider
@@ -104,6 +115,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: troglodyte
@@ -113,6 +125,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: wasp
@@ -122,6 +135,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: warlock
@@ -131,6 +145,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: imp
@@ -140,6 +155,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: demon
@@ -149,6 +165,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: demon_mage
@@ -158,6 +175,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: demon_lord
@@ -167,6 +185,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: reaver
@@ -176,6 +195,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: blood_mage
@@ -185,6 +205,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: shadow
@@ -194,6 +215,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: goo
@@ -203,6 +225,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: ghoul
@@ -212,6 +235,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: evil_eye
@@ -221,6 +245,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: crawler
@@ -230,6 +255,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: ghost
@@ -239,6 +265,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: dire_wolf
@@ -248,6 +275,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: dire_bear
@@ -257,6 +285,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: dragon
@@ -266,6 +295,7 @@ grsz: 1
 pnts: atk 1 arc 1 div 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card
 
 
 crid: basilisk
@@ -275,3 +305,4 @@ grsz: 1
 pnts: atk 1 def 2 agi 1
 hlth: 1
 diff: 1
+card: power_strike,armored_shell,test_card

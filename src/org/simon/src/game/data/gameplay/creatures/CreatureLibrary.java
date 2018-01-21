@@ -38,9 +38,12 @@ public class CreatureLibrary {
     public static final String PARSE_KEYWORD_SET_NAME = "name";
     public static final String PARSE_KEYWORD_SET_GRAPHICS = "grfx";
     public static final String PARSE_KEYWORD_SET_DIFFICULTY = "diff";
+    public static final String PARSE_KEYWORD_SET_CARD_LIST = "card";
     
     public static final String PARSE_DELIMITER = ":";
     public static final String PARSE_COMMENT = "#";
+    
+    public static final String CARD_SPLIT_DELIMITER = ",";
     
     private static List<String> loaded_creature_packs;
     private static Map<String, Creature> creature_lib;
@@ -89,6 +92,8 @@ public class CreatureLibrary {
         int current_creature_armor=0;
         int current_creature_atk_mod=0;
         float current_creature_icon_scale=1f;
+        float current_creature_difficulty=1f;
+        List<String> card_list = new ArrayList<> ();
         HashMap<PointTypeEnum, Integer> current_creature_points = new HashMap<> ();
         
         for (String line : lines) {
@@ -117,39 +122,44 @@ public class CreatureLibrary {
             
             // if all creature fields have been set, save the creature automatically
             if (!current_creature_id.isEmpty() && !current_creature_name.isEmpty() && !current_creature_icon.isEmpty()
-                    && !current_creature_points.isEmpty() && current_creature_hp!=0) {
+                    && !current_creature_points.isEmpty() && current_creature_hp!=0 && !card_list.isEmpty()) {
                 if (!current_creature_id.isEmpty() &&
-                    ( current_creature_name.isEmpty() || current_creature_points.isEmpty() || current_creature_icon.isEmpty() || current_creature_hp==0 ))
+                    ( current_creature_name.isEmpty() || current_creature_points.isEmpty() || current_creature_icon.isEmpty() || current_creature_hp==0 || card_list.isEmpty() ))
                     Log.err("Auto saving creature '"+current_creature_id+"' but still some properties missing?; missing properties - " +
                         (current_creature_name.isEmpty() ? "name " : "") +
                         (current_creature_icon.isEmpty() ? "icon " : "") +
                         (current_creature_points.isEmpty() ? "pnts " : "") +
-                        (current_creature_hp==0 ? "hlth " : "") );
+                        (current_creature_hp==0 ? "hlth " : "") +
+                        (card_list.isEmpty() ? "card " : ""));
                 
                 // if all creature fields are set for this creature, finish loading it
-                saveCreature(current_creature_id, pack_name, current_creature_name, current_creature_icon, current_creature_icon_scale, current_creature_hp, current_creature_armor, current_creature_atk_mod, current_creature_points);
+                saveCreature(current_creature_id, pack_name, current_creature_name, current_creature_icon, current_creature_icon_scale, current_creature_difficulty, current_creature_hp, current_creature_armor, current_creature_atk_mod, current_creature_points, card_list);
                 current_creature_id = "";
                 current_creature_name = "";
                 current_creature_icon = "";
                 current_creature_hp = 0;
                 current_creature_armor = 0;
                 current_creature_atk_mod = 0;
-                current_creature_icon_scale=1f;
+                current_creature_icon_scale = 1f;
+                current_creature_difficulty = 1f;
                 current_creature_points = new HashMap<> ();
+                card_list.clear();
             }
             
             switch (parse_action) {
                 case PARSE_KEYWORD_SET_NEW_CREATURE :
                     if (!current_creature_id.isEmpty() &&
-                        ( current_creature_name.isEmpty() || current_creature_icon.isEmpty() || current_creature_points.isEmpty() || current_creature_hp==0 ))
+                        ( current_creature_name.isEmpty() || current_creature_icon.isEmpty() || current_creature_points.isEmpty() || current_creature_hp==0 || card_list.isEmpty() ))
                         Log.err("Not finished parsing creature '"+current_creature_id+"', but new creature '"+keywords.get(1)+"' already started; missing properties - " +
                             (current_creature_name.isEmpty() ? "name " : "") +
                             (current_creature_icon.isEmpty() ? "icon " : "") +
                             (current_creature_points.isEmpty() ? "pnts " : "") +
-                            (current_creature_hp==0 ? "hlth " : "") );
+                            (current_creature_hp==0 ? "hlth " : "") +
+                            (card_list.isEmpty() ? "card " : ""));
                     
                     if (!current_creature_id.isEmpty()) {
-                        saveCreature(current_creature_id, pack_name, current_creature_name, current_creature_icon, current_creature_icon_scale, current_creature_hp, current_creature_armor, current_creature_atk_mod, current_creature_points);
+                        saveCreature(current_creature_id, pack_name, current_creature_name, current_creature_icon, current_creature_icon_scale, current_creature_difficulty, current_creature_hp, current_creature_armor, current_creature_atk_mod, current_creature_points, card_list);
+                        card_list.clear();
                     }
                     
                     current_creature_id = parse_value;
@@ -158,7 +168,8 @@ public class CreatureLibrary {
                     current_creature_hp = 0;
                     current_creature_armor = 0;
                     current_creature_atk_mod = 0;
-                    current_creature_icon_scale=1f;
+                    current_creature_icon_scale = 1f;
+                    current_creature_difficulty = 1f;
                     current_creature_points = new HashMap<> ();
                     break;
                 case PARSE_KEYWORD_SET_NAME :
@@ -233,6 +244,19 @@ public class CreatureLibrary {
                         Log.err("Error while parsing attack modifier value for creature '"+current_creature_id+"'");
                     }
                     break;
+                case PARSE_KEYWORD_SET_DIFFICULTY :
+                    try {
+                        float diff = Float.parseFloat(parse_value.trim().replace(",","."));
+                        current_creature_difficulty = diff;
+                    } catch (NumberFormatException ex) {
+                        Log.err("Error while parsing difficulty value for creature '"+current_creature_id+"'");
+                    }
+                    break;
+                case PARSE_KEYWORD_SET_CARD_LIST :
+                    List<String> cards = Arrays.asList(SlickUtils.Strings.trimAll(parse_value.split(CARD_SPLIT_DELIMITER)));
+                    card_list.clear();
+                    card_list.addAll(cards);
+                    break;
                 default:
                     break;
             }
@@ -241,20 +265,27 @@ public class CreatureLibrary {
         // if the last creature has not been saved, save it
         if (!current_creature_id.isEmpty() && !creature_lib.containsKey(current_creature_id)) {
             if (!current_creature_id.isEmpty() &&
-                ( current_creature_name.isEmpty() || current_creature_icon.isEmpty() || current_creature_points.isEmpty() || current_creature_hp==0 ))
+                ( current_creature_name.isEmpty() || current_creature_icon.isEmpty() || current_creature_points.isEmpty() || current_creature_hp==0 || card_list.isEmpty() ))
                 Log.err("Not finished parsing creature '"+current_creature_id+"', but end of file reached; missing properties - " +
                     (current_creature_name.isEmpty() ? "name " : "") +
                     (current_creature_icon.isEmpty() ? "icon " : "") +
                     (current_creature_points.isEmpty() ? "pnts " : "") +
-                    (current_creature_hp==0 ? "hlth " : "") );
+                    (current_creature_hp==0 ? "hlth " : "") +
+                    (card_list.isEmpty() ? "card " : ""));
             
-            saveCreature(current_creature_id, pack_name, current_creature_name, current_creature_icon, current_creature_icon_scale, current_creature_hp, current_creature_armor, current_creature_atk_mod, current_creature_points);
+            saveCreature(current_creature_id, pack_name, current_creature_name, current_creature_icon, current_creature_icon_scale, current_creature_difficulty, current_creature_hp, current_creature_armor, current_creature_atk_mod, current_creature_points, card_list);
+            card_list.clear();
         }
     }
     
-    public static void saveCreature (String creature_id, String pack_name, String creature_name, String creature_icon, float creature_icon_scale, int creature_hp, int creature_armor, int creature_atk_mod, HashMap<PointTypeEnum,Integer> points) {
-        Creature creature = new Creature (creature_id, pack_name, creature_name, creature_icon, creature_icon_scale, creature_hp, creature_armor, creature_atk_mod);
+    public static void saveCreature (String creature_id, String pack_name, String creature_name, String creature_icon,
+                                     float creature_icon_scale, float difficulty, int creature_hp, int creature_armor, int creature_atk_mod,
+                                     HashMap<PointTypeEnum,Integer> points, List<String> card_list) {
+        Creature creature = new Creature (creature_id, pack_name, creature_name, creature_icon, creature_icon_scale, difficulty, creature_hp, creature_armor, creature_atk_mod);
         creature.setPoints(points);
+        card_list.forEach((card_name) -> {
+            creature.addCard(card_name);
+        });
         creature_lib.put(creature_id, creature);
         Log.log("Loaded creature with ID '"+creature_id+"' and name '"+creature_name+"' to creature pack '"+pack_name+"'");
     }

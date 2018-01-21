@@ -18,7 +18,6 @@ import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;
 import org.simon.src.game.data.gameplay.cards.CardPool;
 import org.simon.src.game.data.gameplay.creatures.Creature;
-import org.simon.src.game.data.gameplay.creatures.CreatureLibrary;
 import org.simon.src.game.data.gameplay.player.Player;
 import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.game.gui.GuiController;
@@ -235,9 +234,6 @@ public class CombatState extends BasicGameState {
         end_turn.setImage("ui/end_turn_disabled");
         end_turn.setWhileHovered("scalebackdown");
         gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
-        GameplayManager.turnTick(sfx);
-        substate = CombatSubState.ENEMY_TURN;
-        GameplayManager.checkWaveSpawn();
         
         List<GuiElement> enemy_el_list = gui.getElements("_enemy_");
         for (GuiElement el : enemy_el_list) {
@@ -245,6 +241,10 @@ public class CombatState extends BasicGameState {
                 el.getCreature().restorePoints();
             }
         }
+        
+        substate = CombatSubState.ENEMY_TURN;
+        GameplayManager.checkWaveSpawn();
+        GameplayManager.turnTick(sfx);
     }
     
     public static void startTurn () {
@@ -253,8 +253,6 @@ public class CombatState extends BasicGameState {
         end_turn.setImage("ui/end_turn");
         end_turn.setWhileHovered("scaleup");
         gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
-        GameplayManager.turnTick(sfx);
-        substate = CombatSubState.PICK_CARD;
         
         List<GuiElement> card_el_list = gui.getElements("card_slot");
         for (GuiElement el : card_el_list) {
@@ -267,6 +265,9 @@ public class CombatState extends BasicGameState {
                 el.getCreature().restorePoints();
             }
         }
+        
+        GameplayManager.turnTick(sfx);
+        substate = CombatSubState.PICK_CARD;
     }
     
     public static Creature getCurrentCastingCreature () {
@@ -292,6 +293,7 @@ public class CombatState extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int dt) throws SlickException {
         SharedState.update(gc, sbg, null);
+        GameplayManager.aiUpdate(sfx);
         
         if (gc.getInput().isKeyPressed(Input.KEY_F)) {
             // F is for Filip :)

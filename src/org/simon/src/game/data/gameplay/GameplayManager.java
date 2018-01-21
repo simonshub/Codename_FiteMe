@@ -8,10 +8,12 @@ package org.simon.src.game.data.gameplay;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.newdawn.slick.Color;
+import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.data.gameplay.levels.LevelType;
 import org.simon.src.game.data.gameplay.levels.Wave;
@@ -26,6 +28,7 @@ import org.simon.src.utils.CycleList;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.Settings;
 import org.simon.src.utils.SlickUtils;
+import org.simon.src.utils.WeightedRandom;
 
 /**
  *
@@ -65,6 +68,8 @@ public class GameplayManager {
     private static List<Creature> enemy_board;
     private static List<Creature> ally_board;
     
+    private static List<AiAction> ai_action_queue;
+    
     private static Map<String,PlayerCharacterClass> loaded_character_classes;
     private static Map<String,LevelType> loaded_level_types;
     
@@ -74,6 +79,7 @@ public class GameplayManager {
         loadPlayerCharacterClasses();
         loadLevelTypes();
         Player.init();
+        ai_action_queue = new ArrayList<> ();
         level_type = loaded_level_types.get(LevelType.STARTING_LEVEL_TYPE);
     }
     
@@ -93,7 +99,6 @@ public class GameplayManager {
             
             spawnWave();
         }
-        CombatState.startTurn();
     }
     
     public static void spawnWave () {
@@ -202,10 +207,21 @@ public class GameplayManager {
     
     
     
+    public static void aiUpdate (SpecialEffectSystem sfx) {
+        if (Opponent.PLAYER.equals(current_opponent) || ai_action_queue.isEmpty()) return;
+        
+        ai_action_queue.get(0).update(sfx);
+        if (ai_action_queue.get(0).isFinished()) ai_action_queue.remove(0);
+        
+        if (ai_action_queue.isEmpty()) CombatState.startTurn();
+    }
+    
+    
+    
     public static void loadPlayerCharacterClasses () {
         // for the first turn we want the player to play.
-        // we set the current_opponent to 'ENEMY' because on entry, the combat state triggers a turn change.
-        current_opponent = Opponent.ENEMY;
+        // we set the current_opponent to 'PLAYER' because on entry, the combat state triggers a turn change.
+        current_opponent = Opponent.PLAYER;
         enemy_board = new ArrayList<> ();
         ally_board = new ArrayList<> ();
         loaded_character_classes = new HashMap<> ();
@@ -259,11 +275,60 @@ public class GameplayManager {
     public static void turnTick (SpecialEffectSystem sfx) {
         if (Opponent.PLAYER.equals(current_opponent)) {
             // ending the player's turn
-            turnTick(getAllies(), sfx);
+            turnTick(ally_board, sfx);
+            aiTurn(sfx);
         } else {
             // ending the ai's turn
-            turnTick(getEnemies(), sfx);
+            turnTick(enemy_board, sfx);
         }
         current_opponent = current_opponent.opposite();
     }
+    
+    public static void aiTurn (SpecialEffectSystem sfx) {
+        ai_action_queue.clear();
+        
+        for (int i=0;i<5;i++) {
+            List<Creature> viable_casters = new ArrayList<> ();
+            for (Creature enemy : enemy_board) {
+                if (!enemy.getCastableCards().isEmpty()) viable_casters.add(enemy);
+            }
+            if (viable_casters.isEmpty()) return;
+            Creature selected_creature = (Creature) SlickUtils.randListObject(viable_casters);
+            List<Card> viable_cards = selected_creature.getCastableCards();
+            Card selected_card = (Card) SlickUtils.randListObject(viable_cards);
+            List<Creature> selected_targets = aiResolveTargets(selected_creature, selected_card);
+            ai_action_queue.add(new AiAction (selected_card, selected_creature, selected_targets, sfx));
+        }
+    }
+    
+    public static List<Creature> aiResolveTargets (Creature source, Card card) {
+        TargetEnum target_mode = card.getTargetMode();
+        
+        // resolve trivial target modes
+        if (TargetEnum.ALL_ALLIES.equals(target_mode) || TargetEnum.ALL_ENEMIES.equals(target_mode) || TargetEnum.ALL.equals(target_mode) || TargetEnum.SELF.equals(target_mode)) {
+            return TargetEnum.getTargetList(target_mode, source, null, ally_board, enemy_board);
+        }
+        
+        Creature target = null;
+        WeightedRandom<Creature> rand = new WeightedRandom<> ();
+        // resolve single target
+        if (TargetEnum.SINGLE_ALLY.equals(target_mode)) {
+            for (Creature ally : enemy_board) {
+                if (source.equals(ally)) continue;
+                
+                int weight = (int) ( ( ally.getMaxHealth() - ally.getCurrentHealth() ) + ally.getTotalPoints() + ally.getDifficulty() );
+                rand.add(ally, weight);
+            }
+            target = rand.getRandom();
+        } else if (TargetEnum.SINGLE_ENEMY.equals(target_mode)) {
+            for (Creature enemy : ally_board) {
+                int weight = enemy.getMaxHealth() + enemy.getCurrentHealth() + enemy.getTotalPoints() + enemy.getArmor() + enemy.getAttackModifier();
+                rand.add(enemy, weight);
+            }
+            target = rand.getRandom();
+        }
+        
+        return Arrays.asList(target);
+    }
+    
 }

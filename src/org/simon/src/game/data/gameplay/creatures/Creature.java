@@ -17,6 +17,7 @@ import org.newdawn.slick.TrueTypeFont;
 import org.simon.src.game.data.gameplay.GameplayManager;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.data.gameplay.cards.Card;
+import org.simon.src.game.data.gameplay.cards.CardLibrary;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.game.states.combat.CombatState;
@@ -63,6 +64,8 @@ public class Creature {
     private int health_current, health_max;
     private float difficulty;
     
+    private final List<Card> card_list;
+    
     private boolean is_player_character = false;
     private final List<StatusEffect> status_effects;
     
@@ -74,7 +77,7 @@ public class Creature {
     
     
     public Creature () {
-        this("","","","",1f,10,0,0);
+        this("","","","",1f,1f,10,0,0);
     }
     
     public Creature (final Creature parent) {
@@ -97,6 +100,8 @@ public class Creature {
             this.graphics = ResourceManager.getGraphics(graphics_name);
         }
         
+        this.card_list = new ArrayList<> (parent.card_list);
+        
         this.status_effects = new ArrayList<> ();
         this.used_point_pool = new HashMap<> ();
         this.total_point_pool = new HashMap<> ();
@@ -107,7 +112,7 @@ public class Creature {
         }
     }
     
-    public Creature (String id, String creature_pack, String name, String graphics, float graphics_scale, int hp, int armor, int atk_mod) {
+    public Creature (String id, String creature_pack, String name, String graphics, float graphics_scale, float difficulty, int hp, int armor, int atk_mod) {
         disabled = 0;
         
         this.id = id;
@@ -119,6 +124,7 @@ public class Creature {
         this.base_atk_mod = atk_mod;
         this.health_max = hp;
         this.health_current = hp;
+        this.difficulty = difficulty;
         
         this.graphics_scale = graphics_scale;
         if (ResourceManager.hasGraphics(graphics)) {
@@ -126,6 +132,7 @@ public class Creature {
             this.graphics_name = graphics;
         }
         
+        this.card_list = new ArrayList<> ();
         this.status_effects = new ArrayList<> ();
         this.used_point_pool = new HashMap<> ();
         this.total_point_pool = new HashMap<> ();
@@ -184,6 +191,14 @@ public class Creature {
     
     public int getTotalPoints (PointTypeEnum type) {
         return this.total_point_pool.get(type);
+    }
+    
+    public int getTotalPoints () {
+        int result = 0;
+        for (PointTypeEnum type : PointTypeEnum.values()) {
+            result += getTotalPoints(type);
+        }
+        return result;
     }
     
     public float getGraphicsScale () {
@@ -252,6 +267,17 @@ public class Creature {
         this.is_player_character = is_player_character;
     }
     
+    public void setDifficulty (float difficulty) {
+        this.difficulty = difficulty;
+    }
+    
+    public void addCard (String card_name) {
+        Card card_to_add = CardLibrary.getCard(card_name);
+        if (card_to_add!=null) {
+            this.card_list.add(card_to_add);
+        } else Log.err("Cannot add card '"+card_name+"' to creature '"+id+"' because no such card was loaded!");
+    }
+    
     
     
     public boolean spendPoints (Card card) {
@@ -291,6 +317,16 @@ public class Creature {
         }
         return true;
     }
+    
+    public List<Card> getCastableCards () {
+        List<Card> result = new ArrayList<> ();
+        for (Card card : card_list) {
+            if (canSpendPoints(card)) result.add(card);
+        }
+        return result;
+    }
+    
+    
     
     public void addFloatingText (String text, Color color) {
         this.gui_element.getParent().addFloatingText(text, color, gui_element.getCenterX()+FLOATING_TEXT_X_OFFSET, gui_element.getCenterY()+FLOATING_TEXT_Y_OFFSET);

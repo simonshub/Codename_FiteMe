@@ -75,6 +75,10 @@ public class SpecialEffectSystem {
         instances.add(sfx);
     }
     
+    public boolean isEmpty () {
+        return instances.isEmpty();
+    }
+    
     
     
     public void render (Graphics g) {
