@@ -7,6 +7,7 @@ package org.simon.src.game.data.gameplay;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 
 /**
@@ -37,16 +38,16 @@ public enum TargetEnum {
         
         switch (mode) {
             case SINGLE_ENEMY :
-                if (GameplayManager.isCreatureEnemy(primary_target)) result_list.add(primary_target);
+                if (GameplayManager.isCreatureEnemy(primary_target) && !primary_target.isDead()) result_list.add(primary_target);
                 break;
             case SINGLE_ALLY :
-                if (!GameplayManager.isCreatureEnemy(primary_target)) result_list.add(primary_target);
+                if (!GameplayManager.isCreatureEnemy(primary_target) && !primary_target.isDead()) result_list.add(primary_target);
                 break;
             case ALL_ENEMIES :
-                result_list.addAll(enemies);
+                result_list.addAll(enemies.stream().filter(creature -> !creature.isDead()).collect(Collectors.toList()));
                 break;
             case ALL_ALLIES :
-                result_list.addAll(allies);
+                result_list.addAll(allies.stream().filter(creature -> !creature.isDead()).collect(Collectors.toList()));
                 break;
             case SELF :
                 result_list.add(caster);

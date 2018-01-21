@@ -355,6 +355,12 @@ public class GuiActionHandler {
     
     public static void selecttarget (final GuiElement source) {
         if (Settings.debug_gui) Log.log("selecttarget ["+source.getName()+"]");
+        
+        // BUG: when a non-appropriate target is chosen (eg. GuiElement with no creature,
+        // a dead creature, or friendly creature instead of enemy), the combat state gets
+        // stuck in it's 'pick a target' state, even though it hides the played card 
+        // gui element...
+        
         if (CombatState.substate == CombatState.CombatSubState.PICK_TARGET) {
             GuiController parent = source.getParent();
             
