@@ -58,6 +58,9 @@ public class GameplayManager {
     public static final String NEW_WAVE_TEXT = "NEW WAVE";
     public static final Color NEW_WAVE_COLOR = Color.red;
     
+    public static final String GAMEOVER_TEXT = "GAME OVER";
+    public static final Color GAMEOVER_COLOR = Color.red;
+    
     
     
     private static Opponent current_opponent;
@@ -76,8 +79,6 @@ public class GameplayManager {
     
     
     public static final void init () {
-        loadPlayerCharacterClasses();
-        loadLevelTypes();
         Player.init();
         ai_action_queue = new ArrayList<> ();
         level_type = loaded_level_types.get(LevelType.STARTING_LEVEL_TYPE);
@@ -171,6 +172,13 @@ public class GameplayManager {
         return true;
     }
     
+    public static boolean allAlliesDead () {
+        for (Creature ally : ally_board) {
+            if (!ally.isDead()) return false;
+        }
+        return true;
+    }
+    
     public static Creature getCurrentCastingCreature () {
         return current_casting_creature;
     }
@@ -207,12 +215,15 @@ public class GameplayManager {
     
     
     
-    public static void aiUpdate (SpecialEffectSystem sfx) {
+    public static void aiUpdate () {
+        // if it's currently the player's turn, or if the ai action queue is empty, do nothing
         if (Opponent.PLAYER.equals(current_opponent) || ai_action_queue.isEmpty()) return;
         
-        ai_action_queue.get(0).update(sfx);
+        // update first ai action in queue, then remove it if it has finished
+        ai_action_queue.get(0).update();
         if (ai_action_queue.get(0).isFinished()) ai_action_queue.remove(0);
         
+        // if the last action has been removed, start the player's turn
         if (ai_action_queue.isEmpty()) CombatState.startTurn();
     }
     
@@ -290,7 +301,12 @@ public class GameplayManager {
         for (int i=0;i<5;i++) {
             List<Creature> viable_casters = new ArrayList<> ();
             for (Creature enemy : enemy_board) {
-                if (!enemy.getCastableCards().isEmpty()) viable_casters.add(enemy);
+                // if the enemy can play any cards, and if it isn't dead, it is added to the list of viable casters
+                if (!enemy.isDead() && !enemy.getCastableCards().isEmpty()) viable_casters.add(enemy);
+                
+                // LOGICAL ERROR IN ALGORITHM; this does not check whether the enemy has already been chosen
+                // to also cast other cards, possibly resulting in an enemy using all it's points and still
+                // intending to play other cards (which it won't be able to - so this is not an urgent fix)
             }
             if (viable_casters.isEmpty()) return;
             Creature selected_creature = (Creature) SlickUtils.randListObject(viable_casters);

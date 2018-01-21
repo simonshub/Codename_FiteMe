@@ -25,7 +25,9 @@ import org.simon.src.game.gui.GuiActionHandler;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.gui.TutorialStringLibrary;
 import org.simon.src.game.states.SharedState;
+import org.simon.src.utils.Consts;
 import org.simon.src.utils.Log;
+import org.simon.src.utils.ResourceManager;
 
 /**
  *
@@ -38,7 +40,7 @@ public class CombatState extends BasicGameState {
     public static final String TURN_INDICATOR_SUFFIX = "'s Turn";
     
     public enum CombatSubState {
-        PICK_CARD, PICK_TARGET, ENEMY_TURN
+        PICK_CARD, PICK_TARGET, ENEMY_TURN, GAME_OVER
     }
     
     
@@ -63,9 +65,6 @@ public class CombatState extends BasicGameState {
         
         gui = new GuiController ();
         String el_name;
-        
-        CardPool test_deck = new CardPool (CardLibrary.getAllCards());
-        List<Card> test_hand = test_deck.getRandomCards(5);
         
         el_name = "turn_indicator";
         GuiElement turn_indicator = new GuiElement (el_name, gui, true, 0.35f, 0f, true, 0.3f, 0.05f, "ui/btn_alt")
@@ -132,16 +131,20 @@ public class CombatState extends BasicGameState {
                 .setColor(0.4f,0.8f,0.4f,1f)
                 .setFont("consolas", 45)
                 .setLayer(3)
-                .setProperty("acceleration", 0.01f)
-                .setProperty("scale_limit", 1.25f)
-                .setProperty("scale_speed", 0.15f)
-                .setWhileHovered("scaleup")
-                .setWhileUnhovered("scalebackdown")
-                .setOnClick("printinfo")
                 .setCard(CardLibrary.getCard("armored_shell"))
                 .setVisible(false)
                 ;
         gui.addElement(el_name, played_card);
+        
+        el_name = "enemy_played_card";
+        GuiElement enemy_played_card = new GuiElement (el_name, gui, true, 0f, 0.3f, true, 0.15f, 0.3f, "")
+                .setColor(0.4f,0.8f,0.4f,1f)
+                .setFont("consolas", 45)
+                .setLayer(3)
+                .setCard(CardLibrary.getCard("armored_shell"))
+                .setVisible(false)
+                ;
+        gui.addElement(el_name, enemy_played_card);
         
         el_name = "player_hand";
         GuiElement player_hand = new GuiElement (el_name, gui, true, 0.1f, 0.78f, true, 0.8f, 0.22f, "ui/box_noshadow")
@@ -169,7 +172,7 @@ public class CombatState extends BasicGameState {
                     .setWhileHovered("scaleup")
                     .setWhileUnhovered("scalebackdown")
                     .setOnClick("selectcard")
-                    .setCard(test_hand.get(i))
+                    .setCard(CardLibrary.getCard("test_card"))
                     ;
             gui.addElement(slot_name, card_slot);
             card_el_x += card_el_width;
@@ -211,6 +214,32 @@ public class CombatState extends BasicGameState {
                 ;
         gui.addElement(el_name, overlay);
         
+        el_name = "gameover_score";
+        GuiElement gameover_score = new GuiElement (el_name, gui, true, 0f, 0.85f, true, 1f, 0.1f, "ui/block")
+                .setVisible(false)
+                .setColor(0f,0f,0f,0f)
+                .setFont(Consts.DEFAULT_FONT, Consts.DEFAULT_FONT_SIZE)
+                .setText("Your score: ")
+                .setTextColor(GameplayManager.GAMEOVER_COLOR)
+                .setProperty("fade_speed", .5f)
+                .setProperty("acceleration", 0f)
+                .setLayer(1002)
+                ;
+        gui.addElement(el_name, gameover_score);
+        
+        el_name = "gameover_hint";
+        GuiElement gameover_hint = new GuiElement (el_name, gui, true, 0f, 0.75f, true, 1f, 0.1f, "ui/block")
+                .setVisible(false)
+                .setColor(0f,0f,0f,0f)
+                .setFont(Consts.DEFAULT_FONT, Consts.DEFAULT_FONT_SIZE)
+                .setText("Press [ ESC ] to exit to main menu ...")
+                .setTextColor(GameplayManager.GAMEOVER_COLOR)
+                .setProperty("fade_speed", .5f)
+                .setProperty("acceleration", 0f)
+                .setLayer(1002)
+                ;
+        gui.addElement(el_name, gameover_hint);
+        
         gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
     }
     
@@ -219,11 +248,14 @@ public class CombatState extends BasicGameState {
         super.enter(container, game);
         SharedState.updateStateId(CombatState.ID);
         
+        GameplayManager.init();
+        
         gui.getElement("background").setImage(GameplayManager.getCurrentLevelType().getBackground());
         gui.getElement("overlay").instantCall("fadeout");
         List<GuiElement> character_elements = gui.getElements("_ally_");
         Player.bindParty(character_elements);
         GameplayManager.checkWaveSpawn();
+        drawNewHand();
     }
     
     
@@ -243,7 +275,7 @@ public class CombatState extends BasicGameState {
         }
         
         substate = CombatSubState.ENEMY_TURN;
-        GameplayManager.checkWaveSpawn();
+        waveSpawn();
         GameplayManager.turnTick(sfx);
     }
     
@@ -253,6 +285,9 @@ public class CombatState extends BasicGameState {
         end_turn.setImage("ui/end_turn");
         end_turn.setWhileHovered("scaleup");
         gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
+        
+        GuiElement enemy_played_card = gui.getElement("enemy_played_card");
+        enemy_played_card.setVisible(false);
         
         List<GuiElement> card_el_list = gui.getElements("card_slot");
         for (GuiElement el : card_el_list) {
@@ -266,8 +301,9 @@ public class CombatState extends BasicGameState {
             }
         }
         
-        GameplayManager.turnTick(sfx);
         substate = CombatSubState.PICK_CARD;
+        drawNewHand();
+        GameplayManager.turnTick(sfx);
     }
     
     public static Creature getCurrentCastingCreature () {
@@ -293,12 +329,12 @@ public class CombatState extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int dt) throws SlickException {
         SharedState.update(gc, sbg, null);
-        GameplayManager.aiUpdate(sfx);
+        GameplayManager.aiUpdate();
         
         if (gc.getInput().isKeyPressed(Input.KEY_F)) {
             // F is for Filip :)
-            Log.log("Rerolling creatures and hand...");
-            reroll();
+            Log.log("Re-drawing player hand...");
+            drawNewHand();
         } else if (gc.getInput().isKeyPressed(Input.KEY_R)) {
             sfx.reset();
         } 
@@ -315,26 +351,38 @@ public class CombatState extends BasicGameState {
         }
     }
     
-    public static void reroll () {
-        List<GuiElement> elements;
-//        GameplayManager.clearEnemies();
-//        
-//        // roll enemy creatures
-//        elements = gui.getElements("creature_slot_enemy");
-//        for (int i=0;i<elements.size();i++) {
-//            Creature creature = new Creature (CreatureLibrary.getRandomCreature());
-//            elements.get(i).setCreature(creature);
-//            GameplayManager.addEnemy(creature);
-//        }
-        
-        // roll player hand
-        CardPool test_deck = new CardPool (CardLibrary.getAllCards());
-        List<Card> test_hand = test_deck.getRandomCards(5);
-        elements = gui.getElements("card_slot");
+    public static void drawNewHand () {
+        CardPool deck = Player.getDeck();
+        List<Card> new_hand = deck.getRandomCards(5);
+        List<GuiElement> elements = gui.getElements("card_slot");
         for (int i=0;i<elements.size();i++) {
-            elements.get(i).setCard(test_hand.get(i));
+            elements.get(i).setCard(new_hand.get(i));
         }
         
+    }
+    
+    public static void waveSpawn () {
+        GameplayManager.checkWaveSpawn();
+    }
+    
+    public static void gameover () {
+        if (ResourceManager.hasSound("gameover")) ResourceManager.getSound("gameover").play();
+        
+        GuiElement overlay = gui.getElement("overlay");
+        overlay.setVisible(true);
+        overlay.setFont(Consts.DEFAULT_FONT, 64);
+        overlay.setText(GameplayManager.GAMEOVER_TEXT);
+        overlay.setTextColor(GameplayManager.GAMEOVER_COLOR);
+        overlay.instantCall("fadein");
+        
+        GuiElement gameover_hint = gui.getElement("gameover_hint");
+        gameover_hint.instantCall("fadein");
+        
+        GuiElement gameover_score = gui.getElement("gameover_score");
+        gameover_score.setText("Your score: "+Player.getScore());
+        gameover_score.instantCall("fadein");
+        
+        substate = CombatSubState.GAME_OVER;
     }
     
 }

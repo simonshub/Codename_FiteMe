@@ -227,6 +227,11 @@ public final class GuiElement {
         return this;
     }
     
+    public GuiElement setTextColor (Color color) {
+        this.text_color = color;
+        return this;
+    }
+    
     public GuiElement setFont (String font_name, int size) {
         this.font = ResourceManager.getFont(font_name, size);
         return this;

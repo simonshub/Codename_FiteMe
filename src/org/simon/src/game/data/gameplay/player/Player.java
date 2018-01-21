@@ -18,12 +18,14 @@ import org.simon.src.game.gui.GuiElement;
  */
 public class Player {
     
+    private static int score;
     private static CardPool deck;
     private static List<PlayerCharacter> party;
     
     
     
     public static void init () {
+        score = 0;
         deck = new CardPool ();
         party = new ArrayList<> ();
     }
@@ -43,6 +45,8 @@ public class Player {
     }
     
     public static void bindParty (final List<GuiElement> target_elements) {
+        GameplayManager.clearAllies();
+        deck.clear();
         for (int i=0;i<target_elements.size();i++) {
             final Creature creature = party.get(i).getCreature();
             if (!creature.isDead()) {
@@ -51,7 +55,12 @@ public class Player {
                 target_elements.get(i).setVisible(false);
             }
             GameplayManager.addAlly(creature);
+            deck.addAllCards(party.get(i).getCharacterClass(), party.get(i).getLevel());
         }
+    }
+    
+    public static int getScore () {
+        return score;
     }
     
 }

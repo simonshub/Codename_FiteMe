@@ -24,6 +24,8 @@ import org.simon.src.game.states.SharedState;
 import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.ResourceManager;
+import org.simon.src.utils.Settings;
+import org.simon.src.utils.SlickUtils;
 
 /**
  *
@@ -485,6 +487,12 @@ public class Card {
         if (!source.spendPoints(this)) {
             Log.err("Cannot cast card '"+this.name+"' because caster '"+source.getName()+"' doesn't have enough points!");
             return;
+        }
+        
+        if (Settings.debug_cards) {
+            List<String> target_names = new ArrayList<> ();
+            for (Creature target : targets) target_names.add(target.getId());
+            Log.log("Playing card '"+id+"' by '"+source.getId()+"' on targets; "+SlickUtils.Strings.concatList(target_names, ", "));
         }
         
         sfx.addSfx(this, source, targets);

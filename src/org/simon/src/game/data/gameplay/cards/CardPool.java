@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.simon.src.game.data.gameplay.player.PlayerCharacterClass;
 import org.simon.src.utils.SlickUtils;
 
 /**
@@ -47,6 +48,16 @@ public class CardPool {
     
     public final void addCard (Card card) {
         addCard(card.getId());
+    }
+    
+    public final void addAllCards (PlayerCharacterClass char_class, int lvl) {
+        char_class.getCardListForLevel(lvl).forEach((card) -> {
+            addCard(card);
+        });
+    }
+    
+    public final void clear () {
+        cards.clear();
     }
     
     

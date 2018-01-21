@@ -433,6 +433,14 @@ public abstract class SlickUtils {
             return res;
         }
 
+        public static String concatObjectList (List<?> objects, String separator) {
+            String res = "";
+            for (Object object : objects) {
+                res += object.toString() + separator;
+            }
+            return res;
+        }
+
         public static String concatArray (String[] lines, String separator) {
             String res = "";
             for (String line : lines) {

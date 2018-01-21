@@ -8,7 +8,9 @@ package org.simon.src.game.data.gameplay;
 import java.util.List;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
+import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.sfx.SpecialEffectSystem;
+import org.simon.src.game.states.combat.CombatState;
 
 /**
  *
@@ -19,10 +21,10 @@ public class AiAction {
     private boolean started=false;
     private boolean finished=false;
     
-    private Card card;
-    private Creature source;
-    private List<Creature> targets;
-    private SpecialEffectSystem sfx;
+    private final Card card;
+    private final Creature source;
+    private final List<Creature> targets;
+    private final SpecialEffectSystem sfx;
     
     public AiAction (final Card card, final Creature source, final List<Creature> targets, final SpecialEffectSystem sfx) {
         this.card = card;
@@ -34,9 +36,13 @@ public class AiAction {
     public void start () {
         started = true;
         card.play(sfx, source, targets);
+        
+        GuiElement enemy_played_card = CombatState.gui.getElement("enemy_played_card");
+        enemy_played_card.setCard(card);
+        enemy_played_card.setVisible(true);
     }
     
-    public void update (SpecialEffectSystem sfx) {
+    public void update () {
         if (finished) return;
         
         if (!started) start();

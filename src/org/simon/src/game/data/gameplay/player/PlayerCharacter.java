@@ -36,6 +36,10 @@ public class PlayerCharacter {
         this.character_class = character_class;
     }
     
+    public PlayerCharacterClass getCharacterClass () {
+        return character_class;
+    }
+    
     public int getLevel () {
         return current_level;
     }

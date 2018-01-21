@@ -97,15 +97,9 @@ public class ResourceManager {
         end = System.currentTimeMillis();
         Log.log("Creatures loaded in "+String.format("%.2f", (end-start)/1000f)+" sec");
         
-        Log.log("Initializing gameplay component...");
-        start = System.currentTimeMillis();
-        GameplayManager.init();
-        end = System.currentTimeMillis();
-        Log.log("Gameplay component initialized in "+String.format("%.2f", (end-start)/1000f)+" sec");
-        
         Log.log("Loading player character classes...");
         start = System.currentTimeMillis();
-        GameplayManager.init();
+        GameplayManager.loadPlayerCharacterClasses();
         end = System.currentTimeMillis();
         Log.log("Player character classes loaded in "+String.format("%.2f", (end-start)/1000f)+" sec");
         

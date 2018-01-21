@@ -320,8 +320,10 @@ public class Creature {
     
     public List<Card> getCastableCards () {
         List<Card> result = new ArrayList<> ();
-        for (Card card : card_list) {
-            if (canSpendPoints(card)) result.add(card);
+        if (!isDead()) {
+            for (Card card : card_list) {
+                if (canSpendPoints(card)) result.add(card);
+            }
         }
         return result;
     }
@@ -352,6 +354,9 @@ public class Creature {
             // im an enemy! :-D
             // ... and all my friends are dead :,(
             CombatState.gui.addFloatingText(GameplayManager.WAVE_CLEARED_TEXT, GameplayManager.WAVE_CLEARED_COLOR, Settings.screen_width/2f, Settings.screen_height*0.3f);
+        } else if (!GameplayManager.isCreatureEnemy(this) && GameplayManager.allAlliesDead()) {
+            // game over brah
+            CombatState.gameover();
         }
     }
     

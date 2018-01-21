@@ -50,6 +50,14 @@ public class SpecialEffectSystem {
     public void addSfx (Card parent, Creature src, Creature... targets) {
         List<GuiElement> target_el_list = new ArrayList<> ();
         for (int i=0;i<targets.length;i++) {
+            if (targets[i]==null) {
+                Log.err("Trying to target a null reference?!");
+                continue;
+            }
+            if (targets[i].getGuiElement()==null) {
+                Log.err("Target '"+targets[i].getId()+"' has no bound GUI element!");
+                continue;
+            }
             if (!targets[i].isDead()) target_el_list.add(targets[i].getGuiElement());
         }
         GuiElement[] target_elements = new GuiElement [target_el_list.size()];
