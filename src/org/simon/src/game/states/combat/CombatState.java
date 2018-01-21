@@ -248,8 +248,6 @@ public class CombatState extends BasicGameState {
         super.enter(container, game);
         SharedState.updateStateId(CombatState.ID);
         
-        GameplayManager.init();
-        
         gui.getElement("background").setImage(GameplayManager.getCurrentLevelType().getBackground());
         gui.getElement("overlay").instantCall("fadeout");
         List<GuiElement> character_elements = gui.getElements("_ally_");

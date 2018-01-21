@@ -439,6 +439,7 @@ public class GuiActionHandler {
         overlay.setVisible(true);
         overlay.instantCall("fadein");
         
+        GameplayManager.init();
         CycleList<PlayerCharacterClass> all_classes = GameplayManager.getAllPlayerCharacterClassesCycleList();
         for (int i = 0;i < 4;i++) {
             GuiElement char_picker = source.getParent().getElement("char_picker_portrait_"+i);
