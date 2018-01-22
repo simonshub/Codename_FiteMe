@@ -62,6 +62,8 @@ public class GameplayManager {
     public static final Color GAMEOVER_COLOR = Color.red;
     
     
+    private static int wave;
+    private static int total_difficulty_so_far;
     
     private static Opponent current_opponent;
     private static Creature current_casting_creature;
@@ -247,7 +249,7 @@ public class GameplayManager {
                     String path = character_class_file.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
                     String class_name = SlickUtils.Files.getFileName(path);
                     
-                    PlayerCharacterClass char_class = new PlayerCharacterClass(character_class_file);
+                    PlayerCharacterClass char_class = new PlayerCharacterClass(class_name, character_class_file);
                     loaded_character_classes.put(class_name, char_class);
                     Log.log("Loaded player character class '"+class_name+"' at path '"+path+"'");
                 } catch (IOException ex) {

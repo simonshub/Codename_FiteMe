@@ -36,6 +36,7 @@ public class PlayerCharacterClass {
     public static final String PARSE_DELIMITER = ":";
     public static final String PARSE_COMMENT = "#";
     
+    private String id;
     private String name;
     private String graphics;
     private String portrait;
@@ -47,11 +48,12 @@ public class PlayerCharacterClass {
     
     
     
-    public PlayerCharacterClass (File file) {
-        this(file.getAbsolutePath());
+    public PlayerCharacterClass (String id, File file) {
+        this(id, file.getAbsolutePath());
     }
     
-    public PlayerCharacterClass (String file_path) {
+    public PlayerCharacterClass (String id, String file_path) {
+        this.id = id;
         this.card_list = new ArrayList<> ();
         this.point_leveling_list = new CycleList<> ();
         
@@ -141,6 +143,10 @@ public class PlayerCharacterClass {
     
     public int getHealthForLevel (int level) {
         return base_hp + ( (level-1)*hp_per_level );
+    }
+    
+    public String getId () {
+        return id;
     }
     
     public String getName () {

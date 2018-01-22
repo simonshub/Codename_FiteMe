@@ -213,6 +213,18 @@ public class Creature {
         return gui_element;
     }
     
+    public Creature getParent () {
+        return parent;
+    }
+    
+    public List<StatusEffect> getStatusEffects () {
+        return status_effects;
+    }
+    
+    public Map<PointTypeEnum, Integer> getUsedPointPool () {
+        return used_point_pool;
+    }
+    
     
     
     public void assignIdOverwrite (String new_id) {
@@ -399,6 +411,10 @@ public class Creature {
     
     public boolean isDead () {
         return health_current<=0;
+    }
+    
+    public boolean isPlayerCharacter () {
+        return is_player_character;
     }
     
     public void turnTick (SpecialEffectSystem sfx) {

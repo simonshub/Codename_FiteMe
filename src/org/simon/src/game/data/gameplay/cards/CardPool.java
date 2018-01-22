@@ -5,6 +5,7 @@
  */
 package org.simon.src.game.data.gameplay.cards;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +17,7 @@ import org.simon.src.utils.SlickUtils;
  *
  * @author XyRoN
  */
-public class CardPool {
+public class CardPool implements Serializable {
     
     private final Map<String, Integer> cards;
     

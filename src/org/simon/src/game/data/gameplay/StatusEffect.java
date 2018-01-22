@@ -75,6 +75,10 @@ public class StatusEffect {
         return callback.getSource();
     }
     
+    public int getCounter () {
+        return counter;
+    }
+    
     public Creature getTarget () {
         return callback.getTarget();
     }
