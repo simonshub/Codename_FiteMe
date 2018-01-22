@@ -47,11 +47,21 @@ public class WeightedRandom<T> {
         
         int roll = SlickUtils.rand(0,total);
         int current = 0;
+        
         for (int i=0;i<entries.size();i++) {
             current += entries.get(i).weight;
             if (roll < current) return entries.get(i).object;
         }
-        return null;
+        return maxWeight();
+    }
+    
+    public T maxWeight () {
+        int max_index = 0;
+        for (int i=1;i<entries.size();i++) {
+            if (entries.get(max_index).weight <= entries.get(i).weight)
+                max_index = i;
+        }
+        return entries.get(max_index).object;
     }
     
     public void clear () {

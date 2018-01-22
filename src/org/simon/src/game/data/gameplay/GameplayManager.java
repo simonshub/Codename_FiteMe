@@ -37,7 +37,7 @@ import org.simon.src.utils.WeightedRandom;
 public class GameplayManager {
     
     public enum Opponent {
-        PLAYER ("Player"), ENEMY ("Opponent")
+        PLAYER ("Opponent"), ENEMY ("Player")
         ;
         public final String text;
         
@@ -85,6 +85,7 @@ public class GameplayManager {
     
     public static final void init () {
         Player.init();
+        wave_counter = 0;
         is_new_game = false;
         ai_action_queue = new ArrayList<> ();
         level_type = loaded_level_types.get(LevelType.STARTING_LEVEL_TYPE);
@@ -109,6 +110,7 @@ public class GameplayManager {
     }
     
     public static void spawnWave () {
+        wave_counter++;
         Wave wave = level_type.makeWave();
         GuiController gui = CombatState.gui;
         
@@ -357,10 +359,12 @@ public class GameplayManager {
             Card selected_card = (Card) SlickUtils.randListObject(viable_cards);
             List<Creature> selected_targets = aiResolveTargets(selected_creature, selected_card);
             
-            if (!SlickUtils.listContainsOnlyNull(selected_targets))
+            if (!SlickUtils.listContainsOnlyNull(selected_targets)) {
                 ai_action_queue.add(new AiAction (selected_card, selected_creature, selected_targets, sfx));
-            else
+            } else {
                 i--;
+                Log.err("AI target resolver returned null targets - card '"+selected_card.getId()+"', caster '"+selected_creature.getId()+"' at '"+selected_creature.getGuiElement().getName()+"'");
+            }
         }
     }
     

@@ -284,6 +284,8 @@ public class CombatState extends BasicGameState {
     }
     
     public static void startTurn () {
+        if (GameplayManager.allAlliesDead()) return;
+        
         Log.log("start_turn");
         GuiElement end_turn = gui.getElement("end_turn");
         end_turn.setImage("ui/end_turn");
@@ -393,6 +395,7 @@ public class CombatState extends BasicGameState {
         gameover_score.instantCall("fadein");
         
         substate = CombatSubState.GAME_OVER;
+        SavedStateFactory.delete();
     }
     
 }

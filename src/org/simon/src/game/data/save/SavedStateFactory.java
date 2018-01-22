@@ -78,4 +78,11 @@ public class SavedStateFactory {
         }
     }
     
+    
+    
+    public static void delete () {
+        File f = new File (SAVED_STATE_FILE_PATH);
+        if (f.exists()) f.delete();
+    }
+    
 }
