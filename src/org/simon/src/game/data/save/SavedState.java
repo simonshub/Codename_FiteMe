@@ -29,6 +29,12 @@ public class SavedState implements Serializable {
     
     
     protected void snapshot () {
+        
+        // POSSIBLE BUG: when saving the game state, dead characters may appear
+        // visible to the player, but with 0 (or less) health. this is beacause
+        // the creature's gui element performs a fadeout on creature death,
+        // but no fadeout is called here (when loading) ...
+        
         player_state = new PlayerState ();
         board_state = new BoardState ();
         
