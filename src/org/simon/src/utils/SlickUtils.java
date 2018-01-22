@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import org.newdawn.slick.Color;
 
 /**
  *
@@ -233,6 +232,13 @@ public abstract class SlickUtils {
         a[change] = helper;
     }
     
+    public static boolean listContainsOnlyNull (List<?> list) {
+        for (int i=0;i<list.size();i++) {
+            if (list.get(i)!=null) return false;
+        }
+        return true;
+    }
+    
     
     public static String getArrayAsStringList (Object[] array, String delimiter) {
         String result = "";
@@ -427,26 +433,26 @@ public abstract class SlickUtils {
 
         public static String concatList (List<String> lines, String separator) {
             String res = "";
-            for (String line : lines) {
-                res += line + separator;
+            for (int i=0;i<lines.size()-1;i++) {
+                res += lines.get(i) + separator;
             }
-            return res;
+            return res + lines.get(lines.size()-1);
         }
 
         public static String concatObjectList (List<?> objects, String separator) {
             String res = "";
-            for (Object object : objects) {
-                res += object.toString() + separator;
+            for (int i=0;i<objects.size()-1;i++) {
+                res += objects.get(i).toString() + separator;
             }
-            return res;
+            return res + objects.get(objects.size()-1).toString();
         }
 
         public static String concatArray (String[] lines, String separator) {
             String res = "";
-            for (String line : lines) {
-                res += line + separator;
+            for (int i=0;i<lines.length-1;i++) {
+                res += lines[i] + separator;
             }
-            return res;
+            return res + lines[lines.length-1];
         }
         
     }

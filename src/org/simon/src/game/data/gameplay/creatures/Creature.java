@@ -336,6 +336,8 @@ public class Creature {
     }
     
     public boolean canSpendPoints (Card card) {
+        if (isDead()) return false;
+        
         Map<PointTypeEnum, Integer> requested_pool = card.getPointPool();
         for (PointTypeEnum type : PointTypeEnum.values()) {
             int unused = total_point_pool.get(type) - used_point_pool.get(type);
@@ -374,9 +376,10 @@ public class Creature {
         if (isDead()) die();
     }
     
-    private void die () {
+    public void die () {
         if (gui_element==null) return;
         gui_element.instantCall("fadeout");
+        Log.log("Creature '"+id+"' at '"+gui_element.getName()+"' has died!");
         
         if (GameplayManager.isCreatureEnemy(this) && GameplayManager.allEnemiesDead()) {
             // im an enemy! :-D
@@ -434,6 +437,8 @@ public class Creature {
     }
     
     public void turnTick (SpecialEffectSystem sfx) {
+        if (isDead()) return;
+        
         for (int i=0;i<status_effects.size();i++) {
             status_effects.get(i).turnTick(sfx);
             if (status_effects.get(i).isDone()) status_effects.remove(i);

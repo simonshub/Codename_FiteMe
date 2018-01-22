@@ -66,12 +66,11 @@ public class CreatureState implements Serializable {
     }
     
     protected void applyToCreature (final Creature creature) {
-        if ("".equals(parent_creature)) {
-            creature.setArmor(armor);
-            creature.setCurrentHealth(current_health);
-            creature.setUsedPointPool(used_point_map);
-            CombatState.gui.getElement(gui_element).setCreature(creature);
-        }
+        creature.setArmor(armor);
+        creature.setCurrentHealth(current_health);
+        creature.setUsedPointPool(used_point_map);
+        CombatState.gui.getElement(gui_element).setCreature(creature);
+        if (creature.isDead()) creature.die();
     }
 
     protected void applyStatusEffects () {

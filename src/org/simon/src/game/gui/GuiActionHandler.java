@@ -447,6 +447,7 @@ public class GuiActionHandler {
         overlay.instantCall("fadein");
         
         GameplayManager.init();
+        GameplayManager.setIsNewGame(true);
         CycleList<PlayerCharacterClass> all_classes = GameplayManager.getAllPlayerCharacterClassesCycleList();
         for (int i = 0;i < 4;i++) {
             GuiElement char_picker = source.getParent().getElement("char_picker_portrait_"+i);
@@ -463,6 +464,7 @@ public class GuiActionHandler {
         overlay.instantCall("fadein");
         
         GameplayManager.init();
+        GameplayManager.setIsNewGame(false);
         SavedStateFactory.load();
     }
     

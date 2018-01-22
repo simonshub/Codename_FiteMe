@@ -3,5 +3,5 @@ grfx: chars/warrior
 port: chars/warrior_portrait
 pnts: atk def atk def agi
 clst: power_strike test_card thunder_strike chains_of_light electrify
-hpbs: 10
+hpbs: 1
 hppl: 5

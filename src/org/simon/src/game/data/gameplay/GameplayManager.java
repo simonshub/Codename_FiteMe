@@ -66,6 +66,8 @@ public class GameplayManager {
     private static int wave_counter;
     private static int total_difficulty_so_far;
     
+    private static boolean is_new_game;
+    
     private static Opponent current_opponent;
     private static Creature current_casting_creature;
     
@@ -83,6 +85,7 @@ public class GameplayManager {
     
     public static final void init () {
         Player.init();
+        is_new_game = false;
         ai_action_queue = new ArrayList<> ();
         level_type = loaded_level_types.get(LevelType.STARTING_LEVEL_TYPE);
     }
@@ -182,6 +185,10 @@ public class GameplayManager {
         return !ally_board.contains(c);
     }
     
+    public static boolean isNewGame () {
+        return is_new_game;
+    }
+    
     public static boolean allEnemiesDead () {
         for (Creature enemy : enemy_board) {
             if (!enemy.isDead()) return false;
@@ -201,7 +208,10 @@ public class GameplayManager {
     }
     
     public static void setCurrentCastingCreature (final Creature current_casting_creature) {
-        GameplayManager.current_casting_creature = current_casting_creature;
+        if (current_casting_creature!=null && !current_casting_creature.isDead())
+            GameplayManager.current_casting_creature = current_casting_creature;
+        else
+            GameplayManager.current_casting_creature = null;
     }
     
     public static void setWave (int wave) {
@@ -214,6 +224,10 @@ public class GameplayManager {
     
     public static void setLevelType (String level_type_name) {
         GameplayManager.level_type = loaded_level_types.get(level_type_name);
+    }
+    
+    public static void setIsNewGame (boolean is_new_game) {
+        GameplayManager.is_new_game = is_new_game;
     }
     
     public static List<PlayerCharacterClass> getAllPlayerCharacterClassesList () {
@@ -342,7 +356,11 @@ public class GameplayManager {
             List<Card> viable_cards = selected_creature.getCastableCards();
             Card selected_card = (Card) SlickUtils.randListObject(viable_cards);
             List<Creature> selected_targets = aiResolveTargets(selected_creature, selected_card);
-            ai_action_queue.add(new AiAction (selected_card, selected_creature, selected_targets, sfx));
+            
+            if (!SlickUtils.listContainsOnlyNull(selected_targets))
+                ai_action_queue.add(new AiAction (selected_card, selected_creature, selected_targets, sfx));
+            else
+                i--;
         }
     }
     
@@ -359,14 +377,14 @@ public class GameplayManager {
         // resolve single target
         if (TargetEnum.SINGLE_ALLY.equals(target_mode)) {
             for (Creature ally : enemy_board) {
-                if (source.equals(ally)) continue;
-                
+                if (ally.isDead()) continue;
                 int weight = (int) ( ( ally.getMaxHealth() - ally.getCurrentHealth() ) + ally.getTotalPoints() + ally.getDifficulty() );
                 rand.add(ally, weight);
             }
             target = rand.getRandom();
         } else if (TargetEnum.SINGLE_ENEMY.equals(target_mode)) {
             for (Creature enemy : ally_board) {
+                if (enemy.isDead()) continue;
                 int weight = enemy.getMaxHealth() + enemy.getCurrentHealth() + enemy.getTotalPoints() + enemy.getArmor() + enemy.getAttackModifier();
                 rand.add(enemy, weight);
             }

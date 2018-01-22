@@ -251,10 +251,14 @@ public class CombatState extends BasicGameState {
         
         gui.getElement("background").setImage(GameplayManager.getCurrentLevelType().getBackground());
         gui.getElement("overlay").instantCall("fadeout");
-        List<GuiElement> character_elements = gui.getElements("_ally_");
-        Player.bindParty(character_elements);
-        GameplayManager.checkWaveSpawn();
-        drawNewHand();
+        
+        if (GameplayManager.isNewGame()) {
+            GameplayManager.setIsNewGame(false);
+            List<GuiElement> character_elements = gui.getElements("_ally_");
+            Player.bindParty(character_elements);
+            GameplayManager.checkWaveSpawn();
+            drawNewHand();
+        }
     }
     
     
@@ -273,6 +277,7 @@ public class CombatState extends BasicGameState {
             }
         }
         
+        setCurrentTurnCreature(null);
         substate = CombatSubState.ENEMY_TURN;
         waveSpawn();
         GameplayManager.turnTick(sfx);
@@ -311,6 +316,11 @@ public class CombatState extends BasicGameState {
     }
     
     public static void setCurrentTurnCreature (GuiElement element) {
+        if (element==null) {
+            GameplayManager.setCurrentCastingCreature(null);
+            return;
+        }
+        
         if (element.getCreature() == null) {
             Log.err("Error while setting current turn creature to element '"+element.getName()+"'; element does not contain a creature");
         } else {

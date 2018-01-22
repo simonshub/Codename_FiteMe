@@ -484,15 +484,20 @@ public class Card {
     }
     
     public void play (SpecialEffectSystem sfx, Creature source, List<Creature> targets) {
-        if (!source.spendPoints(this)) {
-            Log.err("Cannot cast card '"+this.name+"' because caster '"+source.getName()+"' doesn't have enough points!");
+        if (Settings.debug_cards) {
+            List<String> target_names = new ArrayList<> ();
+            for (Creature target : targets) target_names.add(target==null ? "null" : target.getId());
+            Log.log("Playing card '"+id+"' by '"+source.getId()+"' on targets; "+SlickUtils.Strings.concatList(target_names, ", "));
+        }
+        
+        if (source.isDead()) {
+            Log.err("Cannot cast card '"+id+"' because caster '"+source.getId()+"' at '"+source.getGuiElement().getName()+"' is dead!");
             return;
         }
         
-        if (Settings.debug_cards) {
-            List<String> target_names = new ArrayList<> ();
-            for (Creature target : targets) target_names.add(target.getId());
-            Log.log("Playing card '"+id+"' by '"+source.getId()+"' on targets; "+SlickUtils.Strings.concatList(target_names, ", "));
+        if (!source.spendPoints(this)) {
+            Log.err("Cannot cast card '"+id+"' because caster '"+source.getId()+"' at '"+source.getGuiElement().getName()+"' doesn't have enough points!");
+            return;
         }
         
         sfx.addSfx(this, source, targets);
