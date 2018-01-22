@@ -70,7 +70,6 @@ public class CreatureState implements Serializable {
         creature.setCurrentHealth(current_health);
         creature.setUsedPointPool(used_point_map);
         CombatState.gui.getElement(gui_element).setCreature(creature);
-        if (creature.isDead()) creature.die();
     }
 
     protected void applyStatusEffects () {

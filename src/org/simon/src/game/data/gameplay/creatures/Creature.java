@@ -376,7 +376,7 @@ public class Creature {
         if (isDead()) die();
     }
     
-    public void die () {
+    private void die () {
         if (gui_element==null) return;
         gui_element.instantCall("fadeout");
         Log.log("Creature '"+id+"' at '"+gui_element.getName()+"' has died!");
