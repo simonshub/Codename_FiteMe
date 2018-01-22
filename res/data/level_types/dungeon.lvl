@@ -1,3 +1,4 @@
 name: Dungeon
 bkgr: backgrounds/dungeon
+musi: music/dungeon_music
 elst: ghoul ; goblin , goblin_assassin ; warlock , shadow , ghost , ghoul , skeleton ; warlock , imp , demon , demon_lord , demon_mage ; basilisk

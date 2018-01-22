@@ -269,10 +269,26 @@ public class Creature {
         this.gui_element = element;
     }
     
-    public void setHealth (int health) {
+    
+    
+    public void setMaxHealth (int health) {
         float ratio = health_current / health_max;
         health_max = health;
         health_current = (int) (health*ratio);
+    }
+    
+    public void setArmor (int armor) {
+        this.armor = armor;
+    }
+    
+    public void setCurrentHealth (int current_health) {
+        this.health_current = current_health;
+    }
+    
+    public void setUsedPointPool (HashMap<PointTypeEnum, Integer> used_point_pool) {
+        for (PointTypeEnum type : PointTypeEnum.values()) {
+            this.used_point_pool.put(type, used_point_pool.get(type));
+        }
     }
     
     public void setIsPlayerCharacter (boolean is_player_character) {

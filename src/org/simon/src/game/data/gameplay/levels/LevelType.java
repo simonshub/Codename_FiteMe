@@ -24,6 +24,7 @@ public class LevelType {
     
     public static final String KEYWORD_SET_NAME = "name";
     public static final String KEYWORD_SET_BACKGROUND = "bkgr";
+    public static final String KEYWORD_SET_BACKGROUND_MUSIC = "musi";
     public static final String KEYWORD_SET_ENCOUNTER_LIST = "elst";
     
     public static final String ENCOUNTER_DELIMITER = ";";
@@ -32,13 +33,18 @@ public class LevelType {
     public static final String PARSE_DELIMITER = ":";
     public static final String PARSE_COMMENT = "#";
     
+    private String id;
     private String name;
     private String background;
+    private String background_music;
     private List<Encounter> encounter_list;
     
-    public LevelType (String file_path) {
+    public LevelType (String id, String file_path) {
+        this.id = id;
+        
         name = "";
         background = "";
+        background_music = "";
         encounter_list = new ArrayList<> ();
         
         try {
@@ -58,6 +64,9 @@ public class LevelType {
                     switch (parse_action) {
                         case KEYWORD_SET_NAME :
                             this.name = parse_value;
+                            break;
+                        case KEYWORD_SET_BACKGROUND_MUSIC :
+                            this.background_music = parse_value;
                             break;
                         case KEYWORD_SET_BACKGROUND :
                             this.background = parse_value;
@@ -82,6 +91,18 @@ public class LevelType {
     
     public String getBackground () {
         return background;
+    }
+    
+    public String getBackgroundMusic () {
+        return background_music;
+    }
+    
+    public String getId () {
+        return id;
+    }
+    
+    public String getName () {
+        return name;
     }
     
     public Wave makeWave () {

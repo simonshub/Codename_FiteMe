@@ -34,9 +34,15 @@ public class StatusEffect {
     private final String special_effect_string;
     private final String display_icon;
     
+    private final String source_action_string;
+    private final String source_display_string;
+    
     
     
     public StatusEffect (Card parent, Creature source, Creature target, int counter, String action, String display_string) {
+        this.source_action_string = action;
+        this.source_display_string = display_string;
+        
         this.target = target;
         this.counter = counter;
         
@@ -97,6 +103,14 @@ public class StatusEffect {
     
     public String getSfxString () {
         return special_effect_string;
+    }
+    
+    public String getOriginalActionString () {
+        return source_action_string;
+    }
+    
+    public String getOriginalDisplayString () {
+        return source_display_string;
     }
     
     

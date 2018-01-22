@@ -173,6 +173,10 @@ public final class GuiElement {
         return card;
     }
     
+    public boolean getCardPlayed () {
+        return is_card_played;
+    }
+    
     public GuiElement setCreature (final Creature creature) {
         if (creature != null) {
             this.creature = creature;

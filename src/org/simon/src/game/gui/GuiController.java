@@ -66,6 +66,10 @@ public final class GuiController {
         elements.remove(name);
     }
     
+    public boolean hasElement (String name) {
+        return elements.containsKey(name);
+    }
+    
     public GuiElement getElement (String name) {
         if (!elements.containsKey(name)) {
             Log.err("no element of name '"+name+"'");

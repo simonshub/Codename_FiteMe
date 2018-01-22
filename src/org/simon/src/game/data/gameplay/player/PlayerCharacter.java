@@ -44,9 +44,12 @@ public class PlayerCharacter {
         return current_level;
     }
     
-    public void levelUp (Card new_card) {
+    public void levelUp () {
         current_level++;
-        unlocked_card_list.add(new_card);
+    }
+    
+    public void setLevel (int level) {
+        this.current_level = level;
     }
     
     public final Creature getCreature () {

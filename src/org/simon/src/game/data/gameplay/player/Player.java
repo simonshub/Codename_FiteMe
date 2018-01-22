@@ -32,12 +32,22 @@ public class Player {
     
     
     
+    public static void clearParty () {
+        party.clear();
+    }
+    
+    
+    
     public static CardPool getDeck () {
         return deck;
     }
     
     public static List<PlayerCharacter> getParty () {
         return party;
+    }
+    
+    public static void addCharacterToParty (PlayerCharacter player_character) {
+        party.add(player_character);
     }
     
     public static void addCharacterToParty (PlayerCharacterClass player_character_class) {
@@ -61,6 +71,10 @@ public class Player {
     
     public static int getScore () {
         return score;
+    }
+    
+    public static void setScore (int score) {
+        Player.score = score;
     }
     
 }

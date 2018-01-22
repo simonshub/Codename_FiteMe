@@ -167,7 +167,7 @@ public class PlayerCharacterClass {
         c.setId(PlayerCharacter.PLAYER_CHARACTER_CREATURE_ID_PREFIX + getName().toLowerCase().replace(" ", "_") + ("_"+level));
         c.setName(getName());
         c.setPoints(getPointPoolForLevel(level));
-        c.setHealth(getHealthForLevel(level));
+        c.setMaxHealth(getHealthForLevel(level));
         c.setParent(null);
         c.setIsPlayerCharacter(true);
         c.setGraphics(getGraphics());

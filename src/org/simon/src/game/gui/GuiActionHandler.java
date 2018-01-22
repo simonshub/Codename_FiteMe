@@ -15,6 +15,7 @@ import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.data.gameplay.player.Player;
 import org.simon.src.game.data.gameplay.player.PlayerCharacterClass;
+import org.simon.src.game.data.save.SavedStateFactory;
 import org.simon.src.game.states.cardgallery.CardGalleryState;
 import org.simon.src.game.states.combat.CombatState;
 import org.simon.src.game.states.newgame.NewGameState;
@@ -453,6 +454,16 @@ public class GuiActionHandler {
             PlayerCharacterClass char_class = all_classes.get(selected_index);
             Player.addCharacterToParty(char_class);
         }
+    }
+    
+    public static void continue_game (final GuiElement source) {
+        if (Settings.debug_gui) Log.log("continue_game ["+source.getName()+"]");
+        GuiElement overlay = source.getParent().getElement("overlay");
+        overlay.setVisible(true);
+        overlay.instantCall("fadein");
+        
+        GameplayManager.init();
+        SavedStateFactory.load();
     }
     
     public static void next_class (final GuiElement source) {

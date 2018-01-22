@@ -62,7 +62,8 @@ public class GameplayManager {
     public static final Color GAMEOVER_COLOR = Color.red;
     
     
-    private static int wave;
+    
+    private static int wave_counter;
     private static int total_difficulty_so_far;
     
     private static Opponent current_opponent;
@@ -163,6 +164,20 @@ public class GameplayManager {
         return level_type;
     }
     
+    public static int getCurrentWave () {
+        return wave_counter;
+    }
+    
+    public static int getCurrentTotalDifficulty () {
+        return total_difficulty_so_far;
+    }
+    
+    public static PlayerCharacterClass getPlayerCharacterClass (String id) {
+        if (loaded_character_classes.containsKey(id))
+            return loaded_character_classes.get(id);
+        return null;
+    }
+    
     public static boolean isCreatureEnemy (final Creature c) {
         return !ally_board.contains(c);
     }
@@ -187,6 +202,18 @@ public class GameplayManager {
     
     public static void setCurrentCastingCreature (final Creature current_casting_creature) {
         GameplayManager.current_casting_creature = current_casting_creature;
+    }
+    
+    public static void setWave (int wave) {
+        GameplayManager.wave_counter = wave;
+    }
+    
+    public static void setTotalDifficulty (int total_difficulty_so_far) {
+        GameplayManager.total_difficulty_so_far = total_difficulty_so_far;
+    }
+    
+    public static void setLevelType (String level_type_name) {
+        GameplayManager.level_type = loaded_level_types.get(level_type_name);
     }
     
     public static List<PlayerCharacterClass> getAllPlayerCharacterClassesList () {
@@ -271,7 +298,7 @@ public class GameplayManager {
                 try {
                     String path = level_type_file.getCanonicalPath().replace(System.getProperty("file.separator"), "/");
                     String key = SlickUtils.Files.getFileNameLC(path);
-                    LevelType value = new LevelType (path);
+                    LevelType value = new LevelType (key, path);
                     
                     Log.log("Loaded level type with name '"+key+"' at path '"+path+"'");
                     

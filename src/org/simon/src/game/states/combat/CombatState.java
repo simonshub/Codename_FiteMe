@@ -19,6 +19,7 @@ import org.simon.src.game.data.gameplay.cards.CardLibrary;
 import org.simon.src.game.data.gameplay.cards.CardPool;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.data.gameplay.player.Player;
+import org.simon.src.game.data.save.SavedStateFactory;
 import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.game.gui.GuiController;
 import org.simon.src.game.gui.GuiActionHandler;
@@ -302,6 +303,7 @@ public class CombatState extends BasicGameState {
         substate = CombatSubState.PICK_CARD;
         drawNewHand();
         GameplayManager.turnTick(sfx);
+        SavedStateFactory.save();
     }
     
     public static Creature getCurrentCastingCreature () {
