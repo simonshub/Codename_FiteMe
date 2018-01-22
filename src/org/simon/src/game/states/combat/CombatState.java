@@ -26,6 +26,7 @@ import org.simon.src.game.gui.GuiActionHandler;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.gui.TutorialStringLibrary;
 import org.simon.src.game.states.SharedState;
+import org.simon.src.game.states.menu.MenuState;
 import org.simon.src.utils.Consts;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.ResourceManager;
@@ -63,8 +64,8 @@ public class CombatState extends BasicGameState {
         substate = CombatSubState.PICK_CARD;
         
         sfx = new SpecialEffectSystem ();
-        
         gui = new GuiController ();
+        
         String el_name;
         
         el_name = "turn_indicator";
@@ -216,10 +217,10 @@ public class CombatState extends BasicGameState {
         gui.addElement(el_name, overlay);
         
         el_name = "gameover_score";
-        GuiElement gameover_score = new GuiElement (el_name, gui, true, 0f, 0.85f, true, 1f, 0.1f, "ui/block")
+        GuiElement gameover_score = new GuiElement (el_name, gui, true, 0f, 0.70f, true, 1f, 0.05f, "ui/block")
                 .setVisible(false)
                 .setColor(0f,0f,0f,0f)
-                .setFont(Consts.DEFAULT_FONT, Consts.DEFAULT_FONT_SIZE)
+                .setFont("consolas", Consts.DEFAULT_FONT_SIZE)
                 .setText("Your score: ")
                 .setTextColor(GameplayManager.GAMEOVER_COLOR)
                 .setProperty("fade_speed", .5f)
@@ -229,19 +230,17 @@ public class CombatState extends BasicGameState {
         gui.addElement(el_name, gameover_score);
         
         el_name = "gameover_hint";
-        GuiElement gameover_hint = new GuiElement (el_name, gui, true, 0f, 0.75f, true, 1f, 0.1f, "ui/block")
+        GuiElement gameover_hint = new GuiElement (el_name, gui, true, 0f, 0.75f, true, 1f, 0.05f, "ui/block")
                 .setVisible(false)
                 .setColor(0f,0f,0f,0f)
-                .setFont(Consts.DEFAULT_FONT, Consts.DEFAULT_FONT_SIZE)
-                .setText("Press [ ESC ] to exit to main menu ...")
+                .setFont("consolas", Consts.DEFAULT_FONT_SIZE)
+                .setText("Press [ ESC ] to exit to main menu . . .")
                 .setTextColor(GameplayManager.GAMEOVER_COLOR)
                 .setProperty("fade_speed", .5f)
                 .setProperty("acceleration", 0f)
                 .setLayer(1002)
                 ;
         gui.addElement(el_name, gameover_hint);
-        
-        gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
     }
     
     @Override
@@ -249,15 +248,95 @@ public class CombatState extends BasicGameState {
         super.enter(container, game);
         SharedState.updateStateId(CombatState.ID);
         
-        gui.getElement("background").setImage(GameplayManager.getCurrentLevelType().getBackground());
-        gui.getElement("overlay").instantCall("fadeout");
-        
         if (GameplayManager.isNewGame()) {
             GameplayManager.setIsNewGame(false);
             List<GuiElement> character_elements = gui.getElements("_ally_");
             Player.bindParty(character_elements);
             GameplayManager.checkWaveSpawn();
             drawNewHand();
+            
+            List<GuiElement> party_elements = gui.getElements("_ally_");
+            for (GuiElement party_element : party_elements) {
+                if (party_element.getCreature() != null)
+                    party_element.instantCall("fadein");
+            }
+            
+            substate = CombatSubState.PICK_CARD;
+        }
+        
+        GuiActionHandler.deselectcard(gui.getElement("played_card"));
+        
+        gui.getElement("background").setImage(GameplayManager.getCurrentLevelType().getBackground());
+        gui.getElement("overlay").instantCall("fadeout");
+        gui.getElement("overlay").setText("");
+        gui.getElement("gameover_score").instantCall("fadeout");
+        gui.getElement("gameover_hint").instantCall("fadeout");
+        gui.getElement("gameover_score").setVisible(false);
+        gui.getElement("gameover_hint").setVisible(false);
+        gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
+        
+        GuiElement end_turn = gui.getElement("end_turn");
+        end_turn.setImage("ui/end_turn");
+        end_turn.setWhileHovered("scaleup");
+        gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
+        
+        GuiElement enemy_played_card = gui.getElement("enemy_played_card");
+        enemy_played_card.setVisible(false);
+    }
+    
+    
+    
+    public static Creature getCurrentCastingCreature () {
+        return GameplayManager.getCurrentCastingCreature();
+    }
+    
+    public static void setCurrentTurnCreature (GuiElement element) {
+        if (element==null) {
+            GameplayManager.setCurrentCastingCreature(null);
+            return;
+        }
+        
+        if (element.getCreature() == null) {
+            Log.err("Error while setting current turn creature to element '"+element.getName()+"'; element does not contain a creature");
+        } else {
+            GameplayManager.setCurrentCastingCreature(element.getCreature());
+        }
+    }
+    
+    
+    
+    @Override
+    public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
+        gui.render(grphcs);
+        sfx.render(grphcs);
+    }
+
+    @Override
+    public void update(GameContainer gc, StateBasedGame sbg, int dt) throws SlickException {
+        SharedState.update(gc, sbg, null);
+        GameplayManager.aiUpdate();
+        
+        if (gc.getInput().isKeyPressed(Input.KEY_F)) {
+            // F is for Filip :)
+            Log.log("Re-drawing player hand...");
+            drawNewHand();
+        } else if (gc.getInput().isKeyPressed(Input.KEY_R)) {
+            sfx.reset();
+        } 
+        
+        gui.update(gc,sbg,dt);
+        sfx.update(dt);
+        
+        if (GameplayManager.allAlliesDead() && gc.getInput().isKeyDown(Input.KEY_ESCAPE)) {
+            sbg.enterState(MenuState.ID);
+        }
+        
+        if (gc.getInput().isMouseButtonDown(Input.MOUSE_RIGHT_BUTTON)) {
+            GuiActionHandler.deselectcard(gui.getElement("played_card"));
+        }
+        
+        if (gc.getInput().isKeyPressed(Input.KEY_RETURN)) {
+            startTurn(); 
         }
     }
     
@@ -313,56 +392,6 @@ public class CombatState extends BasicGameState {
         SavedStateFactory.save();
     }
     
-    public static Creature getCurrentCastingCreature () {
-        return GameplayManager.getCurrentCastingCreature();
-    }
-    
-    public static void setCurrentTurnCreature (GuiElement element) {
-        if (element==null) {
-            GameplayManager.setCurrentCastingCreature(null);
-            return;
-        }
-        
-        if (element.getCreature() == null) {
-            Log.err("Error while setting current turn creature to element '"+element.getName()+"'; element does not contain a creature");
-        } else {
-            GameplayManager.setCurrentCastingCreature(element.getCreature());
-        }
-    }
-    
-    
-    
-    @Override
-    public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
-        gui.render(grphcs);
-        sfx.render(grphcs);
-    }
-
-    @Override
-    public void update(GameContainer gc, StateBasedGame sbg, int dt) throws SlickException {
-        SharedState.update(gc, sbg, null);
-        GameplayManager.aiUpdate();
-        
-        if (gc.getInput().isKeyPressed(Input.KEY_F)) {
-            // F is for Filip :)
-            Log.log("Re-drawing player hand...");
-            drawNewHand();
-        } else if (gc.getInput().isKeyPressed(Input.KEY_R)) {
-            sfx.reset();
-        } 
-        
-        gui.update(gc,sbg,dt);
-        sfx.update(dt);
-        
-        if (gc.getInput().isMouseButtonDown(Input.MOUSE_RIGHT_BUTTON)) {
-            GuiActionHandler.deselectcard(gui.getElement("played_card"));
-        }
-        
-        if (gc.getInput().isKeyPressed(Input.KEY_RETURN)) {
-            startTurn(); 
-        }
-    }
-    
     public static void drawNewHand () {
         CardPool deck = Player.getDeck();
         List<Card> new_hand = deck.getRandomCards(5);
@@ -388,9 +417,11 @@ public class CombatState extends BasicGameState {
         overlay.instantCall("fadein");
         
         GuiElement gameover_hint = gui.getElement("gameover_hint");
+        gameover_hint.setVisible(true);
         gameover_hint.instantCall("fadein");
         
         GuiElement gameover_score = gui.getElement("gameover_score");
+        gameover_score.setVisible(true);
         gameover_score.setText("Your score: "+Player.getScore());
         gameover_score.instantCall("fadein");
         

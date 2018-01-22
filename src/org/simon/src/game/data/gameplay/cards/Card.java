@@ -146,7 +146,7 @@ public class Card {
         // ONLY IF THE CURRENT GAMESTATE IS CombatState !
         Color tint = Color.white;
         if (SharedState.isCurrentState(CombatState.class)) {
-            if (was_played || ( GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.PLAYER &&
+            if (was_played || ( GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.OPPONENT &&
                     (CombatState.getCurrentCastingCreature()==null || !CombatState.getCurrentCastingCreature().canSpendPoints(this)) ) ) {
                 tint = DISABLED_COLOR;
             }

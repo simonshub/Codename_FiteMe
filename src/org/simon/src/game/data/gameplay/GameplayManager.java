@@ -37,7 +37,7 @@ import org.simon.src.utils.WeightedRandom;
 public class GameplayManager {
     
     public enum Opponent {
-        PLAYER ("Opponent"), ENEMY ("Player")
+        OPPONENT ("Opponent"), PLAYER ("Player")
         ;
         public final String text;
         
@@ -45,8 +45,8 @@ public class GameplayManager {
             this.text = text;
         }
         public Opponent opposite () {
-            if (this.equals(PLAYER)) return ENEMY;
-            return PLAYER;
+            if (this.equals(OPPONENT)) return PLAYER;
+            return OPPONENT;
         }
     }
     
@@ -89,6 +89,10 @@ public class GameplayManager {
         is_new_game = false;
         ai_action_queue = new ArrayList<> ();
         level_type = loaded_level_types.get(LevelType.STARTING_LEVEL_TYPE);
+        
+        // for the first turn we want the player to play.
+        // we set the current_opponent to 'PLAYER' because on entry, the combat state triggers a turn change.
+        current_opponent = Opponent.OPPONENT;
     }
     
     
@@ -262,7 +266,7 @@ public class GameplayManager {
     
     public static void aiUpdate () {
         // if it's currently the player's turn, or if the ai action queue is empty, do nothing
-        if (Opponent.PLAYER.equals(current_opponent) || ai_action_queue.isEmpty()) return;
+        if (Opponent.OPPONENT.equals(current_opponent) || ai_action_queue.isEmpty()) return;
         
         // update first ai action in queue, then remove it if it has finished
         ai_action_queue.get(0).update();
@@ -275,9 +279,6 @@ public class GameplayManager {
     
     
     public static void loadPlayerCharacterClasses () {
-        // for the first turn we want the player to play.
-        // we set the current_opponent to 'PLAYER' because on entry, the combat state triggers a turn change.
-        current_opponent = Opponent.PLAYER;
         enemy_board = new ArrayList<> ();
         ally_board = new ArrayList<> ();
         loaded_character_classes = new HashMap<> ();
@@ -329,7 +330,7 @@ public class GameplayManager {
     
     
     public static void turnTick (SpecialEffectSystem sfx) {
-        if (Opponent.PLAYER.equals(current_opponent)) {
+        if (Opponent.OPPONENT.equals(current_opponent)) {
             // ending the player's turn
             turnTick(ally_board, sfx);
             aiTurn(sfx);
@@ -395,7 +396,7 @@ public class GameplayManager {
             target = rand.getRandom();
         }
         
-        return Arrays.asList(target);
+        return new ArrayList<> (Arrays.asList(target));
     }
     
 }

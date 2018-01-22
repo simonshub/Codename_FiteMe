@@ -151,6 +151,10 @@ public class NewGameState extends BasicGameState {
     public void enter (GameContainer container, StateBasedGame game) throws SlickException {
         super.enter(container, game);
         SharedState.updateStateId(NewGameState.ID);
+        
+        GuiElement overlay = gui.getElement("overlay");
+        overlay.setVisible(false);
+        overlay.setColor(0f,0f,0f,0f);
     }
     
     @Override

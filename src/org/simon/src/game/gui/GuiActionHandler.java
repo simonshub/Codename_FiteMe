@@ -394,7 +394,7 @@ public class GuiActionHandler {
     public static void selectcard (final GuiElement source) {
         if (Settings.debug_gui) Log.log("selectcard ["+source.getName()+"]");
         if (CombatState.substate != CombatState.CombatSubState.PICK_CARD) return;
-        if (GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && !CombatState.getCurrentCastingCreature().canSpendPoints(source.getCard())) return;
+        if (GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.OPPONENT && !CombatState.getCurrentCastingCreature().canSpendPoints(source.getCard())) return;
         
         GuiController parent = source.getParent();
         

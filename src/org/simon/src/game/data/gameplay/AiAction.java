@@ -34,7 +34,14 @@ public class AiAction {
     }
     
     public void start () {
+        if ( targets.size()==1 && ( targets.get(0)==null || targets.get(0).isDead() ) ) {
+            targets.clear();
+            targets.addAll(GameplayManager.aiResolveTargets(source, card));
+            return;
+        }
+        
         started = true;
+        
         card.play(sfx, source, targets);
         
         GuiElement enemy_played_card = CombatState.gui.getElement("enemy_played_card");
@@ -43,7 +50,7 @@ public class AiAction {
     }
     
     public void update () {
-        if (finished) return;
+        if (finished || GameplayManager.allAlliesDead()) return;
         
         if (!started) start();
         else if (sfx.isEmpty()) finished = true;
