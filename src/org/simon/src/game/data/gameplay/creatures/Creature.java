@@ -18,6 +18,7 @@ import org.simon.src.game.data.gameplay.GameplayManager;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;
+import org.simon.src.game.data.gameplay.player.Player;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.game.states.combat.CombatState;
@@ -267,6 +268,8 @@ public class Creature {
     
     public void setGuiElement (GuiElement element) {
         this.gui_element = element;
+        
+        if (this.parent==null) Log.err("WARNING: bound creature type definition (creature with no parent) '"+id+"' to gui element '"+element.getName()+"'!");
     }
     
     
@@ -381,13 +384,19 @@ public class Creature {
         gui_element.instantCall("fadeout");
         Log.log("Creature '"+id+"' at '"+gui_element.getName()+"' has died!");
         
-        if (GameplayManager.isCreatureEnemy(this) && GameplayManager.allEnemiesDead()) {
+        if (GameplayManager.isCreatureEnemy(this)) {
             // im an enemy! :-D
-            // ... and all my friends are dead :,(
-            CombatState.gui.addFloatingText(GameplayManager.WAVE_CLEARED_TEXT, GameplayManager.WAVE_CLEARED_COLOR, Settings.screen_width/2f, Settings.screen_height*0.3f);
+            Player.addScore((int) this.difficulty);
+            
+            if (GameplayManager.allEnemiesDead()) {
+                // ... and all my friends are dead :,(
+                CombatState.gui.addFloatingText(GameplayManager.WAVE_CLEARED_TEXT, GameplayManager.WAVE_CLEARED_COLOR, Settings.screen_width/2f, Settings.screen_height/2f);
+                Log.log(GameplayManager.WAVE_CLEARED_TEXT + " !");
+            }
         } else if (!GameplayManager.isCreatureEnemy(this) && GameplayManager.allAlliesDead()) {
             // game over brah
             CombatState.gameover();
+            Log.log(GameplayManager.GAMEOVER_TEXT + " !");
         }
     }
     

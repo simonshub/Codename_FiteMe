@@ -52,13 +52,13 @@ public class GameplayManager {
     
     
     
-    public static final String WAVE_CLEARED_TEXT = "WAVE CLEARED";
+    public static final String WAVE_CLEARED_TEXT = " WAVE CLEARED! ";
     public static final Color WAVE_CLEARED_COLOR = Color.green;
     
-    public static final String NEW_WAVE_TEXT = "NEW WAVE";
+    public static final String NEW_WAVE_TEXT = "  WAVE  # ";
     public static final Color NEW_WAVE_COLOR = Color.red;
     
-    public static final String GAMEOVER_TEXT = "GAME OVER";
+    public static final String GAMEOVER_TEXT = "  GAME OVER  ";
     public static final Color GAMEOVER_COLOR = Color.red;
     
     
@@ -105,18 +105,16 @@ public class GameplayManager {
                 break;
             }
         }
-        if (all_dead) {
-            if (!enemy_board.isEmpty())
-                CombatState.gui.addFloatingText(NEW_WAVE_TEXT, NEW_WAVE_COLOR, Settings.screen_width/2f, Settings.screen_height*0.3f);
-            
-            spawnWave();
-        }
+        if (all_dead) spawnWave();
     }
     
     public static void spawnWave () {
         wave_counter++;
         Wave wave = level_type.makeWave();
         GuiController gui = CombatState.gui;
+        
+        CombatState.gui.addFloatingText(NEW_WAVE_TEXT+wave_counter, NEW_WAVE_COLOR, Settings.screen_width/2f, Settings.screen_height/2f);
+        Log.log( (GameplayManager.NEW_WAVE_TEXT+wave_counter) + " !");
         
         List<GuiElement> enemy_elements = gui.getElements("_enemy_");
         List<Creature> creatures = wave.getWaveCreatures();

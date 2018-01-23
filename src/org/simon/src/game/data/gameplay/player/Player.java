@@ -77,4 +77,8 @@ public class Player {
         Player.score = score;
     }
     
+    public static void addScore (int score) {
+        Player.score += score;
+    }
+    
 }

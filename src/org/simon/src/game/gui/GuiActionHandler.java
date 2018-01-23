@@ -366,7 +366,6 @@ public class GuiActionHandler {
             GuiController parent = source.getParent();
             
             GuiElement played_card = parent.getElement("played_card");
-            played_card.setVisible(false);
             
             String source_card_el_name = (String) played_card.getProperty("source_card");
             GuiElement source_card_el = parent.getElement(source_card_el_name);
@@ -378,6 +377,7 @@ public class GuiActionHandler {
             List<Creature> targets = TargetEnum.getTargetList (card.getTargetMode(), caster, primary_target, GameplayManager.getEnemies(), GameplayManager.getAllies());
             if (targets.isEmpty()) return;
             
+            played_card.setVisible(false);
             source_card_el.setCardPlayed(true);
             card.play(CombatState.sfx, CombatState.getCurrentCastingCreature(), targets);
             CombatState.substate = CombatState.CombatSubState.PICK_CARD;
@@ -466,6 +466,11 @@ public class GuiActionHandler {
         GameplayManager.init();
         GameplayManager.setIsNewGame(false);
         SavedStateFactory.load();
+    }
+    
+    public static void unpause_combatstate (final GuiElement source) {
+        if (Settings.debug_gui) Log.log("unpause_combatstate ["+source.getName()+"]");
+        CombatState.paused = false;
     }
     
     public static void next_class (final GuiElement source) {

@@ -41,15 +41,22 @@ public class CombatState extends BasicGameState {
     
     public static final String TURN_INDICATOR_SUFFIX = "'s Turn";
     
+    public static final String CONTINUE_LABEL = "Continue Game";
+    public static final String QUIT_LABEL = "Quit to Main Menu";
+    public static final String EXIT_LABEL = "Exit to Desktop";
+    
     public enum CombatSubState {
         PICK_CARD, PICK_TARGET, ENEMY_TURN, GAME_OVER
     }
     
     
     
+    public static boolean paused = false;
+    
     public static CombatSubState substate;
     
     public static GuiController gui;
+    public static GuiController menu_gui;
     public static SpecialEffectSystem sfx;
 
     
@@ -59,11 +66,59 @@ public class CombatState extends BasicGameState {
         return ID;
     }
     
-    @Override
-    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        substate = CombatSubState.PICK_CARD;
+    
+    
+    public void initMenuGui () {
+        menu_gui = new GuiController ();
         
-        sfx = new SpecialEffectSystem ();
+        String el_name;
+        
+        el_name = "cont_btn";
+        GuiElement cont_btn = new GuiElement (el_name, gui, true, 0.33f, 0.3f, true, 0.34f, 0.1f, "ui/btn")
+                .setText(CONTINUE_LABEL)
+                .setFont("consolas", 32)
+                .setOnClick("unpause_combatstate")
+                .setOnHover("hover_img")
+                .setOnUnhover("unhover_img")
+                .setProperty("hover_img", "ui/btn_hover")
+                .setLayer(10)
+                ;
+        menu_gui.addElement(el_name, cont_btn);
+        
+        el_name = "quit_btn";
+        GuiElement quit_btn = new GuiElement (el_name, gui, true, 0.33f, 0.5f, true, 0.34f, 0.1f, "ui/btn")
+                .setText(QUIT_LABEL)
+                .setFont("consolas", 32)
+                .setOnClick("enter_state")
+                .setProperty("enter_state", MenuState.ID)
+                .setOnHover("hover_img")
+                .setOnUnhover("unhover_img")
+                .setProperty("hover_img", "ui/btn_hover")
+                .setLayer(10)
+                ;
+        menu_gui.addElement(el_name, quit_btn);
+        
+        el_name = "exit_btn";
+        GuiElement exit_btn = new GuiElement (el_name, gui, true, 0.33f, 0.7f, true, 0.34f, 0.1f, "ui/btn")
+                .setText(EXIT_LABEL)
+                .setFont("consolas", 32)
+                .setOnClick("exit")
+                .setOnHover("hover_img")
+                .setOnUnhover("unhover_img")
+                .setProperty("hover_img", "ui/btn_hover")
+                .setLayer(10)
+                ;
+        menu_gui.addElement(el_name, exit_btn);
+        
+        el_name = "underlay";
+        GuiElement underlay = new GuiElement (el_name, gui, true, 0f, 0f, true, 1f, 1f, "ui/block")
+                .setColor(new Color (0f, 0f, 0f, 0.5f))
+                .setLayer(5)
+                ;
+        menu_gui.addElement(el_name, underlay);
+    }
+    
+    public void initGui () {
         gui = new GuiController ();
         
         String el_name;
@@ -244,6 +299,18 @@ public class CombatState extends BasicGameState {
     }
     
     @Override
+    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        substate = CombatSubState.PICK_CARD;
+        sfx = new SpecialEffectSystem ();
+        paused = false;
+        
+        initGui();
+        initMenuGui();
+    }
+    
+    
+    
+    @Override
     public void enter (GameContainer container, StateBasedGame game) throws SlickException {
         super.enter(container, game);
         SharedState.updateStateId(CombatState.ID);
@@ -309,34 +376,46 @@ public class CombatState extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
         gui.render(grphcs);
         sfx.render(grphcs);
+        if (paused) menu_gui.render(grphcs);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int dt) throws SlickException {
         SharedState.update(gc, sbg, null);
-        GameplayManager.aiUpdate();
         
-        if (gc.getInput().isKeyPressed(Input.KEY_F)) {
-            // F is for Filip :)
-            Log.log("Re-drawing player hand...");
-            drawNewHand();
-        } else if (gc.getInput().isKeyPressed(Input.KEY_R)) {
-            sfx.reset();
-        } 
-        
-        gui.update(gc,sbg,dt);
-        sfx.update(dt);
-        
-        if (GameplayManager.allAlliesDead() && gc.getInput().isKeyDown(Input.KEY_ESCAPE)) {
-            sbg.enterState(MenuState.ID);
-        }
-        
-        if (gc.getInput().isMouseButtonDown(Input.MOUSE_RIGHT_BUTTON)) {
-            GuiActionHandler.deselectcard(gui.getElement("played_card"));
-        }
-        
-        if (gc.getInput().isKeyPressed(Input.KEY_RETURN)) {
-            startTurn(); 
+        if (!paused) {
+            GameplayManager.aiUpdate();
+
+            if (gc.getInput().isKeyPressed(Input.KEY_F)) {
+                // F is for Filip :)
+                Log.log("Re-drawing player hand...");
+                drawNewHand();
+            } else if (gc.getInput().isKeyPressed(Input.KEY_R)) {
+                sfx.reset();
+            } 
+
+            gui.update(gc,sbg,dt);
+            sfx.update(dt);
+
+            if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
+                if (GameplayManager.allAlliesDead())
+                    sbg.enterState(MenuState.ID);
+                else
+                    paused = true;
+            }
+
+            if (gc.getInput().isMouseButtonDown(Input.MOUSE_RIGHT_BUTTON)) {
+                GuiActionHandler.deselectcard(gui.getElement("played_card"));
+            }
+        } else {
+            menu_gui.update(gc, sbg, dt);
+            
+            if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
+                if (GameplayManager.allAlliesDead())
+                    sbg.enterState(MenuState.ID);
+                else
+                    paused = false;
+            }
         }
     }
     

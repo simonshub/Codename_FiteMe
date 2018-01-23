@@ -98,7 +98,8 @@ public class MenuState extends BasicGameState {
                 .setProperty("fade_speed", .5f)
                 .setProperty("start_a", 1f)
                 .setProperty("start_text_a", 1f)
-                .setProperty("fadein_callback", "enter_state")
+                .setProperty("fadein_callback", "enter_state&fadeout")
+                .setProperty("fadeout_callback", "hide")
                 .setProperty("enter_state", CombatState.ID)
                 .setProperty("acceleration", 0f)
                 .setLayer(100)
@@ -114,7 +115,7 @@ public class MenuState extends BasicGameState {
         SharedState.updateStateId(MenuState.ID);
         
         File f = new File (SavedStateFactory.SAVED_STATE_FILE_PATH);
-        if (f.exists()) gui.getElement("cont_btn").setVisible(true);
+        gui.getElement("cont_btn").setVisible( f.exists() );
     }
     
     @Override

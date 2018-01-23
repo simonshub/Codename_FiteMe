@@ -42,6 +42,7 @@ public final class GuiController {
     
     private final Map<String,GuiElement> elements;
     
+    private boolean visible = true;
     private boolean click_lock = false;
     private int time_since_last_click = 0;
     
@@ -123,9 +124,16 @@ public final class GuiController {
         return this;
     }
     
+    public GuiController setVisible (boolean visible) {
+        this.visible = visible;
+        return this;
+    }
+    
     
     
     public void render (Graphics g) {
+        if (!visible) return;
+        
         List<GuiElement> el_list = new ArrayList<> (elements.values());
         Collections.sort(el_list, (GuiElement el1, GuiElement el2) -> el1.layer - el2.layer);
         
@@ -135,6 +143,8 @@ public final class GuiController {
     }
     
     public void render (Graphics g, float x_offset, float y_offset) {
+        if (!visible) return;
+        
         List<GuiElement> el_list = new ArrayList<> (elements.values());
         Collections.sort(el_list, (GuiElement el1, GuiElement el2) -> el1.layer - el2.layer);
         
@@ -146,6 +156,8 @@ public final class GuiController {
     
     
     public void update (GameContainer gc, StateBasedGame sbg, int dt) {
+        if (!visible) return;
+        
         int mouse_x = gc.getInput().getMouseX();
         int mouse_y = gc.getInput().getMouseY();
         boolean lmb = gc.getInput().isMousePressed(Input.MOUSE_LEFT_BUTTON) && !click_lock;
