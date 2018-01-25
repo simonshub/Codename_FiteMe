@@ -89,7 +89,7 @@ public class CombatState extends BasicGameState {
         GuiElement quit_btn = new GuiElement (el_name, gui, true, 0.33f, 0.5f, true, 0.34f, 0.1f, "ui/btn")
                 .setText(QUIT_LABEL)
                 .setFont("consolas", 32)
-                .setOnClick("enter_state")
+                .setOnClick("enter_state&savegame")
                 .setProperty("enter_state", MenuState.ID)
                 .setOnHover("hover_img")
                 .setOnUnhover("unhover_img")
@@ -315,22 +315,34 @@ public class CombatState extends BasicGameState {
         super.enter(container, game);
         SharedState.updateStateId(CombatState.ID);
         
+        CombatState.paused = false;
         if (GameplayManager.isNewGame()) {
             GameplayManager.setIsNewGame(false);
-            List<GuiElement> character_elements = gui.getElements("_ally_");
-            Player.bindParty(character_elements);
-            GameplayManager.checkWaveSpawn();
+            List<GuiElement> creature_slots = gui.getElements("creature_slot");
+            
+            for (GuiElement creature_slot : creature_slots) {
+                creature_slot.setCreature(null);
+            }
+            
+            GameplayManager.clearEnemies();
+            GameplayManager.spawnWave();
+            
+            List<GuiElement> party_slots = gui.getElements("_ally_");
+            Player.bindParty(party_slots);
             drawNewHand();
             
-            List<GuiElement> party_elements = gui.getElements("_ally_");
-            for (GuiElement party_element : party_elements) {
-                if (party_element.getCreature() != null)
-                    party_element.instantCall("fadein");
+            for (GuiElement creature_slot : creature_slots) {
+                if (creature_slot.getCreature() != null && !creature_slot.getCreature().isDead())
+                    creature_slot.instantCall("fadein");
             }
             
             substate = CombatSubState.PICK_CARD;
         }
         
+        refreshBoardState();
+    }
+    
+    public static void refreshBoardState () {
         GuiActionHandler.deselectcard(gui.getElement("played_card"));
         
         gui.getElement("background").setImage(GameplayManager.getCurrentLevelType().getBackground());
@@ -346,6 +358,12 @@ public class CombatState extends BasicGameState {
         end_turn.setImage("ui/end_turn");
         end_turn.setWhileHovered("scaleup");
         gui.getElement("turn_indicator").setText(GameplayManager.getCurrentOpponentText()+TURN_INDICATOR_SUFFIX);
+        
+        List<GuiElement> creature_slots = gui.getElements("creature_slot");
+        for (GuiElement el : creature_slots) {
+            if (el.getCreature()!=null && !el.getCreature().isDead())
+                el.instantCall("fadein");
+        }
         
         GuiElement enemy_played_card = gui.getElement("enemy_played_card");
         enemy_played_card.setVisible(false);
@@ -437,7 +455,7 @@ public class CombatState extends BasicGameState {
         
         setCurrentTurnCreature(null);
         substate = CombatSubState.ENEMY_TURN;
-        waveSpawn();
+        GameplayManager.checkWaveSpawn();
         GameplayManager.turnTick(sfx);
     }
     
@@ -468,7 +486,7 @@ public class CombatState extends BasicGameState {
         substate = CombatSubState.PICK_CARD;
         drawNewHand();
         GameplayManager.turnTick(sfx);
-        SavedStateFactory.save();
+//        SavedStateFactory.save();
     }
     
     public static void drawNewHand () {
@@ -479,10 +497,6 @@ public class CombatState extends BasicGameState {
             elements.get(i).setCard(new_hand.get(i));
         }
         
-    }
-    
-    public static void waveSpawn () {
-        GameplayManager.checkWaveSpawn();
     }
     
     public static void gameover () {

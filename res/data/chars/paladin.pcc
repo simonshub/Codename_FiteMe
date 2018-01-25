@@ -3,5 +3,5 @@ grfx: chars/paladin
 port: chars/paladin_portrait
 pnts: atk def atk def agi
 clst: power_strike test_card thunder_strike chains_of_light electrify
-hpbs: 1
+hpbs: 8
 hppl: 4

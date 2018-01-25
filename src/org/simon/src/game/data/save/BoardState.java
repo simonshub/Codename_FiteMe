@@ -6,12 +6,9 @@
 package org.simon.src.game.data.save;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import org.simon.src.game.data.gameplay.GameplayManager;
 import org.simon.src.game.data.gameplay.creatures.Creature;
-import org.simon.src.game.gui.GuiElement;
-import org.simon.src.game.states.combat.CombatState;
 
 /**
  *

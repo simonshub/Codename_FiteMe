@@ -19,6 +19,7 @@ import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;
 import org.simon.src.game.data.gameplay.player.Player;
+import org.simon.src.game.data.save.SavedStateFactory;
 import org.simon.src.game.gui.GuiElement;
 import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.game.states.combat.CombatState;
@@ -351,11 +352,34 @@ public class Creature {
         return true;
     }
     
+    public boolean canSpendPoints (Map<PointTypeEnum, Integer> point_pool, Card card) {
+        if (isDead()) return false;
+        
+        Map<PointTypeEnum, Integer> requested_pool = card.getPointPool();
+        for (PointTypeEnum type : PointTypeEnum.values()) {
+            int unused = total_point_pool.get(type) - point_pool.get(type);
+            if (requested_pool.get(type) > unused) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public List<Card> getCastableCards () {
         List<Card> result = new ArrayList<> ();
         if (!isDead()) {
             for (Card card : card_list) {
                 if (canSpendPoints(card)) result.add(card);
+            }
+        }
+        return result;
+    }
+    
+    public List<Card> getCastableCards (Map<PointTypeEnum, Integer> point_pool) {
+        List<Card> result = new ArrayList<> ();
+        if (!isDead()) {
+            for (Card card : card_list) {
+                if (canSpendPoints(point_pool, card)) result.add(card);
             }
         }
         return result;
@@ -392,6 +416,9 @@ public class Creature {
                 // ... and all my friends are dead :,(
                 CombatState.gui.addFloatingText(GameplayManager.WAVE_CLEARED_TEXT, GameplayManager.WAVE_CLEARED_COLOR, Settings.screen_width/2f, Settings.screen_height/2f);
                 Log.log(GameplayManager.WAVE_CLEARED_TEXT + " !");
+                // game progress is automatically saved whenever a wave is cleared
+                SavedStateFactory.save();
+                if (GameplayManager.isLevelOver()) GameplayManager.nextLevel();
             }
         } else if (!GameplayManager.isCreatureEnemy(this) && GameplayManager.allAlliesDead()) {
             // game over brah

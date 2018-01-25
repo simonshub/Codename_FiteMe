@@ -64,6 +64,7 @@ public class GameplayManager {
     
     
     private static int wave_counter;
+    private static int current_level;
     private static int total_difficulty_so_far;
     
     private static boolean is_new_game;
@@ -86,6 +87,7 @@ public class GameplayManager {
     public static final void init () {
         Player.init();
         wave_counter = 0;
+        current_level = 1;
         is_new_game = false;
         ai_action_queue = new ArrayList<> ();
         level_type = loaded_level_types.get(LevelType.STARTING_LEVEL_TYPE);
@@ -123,6 +125,8 @@ public class GameplayManager {
         
         for (;creatures.size()<enemy_elements.size();) creatures.add(null);
         creatures = (List<Creature>) SlickUtils.shuffleList(creatures);
+        
+        total_difficulty_so_far += wave.getTotalDifficulty();
         
         for (int i=0;i<enemy_elements.size();i++) {
             GuiElement enemy_el = enemy_elements.get(i);
@@ -175,6 +179,10 @@ public class GameplayManager {
         return wave_counter;
     }
     
+    public static int getCurrentLevel () {
+        return current_level;
+    }
+    
     public static int getCurrentTotalDifficulty () {
         return total_difficulty_so_far;
     }
@@ -191,6 +199,14 @@ public class GameplayManager {
     
     public static boolean isNewGame () {
         return is_new_game;
+    }
+    
+    public static boolean isLevelOver () {
+        return total_difficulty_so_far >= getTotalTargetDifficultyForLevel();
+    }
+    
+    public static float getTotalTargetDifficultyForLevel () {
+        return (Player.getTotalPartyLevel() * current_level) * 10;
     }
     
     public static boolean allEnemiesDead () {
@@ -258,6 +274,17 @@ public class GameplayManager {
         for (Creature creature : creatures) {
             creature.turnTick(sfx);
         }
+    }
+    
+    public static void nextLevel () {
+        current_level++;
+        LevelType[] all_level_types = new LevelType [loaded_level_types.size()];
+        loaded_level_types.values().toArray(all_level_types);
+        level_type = all_level_types[SlickUtils.randIndex(all_level_types.length)];
+        
+        spawnWave();
+        CombatState.drawNewHand();
+        CombatState.refreshBoardState();
     }
     
     

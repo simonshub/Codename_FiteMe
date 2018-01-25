@@ -6,7 +6,6 @@
 package org.simon.src.game.data.save;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;

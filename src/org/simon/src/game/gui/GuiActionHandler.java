@@ -449,6 +449,8 @@ public class GuiActionHandler {
         GameplayManager.init();
         GameplayManager.setIsNewGame(true);
         CycleList<PlayerCharacterClass> all_classes = GameplayManager.getAllPlayerCharacterClassesCycleList();
+        Player.clearParty();
+        
         for (int i = 0;i < 4;i++) {
             GuiElement char_picker = source.getParent().getElement("char_picker_portrait_"+i);
             int selected_index = (int) char_picker.getProperty("current_class_selection_index");
@@ -506,13 +508,20 @@ public class GuiActionHandler {
     }
     
     public static void clear_creature (final GuiElement source) {
+        if (Settings.debug_gui) Log.log("clear_creature ["+source.getName()+"]");
         source.getCreature().setGuiElement(null);
         source.setCreature(null);
     }
     
     public static void set_color (final GuiElement source) {
+        if (Settings.debug_gui) Log.log("set_color ["+source.getName()+"]");
         if (source.hasProperty("set_color"))
             source.setColor((Color) source.getProperty("set_color"));
+    }
+    
+    public static void savegame (final GuiElement source) {
+        if (Settings.debug_gui) Log.log("savegame ["+source.getName()+"]");
+        SavedStateFactory.save();
     }
     
 }

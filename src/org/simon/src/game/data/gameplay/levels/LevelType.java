@@ -11,6 +11,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.simon.src.game.data.gameplay.GameplayManager;
+import org.simon.src.game.data.gameplay.player.Player;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.SlickUtils;
 
@@ -106,7 +108,7 @@ public class LevelType {
     }
     
     public Wave makeWave () {
-        return new Wave ((Encounter) SlickUtils.randListObject(encounter_list));
+        return new Wave ((Encounter) SlickUtils.randListObject(encounter_list), GameplayManager.getTotalTargetDifficultyForLevel());
     }
     
 }

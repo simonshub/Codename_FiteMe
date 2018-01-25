@@ -16,18 +16,34 @@ import org.simon.src.utils.SlickUtils;
  */
 public class Wave {
     
-    public static final int WAVE_MIN_SIZE = 3;
+    public static final int WAVE_MIN_SIZE = 1;
     public static final int WAVE_MAX_SIZE = 5;
+    public static final int MAX_GENERATE_TRIES = 10;
     
     private final List<Creature> wave;
     
-    Wave (Encounter parent) {
-        int n_of_creatures = SlickUtils.rand(WAVE_MIN_SIZE,WAVE_MAX_SIZE);
+    
+    
+    Wave (Encounter parent, float target_difficulty) {
+        float diff = 0f;
         wave = new ArrayList<> ();
         
-        for (int i=0;i<n_of_creatures;i++)
-            wave.add(parent.getRandomCreature());
+        for (int i=0;i<MAX_GENERATE_TRIES;i++) {
+            if (wave.size()>=WAVE_MAX_SIZE) break;
+            
+            Creature to_add = parent.getRandomCreature();
+            
+            if (diff + to_add.getDifficulty() < target_difficulty) {
+                diff += to_add.getDifficulty();
+                wave.add(to_add);
+            } else {
+                wave.add(to_add);
+                break;
+            }
+        }
     }
+    
+    
     
     public List<Creature> getWaveCreatures () {
         return wave;
@@ -36,7 +52,7 @@ public class Wave {
     public float getTotalDifficulty () {
         float total = 0f;
         for (Creature c : wave) {
-            total += c.getDifficulty();
+            if (c!=null) total += c.getDifficulty();
         }
         return total;
     }

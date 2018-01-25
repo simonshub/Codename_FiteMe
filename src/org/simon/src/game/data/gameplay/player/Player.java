@@ -81,4 +81,26 @@ public class Player {
         Player.score += score;
     }
     
+    public static float getAveragePartyLevel () {
+        int n = 0;
+        float total = 0f;
+        for (PlayerCharacter plr_char : party) {
+            if (!plr_char.getCreature().isDead()) {
+                total += plr_char.getLevel();
+                n++;
+            }
+        }
+        return total / n;
+    }
+    
+    public static float getTotalPartyLevel () {
+        float total = 0f;
+        for (PlayerCharacter plr_char : party) {
+            if (!plr_char.getCreature().isDead()) {
+                total += plr_char.getLevel();
+            }
+        }
+        return total;
+    }
+    
 }
