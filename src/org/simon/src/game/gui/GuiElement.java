@@ -518,7 +518,7 @@ public final class GuiElement {
         
         if (this.is_card && card!=null) {
             float actual_scale = scale * (base_width / Card.STANDARD_CARD_WIDTH);
-            this.card.render(g, display_x+x_offset, display_y+y_offset, actual_scale, is_card_played);
+            this.card.render(g, display_x+x_offset, display_y+y_offset, actual_scale, is_card_played, name.contains("card_slot"));
         }
         
         if (this.is_creature && creature!=null) {
