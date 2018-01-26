@@ -69,6 +69,12 @@ public class Player {
         }
     }
     
+    public static void fullyHealParty () {
+        for (PlayerCharacter pc : party) {
+            pc.getCreature().setCurrentHealth(pc.getCreature().getMaxHealth());
+        }
+    }
+    
     public static int getScore () {
         return score;
     }

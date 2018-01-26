@@ -413,12 +413,18 @@ public class Creature {
             Player.addScore((int) this.difficulty);
             
             if (GameplayManager.allEnemiesDead()) {
-                // ... and all my friends are dead :,(
-                CombatState.gui.addFloatingText(GameplayManager.WAVE_CLEARED_TEXT, GameplayManager.WAVE_CLEARED_COLOR, Settings.screen_width/2f, Settings.screen_height/2f);
-                Log.log(GameplayManager.WAVE_CLEARED_TEXT + " !");
-                // game progress is automatically saved whenever a wave is cleared
-                SavedStateFactory.save();
-                if (GameplayManager.isLevelOver()) GameplayManager.nextLevel();
+                if (GameplayManager.isLevelOver()) {
+                    GameplayManager.setTotalDifficulty(0);
+                    CombatState.generateNextLvlGui();
+                    CombatState.next_level = true;
+                    CombatState.next_lvl_gui.callForElements("", "fadein");
+                } else {
+                    // ... and all my friends are dead :,(
+                    CombatState.gui.addFloatingText(GameplayManager.WAVE_CLEARED_TEXT, GameplayManager.WAVE_CLEARED_COLOR, Settings.screen_width/2f, Settings.screen_height/2f);
+                    Log.log(GameplayManager.WAVE_CLEARED_TEXT + " !");
+                    // game progress is automatically saved whenever a wave is cleared
+                    SavedStateFactory.save();
+                }
             }
         } else if (!GameplayManager.isCreatureEnemy(this) && GameplayManager.allAlliesDead()) {
             // game over brah

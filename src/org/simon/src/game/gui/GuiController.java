@@ -184,4 +184,11 @@ public final class GuiController {
         }
     }
     
+    public void callForElements (String element_name_containing, String instant_call) {
+        List<GuiElement> elements = getElements(element_name_containing);
+        for (int i=0;i<elements.size();i++) {
+            elements.get(i).instantCall(instant_call);
+        }
+    }
+    
 }

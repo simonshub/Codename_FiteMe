@@ -19,6 +19,7 @@ import org.simon.src.game.data.gameplay.cards.CardLibrary;
 import org.simon.src.game.data.gameplay.cards.CardPool;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.data.gameplay.player.Player;
+import org.simon.src.game.data.gameplay.player.PlayerCharacter;
 import org.simon.src.game.data.save.SavedStateFactory;
 import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.game.gui.GuiController;
@@ -30,6 +31,7 @@ import org.simon.src.game.states.menu.MenuState;
 import org.simon.src.utils.Consts;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.ResourceManager;
+import org.simon.src.utils.Settings;
 
 /**
  *
@@ -41,9 +43,9 @@ public class CombatState extends BasicGameState {
     
     public static final String TURN_INDICATOR_SUFFIX = "'s Turn";
     
-    public static final String CONTINUE_LABEL = "Continue Game";
-    public static final String QUIT_LABEL = "Quit to Main Menu";
-    public static final String EXIT_LABEL = "Exit to Desktop";
+    public static final String CONTINUE_LABEL = "Continue";
+    public static final String QUIT_LABEL = "Save & Exit to Main Menu";
+    public static final String EXIT_LABEL = "Save & Exit to Desktop";
     
     public enum CombatSubState {
         PICK_CARD, PICK_TARGET, ENEMY_TURN, GAME_OVER
@@ -52,11 +54,13 @@ public class CombatState extends BasicGameState {
     
     
     public static boolean paused = false;
+    public static boolean next_level = false;
     
     public static CombatSubState substate;
     
     public static GuiController gui;
     public static GuiController menu_gui;
+    public static GuiController next_lvl_gui;
     public static SpecialEffectSystem sfx;
 
     
@@ -74,7 +78,7 @@ public class CombatState extends BasicGameState {
         String el_name;
         
         el_name = "cont_btn";
-        GuiElement cont_btn = new GuiElement (el_name, gui, true, 0.33f, 0.3f, true, 0.34f, 0.1f, "ui/btn")
+        GuiElement cont_btn = new GuiElement (el_name, menu_gui, true, 0.33f, 0.3f, true, 0.34f, 0.1f, "ui/btn")
                 .setText(CONTINUE_LABEL)
                 .setFont("consolas", 32)
                 .setOnClick("unpause_combatstate")
@@ -86,7 +90,7 @@ public class CombatState extends BasicGameState {
         menu_gui.addElement(el_name, cont_btn);
         
         el_name = "quit_btn";
-        GuiElement quit_btn = new GuiElement (el_name, gui, true, 0.33f, 0.5f, true, 0.34f, 0.1f, "ui/btn")
+        GuiElement quit_btn = new GuiElement (el_name, menu_gui, true, 0.33f, 0.5f, true, 0.34f, 0.1f, "ui/btn")
                 .setText(QUIT_LABEL)
                 .setFont("consolas", 32)
                 .setOnClick("enter_state&savegame")
@@ -99,10 +103,10 @@ public class CombatState extends BasicGameState {
         menu_gui.addElement(el_name, quit_btn);
         
         el_name = "exit_btn";
-        GuiElement exit_btn = new GuiElement (el_name, gui, true, 0.33f, 0.7f, true, 0.34f, 0.1f, "ui/btn")
+        GuiElement exit_btn = new GuiElement (el_name, menu_gui, true, 0.33f, 0.7f, true, 0.34f, 0.1f, "ui/btn")
                 .setText(EXIT_LABEL)
                 .setFont("consolas", 32)
-                .setOnClick("exit")
+                .setOnClick("savegame&exit")
                 .setOnHover("hover_img")
                 .setOnUnhover("unhover_img")
                 .setProperty("hover_img", "ui/btn_hover")
@@ -111,11 +115,111 @@ public class CombatState extends BasicGameState {
         menu_gui.addElement(el_name, exit_btn);
         
         el_name = "underlay";
-        GuiElement underlay = new GuiElement (el_name, gui, true, 0f, 0f, true, 1f, 1f, "ui/block")
+        GuiElement underlay = new GuiElement (el_name, menu_gui, true, 0f, 0f, true, 1f, 1f, "ui/block")
                 .setColor(new Color (0f, 0f, 0f, 0.5f))
                 .setLayer(5)
                 ;
         menu_gui.addElement(el_name, underlay);
+    }
+    
+    public static void generateNextLvlGui () {
+        next_lvl_gui = new GuiController ();
+        
+        String el_name;
+        
+        el_name = "underlay";
+        GuiElement underlay = new GuiElement (el_name, next_lvl_gui, true, 0f, 0f, true, 1f, 1f, "ui/block")
+                .setLayer(-5)
+                .setColor(0f,0f,0f,0f)
+                .setProperty("fade_speed", .5f)
+                .setProperty("fadeout_callback", "unlock_combatstate")
+                .setProperty("start_a", 1f)
+                .setProperty("start_text_a", 1f)
+                ;
+        next_lvl_gui.addElement(el_name, underlay);
+        
+        el_name = "title";
+        GuiElement title = new GuiElement (el_name, next_lvl_gui, true, 0f, 0f, true, 1f, 0.15f, "ui/block")
+                .setLayer(5)
+                .setColor(0f,0f,0f,0f)
+                .setTextColor(1f,1f,1f,0f)
+                .setFont("consolas", 48)
+                .setText("Level Finished")
+                .setProperty("fade_speed", .5f)
+                .setProperty("start_a", 1f)
+                .setProperty("start_text_a", 1f)
+                ;
+        next_lvl_gui.addElement(el_name, title);
+        
+        List<PlayerCharacter> chars = Player.getParty();
+        float x = 0.04f;
+        float y = 0.35f;
+        float width = 0.2f;
+        float height = 0.5f;
+        
+        for (int index=0;index<chars.size();index++) {
+            el_name = "char_" + index;
+            GuiElement char_background = new GuiElement (el_name, next_lvl_gui, true, x, y, true, width, height, "ui/box")
+                    .setLayer(2)
+                    .setColor(1f,1f,1f,0f)
+                    .setProperty("fade_speed", .5f)
+                    .setProperty("start_a", 1f)
+                    .setProperty("start_text_a", 1f)
+                    ;
+            next_lvl_gui.addElement(el_name, char_background);
+
+            float portrait_x_margin = 0.1f * width;
+            float portrait_y_margin = 0.1f * height;
+            float portrait_width = width - 2*portrait_x_margin;
+            float portrait_height = height - 2*portrait_y_margin;
+
+            el_name = "char_portrait_" + index;
+            GuiElement char_portrait = new GuiElement (el_name, next_lvl_gui, true, x + portrait_x_margin, y + portrait_y_margin, true, portrait_width, portrait_height)
+                    .setLayer(5)
+                    .setImage(chars.get(index).getCharacterClass().getPortrait())
+                    .setColor(1f,1f,1f,0f)
+                    .setProperty("fade_speed", .5f)
+                    .setProperty("start_a", 1f)
+                    .setProperty("start_text_a", 1f)
+                    ;
+            
+            if (chars.get(index).getCreature().isDead()) {
+                String death_indicator_id = "dead_indicator_"+index;
+                char_portrait.setColor(.5f,.5f,.5f,1f);
+                float dead_indicator_size = portrait_width * Settings.screen_width;
+                float dead_indicator_y_offset = ( (portrait_height * Settings.screen_height) - (dead_indicator_size * 1.5f) ) / Settings.screen_height;
+                GuiElement dead_indicator = new GuiElement (death_indicator_id, next_lvl_gui, true, x + portrait_x_margin, y + portrait_y_margin + dead_indicator_y_offset, false, dead_indicator_size, dead_indicator_size)
+                        .setLayer(10)
+                        .setImage("ui/dead")
+                        .setColor(1f,1f,1f,0f)
+                        .setProperty("fade_speed", .5f)
+                        .setProperty("start_a", 1f)
+                        .setProperty("start_text_a", 1f)
+                        ;
+                next_lvl_gui.addElement(death_indicator_id, dead_indicator);
+            }
+            
+            next_lvl_gui.addElement(el_name, char_portrait);
+            x += 0.24f;
+        }
+        
+        el_name = "next_level_btn";
+        GuiElement next_level_btn = new GuiElement (el_name, next_lvl_gui, true, 0.2f, 0.9f, true, 0.6f, 0.1f, "ui/btn")
+                .setFont("consolas", 32)
+                .setText("Onwards!")
+                .setOnHover("hover_img")
+                .setOnUnhover("unhover_img")
+                .setProperty("hover_img", "ui/btn_hover")
+                .setOnClick("next_level")
+                .setColor(1f,1f,1f,0f)
+                .setTextColor(1f,1f,1f,0f)
+                .setProperty("fade_speed", .5f)
+                .setProperty("acceleration", 0f)
+                .setProperty("start_a", 1f)
+                .setProperty("start_text_a", 1f)
+                .setLayer(1)
+                ;
+        next_lvl_gui.addElement(el_name, next_level_btn);
     }
     
     public void initGui () {
@@ -298,6 +402,8 @@ public class CombatState extends BasicGameState {
         gui.addElement(el_name, gameover_hint);
     }
     
+    
+    
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         substate = CombatSubState.PICK_CARD;
@@ -307,8 +413,6 @@ public class CombatState extends BasicGameState {
         initGui();
         initMenuGui();
     }
-    
-    
     
     @Override
     public void enter (GameContainer container, StateBasedGame game) throws SlickException {
@@ -342,7 +446,11 @@ public class CombatState extends BasicGameState {
         refreshBoardState();
     }
     
+    
+    
     public static void refreshBoardState () {
+        paused = false;
+        next_level = false;
         GuiActionHandler.deselectcard(gui.getElement("played_card"));
         
         gui.getElement("background").setImage(GameplayManager.getCurrentLevelType().getBackground());
@@ -394,14 +502,15 @@ public class CombatState extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
         gui.render(grphcs);
         sfx.render(grphcs);
-        if (paused) menu_gui.render(grphcs);
+        if (!next_level && paused) menu_gui.render(grphcs);
+        if (next_level) next_lvl_gui.render(grphcs);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int dt) throws SlickException {
         SharedState.update(gc, sbg, null);
         
-        if (!paused) {
+        if (!paused && !next_level) {
             GameplayManager.aiUpdate();
 
             if (gc.getInput().isKeyPressed(Input.KEY_F)) {
@@ -425,7 +534,7 @@ public class CombatState extends BasicGameState {
             if (gc.getInput().isMouseButtonDown(Input.MOUSE_RIGHT_BUTTON)) {
                 GuiActionHandler.deselectcard(gui.getElement("played_card"));
             }
-        } else {
+        } else if (paused && !next_level) {
             menu_gui.update(gc, sbg, dt);
             
             if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
@@ -434,6 +543,10 @@ public class CombatState extends BasicGameState {
                 else
                     paused = false;
             }
+        } else {
+            next_lvl_gui.update(gc, sbg, dt);
+            gui.update(gc,sbg,dt);
+            sfx.update(dt);
         }
     }
     
@@ -486,7 +599,7 @@ public class CombatState extends BasicGameState {
         substate = CombatSubState.PICK_CARD;
         drawNewHand();
         GameplayManager.turnTick(sfx);
-//        SavedStateFactory.save();
+        SavedStateFactory.save();
     }
     
     public static void drawNewHand () {
@@ -520,6 +633,10 @@ public class CombatState extends BasicGameState {
         
         substate = CombatSubState.GAME_OVER;
         SavedStateFactory.delete();
+    }
+    
+    public static void showLevelFinished () {
+        
     }
     
 }

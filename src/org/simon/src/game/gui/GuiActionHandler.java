@@ -14,6 +14,7 @@ import org.simon.src.game.data.gameplay.TargetEnum;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.data.gameplay.player.Player;
+import org.simon.src.game.data.gameplay.player.PlayerCharacter;
 import org.simon.src.game.data.gameplay.player.PlayerCharacterClass;
 import org.simon.src.game.data.save.SavedStateFactory;
 import org.simon.src.game.states.cardgallery.CardGalleryState;
@@ -186,7 +187,6 @@ public class GuiActionHandler {
             source.setProperty("start_text_a", source.getTextColor().a);
         }
         
-        if (Settings.debug_gui) Log.log("fadein");
         source.addOnUpdate("fadein_loop");
     }
     
@@ -228,7 +228,6 @@ public class GuiActionHandler {
             source.setProperty("start_text_a", source.getTextColor().a);
         }
         
-        if (Settings.debug_gui) Log.log("fadeout");
         source.addOnUpdate("fadeout_loop");
     }
     
@@ -334,7 +333,7 @@ public class GuiActionHandler {
     
     public static void exit (final GuiElement source) {
         Log.log("Exiting game...");
-        System.exit(1);
+        System.exit(0);
     }
     
     public static void hover_img (final GuiElement source) {
@@ -470,9 +469,28 @@ public class GuiActionHandler {
         SavedStateFactory.load();
     }
     
+    public static void next_level (final GuiElement source) {
+        if (Settings.debug_gui) Log.log("next_level ["+source.getName()+"]");
+        GameplayManager.nextLevel();
+        CombatState.next_lvl_gui.callForElements("", "fadeout");
+        
+        List<PlayerCharacter> plr_chars = Player.getParty();
+        for (PlayerCharacter pc : plr_chars)
+            pc.getCreature().restorePoints();
+        CombatState.drawNewHand();
+        Player.fullyHealParty();
+        
+        SavedStateFactory.save();
+    }
+    
     public static void unpause_combatstate (final GuiElement source) {
         if (Settings.debug_gui) Log.log("unpause_combatstate ["+source.getName()+"]");
         CombatState.paused = false;
+    }
+    
+    public static void unlock_combatstate (final GuiElement source) {
+        if (Settings.debug_gui) Log.log("unlock_combatstate ["+source.getName()+"]");
+        CombatState.next_level = false;
     }
     
     public static void next_class (final GuiElement source) {
