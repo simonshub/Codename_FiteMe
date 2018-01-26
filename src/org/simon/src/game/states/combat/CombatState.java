@@ -80,7 +80,7 @@ public class CombatState extends BasicGameState {
         String el_name;
         
         el_name = "cont_btn";
-        GuiElement cont_btn = new GuiElement (el_name, menu_gui, true, 0.33f, 0.3f, true, 0.34f, 0.1f, "ui/btn")
+        GuiElement cont_btn = new GuiElement (el_name, menu_gui, true, 0.25f, 0.3f, true, 0.5f, 0.1f, "ui/btn")
                 .setText(CONTINUE_LABEL)
                 .setFont("consolas", 32)
                 .setOnClick("unpause_combatstate")
@@ -92,7 +92,7 @@ public class CombatState extends BasicGameState {
         menu_gui.addElement(el_name, cont_btn);
         
         el_name = "quit_btn";
-        GuiElement quit_btn = new GuiElement (el_name, menu_gui, true, 0.33f, 0.5f, true, 0.34f, 0.1f, "ui/btn")
+        GuiElement quit_btn = new GuiElement (el_name, menu_gui, true, 0.25f, 0.5f, true, 0.5f, 0.1f, "ui/btn")
                 .setText(QUIT_LABEL)
                 .setFont("consolas", 32)
                 .setOnClick("enter_state&savegame")
@@ -105,7 +105,7 @@ public class CombatState extends BasicGameState {
         menu_gui.addElement(el_name, quit_btn);
         
         el_name = "exit_btn";
-        GuiElement exit_btn = new GuiElement (el_name, menu_gui, true, 0.33f, 0.7f, true, 0.34f, 0.1f, "ui/btn")
+        GuiElement exit_btn = new GuiElement (el_name, menu_gui, true, 0.25f, 0.7f, true, 0.5f, 0.1f, "ui/btn")
                 .setText(EXIT_LABEL)
                 .setFont("consolas", 32)
                 .setOnClick("savegame&exit")
@@ -207,12 +207,12 @@ public class CombatState extends BasicGameState {
                 GuiElement stats_hp = new GuiElement (el_name, next_lvl_gui, true, x, 0.25f, true, width, 0.075f, "stats/health")
                         .setRenderCentered(true)
                         .setLayer(5)
-                        .setColor(0f,0f,0f,0f)
+                        .setColor(1f,1f,1f,0f)
                         .setTextColor(1f,1f,1f,0f)
                         .setFont("consolas", 18)
                         .setText("+ "+hp_gain+"          ")
                         .setProperty("fade_speed", .5f)
-                        .setProperty("start_a", 0f)
+                        .setProperty("start_a", 1f)
                         .setProperty("start_text_a", 1f)
                         ;
                 next_lvl_gui.addElement(el_name, stats_hp);
