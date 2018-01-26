@@ -71,7 +71,8 @@ public class Player {
     
     public static void fullyHealParty () {
         for (PlayerCharacter pc : party) {
-            pc.getCreature().setCurrentHealth(pc.getCreature().getMaxHealth());
+            if (pc.getCreature()!=null && !pc.getCreature().isDead())
+                pc.getCreature().setCurrentHealth(pc.getCreature().getMaxHealth());
         }
     }
     

@@ -145,6 +145,27 @@ public class PlayerCharacterClass {
         return base_hp + ( (level-1)*hp_per_level );
     }
     
+    public int getHealthPerLevel () {
+        return hp_per_level;
+    }
+    
+    public List<PointTypeEnum> getNewPointsForLevel (int level) {
+        List<PointTypeEnum> result = new ArrayList<> ();
+        HashMap<PointTypeEnum, Integer> old_points = getPointPoolForLevel(level-1);
+        HashMap<PointTypeEnum, Integer> new_points = getPointPoolForLevel(level);
+        
+        for (PointTypeEnum type : PointTypeEnum.values()) {
+            int diff = new_points.get(type) - old_points.get(type);
+            if (diff>0) {
+                for (int i=0;i<diff;i++) {
+                    result.add(type);
+                }
+            }
+        }
+        
+        return result;
+    }
+    
     public String getId () {
         return id;
     }

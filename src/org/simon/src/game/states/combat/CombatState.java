@@ -5,6 +5,7 @@
  */
 package org.simon.src.game.states.combat;
 
+import java.util.HashMap;
 import java.util.List;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -14,6 +15,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.simon.src.game.data.gameplay.GameplayManager;
+import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.cards.CardLibrary;
 import org.simon.src.game.data.gameplay.cards.CardPool;
@@ -131,7 +133,7 @@ public class CombatState extends BasicGameState {
         GuiElement underlay = new GuiElement (el_name, next_lvl_gui, true, 0f, 0f, true, 1f, 1f, "ui/block")
                 .setLayer(-5)
                 .setColor(0f,0f,0f,0f)
-                .setProperty("fade_speed", .5f)
+                .setProperty("fade_speed", .75f)
                 .setProperty("fadeout_callback", "unlock_combatstate")
                 .setProperty("start_a", 1f)
                 .setProperty("start_text_a", 1f)
@@ -146,7 +148,7 @@ public class CombatState extends BasicGameState {
                 .setFont("consolas", 48)
                 .setText("Level Finished")
                 .setProperty("fade_speed", .5f)
-                .setProperty("start_a", 1f)
+                .setProperty("start_a", 0f)
                 .setProperty("start_text_a", 1f)
                 ;
         next_lvl_gui.addElement(el_name, title);
@@ -197,6 +199,23 @@ public class CombatState extends BasicGameState {
                         .setProperty("start_text_a", 1f)
                         ;
                 next_lvl_gui.addElement(death_indicator_id, dead_indicator);
+            } else {
+                int hp_gain = chars.get(index).getCharacterClass().getHealthPerLevel();
+                List<PointTypeEnum> new_points = chars.get(index).getCharacterClass().getNewPointsForLevel( chars.get(index).getLevel() + 1 );
+                
+                el_name = "stats_hp_"+index;
+                GuiElement stats_hp = new GuiElement (el_name, next_lvl_gui, true, x, 0.25f, true, width, 0.075f, "stats/health")
+                        .setRenderCentered(true)
+                        .setLayer(5)
+                        .setColor(0f,0f,0f,0f)
+                        .setTextColor(1f,1f,1f,0f)
+                        .setFont("consolas", 18)
+                        .setText("+ "+hp_gain+"          ")
+                        .setProperty("fade_speed", .5f)
+                        .setProperty("start_a", 0f)
+                        .setProperty("start_text_a", 1f)
+                        ;
+                next_lvl_gui.addElement(el_name, stats_hp);
             }
             
             next_lvl_gui.addElement(el_name, char_portrait);
@@ -633,10 +652,6 @@ public class CombatState extends BasicGameState {
         
         substate = CombatSubState.GAME_OVER;
         SavedStateFactory.delete();
-    }
-    
-    public static void showLevelFinished () {
-        
     }
     
 }
