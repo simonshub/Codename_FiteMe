@@ -11,6 +11,7 @@ import java.util.List;
 import org.simon.src.game.data.gameplay.PointTypeEnum;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.game.data.gameplay.creatures.Creature;
+import org.simon.src.game.gui.GuiElement;
 
 /**
  *
@@ -46,6 +47,16 @@ public class PlayerCharacter {
     
     public void levelUp () {
         current_level++;
+        
+        if (creature!=null) {
+            GuiElement bound_el = creature.getGuiElement();
+            bound_el.setCreature(null);
+            
+            creature = null;
+            getCreature();
+            
+            bound_el.setCreature(creature);
+        }
     }
     
     public void setLevel (int level) {

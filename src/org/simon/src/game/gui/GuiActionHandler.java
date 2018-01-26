@@ -475,8 +475,10 @@ public class GuiActionHandler {
         CombatState.next_lvl_gui.callForElements("", "fadeout");
         
         List<PlayerCharacter> plr_chars = Player.getParty();
-        for (PlayerCharacter pc : plr_chars)
+        for (PlayerCharacter pc : plr_chars) {
             pc.getCreature().restorePoints();
+            pc.levelUp();
+        }
         CombatState.drawNewHand();
         Player.fullyHealParty();
         
