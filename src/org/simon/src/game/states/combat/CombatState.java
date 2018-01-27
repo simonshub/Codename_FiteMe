@@ -5,7 +5,6 @@
  */
 package org.simon.src.game.states.combat;
 
-import java.util.HashMap;
 import java.util.List;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -203,19 +202,48 @@ public class CombatState extends BasicGameState {
                 int hp_gain = chars.get(index).getCharacterClass().getHealthPerLevel();
                 List<PointTypeEnum> new_points = chars.get(index).getCharacterClass().getNewPointsForLevel( chars.get(index).getLevel() + 1 );
                 
-                el_name = "stats_hp_"+index;
-                GuiElement stats_hp = new GuiElement (el_name, next_lvl_gui, true, x, 0.25f, true, width, 0.075f, "stats/health")
-                        .setRenderCentered(true)
+                String lvlup_el_name = "stats_hp_"+index;
+                GuiElement stats_hp = new GuiElement (lvlup_el_name, next_lvl_gui, true, x, 0.2f, true, width, 0.1f, "stats/health")
+                        .setRenderScaled(false)
                         .setLayer(5)
                         .setColor(1f,1f,1f,0f)
                         .setTextColor(1f,1f,1f,0f)
-                        .setFont("consolas", 18)
-                        .setText("+ "+hp_gain+"          ")
+                        .setFont("consolas", 24)
+                        .setText("+ "+hp_gain+"        ")
                         .setProperty("fade_speed", .5f)
                         .setProperty("start_a", 1f)
                         .setProperty("start_text_a", 1f)
                         ;
-                next_lvl_gui.addElement(el_name, stats_hp);
+                next_lvl_gui.addElement(lvlup_el_name, stats_hp);
+                
+                for (int i=0;i<new_points.size();i++) {
+                    float pt_sz = PointTypeEnum.NOMINAL_ICON_SIZE * 0.7f;
+                    float pt_x = (x*Settings.screen_width) + ( (portrait_width*Settings.screen_width) / 2f ) - ( (new_points.size()*pt_sz) / 2f ) + (pt_sz*i) + (pt_sz/2f);
+                    float pt_y = 0.3f*Settings.screen_height;
+                    
+                    Color bkg_col = new_points.get(i).color;
+                    bkg_col.a = 0f;
+                    
+                    lvlup_el_name = "stats_pt_"+index+"_"+i+"_background";
+                    GuiElement stats_pt_bkg = new GuiElement (lvlup_el_name, next_lvl_gui, false, pt_x, pt_y, false, pt_sz, pt_sz, PointTypeEnum.POINT_ICON_BACKGROUND_NAME)
+                            .setLayer(5)
+                            .setColor(bkg_col)
+                            .setProperty("fade_speed", .5f)
+                            .setProperty("start_a", 1f)
+                            .setProperty("start_text_a", 1f)
+                            ;
+                    next_lvl_gui.addElement(lvlup_el_name, stats_pt_bkg);
+                    
+                    lvlup_el_name = "stats_pt_"+index+"_"+i;
+                    GuiElement stats_pt = new GuiElement (lvlup_el_name, next_lvl_gui, false, pt_x, pt_y, false, pt_sz, pt_sz, new_points.get(i).icon_name)
+                            .setLayer(6)
+                            .setColor(1f,1f,1f,0f)
+                            .setProperty("fade_speed", .5f)
+                            .setProperty("start_a", 1f)
+                            .setProperty("start_text_a", 1f)
+                            ;
+                    next_lvl_gui.addElement(lvlup_el_name, stats_pt);
+                }
             }
             
             next_lvl_gui.addElement(el_name, char_portrait);

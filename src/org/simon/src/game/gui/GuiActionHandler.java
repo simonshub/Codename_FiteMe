@@ -476,11 +476,9 @@ public class GuiActionHandler {
         
         List<PlayerCharacter> plr_chars = Player.getParty();
         for (PlayerCharacter pc : plr_chars) {
-            pc.getCreature().restorePoints();
             pc.levelUp();
         }
         CombatState.drawNewHand();
-        Player.fullyHealParty();
         
         SavedStateFactory.save();
     }

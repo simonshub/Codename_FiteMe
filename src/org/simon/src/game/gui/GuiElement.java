@@ -58,7 +58,7 @@ public final class GuiElement {
     private boolean visible=true;
     private boolean is_mouse_over=false;
     private boolean render_image_tiled=false;
-    private boolean render_image_centered=false;
+    private boolean render_image_scaled=true;
     
     public int layer;
     public float width, height;
@@ -280,8 +280,8 @@ public final class GuiElement {
         return this;
     }
     
-    public GuiElement setRenderCentered (boolean render_image_centered) {
-        this.render_image_centered = render_image_centered;
+    public GuiElement setRenderScaled (boolean render_image_scaled) {
+        this.render_image_scaled = render_image_scaled;
         return this;
     }
     
@@ -488,13 +488,13 @@ public final class GuiElement {
         }
         
         if (graphics!=null) {
-            if (!render_image_tiled && !render_image_centered) {
+            if (!render_image_tiled && render_image_scaled) {
                 graphics.draw(display_x+x_offset, display_y+y_offset, width, height, color_filter);
             } else if (render_image_tiled) {
                 float x_scale = width / graphics.getWidth();
                 float y_scale = height / graphics.getHeight();
                 g.texture(new Rectangle (display_x+x_offset, display_y+y_offset, width, height), graphics, x_scale, y_scale, true);
-            } else if (render_image_centered) {
+            } else if (!render_image_scaled) {
                 float centered_x = display_x + width/2f - graphics.getWidth()/2f;
                 float centered_y = display_y + height/2f - graphics.getHeight()/2f;
                 graphics.draw(centered_x+x_offset, centered_y+y_offset, color_filter);

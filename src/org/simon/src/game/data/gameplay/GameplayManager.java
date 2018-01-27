@@ -279,6 +279,7 @@ public class GameplayManager {
     public static void nextLevel () {
         current_level++;
         wave_counter = 0;
+        Log.log("Next level ("+current_level+")!");
         LevelType[] all_level_types = new LevelType [loaded_level_types.size()];
         loaded_level_types.values().toArray(all_level_types);
         level_type = all_level_types[SlickUtils.randIndex(all_level_types.length)];

@@ -21,7 +21,7 @@ public class PlayerCharacter {
     
     public static final int MAX_LEVEL = 10;
     public static final int STARTING_POINTS = 3;
-    public static final int POINTS_PER_LEVEL = 1;
+    public static final int POINTS_PER_LEVEL = 2;
     
     public static final String PLAYER_CHARACTER_CREATURE_ID_PREFIX = "char_";
     
@@ -56,6 +56,8 @@ public class PlayerCharacter {
             getCreature();
             
             bound_el.setCreature(creature);
+        } else {
+            getCreature();
         }
     }
     

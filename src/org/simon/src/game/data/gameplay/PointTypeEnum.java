@@ -11,7 +11,6 @@ import org.newdawn.slick.Image;
 import org.simon.src.game.data.gameplay.cards.Card;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.ResourceManager;
-import org.simon.src.utils.SlickUtils;
 
 /**
  *
@@ -35,19 +34,22 @@ public enum PointTypeEnum {
     ;
     
     public static final int NOMINAL_ICON_SIZE = 64;
-    public static final Image POINT_ICON_BACKGROUND = ResourceManager.getGraphics("points/background");
+    public static final String POINT_ICON_BACKGROUND_NAME = "points/background";
+    public static final Image POINT_ICON_BACKGROUND = ResourceManager.getGraphics(POINT_ICON_BACKGROUND_NAME);
     
     
     
     public final Image icon;
     public final Color color;
     public final String code;
+    public final String icon_name;
     public final String display_name;
     
     PointTypeEnum (String code, String display_name, String icon, float r, float g, float b) {
         this.code = code;
         this.color = new Color (r,g,b,1f);
         this.display_name = display_name;
+        this.icon_name = icon;
         this.icon = ResourceManager.getGraphics(icon);
     }
     

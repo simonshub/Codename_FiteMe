@@ -21,24 +21,26 @@ public class SavedStateFactory {
     
     public final static String SAVED_STATE_FILE_PATH = "save.snapshot";
     
-    private static SavedState saved_state = new SavedState ();
+    private final static SavedState SAVE_STATE = new SavedState ();
     
     private SavedStateFactory () { }
     
     
     
     public static void save () {
+        Log.log("Saving game...");
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
             fos = new FileOutputStream (new File (SAVED_STATE_FILE_PATH));
             oos = new ObjectOutputStream (fos);
             
-            saved_state.snapshot();
-            oos.writeObject(saved_state);
+            SAVE_STATE.snapshot();
+            oos.writeObject(SAVE_STATE);
             
             oos.flush();
             fos.flush();
+            Log.log("Game saved successfully!");
         } catch (Exception ex) {
             Log.err("An exception occured while saving game...");
             Log.err(ex);
@@ -56,6 +58,7 @@ public class SavedStateFactory {
     
     
     public static void load () {
+        Log.log("Loading game...");
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {
@@ -64,6 +67,7 @@ public class SavedStateFactory {
             
             SavedState load = (SavedState) ois.readObject();
             load.apply();
+            Log.log("Game progress loaded!");
         } catch (Exception ex) {
             Log.err("An exception occured while loading game...");
             Log.err(ex);
