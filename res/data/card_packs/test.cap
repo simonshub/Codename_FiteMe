@@ -12,8 +12,8 @@ card: power_strike
 name: Power Strike
 icon: cards/base_ecp/saber-slash
 targ: single_enemy
-func: damage 3
-text: Deal 3 damage
+func: damage 2
+text: Deal 2 damage
 spef: torch_src_tar_0.5;castpoint;soundpoint_wauw;test_tar_tar_0.25
 cost: atk 2
 colr: 1,00 0,00 0,00 1,00
@@ -32,50 +32,949 @@ colr: 0,80 0,80 1,00 1,00
 ulvl: 1
 
 
+card: triple_slash
+name: Triple Slash
+icon: cards/base_ecp/claw-slashes
+targ: single_enemy
+func: damage 1 1 3
+text: Deal 1 damage thrice
+spef: castpoint;test_tar_tar_0.25
+cost: atk 2 agi 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: double_slash
+name: Double Slash
+icon: cards/base_ecp/crossed-slashes
+targ: single_enemy
+func: damage 1 1 2
+text: Deal 1 damage twice
+spef: castpoint;test_tar_tar_0.25
+cost: atk 1 agi 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: rending_bite
+name: Rending Bite
+icon: cards/base_ecp/needle-jaws
+targ: single_enemy
+func: damage 2;;status 2 damage 1 $ Rend $ This character recieves 1 damage at the start of every turn. $ test_tar_tar_0.5 $ status/bleed
+text: Deal 2 damage
+spef: castpoint;test_tar_tar_0.25
+cost: atk 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: bite
+name: Bite
+icon: cards/base_ecp/fangs
+targ: single_enemy
+func: damage 2
+text: Deal 2 damage
+spef: castpoint;test_tar_tar_0.25
+cost: atk 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: rake
+name: Rake
+icon: cards/base_ecp/wolverine-claws
+targ: single_enemy
+func: damage 2 2 2
+text: Deal 2 damage twice
+spef: castpoint;test_tar_tar_0.25
+cost: atk 3 agi 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: howl
+name: Howl
+icon: cards/base_ecp/wolf-howl
+targ: self
+func: summon dire_wolf
+text: Summon a Dire Wolf
+spef: castpoint;test_src_src_0.25
+cost: def 1 agi 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: head_crack
+name: Head Crack
+icon: cards/base_ecp/chopped-skull
+targ: single_enemy
+func: damage 2;;disable 1
+text: Deal 2 damage and disable the target for 1 turn
+spef: castpoint;test_src_tar_0.25
+cost: atk 3 agi 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: thrown_dagger
+name: Thrown Dagger
+icon: cards/base_ecp/diving-dagger
+targ: single_enemy
+func: damage 2
+text: Deal 2 damage
+spef: castpoint;test_src_tar_0.25
+cost: atk 1 agi 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: shuriken
+name: Shuriken
+icon: cards/base_ecp/flying-shuriken
+targ: single_enemy
+func: damage 2
+text: Deal 2 damage
+spef: castpoint;test_src_tar_0.25
+cost: agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: high_kick
+name: High Kick
+icon: cards/base_ecp/high-kick
+targ: single_enemy
+func: damage 2;;disable 1
+text: Deal 2 damage and disable the target for 1 turn
+spef: castpoint;test_src_tar_0.25
+cost: atk 2 agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: axe_throw
+name: Axe Throw
+icon: cards/base_ecp/hatchets
+targ: single_enemy
+func: damage 2 2 3
+text: Deal 2 damage thrice
+spef: castpoint;test_src_tar_0.25
+cost: atk 3 agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: sap
+name: Sap
+icon: cards/base_ecp/knockout
+targ: single_enemy
+func: disable 1
+text: Disable the target for 1 turn
+spef: castpoint;test_src_tar_0.25
+cost: agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: claws
+name: Claws
+icon: cards/base_ecp/triple-claws
+targ: single_enemy
+func: damage 2
+text: Deal 2 damage
+spef: castpoint;test_src_tar_0.25
+cost: atk 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: double_stab
+name: Double Stab
+icon: cards/base_ecp/triple-claws
+targ: single_enemy
+func: damage 1 2 2
+text: Deal 1-2 damage twice
+spef: castpoint;test_src_tar_0.25
+cost: atk 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: quick_cut
+name: Quick Cut
+icon: cards/base_ecp/quick-slash
+targ: single_enemy
+func: damage 1
+text: Deal 1 damage
+spef: castpoint;test_src_tar_0.25
+cost: atk 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: bleeding_cut
+name: Bleeding Cut
+icon: cards/base_ecp/ragged-wound
+targ: single_enemy
+func: damage 1;;status 2 damage 1 $ Bleed $ This character recieves 1 damage at the start of every turn. $ test_tar_tar_0.5 $ status/bleed
+text: Deal 1 damage
+spef: castpoint;test_src_tar_0.25
+cost: atk 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: piercing_dagger
+name: Piercing Dagger
+icon: cards/base_ecp/flying-dagger
+targ: single_enemy
+func: remove_armor 2;;damage 1
+text: Reduce target's armor by 2, then deal 1 damage
+spef: castpoint;test_src_tar_0.25
+cost: agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: sunder
+name: Sunder
+icon: cards/base_ecp/cracked-helm
+targ: single_enemy
+func: remove_armor 4;;disable 1
+text: Reduce target's armor by 4, and disable it for 1 turn
+spef: castpoint;test_src_tar_0.25
+cost: atk 1 agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: shieldbreak
+name: Shieldbreak
+icon: cards/base_ecp/cracked-shield
+targ: single_enemy
+func: remove_armor 10
+text: Reduce target's armor by 10
+spef: castpoint;test_src_tar_0.25
+cost: agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: cleave
+name: Cleave
+icon: cards/base_ecp/blade-drag
+targ: single_enemy
+func: damage 2;;left damage 1;;right damage 1
+text: Deal 2 damage to the target and 1 damage to neighbouring enemies
+spef: castpoint;test_src_tar_0.25
+cost: atk 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: power_cleave
+name: Power Cleave
+icon: cards/base_ecp/blade-fall
+targ: single_enemy
+func: damage 4;;left damage 2;;right damage 2
+text: Deal 4 damage to the target and 2 damage to neighbouring enemies
+spef: castpoint;test_src_tar_0.25
+cost: atk 5
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: whirling_strike
+name: Whirling Strike
+icon: cards/base_ecp/sword-spin
+targ: all_enemies
+func: damage 2
+text: Deal 2 damage to all enemies
+spef: castpoint;test_src_tar_0.25
+cost: atk 3 agi 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: bladestorm
+name: Bladestorm
+icon: cards/base_ecp/sword-spin
+targ: all_enemies
+func: damage 4
+text: Deal 4 damage to all enemies
+spef: castpoint;test_src_tar_0.25
+cost: atk 5 agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: greater_cleave
+name: Greater Cleave
+icon: cards/base_ecp/spinning-sword
+targ: all_enemies
+func: damage 3
+text: Deal 3 damage to all enemies
+spef: castpoint;test_src_tar_0.25
+cost: atk 5
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: parry
+name: Parry
+icon: cards/base_ecp/sword-clash
+targ: single_ally
+func: add_armor 3
+text: Give an ally 3 armor
+spef: castpoint;test_src_tar_0.25
+cost: def 1 agi 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: crushing_blow
+name: Crushing Blow
+icon: cards/base_ecp/striped-sword
+targ: single_enemy
+func: damage 4
+text: Deal 4 damage
+spef: castpoint;test_src_tar_0.25
+cost: atk 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: fan_of_knives
+name: Fan of Knives
+icon: cards/base_ecp/striped-sword
+targ: all_enemies
+func: damage 1
+text: Deal 1 damage to all enemies
+spef: castpoint;test_src_tar_0.25
+cost: atk 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: backstab
+name: Backstab
+icon: cards/base_ecp/backstab
+targ: all_enemies
+func: damage 3
+text: Deal 3 damage
+spef: castpoint;test_src_tar_0.25
+cost: agi 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: critical_shot
+name: Critical Shot
+icon: cards/base_ecp/arrow-scope
+targ: single_enemy
+func: damage 4
+text: Deal 4 damage
+spef: castpoint;test_src_tar_0.25
+cost: atk 2 agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: soul_reap
+name: Soul Reap
+icon: cards/base_ecp/reaper-scythe
+targ: single_enemy
+func: lifesteal 5;;kill false false
+text: Destroy targeted enemy and restore up to 5 health to caster
+spef: castpoint;test_src_tar_0.25
+cost: arc 2 dth 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: assassinate
+name: Assassinate
+icon: cards/base_ecp/cloak-dagger
+targ: single_enemy
+func: kill false false
+text: Destroy targeted enemy
+spef: castpoint;test_src_tar_0.25
+cost: atk 2 agi 5
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: coup_de_grace
+name: Coup de Grace
+icon: cards/base_ecp/dagger-rose
+targ: single_enemy
+func: kill true false
+text: Destroy targeted enemy if it is disabled
+spef: castpoint;test_src_tar_0.25
+cost: atk 1 agi 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: charged_shot
+name: Charged Shot
+icon: cards/base_ecp/charged-arrow
+targ: single_enemy
+func: damage 3;;disable 1
+text: Deal 3 damage and disable the target for 1 turn
+spef: castpoint;test_src_tar_0.25
+cost: nat 1 agi 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: acid_shot
+name: Acid Shot
+icon: cards/base_ecp/chemical-arrow
+targ: single_enemy
+func: damage 2;;status 2 damage 1 $ Acid $ This character recieves 1 damage at the start of every turn. $ test_tar_tar_0.5 $ status/acid
+text: Deal 2 damage and an additional 1 damage every turn for 2 turns
+spef: castpoint;test_src_tar_0.25
+cost: nat 1 agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: disarm
+name: Disarm
+icon: cards/base_ecp/drop-weapon
+targ: single_enemy
+func: disable 1
+text: Disable target for 1 turn
+spef: castpoint;test_src_tar_0.25
+cost: atk 1 agi 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: double_shot
+name: Doubleshot
+icon: cards/base_ecp/double-shot
+targ: single_enemy
+func: damage 2;;right damage 2
+text: Deal 2 damage to the target and it's right neighbour
+spef: castpoint;test_src_tar_0.25
+cost: atk 1 agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: headshot
+name: Headshot
+icon: cards/base_ecp/headshot
+targ: single_enemy
+func: damage 6
+text: Deal 6 damage
+spef: castpoint;test_src_tar_0.25
+cost: atk 2 agi 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: freezing_arrow
+name: Freezing Arrow
+icon: cards/base_ecp/frozen-arrow
+targ: single_enemy
+func: damage 2;;disable 2
+text: Deal 2 damage and disable the target for 2 turns
+spef: castpoint;test_src_tar_0.25
+cost: arc 2 agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: acid_rain
+name: Acid Rain
+icon: cards/base_ecp/heavy-rain
+targ: all
+func: damage 3
+text: Deal 3 damage to all characters
+spef: castpoint;test_tar_tar_0.25
+cost: nat 1 atk 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: thunder_arrow
+name: Thunder Arrow
+icon: cards/base_ecp/lightning-bow
+targ: single_enemy
+func: damage 4
+text: Deal 4 damage
+spef: castpoint;test_src_tar_0.25
+cost: arc 1 atk 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: lightning_strike
+name: Lightning Strike
+icon: cards/base_ecp/lightning-branches
+targ: single_enemy
+func: damage 4;;left damage 2;;right damage 2
+text: Deal 4 damage to the target and 2 damage to neighbouring enemies
+spef: castpoint;test_src_tar_0.25
+cost: arc 2 atk 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: zap
+name: Zap
+icon: cards/base_ecp/lightning-trio
+targ: all_enemies
+func: damage 1
+text: Deal 1 damage to all enemies
+spef: castpoint;test_src_tar_0.25
+cost: arc 1 atk 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: vampiric_bite
+name: Vampiric Bite
+icon: cards/base_ecp/neck-bite
+targ: single_enemy
+func: lifesteal 3
+text: Lifesteal 3 health from target
+spef: castpoint;test_src_tar_0.25
+cost: atk 2 agi 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: poison_gas
+name: Suffocating Gas
+icon: cards/base_ecp/poison-gas
+targ: all_enemies
+func: status 3 damage 2 $ Suffocation $ This character recieves 2 damage at the start of every turn. $ test_tar_tar_0.5 $ status/acid
+text: All enemies take 2 damage every turn for 3 turns
+spef: castpoint;test_src_tar_0.25
+cost: nat 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: disintegrate
+name: Disintegrate
+icon: cards/base_ecp/disintegrate
+targ: single_enemy
+func: remove_armor 2;;damage 2;;status 1 damage 1 $ Corrosion $ This character recieves 1 damage at the start of every turn. $ test_tar_tar_0.5 $ status/acid
+text: Reduce armor by 2, deal 2 damage and 1 additional damage next turn
+spef: castpoint;test_src_tar_0.25
+cost: nat 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: volley
+name: Volley
+icon: cards/base_ecp/arrow-flights
+targ: all_enemies
+func: damage 1
+text: Deal 1 damage to all enemies
+spef: castpoint;test_src_tar_0.25
+cost: atk 1 agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: execute
+name: Execute
+icon: cards/base_ecp/dripping-blade
+targ: single_enemy
+func: kill false true
+text: Destroy target if it has half or less remaining health
+spef: castpoint;test_src_tar_0.25
+cost: atk 4
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: power_shot
+name: Power Shot
+icon: cards/base_ecp/fast-arrow
+targ: single_enemy
+func: damage 2
+text: Deal 2 damage
+spef: castpoint;test_src_tar_0.25
+cost: agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: piercing_shot
+name: Piercing Shot
+icon: cards/base_ecp/slicing-arrow
+targ: single_enemy
+func: remove_armor 2;;damage 3
+text: Reduce target's armor by 2, then deal 3 damage
+spef: castpoint;test_src_tar_0.25
+cost: atk 1 agi 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: poisoned_shot
+name: Poisoned Shot
+icon: cards/base_ecp/spiral-arrow
+targ: single_enemy
+func: damage 3;;status 2 damage 1 $ Poison $ This character recieves 1 damage at the start of every turn. $ test_tar_tar_0.5 $ status/acid
+text: Deal 3 damage and 1 damage at the start of each turn for 2 turns
+spef: castpoint;test_src_tar_0.25
+cost: atk 1 agi 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: pinpoint_strike
+name: Pinpoint Strike
+icon: cards/base_ecp/on-target
+targ: single_enemy
+func: damage 3 5
+text: Deal 3-5 damage
+spef: castpoint;test_src_tar_0.25
+cost: atk 2 agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: 
+name: Pinpoint Strike
+icon: cards/base_ecp/on-target
+targ: single_enemy
+func: damage 3 5
+text: Deal 3-5 damage
+spef: castpoint;test_src_tar_0.25
+cost: atk 2 agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: deadly_shot
+name: Deadly Shot
+icon: cards/base_ecp/winged-arrow
+targ: single_enemy
+func: damage 8
+text: Deal 8 damage
+spef: castpoint;test_src_tar_0.25
+cost: atk 3 agi 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: meditation
+name: Meditation
+icon: cards/base_ecp/meditation
+targ: self
+func: heal 4;;add_atkmod 2
+text: Restore 4 health and give 2 bonus damage for caster
+spef: castpoint;test_src_tar_0.25
+cost: arc 1 def 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: meditation
+name: Meditation
+icon: cards/base_ecp/meditation
+targ: self
+func: heal 4;;add_atkmod 2
+text: Restore 4 health and give 2 bonus damage for caster
+spef: castpoint;test_src_tar_0.25
+cost: arc 1 def 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: take_aim
+name: Take Aim
+icon: cards/base_ecp/bowman
+targ: self
+func: add_atkmod 2;;add_armor 2
+text: Gain 2 bonus damage and 2 armor for caster
+spef: castpoint;test_src_tar_0.25
+cost: agi 1 def 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: chain_lightning
+name: Chain Lightning
+icon: cards/base_ecp/chain-lightning
+targ: single_enemy
+func: damage 3;;right damage 2;;right right damage 1
+text: Deal 3 damage to target and deal reduced damage to right-side enemies
+spef: castpoint;test_tar_tar_0.25
+cost: arc 2 atk 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: sticky_goop
+name: Sticky Goop
+icon: cards/base_ecp/gooey-sword
+targ: single_enemy
+func: disable 1
+text: Disable targeted enemy for 1 turn
+spef: castpoint;test_src_tar_0.25
+cost: nat 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: observe_weakness
+name: Observe Weakness
+icon: cards/base_ecp/hidden
+targ: self
+func: add_atkmod 3
+text: Gain 3 bonus damage
+spef: castpoint;test_src_tar_0.25
+cost: agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: prayer
+name: Prayer
+icon: cards/base_ecp/prayer
+targ: single_ally
+func: add_atkmod 2
+text: Target gains 2 bonus damage
+spef: castpoint;test_src_tar_0.25
+cost: div 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: dread
+name: Dread
+icon: cards/base_ecp/blade-bite
+targ: single_enemy
+func: add_atkmod -10
+text: Target loses 10 damage
+spef: castpoint;test_src_tar_0.25
+cost: dth 2 atk 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: shatter
+name: Shatter
+icon: cards/base_ecp/shattered-sword
+targ: single_enemy
+func: add_atkmod -4
+text: Target loses 4 damage
+spef: castpoint;test_src_tar_0.25
+cost: arc 1 def 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: arcane_focus
+name: Arcane Focus
+icon: cards/base_ecp/semi-closed-eye
+targ: self
+func: add_atkmod 5
+text: Gain 5 bonus damage
+spef: castpoint;test_src_tar_0.25
+cost: arc 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: sleep
+name: Sleep
+icon: cards/base_ecp/sleepy
+targ: single_enemy
+func: disable 2
+text: Disable targeted enemy for 2 turns
+spef: castpoint;test_tar_tar_0.25
+cost: arc 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: mage_armor
+name: Mage Armor
+icon: cards/base_ecp/magic-shield
+targ: self
+func: add_armor 4
+text: Gain 4 armor
+spef: castpoint;test_src_src_0.25
+cost: arc 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: meteor
+name: Meteor
+icon: cards/base_ecp/meteor-impact
+targ: target_enemy
+func: damage 4;;disable 1;;left damage 4;;left disable 1;;right damage 4;;right disable 1
+text: Deal 4 damage and disable targeted and adjacent enemies for 1 turn
+spef: castpoint;test_src_tar_0.25
+cost: arc 3 atk 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: fireball
+name: Fireball
+icon: cards/base_ecp/burning-meteor
+targ: target_enemy
+func: damage 3;;left damage 3;;right damage 3
+text: Deal 3 damage to targeted and adjacent enemies
+spef: castpoint;test_src_tar_0.25
+cost: arc 2 atk 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: despair
+name: Despair
+icon: cards/base_ecp/despair
+targ: target_enemy
+func: disable 3
+text: Disable the targeted enemy for 3 turns
+spef: castpoint;test_tar_tar_0.25
+cost: arc 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: beacon_of_hope
+name: Beacon of Hope
+icon: cards/base_ecp/deadly-strike
+targ: all_allies
+func: add_armor 4;;add_atkmod 2
+text: All allies gain 4 armor and 2 bonus damage
+spef: castpoint;test_tar_tar_0.25
+cost: div 3 def 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: whirling_claws
+name: Whirling Claws
+icon: cards/base_ecp/circle-claws
+targ: all_enemies
+func: damage 3
+text: Deal 3 damage to all enemies
+spef: castpoint;test_tar_tar_0.25
+cost: atk 3 agi 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
 card: chains_of_light
 name: Chains of Light
 icon: cards/base_ecp/andromeda-chain
 targ: single_enemy
-func: disable 2
-text: Disable target for 2 turns
-spef: torch_src_tar_0.5;test_tar_tar_0.25
-cost: atk 1 div 1
-colr: 1,00 1,00 0,80 1,00
+func: disable 2;;status 2 damage 1 $ Chained $ This character recieves 1 damage at the start of every turn. $ test_tar_tar_0.5 $ status/bleed
+text: Disable target and deal 1 damage at start of each turn for 2 turns
+spef: castpoint;test_tar_tar_0.25
+cost: div 2 atk 1 agi 1
+colr: 1,00 0,50 0,50 1,00
 ulvl: 1
 
 
-card: thunder_strike
-name: Thunder Strike
-icon: cards/base_ecp/zeus-sword
+card: inner_strength
+name: Inner Strength
+icon: cards/base_ecp/embrassed-energy
+targ: self
+func: add_atkmod 4
+text: Gain 4 bonus damage
+spef: castpoint;test_tar_tar_0.25
+cost: div 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: flaming_arrow
+name: Flaming Arrow
+icon: cards/base_ecp/flaming-arrow
 targ: single_enemy
-func: damage 2 3;;status 1 damage 1 $ Thunder Struck $ This character recieves 1 damage next turn. $ test_tar_tar_0.5 $ status/disabled
-text: Deal 2-3 damage and 1 damage next turn
-spef: torch_src_tar_0.5;test_tar_tar_0.25
-cost: atk 2
-colr: 0,40 0,40 1,00 1,00
+func: damage 6
+text: Deal 6 damage
+spef: castpoint;test_src_tar_0.25
+cost: nat 1 atk 4
+colr: 1,00 0,50 0,50 1,00
 ulvl: 1
 
 
-card: electrify
-name: Electrify
-icon: cards/base_ecp/thor-fist
-targ: all_enemies
-func: damage 1 3
-text: Deal 1-3 damage to all enemies
-spef: torch_src_tar_0.5;castpoint;test_tar_tar_0.25
-cost: atk 2
-colr: 0,40 0,40 1,00 1,00
-ulvl: 1
-
-
-card: test_card
-name: Some Test Card
-icon: cards/base_ecp/fire-bomb
+card: frostfire_blast
+name: Frostfire Blast
+icon: cards/base_ecp/frostfire
 targ: single_enemy
-func: damage 1
-text: Deal 1 damage
-spef: torch_src_src_1;torch_src_tar_1;castpoint;soundpoint_wauw;test_tar_tar_1
-cost: atk 1
-colr: 1,00 0,40 0,40 1,00
+func: damage 4;;disable 1
+text: Deal 4 damage and disable target for 1 turn
+spef: castpoint;test_src_tar_0.25
+cost: arc 2 atk 2
+colr: 1,00 0,50 0,50 1,00
 ulvl: 1
 
+
+card: holy_hand_grenade
+name: Holy Hand Grenade
+icon: cards/base_ecp/holy-hand-grenade
+targ: single_enemy
+func: damage 6;;disable 1;;left damage 4;;right damage 4
+text: Deal 6 damage and disable target for 1 turn, and deal 4 damage to adjacent enemies
+spef: castpoint;test_src_tar_0.25
+cost: div 2 agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: conflegrate
+name: Conflegrate
+icon: cards/base_ecp/flame-tunnel
+targ: all
+func: damage 2;;status 2 damage 2 $ Burning $ This character recieves 2 damage at the start of every turn. $ test_tar_tar_0.5 $ status/burning
+text: Deal 2 damage, and 2 every turn for 2 turns to all characters
+spef: castpoint;test_src_tar_0.25
+cost: arc 1 atk 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: bladebreak
+name: Bladebreak
+icon: cards/base_ecp/sword-break
+targ: single_enemy
+func: damage 2;;add_atkmod -2
+text: Deal 2 damage and target loses 2 damage
+spef: castpoint;test_src_tar_0.25
+cost: nat 1 atk 1
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: quickness
+name: Quickness
+icon: cards/base_ecp/sprint
+targ: self
+func: add_armor 2;;add_atkmod 1
+text: Gain 2 armor and 1 bonus damage
+spef: castpoint;test_src_tar_0.25
+cost: agi 2
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1
+
+
+card: barbed_coil
+name: Barbed Coil
+icon: cards/base_ecp/barbed-coil
+targ: self
+func: disable 2;;status 2 damage 1 $ Chained $ This character recieves 1 damage at the start of every turn. $ test_tar_tar_0.5 $ status/bleed
+text: Disable target and deal 1 damage to it at start of turn, for 2 turns
+spef: castpoint;test_src_tar_0.25
+cost: dth 3
+colr: 1,00 0,50 0,50 1,00
+ulvl: 1

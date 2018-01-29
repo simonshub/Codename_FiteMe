@@ -375,7 +375,7 @@ public class GameplayManager {
             List<Creature> viable_casters = new ArrayList<> ();
             for (Creature enemy : enemy_board) {
                 // if the enemy can play any cards, and if it isn't dead, it is added to the list of viable casters
-                if (!enemy.isDead() && !enemy.getCastableCards().isEmpty()) viable_casters.add(enemy);
+                if (!enemy.isDead() && !enemy.isDisabled() && !enemy.getCastableCards().isEmpty()) viable_casters.add(enemy);
                 
                 // LOGICAL ERROR IN ALGORITHM; this does not check whether the enemy has already been chosen
                 // to also cast other cards, possibly resulting in an enemy using all it's points and still
@@ -410,14 +410,14 @@ public class GameplayManager {
         if (TargetEnum.SINGLE_ALLY.equals(target_mode)) {
             for (Creature ally : enemy_board) {
                 if (ally.isDead()) continue;
-                int weight = (int) ( ( ally.getMaxHealth() - ally.getCurrentHealth() ) + ally.getTotalPoints() + ally.getDifficulty() );
+                int weight = (int) ( ( (ally.getMaxHealth() - ally.getCurrentHealth()) + ally.getTotalPoints() + ally.getDifficulty() ) * (1f / ally.getCurrentHealthPercent()) );
                 rand.add(ally, weight);
             }
             target = rand.getRandom();
         } else if (TargetEnum.SINGLE_ENEMY.equals(target_mode)) {
             for (Creature enemy : ally_board) {
                 if (enemy.isDead()) continue;
-                int weight = enemy.getMaxHealth() + enemy.getCurrentHealth() + enemy.getTotalPoints() + enemy.getArmor() + enemy.getAttackModifier();
+                int weight = (int) ( ( enemy.getMaxHealth() + enemy.getCurrentHealth() + enemy.getTotalPoints() + enemy.getArmor() + enemy.getAttackModifier() ) * (1f / enemy.getCurrentHealthPercent()) );
                 rand.add(enemy, weight);
             }
             target = rand.getRandom();

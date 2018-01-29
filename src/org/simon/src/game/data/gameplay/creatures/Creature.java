@@ -191,6 +191,10 @@ public class Creature {
         return health_current;
     }
     
+    public float getCurrentHealthPercent () {
+        return health_current / health_max;
+    }
+    
     public int getTotalPoints (PointTypeEnum type) {
         return this.total_point_pool.get(type);
     }
@@ -454,6 +458,10 @@ public class Creature {
         this.armor += amount;
     }
     
+    public void addAttackMod (int amount) {
+        this.atk_mod += amount;
+    }
+    
     public void removeArmor (int amount) {
         this.armor = Math.max(0, armor-amount);
     }
@@ -506,6 +514,10 @@ public class Creature {
         
         Color gui_color = gui_element.getColor();
         Color stat_filter = new Color (1f,1f,1f,gui_color.a);
+        
+        if (isDisabled()) {
+            gui_color = new Color (gui_color.r / 2f, gui_color.g / 2f, gui_color.b / 2f, gui_color.a);
+        }
 
         // render creature image at actual x,y with actual dimensions
         graphics.draw(actual_x, actual_y, width_scale_factor, gui_color);

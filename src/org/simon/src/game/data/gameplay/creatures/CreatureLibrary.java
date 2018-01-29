@@ -294,7 +294,10 @@ public class CreatureLibrary {
     
     public static Creature getCreature (String name) {
         name = name.toLowerCase();
-        if (!creature_lib.containsKey(name)) return null;
+        if (!creature_lib.containsKey(name)) {
+            Log.err("Tried to fetch creature with ID '"+name+"' but no such creature was loaded");
+            return null;
+        }
         return new Creature (creature_lib.get(name));
     }
     
