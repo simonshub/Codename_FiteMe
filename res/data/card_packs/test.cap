@@ -190,7 +190,7 @@ ulvl: 1
 
 card: double_stab
 name: Double Stab
-icon: cards/base_ecp/triple-claws
+icon: cards/base_ecp/scalpel-strike
 targ: single_enemy
 func: damage 1 2 2
 text: Deal 1-2 damage twice
@@ -217,9 +217,9 @@ name: Bleeding Cut
 icon: cards/base_ecp/ragged-wound
 targ: single_enemy
 func: damage 1;;status 2 damage 1 $ Bleed $ This character recieves 1 damage at the start of every turn. $ test_tar_tar_0.5 $ status/bleed
-text: Deal 1 damage
+text: Deal 1 damage and 1 damage at the start of each turn for 2 turns
 spef: castpoint;test_src_tar_0.25
-cost: atk 1
+cost: atk 2
 colr: 1,00 0,50 0,50 1,00
 ulvl: 1
 
@@ -346,7 +346,7 @@ ulvl: 1
 
 card: fan_of_knives
 name: Fan of Knives
-icon: cards/base_ecp/striped-sword
+icon: cards/base_ecp/assassin-pocket
 targ: all_enemies
 func: damage 1
 text: Deal 1 damage to all enemies
@@ -423,7 +423,7 @@ targ: single_enemy
 func: damage 3;;disable 1
 text: Deal 3 damage and disable the target for 1 turn
 spef: castpoint;test_src_tar_0.25
-cost: nat 1 agi 3
+cost: arc 1 agi 3
 colr: 1,00 0,50 0,50 1,00
 ulvl: 1
 

@@ -92,7 +92,7 @@ public class PlayerCharacterClass {
                             String[] cards = parse_value.split(" ");
                             for (String card_name : cards) {
                                 Card card = CardLibrary.getCard(card_name);
-                                card_list.add(card);
+                                if (card!=null) card_list.add(card);
                             }
                             break;
                         case KEYWORD_HPBS :
