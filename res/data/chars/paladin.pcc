@@ -1,7 +1,7 @@
 name: Paladin
 grfx: chars/paladin
 port: chars/paladin_portrait
-pnts: atk def atk def agi
-clst: power_strike test_card thunder_strike chains_of_light electrify
+pnts: atk def div agi div def div atk agi div
+clst: inner_strength chains_of_light holy_hand_grenade beacon_of_hope sunder cleave power_strike power_cleave shieldbreak parry prayer meditation
 hpbs: 8
 hppl: 4

@@ -54,17 +54,20 @@ public class CardActionHandler {
             return;
         }
         
-        int min = Integer.parseInt(args.get(0)) + source.getAttackModifier();
+        int atk_mod = source.getAttackModifier();
+        source.consumeAttackMod();
+        
+        int min = Integer.parseInt(args.get(0)) + atk_mod;
         int max = min;
         int instance_count = 1;
         
         if (args.size()>=2)
-            max = Integer.parseInt(args.get(1)) + source.getAttackModifier();
+            max = Integer.parseInt(args.get(1)) + atk_mod;
         if (args.size()>=3)
             instance_count = Integer.parseInt(args.get(2));
         
         for (int i=0;i<instance_count;i++) {
-            int dmg = SlickUtils.rand(min, max);
+            int dmg = Math.max(0,SlickUtils.rand(min, max));
             target.reduceHealth(dmg, source);
             target.addFloatingText(String.valueOf(dmg), Color.red);
         }
@@ -76,17 +79,20 @@ public class CardActionHandler {
             return;
         }
         
-        int min = Integer.parseInt(args.get(0)) + source.getAttackModifier();
+        int atk_mod = source.getAttackModifier();
+        source.consumeAttackMod();
+        
+        int min = Integer.parseInt(args.get(0)) + atk_mod;
         int max = min;
         int instance_count = 1;
         
         if (args.size()>=2)
-            max = Integer.parseInt(args.get(1)) + source.getAttackModifier();
+            max = Integer.parseInt(args.get(1)) + atk_mod;
         if (args.size()>=3)
             instance_count = Integer.parseInt(args.get(2));
         
         for (int i=0;i<instance_count;i++) {
-            int heal = SlickUtils.rand(min, max);
+            int heal = Math.max(0,SlickUtils.rand(min, max));
             target.restoreHealth(heal, source);
             target.addFloatingText(String.valueOf(heal), Color.green);
         }
@@ -98,17 +104,20 @@ public class CardActionHandler {
             return;
         }
         
-        int min = Integer.parseInt(args.get(0)) + source.getAttackModifier();
+        int atk_mod = source.getAttackModifier();
+        source.consumeAttackMod();
+        
+        int min = Integer.parseInt(args.get(0)) + atk_mod;
         int max = min;
         int instance_count = 1;
         
         if (args.size()>=2)
-            max = Integer.parseInt(args.get(1)) + source.getAttackModifier();
+            max = Integer.parseInt(args.get(1)) + atk_mod;
         if (args.size()>=3)
             instance_count = Integer.parseInt(args.get(2));
         
         for (int i=0;i<instance_count;i++) {
-            int dmg = SlickUtils.rand(min, max);
+            int dmg = Math.max(0,SlickUtils.rand(min, max));
             target.reduceHealth(dmg, target);
             source.restoreHealth(dmg, source);
             target.addFloatingText(String.valueOf(dmg), Color.red);
@@ -122,11 +131,11 @@ public class CardActionHandler {
             return;
         }
         
-        int min = Integer.parseInt(args.get(0)) + source.getAttackModifier();
+        int min = Integer.parseInt(args.get(0));
         int max = min;
         
         if (args.size()>=2)
-            max = Integer.parseInt(args.get(1)) + source.getAttackModifier();
+            max = Integer.parseInt(args.get(1));
         
         int dur = SlickUtils.rand(min, max);
         target.disable(dur);
@@ -138,12 +147,12 @@ public class CardActionHandler {
             return;
         }
         
-        int min = Integer.parseInt(args.get(0)) + source.getAttackModifier();
+        int min = Integer.parseInt(args.get(0));
         int max = min;
         int instance_count = 1;
         
         if (args.size()>=2)
-            max = Integer.parseInt(args.get(1)) + source.getAttackModifier();
+            max = Integer.parseInt(args.get(1));
         if (args.size()>=3)
             instance_count = Integer.parseInt(args.get(2));
         
@@ -160,19 +169,19 @@ public class CardActionHandler {
             return;
         }
         
-        int min = Integer.parseInt(args.get(0)) + source.getAttackModifier();
+        int min = Integer.parseInt(args.get(0));
         int max = min;
         int instance_count = 1;
         
         if (args.size()>=2)
-            max = Integer.parseInt(args.get(1)) + source.getAttackModifier();
+            max = Integer.parseInt(args.get(1));
         if (args.size()>=3)
             instance_count = Integer.parseInt(args.get(2));
         
         for (int i=0;i<instance_count;i++) {
             int atk_mod = SlickUtils.rand(min, max);
             target.addAttackMod(atk_mod);
-            target.addFloatingText(String.valueOf(atk_mod), Color.orange);
+            target.addFloatingText( (atk_mod>0 ? "+" : "") + String.valueOf(atk_mod), Color.orange);
         }
     }
     
@@ -182,12 +191,12 @@ public class CardActionHandler {
             return;
         }
         
-        int min = Integer.parseInt(args.get(0)) + source.getAttackModifier();
+        int min = Integer.parseInt(args.get(0));
         int max = min;
         int instance_count = 1;
         
         if (args.size()>=2)
-            max = Integer.parseInt(args.get(1)) + source.getAttackModifier();
+            max = Integer.parseInt(args.get(1));
         if (args.size()>=3)
             instance_count = Integer.parseInt(args.get(2));
         
@@ -296,10 +305,9 @@ public class CardActionHandler {
             String el_name = target.getGuiElement().getName();
             
             int index = Integer.parseInt( el_name.substring(el_name.length()-1, el_name.length()) ) - 1;
-            if (index<0 || index>CombatState.gui.getElements("_enemy_").size()) return;
-            
             GuiElement left_el = CombatState.gui.getElement(el_name.substring(0,el_name.length()-1) + index);
-            if (left_el.getCreature()==null || left_el.getCreature().isDead()) return;
+            
+            if (left_el==null || left_el.getCreature()==null || left_el.getCreature().isDead()) return;
             
             args.remove(0);
             target = left_el.getCreature();
@@ -324,13 +332,12 @@ public class CardActionHandler {
             String el_name = target.getGuiElement().getName();
             
             int index = Integer.parseInt( el_name.substring(el_name.length()-1, el_name.length()) ) + 1;
-            if (index<0 || index>CombatState.gui.getElements("_enemy_").size()) return;
+            GuiElement right_el = CombatState.gui.getElement(el_name.substring(0,el_name.length()-1) + index);
             
-            GuiElement left_el = CombatState.gui.getElement(el_name.substring(0,el_name.length()-1) + index);
-            if (left_el.getCreature()==null || left_el.getCreature().isDead()) return;
+            if (right_el==null || right_el.getCreature()==null || right_el.getCreature().isDead()) return;
             
             args.remove(0);
-            target = left_el.getCreature();
+            target = right_el.getCreature();
             
             m.invoke(null, source, parent, args, target);
         } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {

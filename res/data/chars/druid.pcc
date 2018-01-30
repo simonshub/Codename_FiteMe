@@ -1,0 +1,7 @@
+name: Druid
+grfx: chars/druid
+port: chars/druid_portrait
+pnts: agi def nat nat atk nat def agi arc atk
+clst: suffocating_gas  acid_rain  bladebreak  disintegrate  meditation barbed_coil
+hpbs: 8
+hppl: 3

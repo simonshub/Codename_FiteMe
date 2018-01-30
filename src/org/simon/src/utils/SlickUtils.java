@@ -303,13 +303,13 @@ public abstract class SlickUtils {
         return result;
     }
     
-    public static double rand (double min, double max) {
+    public static float rand (float min, float max) {
         if (min > max)
             throw new ArithmeticException ();
         if (min==max)
             return max;
         
-        double result = (Math.random() * (max-min)) + min;
+        float result = (float) ((Math.random() * (max-min)) + min);
         return result;
     }
     

@@ -538,6 +538,10 @@ public class CombatState extends BasicGameState {
         
         if (element.getCreature() == null) {
             Log.err("Error while setting current turn creature to element '"+element.getName()+"'; element does not contain a creature");
+        } else if (element.getCreature().isDisabled()) {
+            Log.err("Error while setting current turn creature to element '"+element.getName()+"'; creature is disabled");
+        } else if (element.getCreature().isDead()) {
+            Log.err("Error while setting current turn creature to element '"+element.getName()+"'; creature is dead");
         } else {
             GameplayManager.setCurrentCastingCreature(element.getCreature());
         }

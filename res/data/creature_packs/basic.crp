@@ -2,10 +2,10 @@ crid: goblin
 name: Goblin
 grfx: creatures/goblin
 grsz: 0.5
-pnts: atk 2 def 1
-hlth: 1
+pnts: atk 2 agi 1
+hlth: 5
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike,bleeding_cut,double_slash
 
 
 crid: skeleton
@@ -13,89 +13,89 @@ name: Skeleton Warrior
 grfx: creatures/skeleton
 grsz: 0.5
 pnts: atk 3 agi 1 def 2
-hlth: 1
-diff: 1
-card: power_strike,armored_shell,test_card
+hlth: 8
+diff: 2
+card: power_strike,double_slash,cleave,head_crack
 
 
 crid: quatl
 name: Quatl
 grfx: creatures/quatl
 grsz: 0.5
-pnts: atk 3 def 1 agi 2 arc 1 div 1
-hlth: 1
-diff: 1
-card: power_strike,armored_shell,test_card
+pnts: atk 1 def 1 agi 2 arc 2 nat 2
+hlth: 12
+diff: 3
+card: suffocating_gas,acid_rain,chain_lightning,shatter
 
 
 crid: ogre_brute
 name: Ogre Brute
 grfx: creatures/ogre_brute
 grsz: 1
-pnts: atk 1 arc 1 div 1
-hlth: 1
-diff: 1
-card: power_strike,armored_shell,test_card
+pnts: atk 5 def 2 agi 2
+hlth: 16
+diff: 4
+card: power_strike,cleave,crushing_blow,head_crack
 
 
 crid: ogre_witch
 name: Ogre Witch
 grfx: creatures/ogre_witch
 grsz: 1
-pnts: atk 12
-hlth: 1
-diff: 1
-card: power_strike,armored_shell,test_card
+pnts: atk 2 def 2 agi 2 dth 1 arc 3
+hlth: 16
+diff: 5
+card: bladebreak,suffocating_gas,despair,sleep,fireball
 
 
 crid: ogre_key
 name: Ogre Gatekeeper
 grfx: creatures/ogre_key
 grsz: 1
-pnts: atk 6 agi 6 def 6
-hlth: 1
-diff: 1
-card: power_strike,armored_shell,test_card
+pnts: atk 6 agi 2 def 6
+hlth: 20
+diff: 5
+card: power_cleave,sunder,crushing_blow,head_crack
 
 
 crid: ogre
 name: Ogre
 grfx: creatures/ogre
 grsz: 1
-pnts: atk 1 arc 1 div 1
-hlth: 1
-diff: 1
-card: power_strike,armored_shell,test_card
+pnts: atk 4 agi 2
+hlth: 12
+diff: 3
+card: cleave,sunder,crushing_blow,head_crack,power_strike
 
 
 crid: goblin_assassin
 name: Goblin Assassin
 grfx: creatures/goblin_assassin
 grsz: 1
-pnts: atk 1 arc 1 div 1
-hlth: 1
-diff: 1
-card: power_strike,armored_shell,test_card
+pnts: atk 3 agi 4
+hlth: 10
+diff: 4
+card: observe_weakness,bleeding_cut,fan_of_knives,thrown_dagger,backstab,pinpoint_strike
 
 
 crid: orc
 name: Orc
 grfx: creatures/orc
 grsz: 1
-pnts: atk 1 arc 1 div 1
-hlth: 1
-diff: 1
-card: power_strike,armored_shell,test_card
+pnts: atk 4
+hlth: 10
+diff: 2
+card: power_strike,cleave,sunder,crushing_blow
 
 
 crid: orc_warrior
 name: Orc Warrior
 grfx: creatures/orc_warrior
 grsz: 1
-pnts: atk 1 arc 1 div 1
-hlth: 1
-diff: 1
-card: power_strike,armored_shell,test_card
+pnts: atk 4 agi 1 def 1
+hlth: 16
+diff: 3
+card: power_strike,cleave,sunder,crushing_blow,shieldbreak
 
 
 crid: orc_warchief
@@ -103,206 +103,206 @@ name: Orc Warchief
 grfx: creatures/orc_warchief
 grsz: 1
 pnts: atk 1 arc 1 div 1
-hlth: 1
-diff: 1
-card: power_strike,armored_shell,test_card
+hlth: 20
+diff: 5
+card: power_strike,power_cleave,sunder,crushing_blow,shieldbreak,whirling_strike
 
 
 crid: spider
 name: Giant Spider
 grfx: creatures/spider
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2 def 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: bite,armored_shell
 
 
 crid: troglodyte
 name: Troglodyte
 grfx: creatures/troglodyte
 grsz: 1
-pnts: atk 1 arc 1 div 1
-hlth: 1
-diff: 1
-card: power_strike,armored_shell,test_card
+pnts: atk 3 def 1 agi 1
+hlth: 13
+diff: 2
+card: whirling_claws,claws,sunder,cleave,power_strike
 
 
 crid: wasp
 name: Giant Wasp
 grfx: creatures/wasp
 grsz: 1
-pnts: atk 1 arc 1 div 1
-hlth: 1
+pnts: atk 3 agi 2
+hlth: 5
 diff: 1
-card: power_strike,armored_shell,test_card
+card: double_stab,quickness
 
 
 crid: warlock
 name: Warlock
 grfx: creatures/warlock
 grsz: 1
-pnts: atk 1 arc 1 div 1
-hlth: 1
-diff: 1
-card: power_strike,armored_shell,test_card
+pnts: atk 2 arc 2 dth 3
+hlth: 16
+diff: 4
+card: fireball,dread,soul_reap,barbed_coil,conflegrate
 
 
 crid: imp
 name: Imp
 grfx: creatures/imp
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: demon
 name: Demon
 grfx: creatures/demon
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: demon_mage
 name: Demon Hellcaller
 grfx: creatures/demon_mage
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: demon_lord
 name: Demon Lord
 grfx: creatures/demon_lord
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: reaver
 name: Blood Reaver
 grfx: creatures/reaver
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: blood_mage
 name: Blood Mage
 grfx: creatures/blood_mage
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: shadow
 name: Shadow
 grfx: creatures/shadow
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: goo
 name: Slime
 grfx: creatures/goo
 grsz: 1
-pnts: atk 1 arc 1 div 1
-hlth: 1
-diff: 1
-card: power_strike,armored_shell,test_card
+pnts: atk 2 nat 2 def 2
+hlth: 10
+diff: 2
+card: sticky_goop,disintegrate,power_strike,armored_shell
 
 
 crid: ghoul
 name: Ghoul
 grfx: creatures/ghoul
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: evil_eye
 name: Beholder
 grfx: creatures/evil_eye
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: crawler
 name: Crawler
 grfx: creatures/crawler
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: ghost
 name: Ghost
 grfx: creatures/ghost
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: dire_wolf
 name: Dire Wolf
 grfx: creatures/dire_wolf
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: dire_bear
 name: Dire Bear
 grfx: creatures/dire_bear
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: dragon
 name: Dragon
 grfx: creatures/dragon
 grsz: 1
-pnts: atk 1 arc 1 div 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike
 
 
 crid: basilisk
 name: Basilisk
 grfx: creatures/basilisk
 grsz: 1
-pnts: atk 1 def 2 agi 1
+pnts: atk 2
 hlth: 1
 diff: 1
-card: power_strike,armored_shell,test_card
+card: power_strike

@@ -148,7 +148,7 @@ public class Card {
         if (SharedState.isCurrentState(CombatState.class) && can_be_disabled) {
             if (was_played || (CombatState.getCurrentCastingCreature()==null) ||
                     ( CombatState.getCurrentCastingCreature()!=null &&
-                      GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.OPPONENT &&
+                      GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.PLAYER &&
                       !CombatState.getCurrentCastingCreature().canSpendPoints(this) ) ) {
                 tint = DISABLED_COLOR;
             }

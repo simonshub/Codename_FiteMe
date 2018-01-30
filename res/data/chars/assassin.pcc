@@ -1,0 +1,7 @@
+name: Assassin
+grfx: chars/assassin
+port: chars/assassin_portrait
+pnts: agi agi atk dth agi atk dth def
+clst: observe_weakness bleeding_cut fan of knives thrown_dagger coup_de_grace assassinate pinpoint_strike shuriken head_crack double_slash backstab barbed_coil soul_reap dread quickness double_stab sap high_kick piercing_dagger
+hpbs: 6
+hppl: 2

@@ -51,6 +51,7 @@ public class Creature {
     
     public static final Image STAT_ICON_ARMOR = ResourceManager.getGraphics("stats/armor");
     public static final Image STAT_ICON_HEALTH = ResourceManager.getGraphics("stats/health");
+    public static final Image STAT_ICON_ATKMOD = ResourceManager.getGraphics("stats/atkmod");
     public static final TrueTypeFont STAT_FONT = ResourceManager.getFont(STAT_FONT_NAME, STAT_FONT_SIZE);
     
     private String id;
@@ -451,7 +452,7 @@ public class Creature {
     }
     
     public void disable (int turns) {
-        this.disabled = Math.max(turns+1, this.disabled);
+        this.disabled = Math.max(turns, this.disabled);
     }
     
     public void addArmor (int amount) {
@@ -460,6 +461,10 @@ public class Creature {
     
     public void addAttackMod (int amount) {
         this.atk_mod += amount;
+    }
+    
+    public void consumeAttackMod () {
+        this.atk_mod = 0;
     }
     
     public void removeArmor (int amount) {
@@ -525,10 +530,11 @@ public class Creature {
         // render base stats (cur hp, armor, base_atk_mod) at lower left corner of allocated, going up
         int n_of_stats_displayed = 1;
         if (armor>0) n_of_stats_displayed++;
+        if (atk_mod!=0) n_of_stats_displayed++;
         
         float stats_icon_size = target_width * STAT_ICON_SIZE_FROM_WIDTH;
         float stats_x = x - (target_width/2f);
-        float stats_y = y + Math.min(actual_height/2f, target_height/2f) - ( (n_of_stats_displayed-1) * stats_icon_size * 1.25f);
+        float stats_y = y + Math.min(actual_height/2f, target_height/2f) - ( (n_of_stats_displayed) * stats_icon_size);
         float text_x = stats_x + stats_icon_size * (1f+STAT_ICON_MARGIN);
         
         g.setColor(stat_filter);
@@ -538,16 +544,29 @@ public class Creature {
         g.drawString(Math.max(this.health_current,0)+"/"+this.health_max, text_x, stats_y);
         
         if (armor>0) {
-            stats_y -= stats_icon_size * 1.25f; // increment to add margins between stats
+            stats_y -= stats_icon_size; // increment to add margins between stats
             STAT_ICON_ARMOR.draw(stats_x, stats_y, stats_icon_size, stats_icon_size, stat_filter);
             g.drawString(String.valueOf(this.armor), text_x, stats_y);
         }
         
-        // render currently active statuses (poison, burn, atk_mod, disabled) at lower right corner of allocated, going up
-        int n_of_statuses = status_effects.size();
+        if (atk_mod!=0) {
+            stats_y -= stats_icon_size * 1.25f; // increment to add margins between stats
+            STAT_ICON_ATKMOD.draw(stats_x, stats_y, stats_icon_size, stats_icon_size, stat_filter);
+            g.drawString(String.valueOf(this.atk_mod), text_x, stats_y);
+        }
         
-        float status_x = x + actual_width - stats_icon_size;
-        float status_y = y + actual_height;
+        // render currently active statuses (poison, burn, atk_mod, disabled) at lower right corner of allocated, going up
+        float status_icon_size = stats_icon_size;
+        float status_x = x + (target_width/2f) - status_icon_size;
+        float status_y = y + Math.min(actual_height/2f, target_height/2f);
+        
+        for (int i=0;i<status_effects.size();i++) {
+            Image icon = ResourceManager.getGraphics(status_effects.get(i).getDisplayIcon());
+            if (icon==null) continue;
+            
+            icon.draw(status_x, status_y, status_icon_size, status_icon_size);
+            status_y -= stats_icon_size;
+        }
         
         
         // render total points at top - render used points darker

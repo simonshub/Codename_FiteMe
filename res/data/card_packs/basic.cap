@@ -548,7 +548,7 @@ colr: 1,00 0,50 0,50 1,00
 ulvl: 1
 
 
-card: poison_gas
+card: suffocating_gas
 name: Suffocating Gas
 icon: cards/base_ecp/poison-gas
 targ: all_enemies
@@ -971,7 +971,7 @@ ulvl: 1
 card: barbed_coil
 name: Barbed Coil
 icon: cards/base_ecp/barbed-coil
-targ: self
+targ: single_enemy
 func: disable 2;;status 2 damage 1 $ Chained $ This character recieves 1 damage at the start of every turn. $ test_tar_tar_0.5 $ status/bleed
 text: Disable target and deal 1 damage to it at start of turn, for 2 turns
 spef: castpoint;test_src_tar_0.25

@@ -94,7 +94,7 @@ public class GameplayManager {
         
         // for the first turn we want the player to play.
         // we set the current_opponent to 'PLAYER' because on entry, the combat state triggers a turn change.
-        current_opponent = Opponent.OPPONENT;
+        current_opponent = Opponent.PLAYER;
     }
     
     
@@ -293,7 +293,7 @@ public class GameplayManager {
     
     public static void aiUpdate () {
         // if it's currently the player's turn, or if the ai action queue is empty, do nothing
-        if (Opponent.OPPONENT.equals(current_opponent) || ai_action_queue.isEmpty()) return;
+        if (Opponent.PLAYER.equals(current_opponent) || ai_action_queue.isEmpty()) return;
         
         // update first ai action in queue, then remove it if it has finished
         ai_action_queue.get(0).update();
@@ -358,12 +358,12 @@ public class GameplayManager {
     
     public static void turnTick (SpecialEffectSystem sfx) {
         if (Opponent.OPPONENT.equals(current_opponent)) {
+            // ending the ai's turn
+            turnTick(enemy_board, sfx);
+        } else {
             // ending the player's turn
             turnTick(ally_board, sfx);
             aiTurn(sfx);
-        } else {
-            // ending the ai's turn
-            turnTick(enemy_board, sfx);
         }
         current_opponent = current_opponent.opposite();
     }
@@ -410,18 +410,17 @@ public class GameplayManager {
         if (TargetEnum.SINGLE_ALLY.equals(target_mode)) {
             for (Creature ally : enemy_board) {
                 if (ally.isDead()) continue;
-                int weight = (int) ( ( (ally.getMaxHealth() - ally.getCurrentHealth()) + ally.getTotalPoints() + ally.getDifficulty() ) * (1f / ally.getCurrentHealthPercent()) );
+                float weight = ( (ally.getMaxHealth() - ally.getCurrentHealth()) + ally.getTotalPoints() + ally.getDifficulty() ) * (1f / ally.getCurrentHealthPercent());
                 rand.add(ally, weight);
             }
-            target = rand.getRandom();
         } else if (TargetEnum.SINGLE_ENEMY.equals(target_mode)) {
             for (Creature enemy : ally_board) {
                 if (enemy.isDead()) continue;
-                int weight = (int) ( ( enemy.getMaxHealth() + enemy.getCurrentHealth() + enemy.getTotalPoints() + enemy.getArmor() + enemy.getAttackModifier() ) * (1f / enemy.getCurrentHealthPercent()) );
+                float weight = ( enemy.getMaxHealth() + enemy.getCurrentHealth() + enemy.getTotalPoints() + enemy.getArmor() + enemy.getAttackModifier() + enemy.getDifficulty() ) * (1f / enemy.getCurrentHealthPercent());
                 rand.add(enemy, weight);
             }
-            target = rand.getRandom();
         }
+        target = rand.getRandom();
         
         return new ArrayList<> (Arrays.asList(target));
     }

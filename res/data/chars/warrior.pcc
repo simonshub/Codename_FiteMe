@@ -2,6 +2,6 @@ name: Warrior
 grfx: chars/warrior
 port: chars/warrior_portrait
 pnts: atk def atk def agi
-clst: power_strike test_card thunder_strike chains_of_light electrify
+clst: sunder cleave crushing_blow head_crack power_strike double_slash bleeding_cut power_cleave shieldbreak bladestorm parry whirling_strike axe_throw execute
 hpbs: 10
 hppl: 5

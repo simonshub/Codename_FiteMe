@@ -16,9 +16,9 @@ public class WeightedRandom<T> {
     
     private class WeightedRandomEntry<C> {
         protected C object;
-        protected int weight;
+        protected float weight;
         
-        protected WeightedRandomEntry (C object, int weight) {
+        protected WeightedRandomEntry (C object, float weight) {
             this.object = object;
             this.weight = weight;
         }
@@ -34,7 +34,7 @@ public class WeightedRandom<T> {
         entries = new ArrayList<> ();
     }
     
-    public void add (T object, int weight) {
+    public void add (T object, float weight) {
         entries.add(new WeightedRandomEntry<> (object, weight));
     }
     
@@ -45,8 +45,8 @@ public class WeightedRandom<T> {
             total += entries.get(i).weight;
         }
         
-        int roll = SlickUtils.rand(0,total);
-        int current = 0;
+        float roll = SlickUtils.rand(0,total);
+        float current = 0;
         
         for (int i=0;i<entries.size();i++) {
             current += entries.get(i).weight;

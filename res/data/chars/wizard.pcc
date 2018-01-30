@@ -1,7 +1,7 @@
 name: Wizard
 grfx: chars/wizard
 port: chars/wizard_portrait
-pnts: atk def atk def agi
-clst: power_strike test_card thunder_strike chains_of_light electrify
+pnts: atk def arc arc atk arc def dth
+clst: conflegrate arcane_focus zap chain_lightning shatter soul_reap despair barbed_coil sleep dread frostfire_blast meteor lightning_strike meditation fireball
 hpbs: 6
 hppl: 2

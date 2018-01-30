@@ -35,6 +35,7 @@ public final class GuiController {
     
     public static int FLOATING_TEXT_FONT_SIZE = 48;
     public static String FLOATING_TEXT_FONT = "consolas";
+    public static String FLOATING_TEXT_ELEMENT_NAME = "floating_text_label_instance_";
     
     
     
@@ -95,10 +96,8 @@ public final class GuiController {
     public String addFloatingText (String text, Color col, String icon, float x, float y) {
         String el_name;
         long id = System.currentTimeMillis();
-//        float x_mod = ResourceManager.getFont(FLOATING_TEXT_FONT, FLOATING_TEXT_FONT_SIZE).getWidth(text) / 2f;
-//        float y_mod = ResourceManager.getFont(FLOATING_TEXT_FONT, FLOATING_TEXT_FONT_SIZE).getLineHeight() / 2f;
         
-        el_name = "floating_text_label_instance_"+id;
+        el_name = FLOATING_TEXT_ELEMENT_NAME+id;
         GuiElement floating_text = new GuiElement (el_name, this, false, x, y, false, FLOATING_TEXT_ELEMENT_WIDTH, FLOATING_TEXT_ELEMENT_HEIGHT, "")
                 .setText(text)
                 .setFont(FLOATING_TEXT_FONT, FLOATING_TEXT_FONT_SIZE)

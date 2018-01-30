@@ -13,6 +13,7 @@ import org.simon.src.game.data.gameplay.creatures.Creature;
 import org.simon.src.game.sfx.SpecialEffectCallback;
 import org.simon.src.game.sfx.SpecialEffectSystem;
 import org.simon.src.utils.Log;
+import org.simon.src.utils.SlickUtils;
 
 /**
  *
@@ -48,12 +49,12 @@ public class StatusEffect {
         
         this.callback = new SpecialEffectCallback (parent, source, target);
         
-        String[] display_string_args = new String [] { "error","error","" };
+        String[] display_string_args = new String [] { "error","error","","" };
         String[] temp_args = display_string.split(Pattern.quote(STATUS_EFFECT_DELIMITER));
         if (temp_args.length != DISPLAY_STRING_ARG_LENGTH) {
             Log.err("Erroneous special effect display string '"+display_string+"'; Found "+temp_args.length+" args, instead of "+DISPLAY_STRING_ARG_LENGTH);
         } else {
-            display_string_args = temp_args;
+            display_string_args = SlickUtils.Strings.trimAll(temp_args);
         }
         
         this.display_name = display_string_args[0];
@@ -95,6 +96,10 @@ public class StatusEffect {
     
     public String getDisplayName () {
         return display_name;
+    }
+    
+    public String getDisplayIcon () {
+        return display_icon;
     }
     
     public String getDisplayDescription () {
