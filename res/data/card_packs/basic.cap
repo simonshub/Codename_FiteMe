@@ -644,18 +644,6 @@ colr: 1,00 0,50 0,50 1,00
 ulvl: 1
 
 
-card: 
-name: Pinpoint Strike
-icon: cards/base_ecp/on-target
-targ: single_enemy
-func: damage 3 5
-text: Deal 3-5 damage
-spef: castpoint;test_src_tar_0.25
-cost: atk 2 agi 2
-colr: 1,00 0,50 0,50 1,00
-ulvl: 1
-
-
 card: deadly_shot
 name: Deadly Shot
 icon: cards/base_ecp/winged-arrow
@@ -664,18 +652,6 @@ func: damage 8
 text: Deal 8 damage
 spef: castpoint;test_src_tar_0.25
 cost: atk 3 agi 3
-colr: 1,00 0,50 0,50 1,00
-ulvl: 1
-
-
-card: meditation
-name: Meditation
-icon: cards/base_ecp/meditation
-targ: self
-func: heal 4;;add_atkmod 2
-text: Restore 4 health and give 2 bonus damage for caster
-spef: castpoint;test_src_tar_0.25
-cost: arc 1 def 1
 colr: 1,00 0,50 0,50 1,00
 ulvl: 1
 

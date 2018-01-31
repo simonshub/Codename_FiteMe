@@ -421,6 +421,16 @@ public class Card {
         return unlock_level;
     }
     
+    public int getTotalPointCost () {
+        int result = 0;
+        
+        for (PointTypeEnum type : PointTypeEnum.values()) {
+            result += point_requirement_map.get(type);
+        }
+        
+        return result;
+    }
+    
     public TargetEnum getTargetMode () {
         return target_mode;
     }

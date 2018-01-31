@@ -155,10 +155,14 @@ public final class GuiController {
     
     
     public void update (GameContainer gc, StateBasedGame sbg, int dt) {
+        update(gc,sbg,dt,0,0);
+    }
+    
+    public void update (GameContainer gc, StateBasedGame sbg, int dt, int x_offset, int y_offset) {
         if (!visible) return;
         
-        int mouse_x = gc.getInput().getMouseX();
-        int mouse_y = gc.getInput().getMouseY();
+        int mouse_x = gc.getInput().getMouseX() + x_offset;
+        int mouse_y = gc.getInput().getMouseY() + y_offset;
         boolean lmb = gc.getInput().isMousePressed(Input.MOUSE_LEFT_BUTTON) && !click_lock;
         boolean rmb = gc.getInput().isMousePressed(Input.MOUSE_RIGHT_BUTTON) && !click_lock;
         
