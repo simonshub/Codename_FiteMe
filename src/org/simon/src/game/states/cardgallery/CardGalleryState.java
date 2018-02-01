@@ -54,12 +54,7 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
             
         card_list = CardLibrary.getAllCards();
-        card_list.sort(new Comparator<Card> () {
-            @Override
-            public int compare(Card c1, Card c2) {
-                return c1.getTotalPointCost() - c2.getTotalPointCost();
-            }
-        });
+        card_list.sort((Card c1, Card c2) -> c1.getTotalPointCost() - c2.getTotalPointCost());
         
         substate = CardGallerySubState.BROWSE;
         
@@ -83,7 +78,7 @@ public class CardGalleryState extends BasicGameState implements MouseListener {
                 float x = card_x_margin + col*total_card_width;
                 int index = (row * cols) + col;
                 Card card = card_list.get(index);
-                el_name = "card_"+card.getId()+"_el";
+                el_name = "card_el_"+index;
                 GuiElement card_el = new GuiElement (el_name, gui, false, x, y, false, card_width, card_height, "")
                         .setCard(card)
                         .setColor(1f, 1f, 1f, 1f)

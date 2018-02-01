@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
  */
 public class Consts {
     
-    public static final String APP_TITLE = "Sum Gaem?";
+    public static final String APP_TITLE = "Some Game";
     public static final String APP_SETTINGS_FILE_PATH = "settings.cfg";
     
     public static final String APP_PROPERTY_DELIMITER = "=";

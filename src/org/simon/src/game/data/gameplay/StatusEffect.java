@@ -91,7 +91,7 @@ public class StatusEffect {
     }
     
     public List<CardAction> getActions () {
-        return callback.getActions();
+        return Card.parseActions(source_action_string, true);
     }
     
     public String getDisplayName () {

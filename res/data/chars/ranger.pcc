@@ -1,7 +1,7 @@
 name: Ranger
 grfx: chars/ranger
 port: chars/ranger_portrait
-pnts: atk atk agi agi nat atk agi nat def
+pnts: atk def agi agi nat atk agi nat def agi
 clst: observe_weakness flaming_arrow suffocating_gas take_aim power_shot deadly_shot thunder_arrow acid_shot charged_shot doubleshot freezing_arrow volley bladebreak quickness headshot critical_shot piercing_shot poisoned_shot
 hpbs: 6
 hppl: 3

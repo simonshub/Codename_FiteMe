@@ -393,8 +393,12 @@ public class GuiActionHandler {
     public static void selectcard (final GuiElement source) {
         if (Settings.debug_gui) Log.log("selectcard ["+source.getName()+"]");
         if (CombatState.substate != CombatState.CombatSubState.PICK_CARD) return;
-        if (GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.PLAYER && !CombatState.getCurrentCastingCreature().canSpendPoints(source.getCard())) return;
         if (source.getCardPlayed()) return;
+        
+        if ( GameplayManager.getCurrentOpponent()==GameplayManager.Opponent.PLAYER &&
+             CombatState.getCurrentCastingCreature()!=null &&
+            !CombatState.getCurrentCastingCreature().canSpendPoints(source.getCard()))
+                return;
         
         GuiController parent = source.getParent();
         
@@ -457,6 +461,9 @@ public class GuiActionHandler {
             PlayerCharacterClass char_class = all_classes.get(selected_index);
             Player.addCharacterToParty(char_class);
         }
+        
+        List<GuiElement> player_board = CombatState.gui.getElements("_ally_");
+        Player.bindParty(player_board);
     }
     
     public static void continue_game (final GuiElement source) {

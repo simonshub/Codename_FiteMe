@@ -12,8 +12,8 @@ card: power_strike
 name: Power Strike
 icon: cards/base_ecp/saber-slash
 targ: single_enemy
-func: damage 2
-text: Deal 2 damage
+func: damage 3
+text: Deal 3 damage
 spef: torch_src_tar_0.5;castpoint;soundpoint_wauw;test_tar_tar_0.25
 cost: atk 2
 colr: 1,00 0,00 0,00 1,00
@@ -36,20 +36,20 @@ card: triple_slash
 name: Triple Slash
 icon: cards/base_ecp/claw-slashes
 targ: single_enemy
-func: damage 1 1 3
-text: Deal 1 damage thrice
+func: damage 1 2 3
+text: Deal 1-2 damage thrice
 spef: castpoint;test_tar_tar_0.25
 cost: atk 2 agi 1
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 2
 
 
 card: double_slash
 name: Double Slash
 icon: cards/base_ecp/crossed-slashes
 targ: single_enemy
-func: damage 1 1 2
-text: Deal 1 damage twice
+func: damage 1 2 2
+text: Deal 1-2 damage twice
 spef: castpoint;test_tar_tar_0.25
 cost: atk 1 agi 1
 colr: 1,00 0,50 0,50 1,00
@@ -111,9 +111,9 @@ targ: single_enemy
 func: damage 2;;disable 1
 text: Deal 2 damage and disable the target for 1 turn
 spef: castpoint;test_src_tar_0.25
-cost: atk 3 agi 1
+cost: atk 2 agi 1
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 2
 
 
 card: thrown_dagger
@@ -147,9 +147,9 @@ targ: single_enemy
 func: damage 2;;disable 1
 text: Deal 2 damage and disable the target for 1 turn
 spef: castpoint;test_src_tar_0.25
-cost: atk 2 agi 2
+cost: atk 1 agi 2
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 2
 
 
 card: axe_throw
@@ -159,9 +159,9 @@ targ: single_enemy
 func: damage 2 2 3
 text: Deal 2 damage thrice
 spef: castpoint;test_src_tar_0.25
-cost: atk 3 agi 2
+cost: atk 2 agi 2
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 3
 
 
 card: sap
@@ -195,7 +195,7 @@ targ: single_enemy
 func: damage 1 2 2
 text: Deal 1-2 damage twice
 spef: castpoint;test_src_tar_0.25
-cost: atk 3
+cost: atk 2
 colr: 1,00 0,50 0,50 1,00
 ulvl: 1
 
@@ -245,19 +245,19 @@ text: Reduce target's armor by 4, and disable it for 1 turn
 spef: castpoint;test_src_tar_0.25
 cost: atk 1 agi 2
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 2
 
 
 card: shieldbreak
 name: Shieldbreak
 icon: cards/base_ecp/cracked-shield
 targ: single_enemy
-func: remove_armor 10
-text: Reduce target's armor by 10
+func: remove_armor 5
+text: Reduce target's armor by 5
 spef: castpoint;test_src_tar_0.25
 cost: agi 2
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 2
 
 
 card: cleave
@@ -269,7 +269,7 @@ text: Deal 2 damage to the target and 1 damage to neighbouring enemies
 spef: castpoint;test_src_tar_0.25
 cost: atk 3
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 2
 
 
 card: power_cleave
@@ -281,7 +281,7 @@ text: Deal 4 damage to the target and 2 damage to neighbouring enemies
 spef: castpoint;test_src_tar_0.25
 cost: atk 5
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 4
 
 
 card: whirling_strike
@@ -293,7 +293,7 @@ text: Deal 2 damage to all enemies
 spef: castpoint;test_src_tar_0.25
 cost: atk 3 agi 1
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 3
 
 
 card: bladestorm
@@ -305,7 +305,7 @@ text: Deal 4 damage to all enemies
 spef: castpoint;test_src_tar_0.25
 cost: atk 5 agi 2
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 6
 
 
 card: greater_cleave
@@ -317,7 +317,7 @@ text: Deal 3 damage to all enemies
 spef: castpoint;test_src_tar_0.25
 cost: atk 5
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 5
 
 
 card: parry
@@ -341,7 +341,7 @@ text: Deal 4 damage
 spef: castpoint;test_src_tar_0.25
 cost: atk 3
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 2
 
 
 card: fan_of_knives
@@ -359,11 +359,11 @@ ulvl: 1
 card: backstab
 name: Backstab
 icon: cards/base_ecp/backstab
-targ: all_enemies
+targ: single_enemy
 func: damage 3
 text: Deal 3 damage
 spef: castpoint;test_src_tar_0.25
-cost: agi 3
+cost: agi 2
 colr: 1,00 0,50 0,50 1,00
 ulvl: 1
 
@@ -375,9 +375,9 @@ targ: single_enemy
 func: damage 4
 text: Deal 4 damage
 spef: castpoint;test_src_tar_0.25
-cost: atk 2 agi 2
+cost: atk 1 agi 2
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 2
 
 
 card: soul_reap
@@ -389,7 +389,7 @@ text: Destroy targeted enemy and restore up to 5 health to caster
 spef: castpoint;test_src_tar_0.25
 cost: arc 2 dth 3
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 6
 
 
 card: assassinate
@@ -401,7 +401,7 @@ text: Destroy targeted enemy
 spef: castpoint;test_src_tar_0.25
 cost: atk 2 agi 5
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 6
 
 
 card: coup_de_grace
@@ -413,7 +413,7 @@ text: Destroy targeted enemy if it is disabled
 spef: castpoint;test_src_tar_0.25
 cost: atk 1 agi 3
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 3
 
 
 card: charged_shot
@@ -425,19 +425,19 @@ text: Deal 3 damage and disable the target for 1 turn
 spef: castpoint;test_src_tar_0.25
 cost: arc 1 agi 3
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 3
 
 
 card: acid_shot
 name: Acid Shot
 icon: cards/base_ecp/chemical-arrow
 targ: single_enemy
-func: damage 2;;status 2 damage 1 $ Acid $ This character recieves 1 damage at the start of every turn. $ test_tar_tar_0.5 $ status/acid
-text: Deal 2 damage and an additional 1 damage every turn for 2 turns
+func: damage 3;;status 2 damage 1 $ Acid $ This character recieves 1 damage at the start of every turn. $ test_tar_tar_0.5 $ status/acid
+text: Deal 3 damage and an additional 1 damage every turn for 2 turns
 spef: castpoint;test_src_tar_0.25
 cost: nat 1 agi 2
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 2
 
 
 card: disarm
@@ -449,7 +449,7 @@ text: Disable target for 1 turn
 spef: castpoint;test_src_tar_0.25
 cost: atk 1 agi 1
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 2
 
 
 card: double_shot
@@ -461,7 +461,7 @@ text: Deal 2 damage to the target and it's right neighbour
 spef: castpoint;test_src_tar_0.25
 cost: atk 1 agi 2
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 2
 
 
 card: headshot
@@ -471,9 +471,9 @@ targ: single_enemy
 func: damage 6
 text: Deal 6 damage
 spef: castpoint;test_src_tar_0.25
-cost: atk 2 agi 3
+cost: atk 2 agi 2
 colr: 1,00 0,50 0,50 1,00
-ulvl: 1
+ulvl: 3
 
 
 card: freezing_arrow

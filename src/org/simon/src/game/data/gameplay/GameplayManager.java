@@ -359,10 +359,10 @@ public class GameplayManager {
     public static void turnTick (SpecialEffectSystem sfx) {
         if (Opponent.OPPONENT.equals(current_opponent)) {
             // ending the ai's turn
-            turnTick(enemy_board, sfx);
+            turnTick(ally_board, sfx);
         } else {
             // ending the player's turn
-            turnTick(ally_board, sfx);
+            turnTick(enemy_board, sfx);
             aiTurn(sfx);
         }
         current_opponent = current_opponent.opposite();

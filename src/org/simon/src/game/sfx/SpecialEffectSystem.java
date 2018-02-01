@@ -96,19 +96,32 @@ public class SpecialEffectSystem {
     }
     
     public void update (int dt) {
-        for (int i=0;i<instances.size();i++) {
-            SpecialEffect sfx = instances.get(i);
-            
-            if (!sfx.update(dt)) {
-                if (Settings.debug_sfx) Log.log("Special effect at index "+String.valueOf(i+1)+" has finished");
-                if (Settings.debug_cards) {
-                    Log.log("Invoking special effect callback '"+sfx.getCallback().toString()+"' ...");
-                }
-                
-                instances.remove(i);
-                if (Settings.debug_sfx) Log.log("Special effect at index "+String.valueOf(i+1)+" was removed");
-                i--;
+////        for (int i=0;i<instances.size();i++) {
+//            SpecialEffect sfx = instances.get(i);
+//            
+//            if (!sfx.update(dt)) {
+//                if (Settings.debug_sfx) Log.log("Special effect at index "+String.valueOf(i+1)+" has finished");
+//                if (Settings.debug_cards) {
+//                    Log.log("Invoking special effect callback '"+sfx.getCallback().toString()+"' ...");
+//                }
+//                
+//                instances.remove(i);
+//                if (Settings.debug_sfx) Log.log("Special effect at index "+String.valueOf(i+1)+" was removed");
+//                i--;
+//            }
+//        }
+        if (instances.isEmpty()) return;
+        
+        SpecialEffect sfx = instances.get(0);
+
+        if (!sfx.update(dt)) {
+            if (Settings.debug_sfx) Log.log("Special effect has finished");
+            if (Settings.debug_cards) {
+                Log.log("Invoking special effect callback '"+sfx.getCallback().toString()+"' ...");
             }
+
+            instances.remove(0);
+            if (Settings.debug_sfx) Log.log("Special effect was removed");
         }
     }
     

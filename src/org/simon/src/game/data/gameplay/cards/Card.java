@@ -59,6 +59,8 @@ public class Card {
     public static final int CARD_DESCRIPTION_FONT_DEFAULT_SIZE = 32;
     
     public static final float CARD_TEXT_MAX_WIDTH = ( STANDARD_CARD_WIDTH - (CARD_X_MARGIN*2f) ) * (CARD_DESCRIPTION_FONT_DEFAULT_SIZE / 10f);
+//    public static final float CARD_TEXT_MAX_HEIGHT = CARD_TEXT_MAX_WIDTH;
+    public static final float CARD_TEXT_MAX_HEIGHT = ( ( STANDARD_CARD_HEIGHT - (CARD_Y_MARGIN*2f) ) - (POINT_MAX_ICON_SIZE * STANDARD_CARD_WIDTH) - POINT_Y_MARGIN - (STANDARD_CARD_HEIGHT * CARD_NAME_HEIGHT_SIZE) - (STANDARD_CARD_WIDTH * CARD_PORTRAIT_ICON_SIZE) ) * (CARD_DESCRIPTION_FONT_DEFAULT_SIZE / 10f);
     
     public static final String ACTION_DELIMITER = ";;";
     public static final String ACTION_TOKEN_DELIMITER = " ";
@@ -272,7 +274,6 @@ public class Card {
         float line_x_mod, line_y_mod = 0f;
         for (int i=0;i<text_lines.length;i++) {
             String line = text_lines[i];
-//            line_x_mod = (CARD_X_MARGIN*scale + (STANDARD_CARD_WIDTH/2f)*scale - (text_font.getWidth(line)/2f)*graphics_scale);
             line_x_mod = (((STANDARD_CARD_WIDTH*scale - CARD_X_MARGIN*2*scale)/graphics_scale)/2f - (text_font.getWidth(line))/2f);
             g.drawString(line, line_x_mod, line_y_mod);
             line_y_mod += text_font.getHeight(line);
@@ -446,13 +447,18 @@ public class Card {
     
     
     private String autoSplitText (String text) {
+        return autoSplitText(text, 1.);
+    }
+    
+    private String autoSplitText (String text, double width_modifier) {
         String temp, temp_line = "";
         String result = "";
+        
+        double total_height = 0.;
         
         for (int i=0;i<text.length();i++) {
             int j=i;
             boolean grouping=false;
-            boolean operator=false;
             temp = "";
             
             for (;j<text.length();j++) {
@@ -471,8 +477,9 @@ public class Card {
             
             i=j;
             
-            if ((float)( text_font.getWidth( (temp_line.isEmpty() ? "" : (temp_line+" ") )+temp) ) >= CARD_TEXT_MAX_WIDTH) {
+            if ((float)( text_font.getWidth( (temp_line.isEmpty() ? "" : (temp_line+" ") )+temp) ) >= (CARD_TEXT_MAX_WIDTH * width_modifier) ) {
                 result += temp_line + "\n";
+                total_height += text_font.getHeight();
                 temp_line = temp;
             } else {
                 if (!temp_line.isEmpty()) temp_line += " ";
@@ -482,7 +489,10 @@ public class Card {
         if (!temp_line.trim().isEmpty())
             result += temp_line;
         
-        return result.trim().replace("|n", "\n");
+        if (total_height <= CARD_TEXT_MAX_HEIGHT * (width_modifier * (STANDARD_CARD_HEIGHT/STANDARD_CARD_WIDTH)) )
+            return result.trim().replace("|n", "\n");
+        
+        return autoSplitText (text, width_modifier+.1);
     }
     
     public void play (SpecialEffectSystem sfx, Creature source, Creature... targets) {

@@ -528,13 +528,9 @@ public class Creature {
         graphics.draw(actual_x, actual_y, width_scale_factor, gui_color);
         
         // render base stats (cur hp, armor, base_atk_mod) at lower left corner of allocated, going up
-        int n_of_stats_displayed = 1;
-        if (armor>0) n_of_stats_displayed++;
-        if (atk_mod!=0) n_of_stats_displayed++;
-        
         float stats_icon_size = target_width * STAT_ICON_SIZE_FROM_WIDTH;
         float stats_x = x - (target_width/2f);
-        float stats_y = y + Math.min(actual_height/2f, target_height/2f) - ( (n_of_stats_displayed) * stats_icon_size);
+        float stats_y = y + Math.min(actual_height/2f, target_height/2f);
         float text_x = stats_x + stats_icon_size * (1f+STAT_ICON_MARGIN);
         
         g.setColor(stat_filter);
@@ -550,7 +546,7 @@ public class Creature {
         }
         
         if (atk_mod!=0) {
-            stats_y -= stats_icon_size * 1.25f; // increment to add margins between stats
+            stats_y -= stats_icon_size; // increment to add margins between stats
             STAT_ICON_ATKMOD.draw(stats_x, stats_y, stats_icon_size, stats_icon_size, stat_filter);
             g.drawString(String.valueOf(this.atk_mod), text_x, stats_y);
         }
@@ -564,8 +560,8 @@ public class Creature {
             Image icon = ResourceManager.getGraphics(status_effects.get(i).getDisplayIcon());
             if (icon==null) continue;
             
-            icon.draw(status_x, status_y, status_icon_size, status_icon_size);
-            status_y -= stats_icon_size;
+            icon.draw(status_x, status_y, status_icon_size, status_icon_size, stat_filter);
+            status_y -= status_icon_size;
         }
         
         
