@@ -275,7 +275,7 @@ public class Creature {
     public void setGuiElement (GuiElement element) {
         this.gui_element = element;
         
-        if (this.parent==null) Log.err("WARNING: bound creature type definition (creature with no parent) '"+id+"' to gui element '"+element.getName()+"'!");
+        if (this.parent==null && element.getParent()==CombatState.gui) Log.err("WARNING: bound creature type definition (creature with no parent) '"+id+"' to gui element '"+element.getName()+"'!");
     }
     
     
