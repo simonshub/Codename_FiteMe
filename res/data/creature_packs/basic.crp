@@ -113,7 +113,7 @@ name: Giant Spider
 grfx: creatures/spider
 grsz: 1
 pnts: atk 2 def 2
-hlth: 1
+hlth: 2
 diff: 1
 card: bite,armored_shell
 
@@ -272,8 +272,8 @@ crid: dire_wolf
 name: Dire Wolf
 grfx: creatures/dire_wolf
 grsz: 1
-pnts: atk 2
-hlth: 1
+pnts: atk 3 agi 1
+hlth: 5
 diff: 1
 card: power_strike
 
@@ -282,8 +282,8 @@ crid: dire_bear
 name: Dire Bear
 grfx: creatures/dire_bear
 grsz: 1
-pnts: atk 2
-hlth: 1
+pnts: atk 3 def 3
+hlth: 8
 diff: 1
 card: power_strike
 
@@ -302,7 +302,7 @@ crid: basilisk
 name: Basilisk
 grfx: creatures/basilisk
 grsz: 1
-pnts: atk 2
-hlth: 1
+pnts: atk 1 def 3 nat 2
+hlth: 6
 diff: 1
 card: power_strike

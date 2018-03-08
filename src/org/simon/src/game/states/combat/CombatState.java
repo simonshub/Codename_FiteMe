@@ -559,7 +559,7 @@ public class CombatState extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int dt) throws SlickException {
-        SharedState.update(gc, sbg, null);
+        if (SharedState.update(gc, sbg, null)) return;
         
         if (!paused && !next_level) {
             GameplayManager.aiUpdate();

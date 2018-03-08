@@ -25,6 +25,7 @@ import org.simon.src.utils.Log;
  */
 public class SharedState {
     
+    private static boolean paused;
     private static int current_state_id;
     
     public static int getCurrentStateId () {
@@ -46,6 +47,10 @@ public class SharedState {
     }
     
     public static boolean update (GameContainer gc, StateBasedGame sbg, JFrame frame) {
+        if (gc.getInput().isKeyPressed(Input.KEY_SPACE)) {
+            paused = !paused;
+        }
+        if (paused) return true;
         
         if (gc.getInput().isKeyPressed(Input.KEY_NUMPAD1) && gc.getInput().isKeyDown(Input.KEY_LCONTROL)) {
             sbg.enterState(MenuState.ID);
