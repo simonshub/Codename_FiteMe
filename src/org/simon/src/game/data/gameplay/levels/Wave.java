@@ -8,7 +8,6 @@ package org.simon.src.game.data.gameplay.levels;
 import java.util.ArrayList;
 import java.util.List;
 import org.simon.src.game.data.gameplay.creatures.Creature;
-import org.simon.src.utils.SlickUtils;
 
 /**
  *

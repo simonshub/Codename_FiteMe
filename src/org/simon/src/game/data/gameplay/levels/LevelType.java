@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.simon.src.game.data.gameplay.GameplayManager;
-import org.simon.src.game.data.gameplay.player.Player;
 import org.simon.src.utils.Log;
 import org.simon.src.utils.SlickUtils;
 

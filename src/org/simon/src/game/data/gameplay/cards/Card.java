@@ -319,7 +319,7 @@ public class Card {
     
     public static List<CardAction> parseActions (String action, boolean silently) {
         List<CardAction> result = new ArrayList<> ();
-        
+
         if (!action.isEmpty()) {
             String[] act_line = action.split(ACTION_DELIMITER);
             for (int i=0;i<act_line.length;i++) {
@@ -331,20 +331,20 @@ public class Card {
                         else
                             action_tokens.set(j, action_tokens.get(j).trim());
                     }
-                    
+
                     String action_method_name = action_tokens.get(0);
                     Method action_method = CardActionHandler.class.getMethod(action_method_name, Creature.class, Card.class, List.class, Creature.class);
-                    
+
                     result.add(new CardAction (action_method, action_tokens.subList(1, action_tokens.size())));
                 } catch (NoSuchMethodException | SecurityException ex) {
                     if (!silently) Log.err(ex);
                 }
             }
         }
-        
+
         if (result.isEmpty() && !action.isEmpty())
             Log.err("Returning empty action set after parsing?","\tAction string: '"+action+"'");
-        
+
         return result;
     }
     
@@ -493,16 +493,6 @@ public class Card {
             return result.trim().replace("|n", "\n");
         
         return autoSplitText (text, width_modifier+.1);
-    }
-    
-    public void play (SpecialEffectSystem sfx, Creature source, Creature... targets) {
-        if (!source.spendPoints(this)) {
-            Log.err("Cannot cast card '"+this.name+"' because caster '"+source.getName()+"' doesn't have enough points!");
-            return;
-        }
-        
-        sfx.addSfx(this, source, targets);
-        sfx.playSfx();
     }
     
     public void play (SpecialEffectSystem sfx, Creature source, List<Creature> targets) {

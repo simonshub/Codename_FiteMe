@@ -45,32 +45,32 @@ public class PlayerCharacter {
         return current_level;
     }
     
+    public final Creature getCreature () {
+        if (this.creature==null) {
+            this.creature = new Creature (this.character_class.getCreatureParent(this.current_level));
+            this.creature.setId(PLAYER_CHARACTER_CREATURE_ID_PREFIX + this.creature.getId());
+        }
+        return this.creature;
+    }
+    
     public void levelUp () {
-        current_level++;
+        this.current_level++;
         
-        if (creature!=null) {
-            GuiElement bound_el = creature.getGuiElement();
+        if (this.creature!=null) {
+            GuiElement bound_el = this.creature.getGuiElement();
             bound_el.setCreature(null);
             
-            creature = null;
+            this.creature = null;
             getCreature();
             
-            bound_el.setCreature(creature);
+            bound_el.setCreature(this.creature);
         } else {
-            getCreature();
+            this.getCreature();
         }
     }
     
     public void setLevel (int level) {
         this.current_level = level;
-    }
-    
-    public final Creature getCreature () {
-        if (creature==null) {
-            creature = new Creature (character_class.getCreatureParent(current_level));
-            creature.setId(PLAYER_CHARACTER_CREATURE_ID_PREFIX + creature.getId());
-        }
-        return creature;
     }
     
     public HashMap<PointTypeEnum, Integer> getPointPool () {

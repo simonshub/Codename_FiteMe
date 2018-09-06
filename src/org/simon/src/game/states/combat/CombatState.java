@@ -418,7 +418,7 @@ public class CombatState extends BasicGameState {
                 .setProperty("fade_speed", .5f)
                 .setProperty("fadeout_callback", "hide")
                 .setProperty("acceleration", 0f)
-                .setLayer(1000)
+                .setLayer(10)
                 ;
         gui.addElement(el_name, overlay);
         

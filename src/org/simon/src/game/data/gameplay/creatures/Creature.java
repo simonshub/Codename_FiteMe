@@ -432,7 +432,7 @@ public class Creature {
                 }
             }
         } else if (!GameplayManager.isCreatureEnemy(this) && GameplayManager.allAlliesDead()) {
-            // game over brah
+            // game over brah   
             CombatState.gameover();
             Log.log(GameplayManager.GAMEOVER_TEXT + " !");
         }
